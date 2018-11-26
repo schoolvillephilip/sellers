@@ -1013,8 +1013,8 @@
 		let removeBtn = $('#dz-remove-btn');
 		let maxImageWidth = 2000,
 			maxImageHeight = 2000,
-			minImageWidth = 200,
-			minImageHeight = 200;
+			minImageWidth = 500,
+			minImageHeight = 500;
 		var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
 			url: base_url + "product/process", // Set the url
 			autoProcessQueue: false,
@@ -1034,7 +1034,7 @@
 			accept: function (file, done) {
 				file.acceptDimensions = done;
 				file.rejectDimensions = function () {
-					done(`Invalid file dimension, atleast 200 X 200 and maximum of 2000 X 2000. But image is having ${file.width} X ${file.height}. File won't be uploaded.`);
+					done(`Invalid file dimension, atleast 500 X 500 and maximum of 2000 X 2000. But image is having ${file.width} X ${file.height}. File won't be uploaded.`);
 				};
 			}
 		});
