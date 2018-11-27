@@ -1,31 +1,35 @@
 <?php $this->load->view('templates/meta_tags.php'); ?>
 <style>
-    li h3{
+    li h3 {
         color: #1cbb86;
     }
+
     li h3:hover {
         color: #0e0e0e;
     }
+
     aside h3 {
         background: #1cbb86;
-        padding:10px;
-        color:#fff;
+        padding: 10px;
+        color: #fff;
     }
-    aside h3:hover{
+
+    aside h3:hover {
         background: #fff;
         color: #1cbb86;
     }
 
-    aside p{
-        padding:20px;
+    aside p {
+        padding: 20px;
     }
 
     aside h4 {
         background: #697940;
-        padding:10px;
-        color:#fff;
+        padding: 10px;
+        color: #fff;
     }
-    aside h4:hover{
+
+    aside h4:hover {
         background: #fff;
         color: #697940;
     }
@@ -34,20 +38,14 @@
         border-radius: 4px 4px 0 0;
     }
 
-    .nav-tabs > li.active> a, .nav-tabs > li.active  h3   {
-        background: #35bbae ;
-        color:#fff ;
+    .nav-tabs > li.active, .nav-tabs > li.active:focus > a{
+        background: #35bbae;
+        color: #fff;
     }
 
     .grey_wrap {
         padding: 20px;
         margin-top: 10px;
-        border: 1px solid #efefef;
-        border-radius: 2px;
-        background: #F8F8F8;
-        -webkit-box-shadow: 0px 1px 17px 0px rgba(224, 224, 224, 1);
-        -moz-box-shadow: 0px 1px 17px 0px rgba(224, 224, 224, 1);
-        box-shadow: 0px 1px 17px 0px rgba(224, 224, 224, 1);
     }
 
     .sub-title1 {
@@ -68,7 +66,7 @@
 <!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 
 <body>
-<div id="container" class="cls-container" style="background-color: #fff !important;">
+<div id="container" class="container text-center" style="background-color: #fff !important;">
 
 
     <!-- BACKGROUND IMAGE -->
@@ -78,188 +76,194 @@
 
     <!-- REGISTRATION FORM -->
     <!--===================================================-->
-    <div class="">
-        <div id="container">
-            <div class="row" style="text-align: center;"><br/>
-                <h4 style="color:#736455;">Reach Over 200 million Customers</h4>
-                <hr style=" width: 100%;border:1px solid #35bbae;"/>
-            </div>
-            <p class="title1 title1-pos" style=" font-size: 54px; font-weight: 500; line-height: 60px;">
-                SELL NOW ON ONITSHAMARKET.COM AND<br/>START MAKING MONEY</p>
-            <ul class="nav nav-tabs">
-                <li class="active col-md-4"><a data-toggle="tab" href="#home"><h3>Sell on Onitshamarket.com</h3></a>
-                </li>
-                <li class="col-md-4"><a data-toggle="tab" href="#menu1"><h3>Seller Support</h3></a></li>
-                <li class="col-md-4"><a data-toggle="tab" href="#menu2"><h3>FAQS</h3></a></li>
-            </ul>
+    <div id="container">
+        <div class="row" style="text-align: center;"><br/>
+            <h2 style="color:#736455;">Reach Over 200 million Customers</h2>
+            <hr style=" width: 100%;border:1px solid #35bbae;"/>
+        </div>
+        <p class="title1 title1-pos" style=" font-size: 54px; font-weight: 500; line-height: 60px;">
+            SELL NOW ON ONITSHAMARKET.COM AND<br/>START MAKING MONEY</p>
+        <ul class="nav nav-tabs">
+            <li class="active col-md-4"><a data-toggle="tab" href="#home"><h3>Sell on Onitshamarket.com</h3></a>
+            </li>
+            <li class="col-md-4"><a data-toggle="tab" href="#menu1"><h3>Seller Support</h3></a></li>
+            <li class="col-md-4"><a data-toggle="tab" href="#menu2"><h3>FAQS</h3></a></li>
+        </ul>
 
-            <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
-                    <div id="cnt1">
-                        <div class="row">
-                            <p class="sub-title1" style="margin-top:20px;">Grow your business with Onitshamarket.com</p>
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <div id="cnt1">
+                    <div class="row">
+                        <p class="sub-title1" style="margin-top:20px;">Grow your business with Onitshamarket.com</p>
 
-                            <div class="col-md-4 text-center">
+                        <div class="col-md-4 text-center">
 
-                                <img src="<?= base_url('assets/seller/img/sell_visits.png'); ?>"
-                                     style="width: 140px;" alt=""/>
-                                <p class="gnumbers">Reach 200,000,000+</p>
-                                <p class="glegend">Potential Buyers</p>
-                            </div>
-
-                            <div class="col-md-4 text-center">
-                                <img src="<?= base_url('assets/seller/img/sell_satisfy.png'); ?>"
-                                     style="width: 140px;" alt=""/>
-                                <p class="gnumbers">95% Satisfied customers</p>
-                                <p class="glegend">Recommend us to friends</p>
-                            </div>
-
-                            <div class="col-md-4 text-center">
-                                <img src="<?= base_url('assets/seller/img/sell_rep.png'); ?>"
-                                     style="width: 140px;" alt=""/>
-                                <p class="gnumbers">Marketing &amp; data analytics </p>
-                                <p class="glegend">Support to grow your business</p>
-                            </div>
+                            <img src="<?= base_url('assets/seller/img/sell_visits.png'); ?>"
+                                 style="width: 140px;" alt=""/>
+                            <p class="gnumbers">Reach 200,000,000+</p>
+                            <p class="glegend">Potential Buyers</p>
                         </div>
 
-                        <div class="grey_wrap container">
-                            <p class="sub-title1">How it works?</p>
-                            <div class="row">
-                                <div class="col-md-5 text-right">
-                                    <img src="<?= base_url('assets/seller/img/TAB1-STEP1n1.png'); ?>"
-                                         style="width: 150px; float: right;" alt=""/>
-                                </div>
-                                <div class="col-md-7 text-left" style="top:20px;"><br/>
-                                    <p class="txt1" style="font-size: 15px; color: #35bbae;">Step 1: Register in
-                                        under 5
-                                        minutes</p>
-                                    <p class="txt1">Fill the Registration Form.<br/>Submit the required documents –
-                                        Business
-                                        registration and bank account details.<br/>Read and accept our Seller
-                                        Agreement.
-                                    </p>
-                                </div>
+                        <div class="col-md-4 text-center">
+                            <img src="<?= base_url('assets/seller/img/sell_satisfy.png'); ?>"
+                                 style="width: 140px;" alt=""/>
+                            <p class="gnumbers">95% Satisfied customers</p>
+                            <p class="glegend">Recommend us to friends</p>
+                        </div>
+
+                        <div class="col-md-4 text-center">
+                            <img src="<?= base_url('assets/seller/img/sell_rep.png'); ?>"
+                                 style="width: 140px;" alt=""/>
+                            <p class="gnumbers">Marketing &amp; data analytics </p>
+                            <p class="glegend">Support to grow your business</p>
+                        </div>
+                    </div>
+
+                    <div class="grey_wrap">
+                        <p class="sub-title1">How it works?</p>
+                        <div class="row">
+                            <div class="col-md-5 text-right">
+                                <img src="<?= base_url('assets/seller/img/TAB1-STEP1n1.png'); ?>"
+                                     style="width: 150px; float: right;" alt=""/>
                             </div>
-                            <div class="row">
-                                <div class="col-md-5 text-right">
-                                    <img src="<?= base_url('assets/seller/img/TAB1-STEP2n1.png'); ?>"
-                                         style="width: 150px; float: right;" alt=""/>
-                                </div>
-                                <div class="col-md-7 text-left" style="top:30px;">
-                                    <p class="txt1" style="font-size: 15px; color: #35bbae;">Step 2 : Become an
-                                        ecommerce
-                                        expert</p>
-                                    <p class="txt1">Complete the dedicated training session for new sellers.<br/>Activate
-                                        your
-                                        Seller Center account to manage your shop on the go.</p>
-                                </div>
+                            <div class="col-md-7 text-left" style="top:20px;"><br/>
+                                <p class="txt1" style="font-size: 15px; color: #35bbae;">Step 1: Register in
+                                    under 5
+                                    minutes</p>
+                                <p class="txt1">Fill the Registration Form.<br/>Submit the required documents –
+                                    Business
+                                    registration and bank account details.<br/>Read and accept our Seller
+                                    Agreement.
+                                </p>
                             </div>
-                            <div class="row">
-                                <div class="col-md-5 text-right">
-                                    <img src="<?= base_url('assets/seller/img/TAB1-STEP3n1.png'); ?>"
-                                         style="width: 150px; float: right;" alt=""/>
-                                </div>
-                                <div class="col-md-7 text-left" style="top:40px;">
-                                    <p class="txt1" style="font-size: 15px; color: #35bbae;">Step 3 : List your
-                                        Products
-                                        and start
-                                        selling!</p>
-                                    <p class="txt1">Upload more than five products to start selling.</p>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 text-right">
+                                <img src="<?= base_url('assets/seller/img/TAB1-STEP2n1.png'); ?>"
+                                     style="width: 150px; float: right;" alt=""/>
+                            </div>
+                            <div class="col-md-7 text-left" style="top:30px;">
+                                <p class="txt1" style="font-size: 15px; color: #35bbae;">Step 2 : Become an
+                                    ecommerce
+                                    expert</p>
+                                <p class="txt1">Complete the dedicated training session for new sellers.<br/>Activate
+                                    your
+                                    Seller Center account to manage your shop on the go.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 text-right">
+                                <img src="<?= base_url('assets/seller/img/TAB1-STEP3n1.png'); ?>"
+                                     style="width: 150px; float: right;" alt=""/>
+                            </div>
+                            <div class="col-md-7 text-left" style="top:40px;">
+                                <p class="txt1" style="font-size: 15px; color: #35bbae;">Step 3 : List your
+                                    Products
+                                    and start
+                                    selling!</p>
+                                <p class="txt1">Upload more than five products to start selling.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="menu1" class="tab-pane fade">
-                    <div class="container" id="cnt2" style="padding-top:40px;">
-                        <div class="row">
-                            <div class="col-md-2 text-center">
-                                <img src="<?= base_url('assets/seller/img/1_n.png'); ?>"
-                                     style="width: 95px;"
-                                     alt=""/>
-                            </div>
-
-                            <div class="col-md-10 text-left" style="top:20px;">
-                                <p class="txt3"><strong style="font-size: 14px;">List Your Products</strong> - Creating
-                                    good
-                                    content as you list your products is the first important step to getting more sales.
-                                    Good
-                                    quality images and detailed product description encourage customers to click on your
-                                    products and buy them.</p>
-                            </div>
+            </div>
+            <div id="menu1" class="tab-pane fade text-justify">
+                <div id="cnt2" style="padding-top:40px;">
+                    <div class="row">
+                        <div class="col-md-2 text-center">
+                            <img src="<?= base_url('assets/seller/img/1_n.png'); ?>"
+                                 style="width: 95px;"
+                                 alt=""/>
                         </div>
-                        <div class="row">
-                            <div style="background: #f4f5f5;">
-                                <div class="col-md-2 text-center">
-                                    <img src="<?= base_url('assets/seller/img/2_.png'); ?>"
-                                         style="width: 95px;" alt=""/>
-                                </div>
 
-                                <div class="col-md-10 text-left" style="top:20px;">
-                                    <p class="txt3"><strong style="font-size: 14px;">Grow Your Sales</strong> - There
-                                        are many
-                                        ways to maximize your sales. Apart from offering products at competitive prices,
-                                        you can
-                                        join Onitshamarket.com’s promotions to gain more exposure for your shop. Optimizing keywords
-                                        in your
-                                        products’ names and ensuring that you have listed them in the right product
-                                        category are
-                                        other ways to sell more.</p>
-                                </div>
-                            </div>
+                        <div class="col-md-10 text-left" style="top:20px;">
+                            <p class="txt3"><strong style="font-size: 14px;">List Your Products</strong> - Creating
+                                good
+                                content as you list your products is the first important step to getting more sales.
+                                Good
+                                quality images and detailed product description encourage customers to click on your
+                                products and buy them.</p>
                         </div>
-                        <div class="row">
+                    </div>
+                    <div class="row">
+                        <div style="background: #f4f5f5;">
                             <div class="col-md-2 text-center">
-                                <img src="<?= base_url('assets/seller/img/3_n.png'); ?>"
-                                     style="width: 95px;"
-                                     alt=""/>
-                            </div>
-
-                            <div class="col-md-10 text-left" style="top:20px;">
-                                <p class="txt3"><strong style="font-size: 14px;">All About Shipping</strong> - There are
-                                    many
-                                    ways to maximize your sales. Apart from offering products at competitive prices, you
-                                    can
-                                    join Onitshamarket.com’s promotions to gain more exposure for your shop. Optimizing keywords in
-                                    your
-                                    products’ names and ensuring that you have listed them in the right product category
-                                    are
-                                    other ways to sell more.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 text-center">
-                                <img src="<?= base_url('assets/seller/img/4_n.png'); ?>"
+                                <img src="<?= base_url('assets/seller/img/2_.png'); ?>"
                                      style="width: 95px;" alt=""/>
                             </div>
 
-                            <div class="col-md-10 text-left" style="top:40px;">
-                                <p class="txt3"><strong style="font-size: 14px;">Your Payments</strong> - There are
-                                    no costs
-                                    involved to list your products on Onitshamarket.com. You are not required to pay for
-                                    anything until
-                                    your items are sold.</p>
+                            <div class="col-md-10 text-left" style="top:20px;">
+                                <p class="txt3"><strong style="font-size: 14px;">Grow Your Sales</strong> - There
+                                    are many
+                                    ways to maximize your sales. Apart from offering products at competitive prices,
+                                    you can
+                                    join Onitshamarket.com’s promotions to gain more exposure for your shop. Optimizing
+                                    keywords
+                                    in your
+                                    products’ names and ensuring that you have listed them in the right product
+                                    category are
+                                    other ways to sell more.</p>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-2 text-center">
+                            <img src="<?= base_url('assets/seller/img/3_n.png'); ?>"
+                                 style="width: 95px;"
+                                 alt=""/>
+                        </div>
+
+                        <div class="col-md-10 text-left" style="top:20px;">
+                            <p class="txt3"><strong style="font-size: 14px;">All About Shipping</strong> - There are
+                                many
+                                ways to maximize your sales. Apart from offering products at competitive prices, you
+                                can
+                                join Onitshamarket.com’s promotions to gain more exposure for your shop. Optimizing
+                                keywords in
+                                your
+                                products’ names and ensuring that you have listed them in the right product category
+                                are
+                                other ways to sell more.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 text-center">
+                            <img src="<?= base_url('assets/seller/img/4_n.png'); ?>"
+                                 style="width: 95px;" alt=""/>
+                        </div>
+
+                        <div class="col-md-10 text-left" style="top:40px;">
+                            <p class="txt3"><strong style="font-size: 14px;">Your Payments</strong> - There are
+                                no costs
+                                involved to list your products on Onitshamarket.com. You are not required to pay for
+                                anything until
+                                your items are sold.</p>
+                        </div>
+                    </div>
                 </div>
-                <div id="menu2" class="tab-pane fade text-justify">
-                    <div class="container">
-                        <div class="wpb_wrapper" style="padding:20px;">
-                            <aside class="accordion" style="box-shadow: 0 0 10px #ddd;padding:20px;">
+            </div>
+            <div id="menu2" class="tab-pane fade text-justify">
+                <div class="wpb_wrapper" style="padding:20px;">
+                    <aside class="accordion" style="padding:20px;">
+                        <div class="row">
+                            <div class="col-md-6">
+
                                 <h3 style="border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;">Getting
                                     Started on Onitshamarket.com</h3>
                                 <div style="display: none;">
                                     <h4 style="border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;">What
                                         does "selling on Onitshamarket.com mean?" </h4>
-                                    <p style="display: none;">On Onitshamarket.com you can create your own shop online and start to
+                                    <p style="display: none;">On Onitshamarket.com you can create your own shop online and
+                                        start to
                                         sell your products across Nigeria thanks to our marketing and logistic
                                         expertise.</p>
                                     <h4 style="border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;">I want
                                         to start selling my products on Onitshamarket.com. How do I Register?</h4>
-                                    <p style="display: none;"> To start selling on Onitshamarket.com.com is very easy. You do not
+                                    <p style="display: none;"> To start selling on Onitshamarket.com.com is very easy. You
+                                        do not
                                         have to pay anything to register. Just visit the website <a
-                                                href="https://www.sellercenter.Onitshamarket.com.com.ng">HERE.</a> and click on
+                                                href="https://www.sellercenter.Onitshamarket.com.com.ng">HERE.</a> and click
+                                        on
                                         "Register to sell". Once the registration details has been filled. &nbsp;You are
                                         required to watch the short training videos and take the quiz. An email will be
                                         sent with a link to create password.</p>
@@ -271,7 +275,8 @@
                                         Beauty, Automobile, Sport and Fitness, Games and Consoles, Service Deals, Books,
                                         Movies and Music, Weddings, Groceries.</p>
                                     <h4>What are the products I cannot sell on Onitshamarket.com?</h4>
-                                    <p style="">Onitshamarket.com's reputation is only as good as that of our vendors, consequently,
+                                    <p style="">Onitshamarket.com's reputation is only as good as that of our vendors,
+                                        consequently,
                                         should any listed item breach&nbsp;trust, it poses&nbsp;risks to our entire
                                         marketplace. The sale of illegal articles is forbidden (below list is non
                                         exhaustive):
@@ -318,33 +323,39 @@
                                         Onitshamarket.com, You will need a laptop with printer and Internet service</p>
 
                                     <h4>What is Onitshamarket.com Seller Center?</h4>
-                                    <p style="">Onitshamarket.com Seller Center is an online platform that allows sellers to manage
+                                    <p style="">Onitshamarket.com Seller Center is an online platform that allows sellers to
+                                        manage
                                         their products and operations on their e-Commerce shop.</p>
                                     <h4>How to use Onitshamarket.com Seller Center?</h4>
                                     <p style="">Our platform is user-friendly and you will be able to check our complete
                                         guide online on <a href="https://vendorhub.Onitshamarket.com.com.ng/university/">Onitshamarket.com
                                             University.</a></p>
                                     <h4>How do I Login?</h4>
-                                    <p style=""> Click <a href="https://www.sellercenter.Onitshamarket.com.com.ng">HERE.</a> to
+                                    <p style=""> Click <a href="https://www.sellercenter.Onitshamarket.com.com.ng">HERE.</a>
+                                        to
                                         login and use the email address used to register as email and the password
                                         created as password.</p>
                                 </div>
 
-                                <h3 style="border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;">Onitshamarket.com
+                                <h3 style="border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;">
+                                    Onitshamarket.com
                                     University</h3>
 
                                 <div style="display: none;"><h4>What is Onitshamarket.com University? </h4>
 
                                     <p style="">Onitshamarket.com university offers different offline and online classes for
-                                        everyone, from selling basics to perfectly running your store on Onitshamarket.com. Find a
-                                        class taught by our Onitshamarket.com Trainer Specialist. Start making money now It's FREE*
+                                        everyone, from selling basics to perfectly running your store on Onitshamarket.com.
+                                        Find a
+                                        class taught by our Onitshamarket.com Trainer Specialist. Start making money now
+                                        It's FREE*
                                         and easy to schedule. Onitshamarket.com university has also made available training
                                         materials online on Vendor hub, Youtube. so that in case you missed the offline
                                         classes for any reasons, you can find all you need on online.</p>
 
                                     <h4>What is Onitshamarket.com Vendor hub?</h4>
 
-                                    <p style="">Onitshamarket.com Vendor hub is a platform designed especially for our vendor
+                                    <p style="">Onitshamarket.com Vendor hub is a platform designed especially for our
+                                        vendor
                                         partners. New and existing vendors will definitely find something suiting their
                                         needs. Whether you want to create your products or understand the importance of
                                         Seller score and how it improves your store image or new information regarding
@@ -361,14 +372,17 @@
                                                 href="https://vendorhub.Onitshamarket.com.com.ng/training-calendar/">here</a>&nbsp;to
                                         view the training calendar for the month </p>
 
-                                    <h4>Does Onitshamarket.com University provide training to improve my sales performance on
+                                    <h4>Does Onitshamarket.com University provide training to improve my sales performance
+                                        on
                                         Onitshamarket.com?</h4>
 
-                                    <p style="">Onitshamarket.com University provides a suite training programs targeted to enhance
+                                    <p style="">Onitshamarket.com University provides a suite training programs targeted to
+                                        enhance
                                         the proficiency of our sellers.<br>
                                         Attend any of our training classes online or offline to find out how you can
                                         improve your performance or click <a
-                                                href="https://vendorhub.Onitshamarket.com.com.ng/training-calendar/">here</a> to
+                                                href="https://vendorhub.Onitshamarket.com.com.ng/training-calendar/">here</a>
+                                        to
                                         view the training calendar.</p></div>
                                 <h3 style="border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;">Product
                                     Listing and Content Creation</h3>
@@ -399,10 +413,12 @@
                                                 href="https://vendorhub.Onitshamarket.com.com.ng/university/product-creation/"
                                                 target="_blank">here</a>.
                                         <br><br>Find the content and images guidleines about product creation for each
-                                        category <a href="https://guidescontentOnitshamarket.comng.wordpress.com/" target="_blank">here</a>.
+                                        category <a href="https://guidescontentOnitshamarket.comng.wordpress.com/"
+                                                    target="_blank">here</a>.
                                     </p>
                                     <h4>What are the methods to upload products?</h4>
-                                    <p style=""><span class="bold-text">There are currently four methods to upload products:</span>
+                                    <p style=""><span
+                                                class="bold-text">There are currently four methods to upload products:</span>
                                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;<a
                                                 href="https://vendorhub.Onitshamarket.com.com.ng/university/product-creation/in-less-than-30-seconds/"
                                                 target="_blank">Copy an already existing product</a> from another seller
@@ -425,8 +441,9 @@
                                         attractive pictures for your product.
                                         <br>All information and training resources relating to content creation are
                                         available on Onitshamarket.com University.
-                                        <br>Click <a href="https://vendorhub.Onitshamarket.com.com.ng/university/product-creation/"
-                                                     target="_blank">here</a> to find out more now.</p>
+                                        <br>Click <a
+                                                href="https://vendorhub.Onitshamarket.com.com.ng/university/product-creation/"
+                                                target="_blank">here</a> to find out more now.</p>
 
                                     <h4>Why is my new product not online? </h4>
 
@@ -446,7 +463,7 @@
 
                                 <h3>All about Shipping and Fulfillment</h3>
 
-                                <div style="">
+                                <div style="display:none;">
 
                                     <h4>How to manage orders?</h4>
                                     <p style="">You can fulfill your orders directly from the Seller Center platform.
@@ -455,7 +472,8 @@
                                                 target="_blank">here</a></p>
                                     <h4>How will I be informed when I have an order?</h4>
                                     <p style="">Once you receive an order, you will get an email notification via your
-                                        Onitshamarket.com Sellercenter registered email. For instant updates on orders, we urge you
+                                        Onitshamarket.com Sellercenter registered email. For instant updates on orders, we
+                                        urge you
                                         to download our app to get a mobile notification with each new order.
                                         <br><br>Click <a
                                                 href="https://play.google.com/store/apps/details?id=com.sc.Onitshamarket.com&amp;hl=en"
@@ -473,10 +491,12 @@
                                         order at the closest drop off center to you within the next 24 hours
                                         <br><br>Please click <a
                                                 href="https://vendorhub.Onitshamarket.com.com.ng/university/ship-orders/order-management/ "
-                                                target="_blank">here</a> for full order-fulfillment guide on Onitshamarket.com
+                                                target="_blank">here</a> for full order-fulfillment guide on
+                                        Onitshamarket.com
                                         University.</p>
                                     <h4>Where can I see my orders?</h4>
-                                    <p style="">You will be able to view your order summary in Onitshamarket.com Seller Center’s
+                                    <p style="">You will be able to view your order summary in Onitshamarket.com Seller
+                                        Center’s
                                         home page under the Orders tab.</p>
                                     <h4>How long am I given to respond to an order?</h4>
                                     <p style="">You will be given 48 hours, excluding Sunday and Public Holidays, to
@@ -502,18 +522,20 @@
 
                                     <h4>How can I order packaging materials?</h4>
 
-                                    <p style=""> Click <a href="https://www.Onitshamarket.com.com.ng/j-pack/">here</a> to order.</p>
+                                    <p style=""> Click <a href="https://www.Onitshamarket.com.com.ng/j-pack/">here</a> to
+                                        order.</p>
                                 </div>
 
 
                                 <h3>Smart QC (quality check)</h3>
 
-                                <div style=""><h4>What is the Smart QC (Quality Check)?</h4>
+                                <div style="display:none;"><h4>What is the Smart QC (Quality Check)?</h4>
 
                                     <p style="">The Quality Control (QC) process is based on checking your products
                                         before being shipped and delivered to the customer. This is done to avoid
                                         packaging mistakes, wrong item size or color, counterfeit products, and items
-                                        not matching the product description on Onitshamarket.com website, which will affect your
+                                        not matching the product description on Onitshamarket.com website, which will affect
+                                        your
                                         store reputation, and increase the percentage of the returns and declined
                                         products.</p>
 
@@ -565,10 +587,12 @@
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Counterfeit: 50,000
                                         NGN</p>
                                 </div>
+                            </div>
+                            <div class="col-md-6">
 
                                 <h3>Onitshamarket.com Drop-off stations &amp; QC</h3>
 
-                                <div style=""><h4>Where&nbsp; are the available drop off stations?</h4>
+                                <div style="display:none;"><h4>Where&nbsp; are the available drop off stations?</h4>
 
                                     <p style="">Please click&nbsp;<a
                                                 href="https://sellercenter.Onitshamarket.com.com.ng/drop_off_hub_details">here</a>&nbsp;to
@@ -596,21 +620,24 @@
 
 
                                 <h3>Better sales performance</h3>
-                                <div style="">
+                                <div style="display:none;">
                                     <h4>What are the tools I can use to boost my sales on Onitshamarket.com?</h4>
                                     <p style="">Whether you are an old partner or a newly joiner, you are eligible to
-                                        start boosting your sales on Onitshamarket.com by joining our weekly promotional campaigns.
+                                        start boosting your sales on Onitshamarket.com by joining our weekly promotional
+                                        campaigns.
                                         <!--<br><br>For more info, click <a href=" " target="_blank">here</a>.</p>-->
                                     </p>
                                     <h4>How can I join Onitshamarket.com Promotions?</h4>
-                                    <p style="">Onitshamarket.com Promotions increase your opportunities to grow your orders and
+                                    <p style="">Onitshamarket.com Promotions increase your opportunities to grow your orders
+                                        and
                                         revenues providing more customer visibility.
                                         <br><br>Click <a
                                                 href="https://vendorhub.Onitshamarket.com.com.ng/university/grow-your-sales/join-promotions/"
                                                 target="_blank">here</a> for subscription steps.</p>
                                     <h4>Can the customers give ratings and comments? And why are these important?</h4>
                                     <p style="">Yes, the customers give detailed comments and ratings. These are very
-                                        important for your sales on Onitshamarket.com. This is the best way for the customers to
+                                        important for your sales on Onitshamarket.com. This is the best way for the
+                                        customers to
                                         know that you are a reliable vendor. The customers look at the ratings of the
                                         product before buying it in most cases. The customers will be more willing to
                                         buy a product with good ratings. The ratings of your products are one of the
@@ -621,9 +648,10 @@
                                 </div>
 
                                 <h3>Services for sellers</h3>
-                                <div style="">
+                                <div style="display:none;">
                                     <h4>What is Onitshamarket.com Express?</h4>
-                                    <p style="">Onitshamarket.com Express is a value added services for the vendors that will boost
+                                    <p style="">Onitshamarket.com Express is a value added services for the vendors that
+                                        will boost
                                         the visibility of your products and ease the fulfilment of your orders.
                                         <br><br>With Onitshamarket.com Express, you sell more with less efforts:
                                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>1</strong>&nbsp;&nbsp;You
@@ -631,14 +659,16 @@
                                         costs. We guarantee you a very competitive storage cost and save you time and
                                         money.
                                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>2</strong>&nbsp;&nbsp;Your
-                                        products are seen first by the customers: every Onitshamarket.com Express products are
+                                        products are seen first by the customers: every Onitshamarket.com Express products
+                                        are
                                         tagged and boosted at the top of catalog pages and product pages.
                                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>3</strong>&nbsp;&nbsp;We
                                         deliver your products first to the customers: the products will be delivered
                                         faster because we have them in our warehouse. It will make your customers happy,
                                         and they will come back to shop your items.
                                         <br><br>Find details about Onitshamarket.com Express <a
-                                                href="https://vendorhub.Onitshamarket.com.com.ng/Onitshamarket.com-express//" target="_blank">here</a>.
+                                                href="https://vendorhub.Onitshamarket.com.com.ng/Onitshamarket.com-express//"
+                                                target="_blank">here</a>.
                                         <br><br>You can subscribe to this service by filling the raise a claim form <a
                                                 href="https://Onitshamarket.com_form.formstack.com/forms/vendor_claims_nigeria">Here</a>.
                                     </p>
@@ -650,7 +680,7 @@
 
 
                                 <h3>Commissions and Shipping fees</h3>
-                                <div style="">
+                                <div style="display:none;">
                                     <h4>What are the commissions on Onitshamarket.com ?</h4>
                                     <p style="">As a basic vendor, you will only pay the commissions on each item you
                                         sell. The commission depends on the category of your item and is a percentage of
@@ -691,7 +721,8 @@
                                     <h4>I don’t know whether my product is considered small or medium or large sized
                                         products?</h4>
 
-                                    <p style="">Click <a href="https://vendorhub.Onitshamarket.com.com.ng/item-category-vs-sizes/">here</a>
+                                    <p style="">Click <a
+                                                href="https://vendorhub.Onitshamarket.com.com.ng/item-category-vs-sizes/">here</a>
                                     </p>
 
                                     <h4>Where can I find Onitshamarket.com’s Terms and Conditions for sellers?</h4>
@@ -699,7 +730,8 @@
                                                 href="https://docs.google.com/document/d/1nacWSAEY9L1Ii15Yso18F7dWws6fiEsHEx7eswgXwdg/edit"
                                                 target="_blank">HERE</a> to view it.</p>
                                     <h4>What is Onitshamarket.com Return Policy with Sellers?</h4>
-                                    <p style="">On Onitshamarket.com, customers are given option to return the product due to the
+                                    <p style="">On Onitshamarket.com, customers are given option to return the product due
+                                        to the
                                         below reasons:
                                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Damaged or
                                         defective product.
@@ -712,11 +744,12 @@
 
 
                                 <h3 style="border-radius: 0px;">About Payments</h3>
-                                <div style="">
+                                <div style="display:none;">
                                     <h4>How and when do I get paid?</h4>
                                     <p style="">Your payment will be made via bank transfer to the bank details
                                         maintained in your Seller Center Account.
-                                        <br><br>Onitshamarket.com pays every 7 days for the items that are delivered. Please make
+                                        <br><br>Onitshamarket.com pays every 7 days for the items that are delivered. Please
+                                        make
                                         sure you have entered your exact bank details on Seller Center to avoid any
                                         delays.</p>
                                     <h4>How can I check my Payment on Seller Center?</h4>
@@ -733,12 +766,11 @@
                                         details given are incorrect.<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp; Your payment date
                                         falls on a public holiday</p>
-                                    <!--<br><br>
-                                    Watch the <a href=" " target="_blank">video</a> to know more.--><p style=""></p>
                                 </div>
-                            </aside>
+                            </div>
                         </div>
-                    </div>
+
+                    </aside>
                 </div>
             </div>
         </div>
@@ -747,7 +779,8 @@
 
         <div class="row" style="margin:20px;">
             <p class="lead custom-text">Are You Ready To Start Selling?</p>
-            <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('register/form'); ?>">Become A Seller <i
+            <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('register/form'); ?>">Become
+                A Seller <i
                         class="fa fa-cart-plus"></i></a>
             <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url(); ?>">Contact Seller Support
                 <i
@@ -770,7 +803,7 @@
 <script>
     var headers = ["H1", "H2", "H3", "H4", "H5", "H6"];
 
-    $(".accordion").click(function(e) {
+    $(".accordion").click(function (e) {
         var target = e.target,
             name = target.nodeName.toUpperCase();
 
@@ -778,14 +811,14 @@
             var subItem = $(target).next();
 
             var depth = $(subItem).parents().length;
-            var allAtDepth = $(".accordion p, .accordion div").filter(function() {
+            var allAtDepth = $(".accordion p, .accordion div").filter(function () {
                 if ($(this).parents().length >= depth && this !== subItem.get(0)) {
                     return true;
                 }
             });
             $(allAtDepth).slideUp("fast");
 
-            subItem.slideToggle("fast", function() {
+            subItem.slideToggle("fast", function () {
                 $(".accordion :visible:last").css("border-radius", "0 0 0 0");
             });
             $(target).css({
