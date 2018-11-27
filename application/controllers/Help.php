@@ -8,12 +8,13 @@ class Help extends CI_Controller{
 //        $this->session->set_userdata('referred_from', current_url());
         if( !$this->session->userdata('logged_in') ){
             // Ursher the person to where he is coming from
-            if( !empty($this->session->userdata('referred_from')) ) redirect($this->session->userdata('referred_from'));
+            $from = $this->session->userdata('referred_from');
+            if( !empty( $from ) ) redirect($from);
             redirect('seller/login');
         }
         // $this->output->enable_profiler(TRUE);
 
-        $user = $this->seller->get_profile( base64_decode($this->session->userdata('logged_id')) );
+        $user = $this->seller->get_profile( $this->session->userdata('logged_id'));
         if( $user->is_seller == 'false' ){
             $this->session->set_flashdata('success_msg','Please complete the below form to become a seller!');
             redirect('seller/application');
@@ -24,7 +25,7 @@ class Help extends CI_Controller{
     }
     
     public function index(){
-        $page_data['profile'] = $this->seller->get_profile(base64_decode($this->session->userdata('logged_id')));
+        $page_data['profile'] = $this->seller->get_profile($this->session->userdata('logged_id'));
         $page_data['page_title'] = 'Help and Guidelines';
         $page_data['pg_name'] = 'help';
         $page_data['sub_name'] = '';

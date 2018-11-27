@@ -12,7 +12,8 @@ class Register extends CI_Controller{
         $this->load->model('seller_model', 'seller');
         if( $this->session->userdata('logged_in') ){
             // Ursher the person to where he is coming from
-            if( !empty($this->session->userdata('referred_from')) ) redirect($this->session->userdata('referred_from'));
+            $from = $this->session->userdata('referred_from');
+            if( !empty( $from ) ) redirect($from);
             redirect(base_url());
         }        
     }
@@ -51,7 +52,7 @@ class Register extends CI_Controller{
                 'ip' => $_SERVER['REMOTE_ADDR'],
                 'date_registered' => get_now(),
                 'last_login' => get_now(),
-                'is_seller' => 'false'
+                'is_seller' => 'pending'
             );
 
             $user_id = $this->seller->create_account($data, 'users');
@@ -74,8 +75,8 @@ class Register extends CI_Controller{
                     'password' => $this->input->post('password')
                 );
                 $this->session->set_flashdata('success_msg','Congrat! Your account has been created successfully... Under review, you will be notified on approval.');
-                $id = $this->seller->login($data);
-                $session_data = array('logged_in' => true, 'logged_id' => base64_encode($user_id), 'email' => $data['email'], 'is_seller' = 'false');
+                $user_id = $this->seller->login($data);
+                $session_data = array('logged_in' => true, 'logged_id' => $user_id, 'email' => $data['email'], 'seller_status' => 'pending');
                 $this->session->set_userdata($session_data);
                 redirect('application/status');
                 // // To ursher them to where they are coming from...

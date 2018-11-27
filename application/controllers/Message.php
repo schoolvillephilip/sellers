@@ -10,24 +10,23 @@ class Message extends CI_Controller{
             redirect('login');
         }
 
-        $user = $this->seller->get_profile( base64_decode($this->session->userdata('logged_id')) );
+        $user = $this->seller->get_profile( $this->session->userdata('logged_id') );
         if( $user->is_seller == 'false' ){
             $this->session->set_flashdata('success_msg','Please complete the below form to become a seller!');
             redirect('application');
-        }elseif( $user->is_seller == 'pending' ){
+        }elseif( $user->is_seller == 'pending'){
             $this->session->set_flashdata('success_msg','Your account is under review.');
             redirect('application/status');
         }
-
     }
 
     public function index(){
         $page_data['page_title'] = 'My Messages';
         $page_data['pg_name'] = 'message';
         $page_data['sub_name'] = 'message';
-        $page_data['profile'] = $this->seller->get_profile_details(base64_decode($this->session->userdata('logged_id')),
+        $page_data['profile'] = $this->seller->get_profile_details($this->session->userdata('logged_id'),
             'first_name,last_name,email,profile_pic');        
-        $page_data['messages'] = $this->seller->get_message( base64_decode($this->session->userdata('logged_id')) );
+        $page_data['messages'] = $this->seller->get_message( $this->session->userdata('logged_id') );
         $this->load->view('message', $page_data);
     }
 
@@ -36,7 +35,7 @@ class Message extends CI_Controller{
             redirect(base_url()); 
         }
         $mid = $this->input->post('mid');
-        $result = $this->seller->get_message(base64_decode($this->session->userdata('logged_id')),'', $mid);
+        $result = $this->seller->get_message( $this->session->userdata('logged_id'),'', $mid);
         $output = array();
         $output['title'] = $result['title'];
         $output['content'] = $result['content'];

@@ -42,7 +42,7 @@
                                     <div class="pad-all text-center">
                                         <?php if($top_views) : foreach( $top_views as $top_view ) : ?>
                                             <p class="mar-no">
-                                                <span class="pull-right text-bold"><?= $top_view->views; ?></span> <?= character_limiter($top_view->product_name, 30);?>
+                                                <span class="pull-right text-bold"><?= $top_view->views; ?></span> <?= character_limiter($top_view->product_name, 20);?>
                                             </p>
                                         <?php  endforeach; else: ?>
                                         <h5 class="text-dark">You have no product!</h5>

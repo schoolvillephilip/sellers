@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller{
     public function __construct(){
-
         parent::__construct();
         $this->load->model('seller_model', 'seller');
         if( $this->session->userdata('logged_in') ){
@@ -41,7 +40,7 @@ class Login extends CI_Controller{
                 if( $user ) {
                     if( $user->is_seller == 'false' ){
                         $this->session->set_flashdata('error_msg','Please fill the form below to proceed.');
-                        $session_data = array('logged_in' => true, 'logged_id' => base64_encode($user->id), 'is_seller' => $user->is_seller, 'email' => $data['email']);
+                        $session_data = array('logged_in' => true, 'logged_id' => $user->id, 'seller_status' => $user->is_seller, 'email' => $data['email']);
                         $this->session->set_userdata($session_data);
                         // redirect them to the big form
                         redirect('application');
@@ -49,7 +48,7 @@ class Login extends CI_Controller{
                         $this->session->set_flashdata('error_msg','Your seller application is under review. You will receive a mail on approval.');
                         redirect($_SERVER['HTTP_RERFFER']);
                     }else{
-                        $session_data = array('logged_in' => true, 'logged_id' => base64_encode($user->id), 'is_seller' => $user->is_seller, 'email' => $data['email']);
+                        $session_data = array('logged_in' => true, 'logged_id' => $user->id, 'seller_status' => $user->is_seller, 'email' => $data['email']);
                         $this->session->set_userdata($session_data);
                         $this->session->set_flashdata('success_msg','You are now logged in!');
                         redirect('overview');

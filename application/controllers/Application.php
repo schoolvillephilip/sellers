@@ -11,9 +11,8 @@ class Application extends CI_Controller{
             $referred_from = $this->session->userdata('referred_from');
             if( !empty($referred_from) ) redirect($this->session->userdata('referred_from'));
             redirect('login');
-        } 
-
-        $user = $this->seller->get_profile( base64_decode($this->session->userdata('logged_id')) );
+        }
+        $user = $this->seller->get_profile($this->session->userdata('logged_id') );
         if($user->is_seller == 'approved'){
             $this->session->set_flashdata('success_msg','Welcome to your seller dashboard.');
             redirect('overview');
@@ -27,7 +26,7 @@ class Application extends CI_Controller{
         $page_data['categories'] = $this->seller->get_results('categories', 'id, name', "( pid = 0 )");
         $page_data['meta_tags'] = array( 'css/bootstrap.min.css','css/nifty.min.css','css/nifty-demo-icons.min.css','css/nifty-demo.min.css');
         $page_data['scripts'] = array('js/jquery.min.js','js/bootstrap.min.js', 'js/nifty.min.js');
-        $status = $this->seller->get_seller_status(base64_decode($this->session->userdata('logged_id')));
+        $status = $this->seller->get_seller_status($this->session->userdata('logged_id'));
         if( $status->is_seller == 'false' ){
             $this->load->view('seller/application_form', $page_data);
         }else{
@@ -52,7 +51,7 @@ class Application extends CI_Controller{
                 foreach ($_POST as $key => $value) {
                     $data[$key] = cleanit($value);
                 }
-                $data['uid'] = base64_decode($this->session->userdata('logged_id'));
+                $data['uid'] = $this->session->userdata('logged_id');
                 $data['date_applied'] = get_now();
                 $insert = $this->seller->insert_data('sellers', $data);
                 if( is_numeric( $insert )){
@@ -73,12 +72,12 @@ class Application extends CI_Controller{
     }
 
     function status(){
-        $user = $this->seller->get_profile( base64_decode($this->session->userdata('logged_id')) );
+        $user = $this->seller->get_profile( $this->session->userdata('logged_id') );
         if( $user->is_seller == 'false'){
             $this->session->set_flashdata('success_msg','Please fill in the form to become a seller');
             redirect('application');
         }
-        $page_data['status'] = $this->seller->get_seller_status(base64_decode($this->session->userdata('logged_id')));
+        $page_data['status'] = $this->seller->get_seller_status($this->session->userdata('logged_id'));
         $page_data['page_title'] = 'Seller Application Status';
         $page_data['pg_name'] = 'application';
         $page_data['sub_name'] = 'application_status';

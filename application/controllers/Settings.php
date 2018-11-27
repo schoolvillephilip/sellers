@@ -3,12 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Settings extends CI_Controller{
     public function __construct(){
-        // @todo
-        // Check if the user is already logged in
-        // Also check where the user is coming from
+
         parent::__construct();
         $this->load->model('seller_model', 'seller');
-//        $this->session->set_userdata('referred_from', current_url());
         if( !$this->session->userdata('logged_in') ){
             // Ursher the person to where he is coming from
             $from = $this->session->userdata('referred_from');
@@ -17,7 +14,7 @@ class Settings extends CI_Controller{
         }
         // $this->output->enable_profiler(TRUE);
 
-        $user = $this->seller->get_profile( base64_decode($this->session->userdata('logged_id')) );
+        $user = $this->seller->get_profile( $this->session->userdata('logged_id') );
         if( $user->is_seller == 'false' ){
             $this->session->set_flashdata('success_msg','Please complete the below form to become a seller!');
             redirect('application');
@@ -28,19 +25,19 @@ class Settings extends CI_Controller{
     }
     
     public function index(){
-        $page_data['profile'] = $this->seller->get_profile(base64_decode($this->session->userdata('logged_id')));
+        $page_data['profile'] = $this->seller->get_profile($this->session->userdata('logged_id'));
         $page_data['page_title'] = 'Profile Setting';
         $page_data['pg_name'] = 'settings';
         $page_data['sub_name'] = 'profile';
-        $page_data['categories'] = $this->seller->get_main_categories();
+        $page_data['categories'] = $this->seller->get_results('categories', "id, name", "( pid = 0 )");
         $this->load->view('settings', $page_data);
 
     }
 
     public function process(){
         if( $this->input->post() ){
-            $uid = base64_decode($this->session->userdata('logged_id')) ;
-            $page_data['profile'] = $this->seller->get_profile(base64_decode($this->session->userdata('logged_id')));
+            $uid = $this->session->userdata('logged_id') ;
+            $page_data['profile'] = $this->seller->get_profile($this->session->userdata('logged_id'));
             switch ($this->input->post('process_type')) {
                 case 'profile':
                     $this->form_validation->set_rules('name', 'First name and last name','trim|required|xss_clean');
