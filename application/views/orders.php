@@ -1,10 +1,10 @@
-<?php $this->load->view('seller/templates/meta_tags'); ?>
+<?php $this->load->view('templates/meta_tags'); ?>
 </head>
 <body>
 <div id="container" class="effect aside-float aside-bright mainnav-lg">
     <!--NAVBAR-->
     <!--===================================================-->
-    <?php $this->load->view('seller/templates/head_navbar'); ?>
+    <?php $this->load->view('templates/head_navbar'); ?>
     <!--===================================================-->
     <!--END NAVBAR-->
 
@@ -55,7 +55,7 @@
                                     <td colspan="2">
                                         <span><img width="65" src="<?= base_url('data/products/'. $order->pid .'/'. $order->image_name); ?>"></span>
                                         <?= character_limiter($order->product_name, 30); ?>
-                                        <a href="<?= base_url('seller/order/detail/'. $order->orid); ?>"></a>
+                                        <a href="<?= base_url('order/detail/'. $order->orid); ?>"></a>
                                     </td>
                                     <td><?= neatDate($order->order_date); ?></td>
                                     <td><?= $order->qty .' Item (s) - <span class="text text-danger"> ( ' . ngn($order->amount) .' )</span>'; ?></td>
@@ -79,13 +79,13 @@
 
         <!--ASIDE-->
         <!--===================================================-->
-        <?php $this->load->view('seller/templates/aside_menu'); ?>
+        <?php $this->load->view('templates/aside_menu'); ?>
         <!--===================================================-->
         <!--END ASIDE-->
 
         <!--MAIN NAVIGATION-->
         <!--===================================================-->
-        <?php $this->load->view('seller/templates/menu'); ?>
+        <?php $this->load->view('templates/menu'); ?>
         <!--===================================================-->
         <!--END MAIN NAVIGATION-->
 
@@ -94,7 +94,7 @@
 
     <!-- FOOTER -->
     <!--===================================================-->
-    <?php $this->load->view('seller/templates/footer'); ?>
+    <?php $this->load->view('templates/footer'); ?>
     <!--===================================================-->
     <!-- END FOOTER -->
 
@@ -112,7 +112,7 @@
 <!--=================================================-->
 
 
-<?php $this->load->view('seller/templates/scripts'); ?>
+<?php $this->load->view('templates/scripts'); ?>
 <script>
     $(document).ready(function (x) {
         $('#demo-dt-basic').dataTable( {

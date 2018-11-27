@@ -228,7 +228,7 @@ class Product extends CI_Controller{
 //                    $upload_result = $this->do_upload('file', $product_id);
 
                     if( $upload_result ){
-                        $product_gallery['image_name'] =  $upload_result['public_id'];
+                        $product_gallery['image_name'] =  $upload_result['public_id'].$upload_result['format'];
 //                        $product_gallery['image_name'] = $upload_result;
                         $product_gallery['featured_image'] = ( isset($_POST['featured_image']) && ($old_name == $_POST['featured_image'] )) ? 1 : 0;
                         if( $counts == 1 ) $product_gallery['featured_image'] = 1;
