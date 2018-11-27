@@ -62,8 +62,6 @@
 </style>
 </head>
 
-<!--TIPS-->
-<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 
 <body>
 <div id="container" class="container text-center" style="background-color: #fff !important;">
@@ -87,7 +85,7 @@
             <li class="active col-md-4"><a data-toggle="tab" href="#home"><h3>Sell on Onitshamarket.com</h3></a>
             </li>
             <li class="col-md-4"><a data-toggle="tab" href="#menu1"><h3>Seller Support</h3></a></li>
-            <li class="col-md-4"><a data-toggle="tab" href="#menu2"><h3>FAQS</h3></a></li>
+            <li class="col-md-4"><a href="<?=base_url('pages/faq')?>" target="_blank"><h3>FAQS</h3></a></li>
         </ul>
 
         <div class="tab-content">
@@ -504,7 +502,7 @@
                                         Abiding to the 48-hour timeline will increase your <a
                                                 href="https://vendorhub.Onitshamarket.com.com.ng/seller-score-and-product-ratings/"
                                                 target="_blank">seller score</a> and your customer satisfaction.</p>
-                                    <h4>How should I pack my products ?</h4>
+                                    <h4>How should I pack my products?</h4>
 
                                     <p style="">To pack your order correctly, make sure to follow the below:<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>1</strong>&nbsp;&nbsp;Your
@@ -681,7 +679,7 @@
 
                                 <h3>Commissions and Shipping fees</h3>
                                 <div style="display:none;">
-                                    <h4>What are the commissions on Onitshamarket.com ?</h4>
+                                    <h4>What are the commissions on Onitshamarket.com?</h4>
                                     <p style="">As a basic vendor, you will only pay the commissions on each item you
                                         sell. The commission depends on the category of your item and is a percentage of
                                         the selling price. However, our minimum commission level was revised to 100NGN
