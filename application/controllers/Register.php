@@ -22,7 +22,7 @@ class Register extends CI_Controller{
         $page_data['pg_name'] = 'register';
         $page_data['meta_tags'] = array('css/bootstrap.min.css','css/nifty.min.css','css/nifty-demo-icons.min.css','css/nifty-demo.min.css');
         $page_data['scripts'] = array('js/jquery.min.js','js/bootstrap.min.js', 'js/nifty.min.js');
-        $this->load->view('register', $page_data);
+        $this->load->view('regintro', $page_data);
     }
 
     /*
@@ -75,7 +75,7 @@ class Register extends CI_Controller{
                 );
                 $this->session->set_flashdata('success_msg','Congrat! Your account has been created successfully... Under review, you will be notified on approval.');
                 $id = $this->seller->login($data);
-                $session_data = array('logged_in' => true, 'logged_id' => base64_encode($user_id), 'email' => $data['email'], 'is_seller' = 'false');
+                $session_data = array('logged_in' => true, 'logged_id' => base64_encode($user_id), 'email' => $data['email'], 'is_seller' => 'false');
                 $this->session->set_userdata($session_data);
                 redirect('application/status');
                 // // To ursher them to where they are coming from...
