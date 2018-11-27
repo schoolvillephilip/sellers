@@ -13,8 +13,8 @@ class Overview extends CI_Controller
         }
 
 
-        // die( base64_decode($this->session->userdata('logged_id')) );
-        $user = $this->seller->get_profile(base64_decode($this->session->userdata('logged_id')));
+        // die( $this->session->userdata('logged_id')) ;
+        $user = $this->seller->get_profile($this->session->userdata('logged_id'));
         if ($user->is_seller == 'false') {
             $this->session->set_flashdata('success_msg', 'Please complete the below form to become a seller!');
             redirect('application');
@@ -28,7 +28,7 @@ class Overview extends CI_Controller
     public function index()
     {
         $status = cleanit($this->uri->segment(2));
-        $uid = base64_decode($this->session->userdata('logged_id'));
+        $uid = $this->session->userdata('logged_id');
         $page_data['page_title'] = 'Seller Dashboard';
         $page_data['pg_name'] = 'overview';
         $page_data['sub_name'] = $status;

@@ -13,7 +13,7 @@ class Product extends CI_Controller{
             redirect('login');
         }
          // $this->output->enable_profiler(TRUE);
-        $user = $this->seller->get_profile( base64_decode($this->session->userdata('logged_id')) );
+        $user = $this->seller->get_profile( $this->session->userdata('logged_id') );
         if( $user->is_seller == 'false' ){
             $this->session->set_flashdata('success_msg','Please complete the below form to become a seller!');
             redirect('application');
@@ -32,7 +32,7 @@ class Product extends CI_Controller{
         }else{
             // Unset the category
             $this->session->unset_userdata('category_id');
-            $uid = base64_decode($this->session->userdata('logged_id'));
+            $uid = $this->session->userdata('logged_id');
             $page_data['page_title'] = 'Choose Category';
             $page_data['pg_name'] = 'product';
             $page_data['sub_name'] = 'select_category';
@@ -77,7 +77,7 @@ class Product extends CI_Controller{
             $page_data['categories_name'] = $categories_name;
             $page_data['features'] = $specification_array;
             // Check if post method
-            $uid = base64_decode($this->session->userdata('logged_id'));
+            $uid = $this->session->userdata('logged_id');
             $page_data['page_title'] = 'Add product';
             $page_data['pg_name'] = 'product';
             $page_data['sub_name'] = 'add_product';
@@ -117,7 +117,7 @@ class Product extends CI_Controller{
             $colour_family = ( !empty( $colour_family) ) ? json_encode( $colour_family ) : '';
             $sku = $this->product->generate_code();
             $product_table = array(
-                'seller_id' => base64_decode($this->session->userdata('logged_id')),
+                'seller_id' => $this->session->userdata('logged_id'),
                 'sku' => $sku,
                 'category_id' => $this->session->userdata('category_id'),
                 'product_name' => cleanit($this->input->post('product_name')),
@@ -210,7 +210,7 @@ class Product extends CI_Controller{
                 $counts = sizeof($_FILES['file']['tmp_name']);
                 $product_gallery = array(
                     'product_id'    => $product_id,
-                    'seller_id' => base64_decode($this->session->userdata('logged_id')),
+                    'seller_id' => $this->session->userdata('logged_id'),
                     'created_at' => get_now()
                 );
                 $files = $_FILES;
@@ -328,7 +328,7 @@ class Product extends CI_Controller{
 
         $id = cleanit($id);
         if( !$this->input->post() ){
-            $uid = base64_decode($this->session->userdata('logged_id'));
+            $uid = $this->session->userdata('logged_id');
             $page_data['pg_name'] = 'product';
             $page_data['sub_name'] = 'edit_product';
             $page_data['profile'] = $this->seller->get_profile_details($uid,
@@ -511,7 +511,7 @@ class Product extends CI_Controller{
                         if( $upload_result ){
                             $product_gallery = array(
                                 'product_id'    => $id,
-                                'seller_id' => base64_decode($this->session->userdata('logged_id')),
+                                'seller_id' => $this->session->userdata('logged_id'),
                                 'created_at' => get_now()
                             );
                             $product_gallery['image_name'] = $upload_result;

@@ -5,12 +5,13 @@ class MY_Controller extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		// Get the general settings
-		$general_settings = $this->db->get('general_settings')->row();
-		define('FACEBOOK_LINK', $general_settings->facebook_link);
-		define('INSTAGRAM_LINK', $general_settings->instagram_link);
-		define('TWITTER_LINK', $general_settings->twitter_link);
-		define('DESCRIPTION', $general_settings->description);
-		define('KEYWORD', $general_settings->keywords);
-//		define('BILLING')
+        $user = $this->seller->get_profile( $this->session->userdata('logged_id') );
+        if( $user->is_seller == 'false' ){
+            $this->session->set_flashdata('success_msg','Please complete the below form to become a seller!');
+            redirect('application');
+        }elseif( $user->is_seller == 'pending' ){
+            $this->session->set_flashdata('success_msg','Your account is under review.');
+            redirect('application/status');
+        }
 	}
 }
