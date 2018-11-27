@@ -8,6 +8,7 @@
 
     <link href="<?= base_url('assets/landing/css/reset.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/landing/css/style.css')?>" rel="stylesheet">
+    <link href="<?= base_url('assets/seller/plugins/font-awesome/css/font-awesome.min.css')?>" rel="stylesheet">
     <script src="<?= base_url('assets/landing/js/modernizr.js'); ?>"></script>
     <title>Sellers FAQ | Onithsamarket.com</title>
     <style>
@@ -23,6 +24,7 @@
 </head>
 <body>
 <header>
+    <a style="position:absolute;z-index:99;top:-80px;color:#dbdbdb;" href="<?=base_url();?>"><i class="fa fa-angle-double-left"></i> Back To Registration</a>
     <h1>Onitshamarket.com Sellers FAQ</h1>
 </header>
 <section class="cd-faq">
