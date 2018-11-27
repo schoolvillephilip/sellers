@@ -6,6 +6,10 @@
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
+    <link rel="shortcut icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
+    <link rel="icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
+    <link rel="canonical" href="<?= current_url(); ?>"/>
+    <meta name="robots" content="noindex,nofollow">
     <link href="<?= base_url('assets/landing/css/reset.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/landing/css/style.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/seller/plugins/font-awesome/css/font-awesome.min.css')?>" rel="stylesheet">
@@ -15,6 +19,9 @@
         .spacer{
             height:700px;
         }
+        .cd-faq-content{
+            text-align: justify;
+         }
         @media screen and (max-width: 767px){
             .spacer{
                 height:0 !important;
@@ -24,7 +31,7 @@
 </head>
 <body>
 <header>
-    <a style="position:absolute;z-index:99;top:-80px;color:#dbdbdb;" href="<?=base_url();?>"><i class="fa fa-angle-double-left"></i> Back To Registration</a>
+    <a style="position:absolute;z-index:1;top:-70px;color:#dbdbdb;" href="<?=base_url();?>"><i class="fa fa-angle-double-left"></i> Back To Registration</a>
     <h1>Onitshamarket.com Sellers FAQ</h1>
 </header>
 <section class="cd-faq">
