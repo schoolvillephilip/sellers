@@ -1,11 +1,11 @@
-<?php $this->load->view('seller/templates/meta_tags'); ?>
+<?php $this->load->view('templates/meta_tags'); ?>
 </head>
 <body>
     <div id="container" class="effect aside-float aside-bright mainnav-lg">
         
         <!--NAVBAR-->
         <!--===================================================-->
-        <?php $this->load->view('seller/templates/head_navbar'); ?>
+        <?php $this->load->view('templates/head_navbar'); ?>
         <!--===================================================-->
         <!--END NAVBAR-->
 
@@ -42,7 +42,7 @@
                                 <div class="panel-heading">
                                     <div class="panel-title">Change Password</div>
                                 </div>
-                                <?= form_open('seller/settings/change_password','class="form-horizontal"');?>
+                                <?= form_open('settings/change_password','class="form-horizontal"');?>
                                     <div class="panel-body">
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label" for="">Current password</label>
@@ -88,13 +88,13 @@
 
             <!--ASIDE-->
             <!--===================================================-->
-            <?php $this->load->view('seller/templates/aside_menu'); ?>
+            <?php $this->load->view('templates/aside_menu'); ?>
             <!--===================================================-->
             <!--END ASIDE-->
 
             <!--MAIN NAVIGATION-->
             <!--===================================================-->
-            <?php $this->load->view('seller/templates/menu'); ?>
+            <?php $this->load->view('templates/menu'); ?>
             <!--===================================================-->
             <!--END MAIN NAVIGATION-->
 
@@ -103,7 +103,7 @@
 
         <!-- FOOTER -->
         <!--===================================================-->
-        <?php $this->load->view('seller/templates/footer'); ?>
+        <?php $this->load->view('templates/footer'); ?>
         <!--===================================================-->
         <!-- END FOOTER -->
 
@@ -121,7 +121,7 @@
     <!--=================================================-->
 
 
-    <?php $this->load->view('seller/templates/scripts'); ?>
+    <?php $this->load->view('templates/scripts'); ?>
 </body>
 
 </html>
