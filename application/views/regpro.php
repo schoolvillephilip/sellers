@@ -8,7 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Form Wizard | Nifty - Admin Template</title>
+    <title><?= $page_title; ?> | Onitshamarket.com</title>
+    <link rel="shortcut icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
+    <link rel="icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
+    <link rel="canonical" href="<?= current_url(); ?>"/>
+    <meta name="robots" content="noindex,nofollow">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
@@ -93,7 +97,7 @@
 
 
                     <!--Form-->
-                    <form id="demo-bv-wz-formXXX" class="form-horizontal">
+                    <form id="demo-bv-wz-form" class="form-horizontal">
                         <div class="panel-body">
                             <div class="tab-content">
 
@@ -127,9 +131,8 @@
                                                 Name</label>
                                             <div class="col-lg-7">
                                                 <input type="text" class="form-control" placeholder="Business Name"
-                                                       required
                                                        autofocus
-                                                       id="legal_company_name">
+                                                       id="legal_company_name" required>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
