@@ -208,7 +208,8 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="col-lg-4 control-label" for="pro_cond">Product Condition</label>
+                                            <label class="col-lg-4 control-label" for="pro_cond">Product
+                                                Condition</label>
                                             <div class="col-lg-7">
                                                 <select class="form-control" name="pro_cond" required>
                                                     <option value="new">New</option>
@@ -251,13 +252,14 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="col-lg-4 control-label" for="no_of_products">No of Products</label>
+                                            <label class="col-lg-4 control-label" for="no_of_products">No of
+                                                Products</label>
                                             <div class="col-lg-7">
                                                 <select class="form-control" name="no_of_products" required>
                                                     <option value="1-50">1 - 50</option>
                                                     <option value="51-100">51 - 100</option>
                                                     <option value="101-500">101 - 500</option>
-                                                    <option value="501-more">501 + </option>
+                                                    <option value="501-more">501 +</option>
                                                     <option value="pack">Large Packaged Quantities</option>
                                                 </select>
                                             </div>
@@ -322,10 +324,112 @@
 
                                 <!--Fourth tab-->
                                 <div id="comp_form" class="tab-pane  mar-btm text-center">
-                                    <h4>Thank you</h4>
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                                        diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-                                        volutpat. </p>
+                                    <div class="nano has-scrollbar text-justify col-md-push-2"
+                                         style="height: 250px;width:60%;">
+                                        <div class="nano-content read_here" tabindex="0" style="right: -17px;">
+                                            When you say you want them to read it do you really mean that you want them
+                                            to read it or that you want them to scroll to the bottom and press a button?
+                                            – Steve Weet Apr 30 '10 at 16:09
+                                            Is this on a web page? Why do you need a scrolling div? Keep it simple and
+                                            put in a regular div with the Accept button at the bottom of the web page.
+                                            EULAs in scrolling text boxes were used in old installers whose windows
+                                            didn't natively scroll, but no reason to copy that design for a web page
+                                            (unless you're using jQuery in a thick client installer somehow, you don't
+                                            specify). – Marc Stober Apr 30 '10 at 16:34
+                                            The EULA is within a scrollable window in a larger reg page. Users can print
+                                            to see it alone/in a new window but my design requires it be nested in the
+                                            reg page in a smaller view. I have thought about just hiding the button at
+                                            the end of the scrollable window but it's not the route I want to take: I'll
+                                            end up with lots of support queries saying "I can't find the button" and
+                                            even though the answer is easy ("scroll to the bottom") it's less costly to
+                                            deflect these kinds of user problems by making the button plain as day and
+                                            erroring out if they haven't yet scrolled to the bottom. – buley Apr 30 '10
+                                            at 16:39
+                                            Sometimes the client wants something you may advise against, but in the end,
+                                            they are the client, and they "know" what they want. sigh – Kumu Apr 30 '10
+                                            at 16:40
+                                            If it's good enough for blizzard... – NibblyPig Apr 30 '10 at 16:54
+                                            When you say you want them to read it do you really mean that you want them
+                                            to read it or that you want them to scroll to the bottom and press a button?
+                                            – Steve Weet Apr 30 '10 at 16:09
+                                            Is this on a web page? Why do you need a scrolling div? Keep it simple and
+                                            put in a regular div with the Accept button at the bottom of the web page.
+                                            EULAs in scrolling text boxes were used in old installers whose windows
+                                            didn't natively scroll, but no reason to copy that design for a web page
+                                            (unless you're using jQuery in a thick client installer somehow, you don't
+                                            specify). – Marc Stober Apr 30 '10 at 16:34
+                                            The EULA is within a scrollable window in a larger reg page. Users can print
+                                            to see it alone/in a new window but my design requires it be nested in the
+                                            reg page in a smaller view. I have thought about just hiding the button at
+                                            the end of the scrollable window but it's not the route I want to take: I'll
+                                            end up with lots of support queries saying "I can't find the button" and
+                                            even though the answer is easy ("scroll to the bottom") it's less costly to
+                                            deflect these kinds of user problems by making the button plain as day and
+                                            erroring out if they haven't yet scrolled to the bottom. – buley Apr 30 '10
+                                            at 16:39
+                                            Sometimes the client wants something you may advise against, but in the end,
+                                            they are the client, and they "know" what they want. sigh – Kumu Apr 30 '10
+                                            at 16:40
+                                            If it's good enough for blizzard... – NibblyPig Apr 30 '10 at 16:54
+                                            When you say you want them to read it do you really mean that you want them
+                                            to read it or that you want them to scroll to the bottom and press a button?
+                                            – Steve Weet Apr 30 '10 at 16:09
+                                            Is this on a web page? Why do you need a scrolling div? Keep it simple and
+                                            put in a regular div with the Accept button at the bottom of the web page.
+                                            EULAs in scrolling text boxes were used in old installers whose windows
+                                            didn't natively scroll, but no reason to copy that design for a web page
+                                            (unless you're using jQuery in a thick client installer somehow, you don't
+                                            specify). – Marc Stober Apr 30 '10 at 16:34
+                                            The EULA is within a scrollable window in a larger reg page. Users can print
+                                            to see it alone/in a new window but my design requires it be nested in the
+                                            reg page in a smaller view. I have thought about just hiding the button at
+                                            the end of the scrollable window but it's not the route I want to take: I'll
+                                            end up with lots of support queries saying "I can't find the button" and
+                                            even though the answer is easy ("scroll to the bottom") it's less costly to
+                                            deflect these kinds of user problems by making the button plain as day and
+                                            erroring out if they haven't yet scrolled to the bottom. – buley Apr 30 '10
+                                            at 16:39
+                                            Sometimes the client wants something you may advise against, but in the end,
+                                            they are the client, and they "know" what they want. sigh – Kumu Apr 30 '10
+                                            at 16:40
+                                            If it's good enough for blizzard... – NibblyPig Apr 30 '10 at 16:54
+                                            When you say you want them to read it do you really mean that you want them
+                                            to read it or that you want them to scroll to the bottom and press a button?
+                                            – Steve Weet Apr 30 '10 at 16:09
+                                            Is this on a web page? Why do you need a scrolling div? Keep it simple and
+                                            put in a regular div with the Accept button at the bottom of the web page.
+                                            EULAs in scrolling text boxes were used in old installers whose windows
+                                            didn't natively scroll, but no reason to copy that design for a web page
+                                            (unless you're using jQuery in a thick client installer somehow, you don't
+                                            specify). – Marc Stober Apr 30 '10 at 16:34
+                                            The EULA is within a scrollable window in a larger reg page. Users can print
+                                            to see it alone/in a new window but my design requires it be nested in the
+                                            reg page in a smaller view. I have thought about just hiding the button at
+                                            the end of the scrollable window but it's not the route I want to take: I'll
+                                            end up with lots of support queries saying "I can't find the button" and
+                                            even though the answer is easy ("scroll to the bottom") it's less costly to
+                                            deflect these kinds of user problems by making the button plain as day and
+                                            erroring out if they haven't yet scrolled to the bottom. – buley Apr 30 '10
+                                            at 16:39
+                                            Sometimes the client wants something you may advise against, but in the end,
+                                            they are the client, and they "know" what they want. sigh – Kumu Apr 30 '10
+                                            at 16:40
+                                            If it's good enough for blizzard... – NibblyPig Apr 30 '10 at 16:54
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-top:20px;">
+                                        <label class="col-lg-2 control-label"></label>
+                                        <div class="col-lg-7" style="text-align:left;">
+
+                                            <div class="checkbox">
+                                                <input id="terms" type='checkbox' name="terms"
+                                                       title="Terms and Conditions"
+                                                       class="magic-checkbox" required disabled>
+                                                <label for="terms">I have read and accepted the Terms and
+                                                    Conditions?</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -382,6 +486,11 @@
                 $('#platform').attr('required', false);
             }
         });
+    });
+    $('.read_here').scroll(function () {
+        if ($(this).scrollTop() + $(this).innerHeight() + 2 >= $(this)[0].scrollHeight) {
+            $('#terms').removeAttr('disabled');
+        }
     });
 </script>
 
