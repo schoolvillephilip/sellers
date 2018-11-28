@@ -324,8 +324,9 @@
 
                                 <!--Fourth tab-->
                                 <div id="comp_form" class="tab-pane  mar-btm text-center">
-                                    <div class="nano has-scrollbar text-justify col-md-push-2"
-                                         style="height: 250px;width:60%;">
+                                    <h4>Sellers Agreement</h4>
+                                    <div class="nano has-scrollbar text-justify col-md-9"
+                                         style="height: 250px;">
                                         <div class="nano-content read_here" tabindex="0" style="right: -17px;">
                                             When you say you want them to read it do you really mean that you want them
                                             to read it or that you want them to scroll to the bottom and press a button?
@@ -417,9 +418,8 @@
                                             If it's good enough for blizzard... – NibblyPig Apr 30 '10 at 16:54
                                         </div>
                                     </div>
-                                    <div class="form-group" style="margin-top:20px;">
-                                        <label class="col-lg-2 control-label"></label>
-                                        <div class="col-lg-7" style="text-align:left;">
+                                    <div class="form-group">
+                                        <div class="col-lg-7" style="text-align:left;margin-top:40px;">
 
                                             <div class="checkbox">
                                                 <input id="terms" type='checkbox' name="terms"
