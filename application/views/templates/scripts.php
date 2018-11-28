@@ -3,7 +3,7 @@
 <script src="<?= base_url('assets/seller/js/nifty.min.js');?>"></script>
 <script src="<?= base_url('assets/seller/js/demo/nifty-demo.min.js'); ?>"></script>
 <script type="text/javascript"> base_url = '<?= base_url(); ?>';</script>
-<?php if( in_array($pg_name, array('product','template'))) :?>
+<?php if( in_array($pg_name, array('product','template','register'))) :?>
     <script src="<?= base_url('assets/seller/plugins/dropzone/dropzone.min.js'); ?>"></script>
     <script src="<?= base_url('assets/seller/js/demo/form-file-upload.js'); ?>"></script>
     <script src="<?= base_url('assets/seller/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
@@ -27,4 +27,11 @@
     <script src="<?= base_url('assets/seller/plugins/morris-js/morris.min.js'); ?>"></script>
     <script src="<?= base_url('assets/seller/plugins/morris-js/raphael-js/raphael.min.js'); ?>"></script>
 
+<?php endif; ?>
+
+<?php if( $pg_name === 'register') :?>
+    <script src="<?= base_url('assets/seller/js/demo/form-file-upload.js'); ?>"></script>
+    <script src="<?= base_url('assets/seller/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/seller/js/demo/form-wizard.js'); ?>"></script>
 <?php endif; ?>

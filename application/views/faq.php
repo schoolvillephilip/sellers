@@ -31,8 +31,10 @@
 </head>
 <body>
 <header>
+    <a style="position:absolute;z-index:1;top:-70px;color:#dbdbdb;" href="<?=base_url();?>"><i class="fa fa-angle-double-left"></i> Back To Registration</a>
     <h1>Onitshamarket.com Sellers FAQ</h1>
 </header>
+<a style="position:absolute;z-index:1;top:-70px;color:#db3a2d;" href="<?=base_url();?>"><i class="fa fa-angle-double-left"></i> Back To Registration</a>
 <section class="cd-faq">
     <ul class="cd-faq-categories">
         <li><a class="selected" href="#basics">Getting Started</a></li>
@@ -45,8 +47,8 @@
         <li><a href="#privac">Sellers Services</a></li>
         <li><a href="#deliver">Commissions &amp; Fees</a></li>
         <li><a href="#delive">Payments</a></li>
-        <li><a href="<?=base_url();?>"><i class="fa fa-angle-double-left"></i> Back To Registration</a></li>
     </ul> <!-- cd-faq-categories -->
+
 
     <div class="cd-faq-items">
         <ul id="basics" class="cd-faq-group">

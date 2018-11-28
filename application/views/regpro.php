@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from www.themeon.net/nifty/v2.9.1/forms-wizard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Jul 2018 07:32:32 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Form Wizard | Nifty - Admin Template</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <link href="<?= base_url('assets/seller/css/bootstrap.min.css'); ?>" rel="stylesheet">
+
+    <link href="<?= base_url('assets/seller/css/nifty.min.css'); ?>" rel="stylesheet">
+
+
+    <link href="<?= base_url('assets/seller/css/demo/nifty-demo-icons.min.css'); ?>" rel="stylesheet">
+
+
+    <link href="<?= base_url('assets/seller/plugins/pace/pace.min.css'); ?>" rel="stylesheet">
+    <script src="<?= base_url('assets/seller/plugins/pace/pace.min.js'); ?>"></script>
+
+    <link href="<?= base_url('assets/seller/css/demo/nifty-demo.min.css'); ?>" rel="stylesheet">
+
+    <link href="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.css'); ?>"
+          rel="stylesheet">
+
+</head>
+<body>
+<div id="container" class="cls-container" style="background-color: #fff !important;">
+
+    <div id="bg-overlay"></div>
+
+    <div class="container pad-all">
+        <div class="cls-content-lg panel panel-colorful "
+             style="border: 1px solid #26a69a !important;padding-top:10px;width:96%;margin-top:80px;">
+            <div class="panel-title" style="background-color: transparent !important;">
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4">
+                        <a href="<?= base_url(); ?>" title="<?= lang('app_name'); ?>"><img
+                                    src="<?= base_url('assets/landing/img/onitshamarket-logo.png'); ?>"
+                                    alt="<?= lang('app_name'); ?>"
+                                    class="brand-title img-responsive"></a>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel" style="padding:20px;">
+                <div id="demo-bv-wz">
+                    <div class="wz-heading pad-top">
+
+                        <!--Nav-->
+                        <ul class="row wz-step wz-icon-bw wz-nav-off mar-top">
+                            <li class="col-xs-3">
+                                <a data-toggle="tab" href="#sell_info">
+                                    <span class="text-danger"><i class="demo-pli-male icon-2x"></i></span>
+                                    <p class="text-semibold mar-no">Seller Information</p>
+                                </a>
+                            </li>
+                            <li class="col-xs-3">
+                                <a data-toggle="tab" href="#pro_info">
+                                    <span class="text-warning"><i class="demo-pli-shopping-basket icon-2x"></i></span>
+                                    <p class="text-semibold mar-no">Product Information</p>
+                                </a>
+                            </li>
+                            <li class="col-xs-3">
+                                <a data-toggle="tab" href="#acc_det">
+                                    <span class="text-info"><i class="demo-pli-credit-card-2 icon-2x"></i></span>
+                                    <p class="text-semibold mar-no">Bank Account Details</p>
+                                </a>
+                            </li>
+                            <li class="col-xs-3">
+                                <a data-toggle="tab" href="#comp_form">
+                                    <span class="text-success"><i class="demo-pli-medal-2 icon-2x"></i></span>
+                                    <p class="text-semibold mar-no">Complete Application</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--progress bar-->
+                    <div class="progress progress-xs">
+                        <div class="progress-bar progress-bar-primary"></div>
+                    </div>
+
+
+                    <!--Form-->
+                    <form id="demo-bv-wz-formXXX" class="form-horizontal">
+                        <div class="panel-body">
+                            <div class="tab-content">
+
+                                <!--First tab-->
+                                <div id="sell_info" class="tab-pane">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label"></label>
+                                            <div class="col-lg-7" style="text-align:left;">
+
+                                                <div class="checkbox">
+                                                    <input id="bus_reg" type='checkbox' name="has_reg"
+                                                           title="Is Business Registered?"
+                                                           class="magic-checkbox">
+                                                    <label for="bus_reg">Is Business Registered?</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6" id="reg_opt" style="display: none;">
+                                            <label class="col-lg-4 control-label" for="rc_num">RC</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" name="rc_num" class="form-control"
+                                                       placeholder="00000"
+                                                       id="rc_num"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label" for="legal_company_name">Business
+                                                Name</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" placeholder="Business Name"
+                                                       required
+                                                       autofocus
+                                                       id="legal_company_name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label" for="tin">Tax Identification
+                                                Number</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" placeholder="TIN" id="tin"
+                                                       required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">First Name</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" name="firstName"
+                                                       placeholder="First Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">Last Name</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" name="lastName"
+                                                       placeholder="Last Name" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">Store Name</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" name="storeName"
+                                                       placeholder="Store Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">Phone Number</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" placeholder="080XXXXXXXX" name="phoneNumber"
+                                                       class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">Email address</label>
+                                            <div class="col-lg-7">
+                                                <input type="email" class="form-control" name="email"
+                                                       placeholder="example@gmail.com"
+                                                       required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">Store Address</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" placeholder="Store Address" name="storeAddress"
+                                                       class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Second tab-->
+                                <div id="pro_info" class="tab-pane fade">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label" for="main_category">Main
+                                                Category</label>
+                                            <div class="col-lg-7">
+                                                <select class="form-control" name="main_category" required>
+                                                    <option value="">-- Select Main Category --</option>
+                                                    <?php foreach ($categories as $category) : ?>
+                                                        <option value="<?= $category->name ?>"> <?= ucwords($category->name); ?> </option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label" for="pro_cond">Product Condition</label>
+                                            <div class="col-lg-7">
+                                                <select class="form-control" name="pro_cond" required>
+                                                    <option value="new">New</option>
+                                                    <option value="refurbished">Refurbished</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label"></label>
+                                            <div class="col-lg-7" style="text-align:left;">
+
+                                                <div class="checkbox">
+                                                    <input id="plat_reg" type='checkbox' name="has_reg"
+                                                           title="Selling with another platform?"
+                                                           class="magic-checkbox">
+                                                    <label for="plat_reg">Do you sell with another platform?</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6" id="plat_opt" style="display: none;">
+                                            <label class="col-lg-4 control-label" for="platform">Platform</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" name="rc_num" class="form-control"
+                                                       placeholder="E.g: Jumia"
+                                                       id="platform"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label" for="no_of_products">Duration</label>
+                                            <div class="col-lg-7">
+                                                <select class="form-control" name="no_of_products" required>
+                                                    <option value="1year">1year</option>
+                                                    <option value="1-5years">1 - 5years</option>
+                                                    <option value="5years+">5years +</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label" for="no_of_products">No of Products</label>
+                                            <div class="col-lg-7">
+                                                <select class="form-control" name="no_of_products" required>
+                                                    <option value="1-50">1 - 50</option>
+                                                    <option value="51-100">51 - 100</option>
+                                                    <option value="101-500">101 - 500</option>
+                                                    <option value="501-more">501 + </option>
+                                                    <option value="pack">Large Packaged Quantities</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Third tab-->
+                                <div id="acc_det" class="tab-pane">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">Bank Name</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" name="bankName"
+                                                       placeholder="Bank Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">Bank Location</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" name="bankLoc"
+                                                       placeholder="Bank Location" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">Account Name</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" name="accName"
+                                                       placeholder="Account Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">Swift/BI Code</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" placeholder="XXXXXX" name="bankCode"
+                                                       class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">Account Number</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" name="accNum"
+                                                       placeholder="XXXXXXXXXX"
+                                                       required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label" for="accType">Account Type</label>
+                                            <div class="col-lg-7">
+                                                <select class="form-control" name="accType" required>
+                                                    <option value="current">Current</option>
+                                                    <option value="savings">Savings</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Fourth tab-->
+                                <div id="comp_form" class="tab-pane  mar-btm text-center">
+                                    <h4>Thank you</h4>
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+                                        diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                        volutpat. </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Footer button-->
+                        <div class="panel-footer text-right">
+                            <div class="box-inline">
+                                <button type="button" class="previous btn btn-primary">Previous</button>
+                                <button type="button" class="next btn btn-primary">Next</button>
+                                <button type="button" class="finish btn btn-warning" disabled>Finish</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="pad-all">
+                <a href="<?= base_url(); ?>" class="btn-link mar-rgt">Go to Homepage</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="<?= base_url('assets/seller/js/jquery.min.js'); ?>"></script>
+
+<script src="<?= base_url('assets/seller/js/bootstrap.min.js'); ?>"></script>
+
+<script src="<?= base_url('assets/seller/js/nifty.min.js'); ?>"></script>
+
+
+<script src="<?= base_url('assets/seller/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
+
+<script src="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.js'); ?>"></script>
+
+<script src="<?= base_url('assets/seller/js/demo/form-wizard.js'); ?>"></script>
+<script>
+    $(document).ready(function () {
+        $('#bus_reg').change(function () {
+            if (this.checked) {
+                $('#reg_opt').fadeIn('slow');
+                $('#rc_num').attr('required', true);
+            } else {
+                $('#reg_opt').fadeOut('slow');
+                $('#rc_num').attr('required', false);
+            }
+        });
+        $('#plat_reg').change(function () {
+            if (this.checked) {
+                $('#plat_opt').fadeIn('slow');
+                $('#platform').attr('required', true);
+            } else {
+                $('#plat_opt').fadeOut('slow');
+                $('#platform').attr('required', false);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+

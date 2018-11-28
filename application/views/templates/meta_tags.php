@@ -19,7 +19,7 @@
     <link href="<?= base_url('assets/seller/css/create.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/seller/css/demo/nifty-demo-icons.min.css')?>" rel="stylesheet">
 
-    <?php if( in_array($pg_name, array('product','template'))) :?>
+    <?php if( in_array($pg_name, array('product','template','register'))) :?>
         <link href="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.css')?>" rel="stylesheet">
         <link href="<?= base_url('assets/seller/plugins/dropzone/dropzone.min.html')?>" rel="stylesheet">
         <link href="<?= base_url('assets/seller/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')?>" rel="stylesheet">
