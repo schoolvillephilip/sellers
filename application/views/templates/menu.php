@@ -142,6 +142,22 @@
                             </a>
                         </li>
                         <li class="list-divider"></li>
+                        <li <?php if($pg_name == 'report' ) echo 'class="active"'?>>
+                            <a href="javascript:;">
+                                <i class="demo-pli-bar-chart"></i>
+                                <span class="menu-title">Reports</span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse <?php if($pg_name == 'report') echo 'in';?>">
+                                <li <?php if($sub_name =='statement') echo 'class="active-link"' ?>><a href="<?= base_url('account/statement'); ?>">
+                                        <i class="demo-pli-star"></i>Account Statement</a></li>
+                                <li <?php if($sub_name == 'sales_rep') echo 'class="active-link"' ?>><a href="<?= base_url('account/sales_rep'); ?>">
+                                        <i class="demo-pli-star"></i>Sales Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-divider"></li>
                         <li class="<?php if($pg_name == 'settings') echo 'class="active"'?>">
                             <a href="javascript:;">
                                 <i class="demo-pli-gear"></i>

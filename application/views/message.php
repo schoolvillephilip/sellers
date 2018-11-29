@@ -43,7 +43,7 @@
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<ol class="breadcrumb">
 					<li><i class="demo-pli-home"></i></li>
-					<li>User</a></li>
+					<li>User</li>
 					<li class="active">Messages</li>
 				</ol>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
