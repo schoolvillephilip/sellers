@@ -260,7 +260,7 @@
                             </div>
                             <div class="col-md-7 panel-bordered-default"
                                  style="height:550px;border-left:none !important;">
-                                <div class="panel">
+                                <div class="panel" id="acc_state_table">
                                     <div class=" row text-center">
                                         <h6 class="col-md-6">Period<br/>26 Nov 2018 – 02 Dec 2018</h6><h6
                                                 class="col-md-6">Status<br/><i class="demo-pli-thunder"></i>Open</h6>
@@ -341,12 +341,13 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <button class="btn btn-primary btn-rounded btn-labeled pull-right"><i class="btn-label demo-psi-printer"></i> Print Statement</button>
-                                    </div>
+                                        </div>
                                     <!--===================================================-->
                                     <!--End Hover Rows-->
 
                                 </div>
+                                <button style="margin-top:-30px;" class="btn btn-primary btn-rounded btn-labeled pull-right" onclick="PrintElem('acc_state_table');"><i class="btn-label demo-psi-printer"></i> Print Statement</button>
+
 
                             </div>
                             <div class="col-md-5 panel-bordered-default"
@@ -383,5 +384,25 @@
 <!--JAVASCRIPT-->
 <!--=================================================-->
 <?php $this->load->view('templates/scripts'); ?>
+<script>
+    function PrintElem(elem)
+    {
+        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+
+        mywindow.document.write('<html><head><style>td{border:1px solid #222922;padding:10px;}</style><title>' + document.title  + '</title>');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write('<h1 style="text-align:center;">' + document.title  + '</h1><div style="padding:20px 0 0 90px;">');
+        mywindow.document.write(document.getElementById(elem).innerHTML);
+        mywindow.document.write('</div></body></html>');
+
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10*/
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+    }
+</script>
 </body>
 </html>
