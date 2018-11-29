@@ -36,6 +36,8 @@ class Account extends CI_Controller {
         $page_data['pg_name'] = 'report';
         $page_data['page_title'] = "Sales Report";
         $page_data['sub_name'] = "sales_rep";
+        $page_data['order_chart'] = "";
+        $page_data['gross_chart'] = "";
         $page_data['profile'] = $this->seller->get_profile($this->session->userdata('logged_id'));
         $this->load->view('sales_rep', $page_data);
     }
