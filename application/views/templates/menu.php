@@ -177,7 +177,7 @@
                         </li>
                         <!--Menu list item-->
                         <li <?php if($pg_name =='help') echo 'class="active"'?>>
-                            <a href="<?= base_url('help'); ?>">
+                            <a href="<?= base_url('pages/faq'); ?>">
                                 <i class="demo-pli-information"></i>
                                 <span class="menu-title">Help & Guidelines</span>
                             </a>

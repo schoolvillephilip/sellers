@@ -10,31 +10,160 @@
     <link rel="icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
     <link rel="canonical" href="<?= current_url(); ?>"/>
     <meta name="robots" content="noindex,nofollow">
-    <link href="<?= base_url('assets/landing/css/reset.css')?>" rel="stylesheet">
-    <link href="<?= base_url('assets/landing/css/style.css')?>" rel="stylesheet">
-    <link href="<?= base_url('assets/seller/plugins/font-awesome/css/font-awesome.min.css')?>" rel="stylesheet">
+    <link href="<?= base_url('assets/landing/css/reset.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/landing/css/style.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/seller/plugins/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet">
     <script src="<?= base_url('assets/landing/js/modernizr.js'); ?>"></script>
     <title>Sellers FAQ | Onithsamarket.com</title>
     <style>
-        .spacer{
-            height:700px;
+        .spacer {
+            height: 700px;
         }
-        .cd-faq-content{
+
+        .cd-faq-content {
             text-align: justify;
-         }
-        @media screen and (max-width: 767px){
-            .spacer{
-                height:0 !important;
+        }
+
+        @media screen and (max-width: 767px) {
+            .spacer {
+                height: 0 !important;
             }
         }
+        table{
+            width:100%;
+        }
+        tr
+        {mso-height-source:auto;
+            border: 1px solid #000;
+        }
+        col
+        {mso-width-source:auto;}
+        br
+        {mso-data-placement:same-cell;}
+        .style0
+        {mso-number-format:General;
+            text-align:general;
+            vertical-align:bottom;
+            white-space:nowrap;
+            mso-rotate:0;
+            mso-background-source:auto;
+            mso-pattern:auto;
+            color:black;
+            font-size:11.0pt;
+            font-weight:400;
+            font-style:normal;
+            text-decoration:none;
+            font-family:Calibri, sans-serif;
+            mso-font-charset:0;
+            border:none;
+            mso-protection:locked visible;
+            mso-style-name:Normal;
+            mso-style-id:0;}
+        td
+        {mso-style-parent:style0;
+            padding:5px;
+            mso-ignore:padding;
+            color:black;
+            font-size:11.0pt;
+            font-weight:400;
+            font-style:normal;
+            text-decoration:none;
+            font-family:Calibri, sans-serif;
+            mso-font-charset:0;
+            mso-number-format:General;
+            text-align:general;
+            vertical-align:bottom;
+            border:none;
+            mso-background-source:auto;
+            mso-pattern:auto;
+            mso-protection:locked visible;
+            white-space:nowrap;
+            mso-rotate:0;}
+        .xl65
+        {mso-style-parent:style0;
+            font-weight:700;}
+        .xl66
+        {mso-style-parent:style0;
+            font-weight:700;
+            mso-number-format:Percent;}
+        .xl67
+        {mso-style-parent:style0;
+            font-weight:700;
+            mso-number-format:0%;}
+        .xl68
+        {mso-style-parent:style0;
+            font-weight:700;
+            border:.5pt solid windowtext;
+            background:#FFC000;
+            mso-pattern:black none;}
+        .xl69
+        {mso-style-parent:style0;
+            font-weight:700;
+            border-top:.5pt solid windowtext;
+            border-right:.5pt solid windowtext;
+            border-bottom:none;
+            border-left:.5pt solid windowtext;
+            background:#FFC000;
+            mso-pattern:black none;}
+        .xl70
+        {mso-style-parent:style0;
+            font-weight:700;
+            border-top:none;
+            border-right:.5pt solid windowtext;
+            border-bottom:none;
+            border-left:.5pt solid windowtext;
+            background:#FFC000;
+            mso-pattern:black none;}
+        .xl71
+        {mso-style-parent:style0;
+            font-weight:700;
+            border-top:none;
+            border-right:.5pt solid windowtext;
+            border-bottom:none;
+            border-left:.5pt solid windowtext;}
+        .xl72
+        {mso-style-parent:style0;
+            font-weight:700;
+            text-align:right;
+            background:#FFC000;
+            mso-pattern:black none;}
+        .xl73
+        {mso-style-parent:style0;
+            font-weight:700;
+            text-align:right;}
+        .xl74
+        {mso-style-parent:style0;
+            font-weight:700;
+            text-align:left;
+            background:#FFC000;
+            mso-pattern:black none;}
+        .xl75
+        {mso-style-parent:style0;
+            font-weight:700;
+            text-align:left;}
+        .xl76
+        {mso-style-parent:style0;
+            text-align:left;}
+        .xl77
+        {mso-style-parent:style0;
+            text-align:right;}
+        .xl78
+        {mso-style-parent:style0;
+            mso-number-format:Percent;}
+        .xl79
+        {mso-style-parent:style0;
+            mso-number-format:0%;}
+
     </style>
 </head>
 <body>
 <header>
-    <a style="position:absolute;z-index:1;top:-70px;color:#dbdbdb;" href="<?=base_url();?>"><i class="fa fa-angle-double-left"></i> Back To Registration</a>
+    <a style="position:absolute;z-index:1;top:-70px;color:#dbdbdb;margin-left:-20px;" href="<?= base_url(); ?>"><i
+                class="fa fa-angle-double-left"></i> Go Back</a>
     <h1>Onitshamarket.com Sellers FAQ</h1>
 </header>
-<a style="position:absolute;z-index:1;top:-70px;color:#db3a2d;" href="<?=base_url();?>"><i class="fa fa-angle-double-left"></i> Back To Registration</a>
+<a style="position:absolute;z-index:1;top:-70px;color:#db3a2d;" href="<?= base_url(); ?>"><i
+            class="fa fa-angle-double-left"></i> Back To Registration</a>
 <section class="cd-faq">
     <ul class="cd-faq-categories">
         <li><a class="selected" href="#basics">Getting Started</a></li>
@@ -70,7 +199,7 @@
                     <p>To start selling on Onitshamarket.com.com is very easy. You
                         do not
                         have to pay anything to register. Just visit the website <a
-                            href="https://seller.onitshamarket.com">HERE.</a> and click
+                                href="https://seller.onitshamarket.com">HERE.</a> and click
                         on
                         "Register to sell". Once the registration details has been filled. &nbsp;You are
                         required to watch the short training videos and take the quiz. An email will be
@@ -211,7 +340,7 @@
                 <a class="cd-faq-trigger" href="#0">How do I schedule training at Onitshamarket.com?</a>
                 <div class="cd-faq-content">
                     <p>We have the basic training and advanced trainings. Please click&nbsp;<a
-                            href="https://vendorhub.onitshamarket.com/training-calendar/">here</a>&nbsp;to
+                                href="https://vendorhub.onitshamarket.com/training-calendar/">here</a>&nbsp;to
                         view the training calendar for the month</p>
                 </div> <!-- cd-faq-content -->
             </li>
@@ -223,7 +352,7 @@
                         the proficiency of our sellers.<br>
                         Attend any of our training classes online or offline to find out how you can
                         improve your performance or click <a
-                            href="https://vendorhub.onitshamarket.com/training-calendar/">here</a>
+                                href="https://vendorhub.onitshamarket.com/training-calendar/">here</a>
                         to
                         view the training calendar.</p>
                 </div> <!-- cd-faq-content -->
@@ -241,7 +370,7 @@
                         exists on Onitshamarket.com.
                         <br><br><span class="bold-text">If your product(s) already exist(s) in the Onitshamarket.com catalog:</span>
                         <br>You can easily add these products to your store one by using the <a
-                            href="https://vendorhub.onitshamarket.com/">Sell
+                                href="https://vendorhub.onitshamarket.com/">Sell
                             Yours feature</a>. All you have to do is add the SKU, the price and the
                         quantity of the product.
                         <br><br><span class="bold-text">If your product(s) don’t/doesn’t exist in the Onitshamarket.com catalog:</span>
@@ -258,8 +387,8 @@
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Available
                         Stock.
                         <br><br>Find the tutorials about product creation for each category <a
-                            href="https://vendorhub.onitshamarket.com.com.ng"
-                            target="_blank">here</a>.
+                                href="https://vendorhub.onitshamarket.com.com.ng"
+                                target="_blank">here</a>.
                         <br><br>Find the content and images guidleines about product creation for each
                         category <a href="https://onitshamarket.com/"
                                     target="_blank">here</a>.</p>
@@ -270,18 +399,18 @@
                 <a class="cd-faq-trigger" href="#0">What are the methods to upload products?</a>
                 <div class="cd-faq-content">
                     <p><span
-                            class="bold-text">There are currently four methods to upload products:</span>
+                                class="bold-text">There are currently four methods to upload products:</span>
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;<a
-                            href="#">Copy an already existing product</a> from another seller
+                                href="#">Copy an already existing product</a> from another seller
                         on Onitshamarket.com.
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Add an <a
-                            href="#">already existing products</a> from our database to your
+                                href="#">already existing products</a> from our database to your
                         shop.
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Upload your
                         products <a
-                            href="#">individually</a>.
+                                href="#">individually</a>.
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Upload <a
-                            href="#">multiple products</a> at once.</p>
+                                href="#">multiple products</a> at once.</p>
                 </div> <!-- cd-faq-content -->
             </li>
 
@@ -294,7 +423,7 @@
                         <br>All information and training resources relating to content creation are
                         available on Onitshamarket.com University.
                         <br>Click <a
-                            href="#">here</a> to find out more now.</p>
+                                href="#">here</a> to find out more now.</p>
                 </div> <!-- cd-faq-content -->
             </li>
 
@@ -323,7 +452,7 @@
                 <div class="cd-faq-content">
                     <p>You can fulfill your orders directly from the Seller Center platform.
                         <br><br>You will find tutorials to guide you through order management <a
-                            href="#">here</a></p>
+                                href="#">here</a></p>
                 </div> <!-- cd-faq-content -->
             </li>
 
@@ -348,7 +477,7 @@
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Drop off your
                         order at the closest drop off center to you within the next 24 hours
                         <br><br>Please click <a
-                            href="#">here</a> for full order-fulfillment guide on
+                                href="#">here</a> for full order-fulfillment guide on
                         Onitshamarket.com
                         University.</p>
                 </div> <!-- cd-faq-content -->
@@ -369,7 +498,7 @@
                     <p>You will be given 48 hours, excluding Sunday and Public Holidays, to
                         prepare your order and drop off at our centers before your order is cancelled.
                         Abiding to the 48-hour timeline will increase your <a
-                            href="#">seller score</a> and your customer satisfaction.</p>
+                                href="#">seller score</a> and your customer satisfaction.</p>
                 </div> <!-- cd-faq-content -->
             </li>
 
@@ -380,12 +509,12 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>1</strong>&nbsp;&nbsp;Your
                         order must be packed carefully to ensure that it is delivered to your customer
                         in its' original condition. Click<a
-                            href=#">
+                                href=#">
                             here </a> to find out what packaging materials to use based on the category,
                         and subcategory of the item. <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>2</strong>&nbsp;&nbsp;Order
                         the packaging materials in advance. Click<a
-                            href="#">
+                                href="#">
                             here </a>to know how.<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>3</strong>&nbsp;&nbsp;Click
                         <a href="#">Here</a> to order</p>
@@ -480,7 +609,7 @@
                 <a class="cd-faq-trigger" href="#0">Where are the available drop off stations?</a>
                 <div class="cd-faq-content">
                     <p>Please click&nbsp;<a
-                            href="#">here</a>&nbsp;to
+                                href="#">here</a>&nbsp;to
                         find out all the available drop off stations.</p>
                 </div> <!-- cd-faq-content -->
             </li>
@@ -489,7 +618,7 @@
                 <a class="cd-faq-trigger" href="#0">What are the working hours of the drop off stations?</a>
                 <div class="cd-faq-content">
                     <p>Please click&nbsp;<a
-                            href="#">here</a>&nbsp;to
+                                href="#">here</a>&nbsp;to
                         find out the working hours for all of our available drop off stations.</p>
                 </div> <!-- cd-faq-content -->
             </li>
@@ -532,7 +661,7 @@
                         and
                         revenues providing more customer visibility.
                         <br><br>Click <a
-                            href="#">here</a> for subscription steps.</p>
+                                href="#">here</a> for subscription steps.</p>
                 </div> <!-- cd-faq-content -->
             </li>
 
@@ -572,9 +701,9 @@
                         faster because we have them in our warehouse. It will make your customers happy,
                         and they will come back to shop your items.
                         <br><br>Find details about Onitshamarket.com Express <a
-                            href="#">here</a>.
+                                href="#">here</a>.
                         <br><br>You can subscribe to this service by filling the raise a claim form <a
-                            href="#">Here</a>.
+                                href="#">Here</a>.
                     </p>
                 </div> <!-- cd-faq-content -->
             </li>
@@ -595,12 +724,727 @@
                 <div class="cd-faq-content">
                     <p>As a basic vendor, you will only pay the commissions on each item you
                         sell. The commission depends on the category of your item and is a percentage of
-                        the selling price. However, our minimum commission level was revised to 100NGN
-                        For items sold in fashion, Health and beauty, Groceries, Baby Toys and kids. All
-                        other categories aside the ones stated are 300 NGN per item sold. This means
-                        that if the commission to be charged on a delivered item is less than 100NGN or
-                        300 NGN as previously mentioned, we will apply a flat rate of 100 NGN or 300
-                        NGN. The commissions can be found on the Seller Center.</p>
+                        the selling price. <br/>The price chart Can be seen as follows;</p>
+                    <p>
+                    <table border="1" cellpadding="0" cellspacing="2" style="border-collapse:collapse;">
+                        <tbody>
+                        <tr class="xl65" height="20" style="height:15.0pt">
+                            <td height="20" class="xl69" width="199" style="height:15.0pt;width:149pt">Root
+                                Category
+                            </td>
+                            <td class="xl74" width="216" style="width:162pt">Category</td>
+                            <td class="xl72" width="225" style="width:169pt">Sub-category</td>
+                            <td class="xl72" width="207" style="width:155pt">Commission</td>
+                        </tr>
+                        <tr class="xl65" height="20" style="height:15.0pt">
+                            <td height="20" class="xl68" style="height:15.0pt">Automobile</td>
+                            <td class="xl75"></td>
+                            <td class="xl73"></td>
+                            <td class="xl66" align="right">4.50%</td>
+                        </tr>
+                        <tr class="xl65" height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Baby, Toys &amp; Kids</td>
+                            <td class="xl75">Baby Products</td>
+                            <td class="xl73"></td>
+                            <td class="xl67" align="right">7%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Fashion for Boys</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">20%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Fashion for Girls</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">15%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Party Store</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">7%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">School Store</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">7%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Toys and Games</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">7%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Books,Movies and Music</td>
+                            <td class="xl76"></td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">7.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">TVs &amp; Electronics</td>
+                            <td class="xl76">Blu Ray &amp; DVD Players</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">4%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Cameras</td>
+                            <td class="xl77">Camcorders</td>
+                            <td class="xl78" align="right">4.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Cameras</td>
+                            <td class="xl77">Camera &amp; Photo Accessories</td>
+                            <td class="xl78" align="right">2.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Cameras</td>
+                            <td class="xl77">Digital Cameras</td>
+                            <td class="xl78" align="right">2.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Cameras</td>
+                            <td class="xl77">Digital Photo Frames</td>
+                            <td class="xl78" align="right">4.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Cameras</td>
+                            <td class="xl77">Lens</td>
+                            <td class="xl78" align="right">4.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Cameras</td>
+                            <td class="xl77">lLenses &amp; Zooms</td>
+                            <td class="xl78" align="right">4.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Cameras</td>
+                            <td class="xl77">Professional/SLR Cameras</td>
+                            <td class="xl78" align="right">2.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Cameras</td>
+                            <td class="xl77">Surveillance Camera</td>
+                            <td class="xl78" align="right">2.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Gadgets &amp; Accessories</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">4%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Home Theatre &amp; Audio</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">3%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Home Theatre &amp; Audio</td>
+                            <td class="xl77">Hi fi system</td>
+                            <td class="xl79" align="right">4%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Cameras &amp; Electronics</td>
+                            <td class="xl76">MP3 Players &amp; Accessories</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">2%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">MP3 Players &amp; Accessories</td>
+                            <td class="xl77">Docking Station</td>
+                            <td class="xl79" align="right">4%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">MP3 Players &amp; Accessories</td>
+                            <td class="xl77">Heahphones/ Earphones</td>
+                            <td class="xl79" align="right">4%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">MP3 Players &amp; Accessories</td>
+                            <td class="xl77">Mini Speaker Systems</td>
+                            <td class="xl79" align="right">4%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Musical Instruments &amp; Sono</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">4%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Power Supplies &amp; Electricals</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">4%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Televisions</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">3%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Computing</td>
+                            <td class="xl76">Bundles</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Desktops</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">4%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Laptops</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">2.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Peripherals &amp; Accessories</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">7%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Peripherals &amp; Accessories</td>
+                            <td class="xl77">Laptot Accessories</td>
+                            <td class="xl79" align="right">7%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Peripherals &amp; Accessories</td>
+                            <td class="xl77">Headphones + Speapers</td>
+                            <td class="xl78" align="right">10.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Peripherals &amp; Accessories</td>
+                            <td class="xl77">Projectors</td>
+                            <td class="xl79" align="right">6%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Printers &amp; Scanner</td>
+                            <td class="xl77">All-In-Ones</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Printers &amp; Scanner</td>
+                            <td class="xl77">Cartridges</td>
+                            <td class="xl78" align="right">10.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Printers &amp; Scanner</td>
+                            <td class="xl77">CD Printers</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Printers &amp; Scanner</td>
+                            <td class="xl77">Designjet Printers</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Printers &amp; Scanner</td>
+                            <td class="xl77">Deskjet, Inkjet &amp; Officejet Printers</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Printers &amp; Scanner</td>
+                            <td class="xl77">Laser Printers</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Printers &amp; Scanner</td>
+                            <td class="xl77">Photo Printers</td>
+                            <td class="xl78" align="right">4.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Printers &amp; Scanner</td>
+                            <td class="xl77">Scanners</td>
+                            <td class="xl79" align="right">6%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Software</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">7%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Storage</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">7.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Fashion</td>
+                            <td class="xl76">Ankara Styles</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">12%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Fabrics</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">12%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Fashion Office</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">12%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Fashion Trends</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">12%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Men's Clothing</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">12%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Men' Accessories</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">12%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Men' Shoes</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">12%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Seize Your Size</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">12%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Sports Shop</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">12%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Women's Accessories</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">12%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Women's Clothing</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">12%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Women's shoes</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">12%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Games &amp; Consoles</td>
+                            <td class="xl76">Accessories</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">2%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Board Games</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">2%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Bundles</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">6%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Consoles</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">7%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Nintendo Wii</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">2%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Playstation 3</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">2%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Playstation 4</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">2%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Video Games</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">7%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Groceries</td>
+                            <td class="xl76"></td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">5%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Health &amp; Beauty</td>
+                            <td class="xl76"></td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">8%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Phones &amp; Tablets</td>
+                            <td class="xl76">Landline Phones</td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">5%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Mobile Phones</td>
+                            <td class="xl77">Basic Phones</td>
+                            <td class="xl79" align="right">2%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Mobile Phones</td>
+                            <td class="xl77">Mobile Accessories</td>
+                            <td class="xl79" align="right">7%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Mobile Phones</td>
+                            <td class="xl77">Smartphones</td>
+                            <td class="xl79" align="right">2%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Tablets</td>
+                            <td class="xl77">All Brands</td>
+                            <td class="xl79" align="right">3%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Tablets</td>
+                            <td class="xl77">iPad</td>
+                            <td class="xl79" align="right">3%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Tablets</td>
+                            <td class="xl77">Tablet Accessories</td>
+                            <td class="xl79" align="right">7%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Service Deals</td>
+                            <td class="xl76"></td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">21%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Temptations</td>
+                            <td class="xl76"></td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">10%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Travel Bags &amp;<span
+                                        style="mso-spacerun:yes">&nbsp; </span>Luggage
+                            </td>
+                            <td class="xl76"></td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">10.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Watches &amp; Sunglasses</td>
+                            <td class="xl76"></td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">15%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Weddings</td>
+                            <td class="xl76"></td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">15%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Home &amp;Office</td>
+                            <td class="xl76"></td>
+                            <td class="xl77"></td>
+                            <td class="xl79" align="right">15%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Home &amp; Furniture</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Stationary</td>
+                            <td class="xl78" align="right">7.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Lightening</td>
+                            <td class="xl79" align="right">4%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Kitchen &amp; Dining</td>
+                            <td class="xl78" align="right">6.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Home Repairs</td>
+                            <td class="xl78" align="right">6.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Home Décor</td>
+                            <td class="xl78" align="right">6.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Fueniture</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Bedding</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Bathing</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Pet Store</td>
+                            <td class="xl78" align="right">6.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Outdoor<span style="mso-spacerun:yes">&nbsp; </span>&amp; Garden</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Storage &amp; Organization</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Appliances</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">7.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Washings &amp; Dryers</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Small Appliances</td>
+                            <td class="xl78" align="right">3.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Fridges &amp;<span style="mso-spacerun:yes">&nbsp; </span>Freezers</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Dish Washers</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Colling Appliances</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Cooking Appliances</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Heater</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Hot Water<span style="mso-spacerun:yes">&nbsp; </span>System</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Garden</td>
+                            <td class="xl77"></td>
+                            <td></td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Garden Accessories</td>
+                            <td class="xl78" align="right">7.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Garden Disinfectants</td>
+                            <td class="xl78" align="right">7.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Mowers</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Gardening Tools</td>
+                            <td class="xl78" align="right">7.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Watering Equipment</td>
+                            <td class="xl78" align="right">7.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76"></td>
+                            <td class="xl77">Plants &amp; Seeds</td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Office Furniture</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">5.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl70" style="height:15.0pt">Sports Fitness</td>
+                            <td class="xl76"></td>
+                            <td class="xl77"></td>
+                            <td></td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Fitness</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">4.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Nutrition</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">4.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Team Sports</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">4.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Racquet<span style="mso-spacerun:yes">&nbsp; </span>Sports</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">4.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Outdoor &amp; Adventure</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">4.50%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Other Sports</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">4.00%</td>
+                        </tr>
+                        <tr height="20" style="height:15.0pt">
+                            <td height="20" class="xl71" style="height:15.0pt">&nbsp;</td>
+                            <td class="xl76">Indoor Sports</td>
+                            <td class="xl77"></td>
+                            <td class="xl78" align="right">4.50%</td>
+                        </tr>
+                        <!--[if supportMisalignedColumns]-->
+                        <tr height="0" style="display:none">
+                            <td width="199" style="width:149pt"></td>
+                            <td width="216" style="width:162pt"></td>
+                            <td width="225" style="width:169pt"></td>
+                            <td width="207" style="width:155pt"></td>
+                        </tr>
+                        <!--[endif]-->
+                        </tbody>
+                    </table>
+                    </p>
                 </div> <!-- cd-faq-content -->
             </li>
 
@@ -610,7 +1454,7 @@
                     <p>Both the commission and the value added services fees will be deducted
                         from your payment.
                         <br><br>You can always check your payment in your <a
-                            href="#">account statement</a>.</p>
+                                href="#">account statement</a>.</p>
                 </div> <!-- cd-faq-content -->
             </li>
 
@@ -642,16 +1486,17 @@
                     products?</a>
                 <div class="cd-faq-content">
                     <p>Click <a
-                            href="#">here</a>
+                                href="#">here</a>
                     </p>
                 </div> <!-- cd-faq-content -->
             </li>
 
             <li>
-                <a class="cd-faq-trigger" href="#0">Where can I find Onitshamarket.com’s Terms and Conditions for sellers?</a>
+                <a class="cd-faq-trigger" href="#0">Where can I find Onitshamarket.com’s Terms and Conditions for
+                    sellers?</a>
                 <div class="cd-faq-content">
                     <p>Sellers Terms and Conditions are to be found on Seller Center. Click <a
-                            href="#">HERE</a> to view it.</p>
+                                href="#">HERE</a> to view it.</p>
                 </div> <!-- cd-faq-content -->
             </li>
 
