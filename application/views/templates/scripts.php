@@ -20,7 +20,7 @@
 
 <?php endif; ?>
 
-<?php if( in_array($pg_name, array('overview'))) :?>
+<?php if( in_array($pg_name, array('overview','report'))) :?>
     <script src="<?= base_url('assets/seller/plugins/datatables/media/js/jquery.dataTables.js'); ?>"></script>
     <script src="<?= base_url('assets/seller/plugins/datatables/media/js/dataTables.bootstrap.js'); ?>"></script>
     <script src="<?= base_url('assets/seller/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js'); ?>"></script>

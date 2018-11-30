@@ -3,8 +3,9 @@
     .list-group-item {
         border: 0 !important;
     }
+
     td p {
-        margin:12px;
+        margin: 12px;
     }
 </style>
 </head>
@@ -49,41 +50,47 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <div class="panel panel-bordered-dark panel-colorful">
-                                    <div class="pad-all text-center">
-                                        <span class="text-3x text-thin">&#8358; 0</span>
-                                        <p>DUE AND UNPAID</p>
-                                        <i class="demo-pli-credit-card-2 icon-lg"></i>
+                                <a href="javascript:;" onclick="trigger('#due_trig');">
+                                    <div class="panel panel-bordered-dark panel-colorful">
+                                        <div class="pad-all text-center">
+                                            <span class="text-3x text-thin">&#8358; 0</span>
+                                            <p>DUE AND UNPAID</p>
+                                            <i class="demo-pli-credit-card-2 icon-lg"></i>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-md-3">
-                                <div class="panel panel-bordered-primary panel-colorful">
-                                    <div class="pad-all text-center">
-                                        <span class="text-3x text-thin">&#8358; 0</span>
-                                        <p>OPEN STATEMENT</p>
-                                        <i class="demo-pli-credit-card-2 icon-lg"></i>
+                                <a href="javascript:;" onclick="trigger('#open_trig');">
+                                    <div class="panel panel-bordered-primary panel-colorful">
+                                        <div class="pad-all text-center">
+                                            <span class="text-3x text-thin">&#8358; 0</span>
+                                            <p>OPEN STATEMENT</p>
+                                            <i class="demo-pli-credit-card-2 icon-lg"></i>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="panel panel-bordered-pink panel-colorful">
                                     <div class="pad-all text-center">
-                                        <span class="text-3x text-thin">&#8358; 0</span>
+                                        <span class="text-3x text-thin">0</span>
                                         <p>MY DASHBOARD</p>
                                         <i class="demo-pli-credit-card-2 icon-lg"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="panel panel-bordered-purple panel-colorful">
-                                    <div class="pad-all text-center">
-                                        <span class="text-3x text-thin">&#8358; 0</span>
-                                        <p>PAID IN LAST 3 MONTHS</p>
-                                        <i class="demo-pli-credit-card-2 icon-lg"></i>
+                                <a href="<?=base_url('account/txn_overview')?>">
+                                    <div class="panel panel-bordered-purple panel-colorful">
+                                        <div class="pad-all text-center">
+                                            <span class="text-3x text-thin">&#8358; 0</span>
+                                            <p>PAID IN LAST 3 MONTHS</p>
+                                            <i class="demo-pli-credit-card-2 icon-lg"></i>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
 
                         </div>
@@ -103,7 +110,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a data-toggle="tab" href="#demo-tabs2-box-2">Open
+                                                    <a data-toggle="tab" href="#demo-tabs2-box-2" id="open_trig">Open
                                                     </a>
                                                 </li>
                                                 <li>
@@ -111,7 +118,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a data-toggle="tab" href="#demo-tabs2-box-4">Unpaid
+                                                    <a data-toggle="tab" href="#demo-tabs2-box-4" id="due_trig">Unpaid
                                                     </a>
                                                 </li>
                                             </ul>
@@ -317,7 +324,8 @@
                                                 <td>
                                                     <p class="text-muted">Others</p>
                                                 </td>
-                                                <td class="text-center"><p class="text-success text-semibold">&#8358; 0.00</p>
+                                                <td class="text-center"><p class="text-success text-semibold">&#8358;
+                                                        0.00</p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -327,7 +335,8 @@
                                                 <td>
                                                     <p class="text-muted">Total Balance</p>
                                                 </td>
-                                                <td class="text-center"><p class="text-success text-semibold">&#8358; 0.00</p>
+                                                <td class="text-center"><p class="text-success text-semibold">&#8358;
+                                                        0.00</p>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -341,12 +350,16 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        </div>
+                                    </div>
                                     <!--===================================================-->
                                     <!--End Hover Rows-->
 
                                 </div>
-                                <button style="margin-top:-30px;" class="btn btn-primary btn-rounded btn-labeled pull-right" onclick="PrintElem('acc_state_table');"><i class="btn-label demo-psi-printer"></i> Print Statement</button>
+                                <button style="margin-top:-30px;"
+                                        class="btn btn-primary btn-rounded btn-labeled pull-right"
+                                        onclick="PrintElem('acc_state_table');"><i
+                                            class="btn-label demo-psi-printer"></i> Print Statement
+                                </button>
 
 
                             </div>
@@ -385,13 +398,12 @@
 <!--=================================================-->
 <?php $this->load->view('templates/scripts'); ?>
 <script>
-    function PrintElem(elem)
-    {
+    function PrintElem(elem) {
         var mywindow = window.open('', 'PRINT', 'height=400,width=600');
 
-        mywindow.document.write('<html><head><style>td{border:1px solid #222922;padding:10px;}</style><title>' + document.title  + '</title>');
+        mywindow.document.write('<html><head><style>td{border:1px solid #222922;padding:10px;}</style><title>' + document.title + '</title>');
         mywindow.document.write('</head><body >');
-        mywindow.document.write('<h1 style="text-align:center;">' + document.title  + '</h1><div style="padding:20px 0 0 90px;">');
+        mywindow.document.write('<h1 style="text-align:center;">' + document.title + '</h1><div style="padding:20px 0 0 90px;">');
         mywindow.document.write(document.getElementById(elem).innerHTML);
         mywindow.document.write('</div></body></html>');
 
@@ -402,6 +414,10 @@
         mywindow.close();
 
         return true;
+    }
+
+    function trigger(e) {
+        $(e).click();
     }
 </script>
 </body>

@@ -26,12 +26,7 @@
         <link href="<?= base_url('assets/seller/plugins/bootstrap-select/bootstrap-select.min.css')?>" rel="stylesheet">
         <link href="<?= base_url('assets/seller/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css')?>" rel="stylesheet">
     <?php endif; ?>
-    <?php if( in_array($pg_name, array('manage_product','overview','message') ) ): ?>
-        <!--DataTables [ OPTIONAL ]-->
-        <link href="<?= base_url('assets/seller/plugins/datatables/media/css/dataTables.bootstrap.css'); ?>" rel="stylesheet">
-        <link href="<?= base_url('assets/seller/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css'); ?>" rel="stylesheet">
-    <?php endif;?>
-    <?php if( in_array($pg_name, array('overview','message') ) ): ?>
+    <?php if( in_array($pg_name, array('manage_product','overview','message','report') ) ): ?>
         <!--DataTables [ OPTIONAL ]-->
         <link href="<?= base_url('assets/seller/plugins/datatables/media/css/dataTables.bootstrap.css'); ?>" rel="stylesheet">
         <link href="<?= base_url('assets/seller/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css'); ?>" rel="stylesheet">

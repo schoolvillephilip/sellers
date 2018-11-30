@@ -1,22 +1,4 @@
 <?php $this->load->view('templates/meta_tags'); ?>
-<style>
-    .mail-list-unread {
-        font-weight: 800;
-    }
-
-    .mail-list-read {
-        font-weight: 100 !important;
-    }
-
-    .mail-from {
-        width: 61% !important;
-    }
-
-    .active-message {
-        border-left: 3px solid #2BA27D;
-    }
-
-</style>
 </head>
 <body>
 <div id="container" class="effect aside-float aside-bright mainnav-lg">
@@ -67,7 +49,7 @@
                             </div>
                             <!--Chart information-->
                             <div class="panel-body">
-                                <div id="sellerchart" style="height: 350px; margin-bottom: 40px;"></div>
+                                <div id="sellersaleschart" style="height: 350px; margin-bottom: 40px;"></div>
                             </div>
                         </div>
 
@@ -80,7 +62,7 @@
                             </div>
                             <!--Chart information-->
                             <div class="panel-body">
-                                <div id="sellerchart" style="height: 350px; margin-bottom: 40px;"></div>
+                                <div id="sellergrosschart" style="height: 350px; margin-bottom: 40px;"></div>
                             </div>
                         </div>
                     </div>
