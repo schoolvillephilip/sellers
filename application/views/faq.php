@@ -29,130 +29,181 @@
                 height: 0 !important;
             }
         }
-        table{
-            width:100%;
+
+        table {
+            width: 100%;
         }
-        tr
-        {mso-height-source:auto;
+
+        tr {
+            mso-height-source: auto;
             border: 1px solid #000;
         }
-        col
-        {mso-width-source:auto;}
-        br
-        {mso-data-placement:same-cell;}
-        .style0
-        {mso-number-format:General;
-            text-align:general;
-            vertical-align:bottom;
-            white-space:nowrap;
-            mso-rotate:0;
-            mso-background-source:auto;
-            mso-pattern:auto;
-            color:black;
-            font-size:11.0pt;
-            font-weight:400;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            border:none;
-            mso-protection:locked visible;
-            mso-style-name:Normal;
-            mso-style-id:0;}
-        td
-        {mso-style-parent:style0;
-            padding:5px;
-            mso-ignore:padding;
-            color:black;
-            font-size:11.0pt;
-            font-weight:400;
-            font-style:normal;
-            text-decoration:none;
-            font-family:Calibri, sans-serif;
-            mso-font-charset:0;
-            mso-number-format:General;
-            text-align:general;
-            vertical-align:bottom;
-            border:none;
-            mso-background-source:auto;
-            mso-pattern:auto;
-            mso-protection:locked visible;
-            white-space:nowrap;
-            mso-rotate:0;}
-        .xl65
-        {mso-style-parent:style0;
-            font-weight:700;}
-        .xl66
-        {mso-style-parent:style0;
-            font-weight:700;
-            mso-number-format:Percent;}
-        .xl67
-        {mso-style-parent:style0;
-            font-weight:700;
-            mso-number-format:0%;}
-        .xl68
-        {mso-style-parent:style0;
-            font-weight:700;
-            border:.5pt solid windowtext;
-            background:#FFC000;
-            mso-pattern:black none;}
-        .xl69
-        {mso-style-parent:style0;
-            font-weight:700;
-            border-top:.5pt solid windowtext;
-            border-right:.5pt solid windowtext;
-            border-bottom:none;
-            border-left:.5pt solid windowtext;
-            background:#FFC000;
-            mso-pattern:black none;}
-        .xl70
-        {mso-style-parent:style0;
-            font-weight:700;
-            border-top:none;
-            border-right:.5pt solid windowtext;
-            border-bottom:none;
-            border-left:.5pt solid windowtext;
-            background:#FFC000;
-            mso-pattern:black none;}
-        .xl71
-        {mso-style-parent:style0;
-            font-weight:700;
-            border-top:none;
-            border-right:.5pt solid windowtext;
-            border-bottom:none;
-            border-left:.5pt solid windowtext;}
-        .xl72
-        {mso-style-parent:style0;
-            font-weight:700;
-            text-align:right;
-            background:#FFC000;
-            mso-pattern:black none;}
-        .xl73
-        {mso-style-parent:style0;
-            font-weight:700;
-            text-align:right;}
-        .xl74
-        {mso-style-parent:style0;
-            font-weight:700;
-            text-align:left;
-            background:#FFC000;
-            mso-pattern:black none;}
-        .xl75
-        {mso-style-parent:style0;
-            font-weight:700;
-            text-align:left;}
-        .xl76
-        {mso-style-parent:style0;
-            text-align:left;}
-        .xl77
-        {mso-style-parent:style0;
-            text-align:right;}
-        .xl78
-        {mso-style-parent:style0;
-            mso-number-format:Percent;}
-        .xl79
-        {mso-style-parent:style0;
-            mso-number-format:0%;}
+
+        thead > tr > th {
+            background-color: #35bbae;
+            color: white;
+            font-size: 18px;
+            font-weight: bolder;
+            padding: 10px;
+        }
+
+        tr:nth-child(even){
+        background: #cecece;
+        }
+        col {
+            mso-width-source: auto;
+        }
+
+        br {
+            mso-data-placement: same-cell;
+        }
+
+        .style0 {
+            mso-number-format: General;
+            text-align: general;
+            vertical-align: bottom;
+            white-space: nowrap;
+            mso-rotate: 0;
+            mso-background-source: auto;
+            mso-pattern: auto;
+            color: black;
+            font-size: 11.0pt;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            font-family: Calibri, sans-serif;
+            mso-font-charset: 0;
+            border: none;
+            mso-protection: locked visible;
+            mso-style-name: Normal;
+            mso-style-id: 0;
+        }
+
+        td {
+            mso-style-parent: style0;
+            padding: 5px;
+            mso-ignore: padding;
+            color: black;
+            font-size: 11.0pt;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            font-family: Calibri, sans-serif;
+            mso-font-charset: 0;
+            mso-number-format: General;
+            text-align: general;
+            vertical-align: bottom;
+            border: none;
+            mso-background-source: auto;
+            mso-pattern: auto;
+            mso-protection: locked visible;
+            white-space: nowrap;
+            mso-rotate: 0;
+        }
+
+        .xl65 {
+            mso-style-parent: style0;
+            font-weight: 700;
+        }
+
+        .xl66 {
+            mso-style-parent: style0;
+            font-weight: 700;
+            mso-number-format: Percent;
+        }
+
+        .xl67 {
+            mso-style-parent: style0;
+            font-weight: 700;
+            mso-number-format: 0%;
+        }
+
+        .xl68 {
+            mso-style-parent: style0;
+            font-weight: 700;
+            border: .5pt solid windowtext;
+            background: #FFC000;
+            mso-pattern: black none;
+        }
+
+        .xl69 {
+            mso-style-parent: style0;
+            font-weight: 700;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: #FFC000;
+            mso-pattern: black none;
+        }
+
+        .xl70 {
+            mso-style-parent: style0;
+            font-weight: 700;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: #FFC000;
+            mso-pattern: black none;
+        }
+
+        .xl71 {
+            mso-style-parent: style0;
+            font-weight: 700;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+        }
+
+        .xl72 {
+            mso-style-parent: style0;
+            font-weight: 700;
+            text-align: right;
+            background: #FFC000;
+            mso-pattern: black none;
+        }
+
+        .xl73 {
+            mso-style-parent: style0;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .xl74 {
+            mso-style-parent: style0;
+            font-weight: 700;
+            text-align: left;
+            background: #FFC000;
+            mso-pattern: black none;
+        }
+
+        .xl75 {
+            mso-style-parent: style0;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .xl76 {
+            mso-style-parent: style0;
+            text-align: left;
+        }
+
+        .xl77 {
+            mso-style-parent: style0;
+            text-align: right;
+        }
+
+        .xl78 {
+            mso-style-parent: style0;
+            mso-number-format: Percent;
+        }
+
+        .xl79 {
+            mso-style-parent: style0;
+            mso-number-format: 0%;
+        }
 
     </style>
 </head>
@@ -727,15 +778,17 @@
                         the selling price. <br/>The price chart Can be seen as follows;</p>
                     <p>
                     <table border="1" cellpadding="0" cellspacing="2" style="border-collapse:collapse;">
-                        <tbody>
-                        <tr class="xl65" height="20" style="height:15.0pt">
-                            <td height="20" class="xl69" width="199" style="height:15.0pt;width:149pt">Root
+                        <thead class="xl65" height="20" style="height:15.0pt">
+                        <tr>
+                            <th height="20"  width="199" style="height:15.0pt;width:149pt">Root
                                 Category
-                            </td>
-                            <td class="xl74" width="216" style="width:162pt">Category</td>
-                            <td class="xl72" width="225" style="width:169pt">Sub-category</td>
-                            <td class="xl72" width="207" style="width:155pt">Commission</td>
+                            </th>
+                            <th width="216" style="width:162pt">Category</th>
+                            <th width="225" style="width:169pt;text-align:right;">Sub-category</th>
+                            <th width="207" style="width:155pt;text-align:right;">Commission</th>
                         </tr>
+                        </thead>
+                        <tbody>
                         <tr class="xl65" height="20" style="height:15.0pt">
                             <td height="20" class="xl68" style="height:15.0pt">Automobile</td>
                             <td class="xl75"></td>
