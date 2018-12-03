@@ -23,14 +23,14 @@ class Register extends CI_Controller{
         $page_data['pg_name'] = 'regintro';
         $page_data['meta_tags'] = array('css/bootstrap.min.css','css/nifty.min.css','css/nifty-demo-icons.min.css','css/nifty-demo.min.css');
         $page_data['scripts'] = array('js/jquery.min.js','js/bootstrap.min.js', 'js/nifty.min.js');
-        $this->load->view('regintro', $page_data);
+        $this->load->view('introduction', $page_data);
     }
     public function form(){
     $page_data['page_title'] = 'Seller Registration';
     $page_data['pg_name'] = 'register';
     $page_data['meta_tags'] = array('css/bootstrap.min.css','css/nifty.min.css','css/nifty-demo-icons.min.css','css/nifty-demo.min.css');
     $page_data['scripts'] = array('js/jquery.min.js','js/bootstrap.min.js', 'js/nifty.min.js');
-    $this->load->view('regpro', $page_data);
+    $this->load->view('register', $page_data);
 }
 
     /*
