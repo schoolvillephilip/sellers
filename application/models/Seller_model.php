@@ -187,20 +187,6 @@ Class Seller_model extends CI_Model
      * @return DB_result_array
      */
 
-
-    function get_main_categories()
-    {
-        $this->db->select('id, name');
-        $this->db->where('pid', 0);
-        return $this->db->get('categories')->result();
-    }
-
-    /**
-     * @param $id
-     * @param $label
-     * @return DB_result_array
-     */
-
     function get_category_children($pid)
     {
         $this->db->select('id, name');

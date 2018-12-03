@@ -1,26 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Product extends CI_Controller{
+class Product extends MY_Controller{
 
     public function __construct(){
         parent::__construct();
-        $this->load->model('seller_model', 'seller');
-        if( !$this->session->userdata('logged_in') ){
-            // Ursher the person to where he is coming from
-            $from = $this->session->userdata('referred_from');
-            if( !empty($from) ) redirect($from);
-            redirect('login');
-        }
-         // $this->output->enable_profiler(TRUE);
-        $user = $this->seller->get_profile( $this->session->userdata('logged_id') );
-        if( $user->is_seller == 'false' ){
-            $this->session->set_flashdata('success_msg','Please complete the below form to become a seller!');
-            redirect('application');
-        }elseif( $user->is_seller == 'pending'){
-            $this->session->set_flashdata('success_msg','Your account is under review.');
-            redirect('application/status');
-        } 
     }
 
     public function index(){
@@ -38,7 +22,7 @@ class Product extends CI_Controller{
             $page_data['sub_name'] = 'select_category';
             $page_data['profile'] = $this->seller->get_profile_details($uid,
                 'first_name,last_name,email,profile_pic');
-            $page_data['categories'] = $this->seller->get_main_categories();
+            $page_data['categories'] = $this->seller->get_results('categories', 'id,name', "( pid = 0)" );
             $this->load->view('choose_category', $page_data);
         }
     }
@@ -248,6 +232,8 @@ class Product extends CI_Controller{
                 $return['message'] = 'Error: There was an error submitting one of the Image. Go to "Manage Product" to fix it.';
             }else{
                 // New product mail to be sent to the seller
+
+
                 $this->session->unset_userdata('category_id');
                 $return['status'] = 'success';
                 $return['message'] = 'Success: Your product has been created, awaiting reviews and approval. You will be notified via email.';

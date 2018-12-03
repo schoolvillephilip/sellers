@@ -1,26 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Orders extends CI_Controller{
+class Orders extends MY_Controller{
 
     public function __construct(){
         parent::__construct();
-        $this->load->model('seller_model', 'seller');
-        if( !$this->session->userdata('logged_in') ){
-            // Ursher the person to where he is coming from
-            $from = $this->session->userdata('referred_from');
-            if( !empty($from) ) redirect($this->session->userdata('referred_from'));
-            redirect('login');
-        }  
-
-        $user = $this->seller->get_profile( $this->session->userdata('logged_id') );
-        if( $user->is_seller == 'false' ){
-            $this->session->set_flashdata('success_msg','Please complete the below form to become a seller!');
-            redirect('application');
-        }elseif( $user->is_seller == 'pending'){
-            $this->session->set_flashdata('success_msg','Your account is under review.');
-            redirect('application/status');
-        }        
     }
 
     public function index(){
