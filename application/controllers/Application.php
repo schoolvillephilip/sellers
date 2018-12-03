@@ -1,11 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Application extends CI_Controller{
 
     public function __construct(){
         parent::__construct();
-        $this->load->model('seller_model', 'seller');
         if( !$this->session->userdata('logged_in') ){
             // Ursher the person to where he is coming from
             $referred_from = $this->session->userdata('referred_from');
@@ -73,8 +71,8 @@ class Application extends CI_Controller{
 
     function status(){
         $user = $this->seller->get_profile( $this->session->userdata('logged_id') );
-        if( $user->is_seller == 'false'){
-            $this->session->set_flashdata('success_msg','Please fill in the form to become a seller');
+        if( $user && $user->is_seller == 'false'){
+            $this->session->set_flashdata('success_msg','Please fill in the form to become a seller.');
             redirect('application');
         }
         $page_data['status'] = $this->seller->get_seller_status($this->session->userdata('logged_id'));
@@ -83,7 +81,7 @@ class Application extends CI_Controller{
         $page_data['sub_name'] = 'application_status';
         $page_data['meta_tags'] = array( 'css/bootstrap.min.css','css/nifty.min.css','css/nifty-demo-icons.min.css','css/nifty-demo.min.css');
         $page_data['scripts'] = array('js/jquery.min.js','js/bootstrap.min.js', 'js/nifty.min.js');
-        $this->load->view('seller/application_status', $page_data);
+        $this->load->view('application_status', $page_data);
 
     }
 }
