@@ -114,7 +114,7 @@
 
 
                     <!--Form-->
-                    <form id="demo-bv-wz-formc" class="form-horizontal">
+                    <form id="demo-bv-wz-form" class="form-horizontal">
                         <div class="panel-body">
                             <div class="tab-content">
 
