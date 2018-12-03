@@ -75,9 +75,9 @@
                 </div>
             </div>
             <div class="panel" style="padding:20px;">
+                <?php $this->load->view('msg_view'); ?>
                 <div id="demo-bv-wz">
                     <div class="wz-heading pad-top">
-
                         <!--Nav-->
                         <ul class="row wz-step wz-icon-bw wz-nav-off mar-top">
                             <li class="col-xs-3">
@@ -120,6 +120,7 @@
 
                                 <!--First tab-->
                                 <div id="sell_info" class="tab-pane">
+                                    <h4 class="text-center"></h4>
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label" for="legal_company_name">Business
@@ -160,7 +161,7 @@
                                             <label class="col-lg-4 control-label">Store Name</label>
                                             <div class="col-lg-7">
                                                 <input type="text" class="form-control" name="store_name"
-                                                       placeholder="Store Name" required>
+                                                       placeholder="This can also be your legal business name" required>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
@@ -190,6 +191,22 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">Create Password</label>
+                                            <div class="col-lg-7">
+                                                <input type="password" class="form-control" name="password"
+                                                       required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label">Confirm Password</label>
+                                            <div class="col-lg-7">
+                                                <input type="password" placeholder="Confirm Password" name="confirm_password"
+                                                       class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label"></label>
                                             <div class="col-lg-7" style="text-align:left;">
 
@@ -197,7 +214,7 @@
                                                     <input id="bus_reg" type='checkbox' name="has_reg"
                                                            title="Is Business Registered?"
                                                            class="magic-checkbox">
-                                                    <label for="bus_reg">Is Business Registered?</label>
+                                                    <label for="bus_reg">Is Your Business Registered?</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -209,34 +226,6 @@
                                                        id="rc_num"/>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h4 class="text-center">One Time Onitshamarket Agent login</h4>
-                                        <form action="<?=base_url('register/form')?>" method="post">
-                                            <div class="md-form mb-5">
-                                                <div class="col-md-3 text-right">
-                                                    <i class="fa fa-envelope prefix grey-text fa-2x"></i>
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <input type="email" id="is_user_email" class="form-control" required>
-                                                </div>
-                                            </div>
-
-                                            <div class="md-form mb-4">
-                                                <div class="col-md-3 text-right" style="margin-top:10px;margin-bottom:10px;">
-                                                    <i class="fa fa-lock prefix grey-text fa-2x"></i>
-                                                </div>
-                                                <div class="col-md-7" style="margin-top:10px;margin-bottom:10px;">
-                                                    <input type="password" id="is_user_password" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 text-center">
-                                                <input type="submit" class="btn btn-primary" id="login" value="Confirm User"/>
-                                                <button class="btn btn-danger" data-dismiss="modal">
-                                                    New User
-                                                </button>
-                                            </div>
-                                        </form>
                                     </div>
                                 </div>
 
@@ -321,31 +310,21 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Bank Name</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="bankName"
-                                                       placeholder="Bank Name" required>
+                                                <select name="required" class="form-control">
+                                                    <option value="">-- Select Bank Name-- </option>
+                                                    <?php $banks = explode(',', lang('banks'));
+                                                        foreach( $banks as $bank) :
+                                                    ?>
+                                                    <option value="<?= trim($bank); ?>"><?= trim($bank); ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <label class="col-lg-4 control-label">Bank Location</label>
-                                            <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="bankLoc"
-                                                       placeholder="Bank Location" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Account Name</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="accName"
+                                                <input type="text" class="form-control" name="account_name"
                                                        placeholder="Account Name" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label class="col-lg-4 control-label">Swift/BI Code</label>
-                                            <div class="col-lg-7">
-                                                <input type="text" placeholder="XXXXXX" name="bankCode"
-                                                       class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -353,15 +332,15 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Account Number</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="accNum"
+                                                <input type="text" class="form-control" name="account_number"
                                                        placeholder="XXXXXXXXXX"
                                                        required>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="col-lg-4 control-label" for="accType">Account Type</label>
+                                            <label class="col-lg-4 control-label" for="account_type">Account Type</label>
                                             <div class="col-lg-7">
-                                                <select class="form-control" name="accType" required>
+                                                <select class="form-control" name="account_type" required>
                                                     <option value="current">Current</option>
                                                     <option value="savings">Savings</option>
                                                 </select>
@@ -492,9 +471,7 @@
                         </div>
                     </form>
                 </div>
-
             </div>
-
             <div class="pad-all">
                 <a href="<?= base_url(); ?>" class="btn-link mar-rgt">Go to Homepage</a>
             </div>
