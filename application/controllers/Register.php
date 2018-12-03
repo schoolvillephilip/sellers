@@ -31,33 +31,8 @@ class Register extends CI_Controller{
         $page_data['pg_name'] = 'register';
         $page_data['meta_tags'] = array('css/bootstrap.min.css','css/nifty.min.css','css/nifty-demo-icons.min.css','css/nifty-demo.min.css');
         $page_data['scripts'] = array('js/jquery.min.js','js/bootstrap.min.js', 'js/nifty.min.js');
+        $page_data['categories'] = $this->seller->get_results('categories', 'id,name', " ( pid = 0) ");
         $this->load->view('register', $page_data);
-    }
-
-    function check_email()
-    {
-        if ($this->input->is_ajax_request()) {
-            $check_data = array(
-                'email' => urlencode(cleanit($this->input->post('email'))),
-                'password' => cleanit($this->input->post('password'))
-            );
-            var_dump($check_data);
-            $user = $this->seller->login( $check_data);
-            $data = array(
-                'first_name' => '',
-                'last_name' => '',
-                'phone' => '',
-            );
-            if ($user) {
-                $data['first_name'] = $user->first_name;
-                $data['last_name'] = $user->last_name;
-                $data['phone'] = $user->phone;
-            }
-            echo json_encode($data);
-            exit;
-        } else {
-            redirect('login');
-        }
     }
 
     /*
@@ -95,54 +70,48 @@ class Register extends CI_Controller{
                 'account_type' => $this->input->post('account_type')
             );
             $user_data = array(
+                'is_seller' => 'pending',
                 'first_name' => $this->input->post('first_name'),
                 'last_name' => $this->input->post('last_name'),
-                'phone' => $this->input->post('phone')
+                'phone' => $this->input->post('phone_number')
             );
             if( $user ){
                 // we are updating
+                $seller_data['uid'] = $user->id;
+                if( $this->seller->create_account( $seller_data, 'sellers')){
+                    $this->seller->update_data( $user->id, $user_data, 'users');
+                    $this->session->set_flashdata('success_msg', 'Congrats your application has been received and under review, you will be mailed on the update.');
+                    // Email Model
+                    redirect('application/status');
+                }else{
+                    $this->session->set_flashdata('error_msg', 'There was an error creating your seller account, please you can contact support if it persist.');
+                    redirect('register');
+                }
             }else{
                 // we are creating
-            }
-            $salt = salt(50);
-            $data = array(
-                'first_name' => $this->input->post('firstname'),
-                'last_name' => $this->input->post('lastname'),
-                'email' => $this->input->post('email'),
-                'salt' => $salt,
-                'password' => shaPassword($this->input->post('password'), $salt),
-                'ip' => $_SERVER['REMOTE_ADDR'],
-                'date_registered' => get_now(),
-                'last_login' => get_now(),
-                'is_seller' => 'pending'
-            );
+                $user_data['email'] = $this->input->post('email');
+                $salt = salt(50);
+                $user_data['password'] = shaPassword($this->input->post('password'), $salt);
+                $user_data['salt'] = $salt;
+                $user_data['date_registered'] = get_now();
+                $user_data['last_login'] = get_now();
+                $user_data['is_seller'] = 'pending';
 
-            $user_id = $this->seller->create_account($data, 'users');
-            if( !is_numeric($user_id) ) {
-                // check if site is live
-                // if( $lang['site_state'] == 'development' ) {
-                //     $output_array['message'] = $user_id;
-                // }
-                $this->session->set_flashdata('error_msg','Sorry! There was an error creating your account.' . $user_id);
-                redirect($_SERVER['HTTP_REFERER']);
-            }else{
-                // @TODO
-                // Congrats we have a new registered user
-                // Add user session
-                // Send a Welcoming Mail to the user
-                // Check if he was trying to check out and usher them there
-                // Any other action to perform. 
-                $data = array(
-                    'email' => $this->input->post('email'),
-                    'password' => $this->input->post('password')
-                );
-                $this->session->set_flashdata('success_msg','Congrat! Your account has been created successfully... Under review, you will be notified on approval.');
-                $user_id = $this->seller->login($data);
-                $session_data = array('logged_in' => true, 'logged_id' => $user_id, 'email' => $data['email'], 'seller_status' => 'pending');
-                $this->session->set_userdata($session_data);
-                redirect('application/status');
-                // // To ursher them to where they are coming from...
-                // redirect('product');
+                $user_id = $this->seller->create_account($user_data, 'users');
+                if( !is_numeric( $user_id )){
+                    $this->session->set_flashdata('error_msg', 'There was an error creating your account, please you can contact support if it persist.');
+                    redirect('register');
+                }else{
+                    $seller_data['uid'] = $user_id;
+                    if( $this->seller->create_account( $seller_data, 'sellers') ){
+                        // Email Model
+                        $this->session->set_flashdata('success_msg', 'Congrats your application has been received and under review, you will be mailed on the update.');
+                        redirect('application/status');
+                    }else{
+                        $this->session->set_flashdata('error_msg', 'There was an error creating your seller account, please you can contact support if it persist.');
+                        redirect('register');
+                    }
+                }
             }
         } 
     }
