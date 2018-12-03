@@ -33,22 +33,6 @@
     <link href="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.css'); ?>"
           rel="stylesheet">
 
-    <style>
-        .modal-dialog.cascading-modal.modal-avatar .modal-header {
-            -webkit-box-shadow: none;
-            box-shadow: none;
-            margin: -6rem 0 -1rem;
-        }
-
-        .modal-dialog.cascading-modal.modal-avatar .modal-header {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .modal-dialog.cascading-modal.modal-avatar {
-            margin-top: 6rem;
-        }
-    </style>
 
 </head>
 <body>
@@ -128,14 +112,14 @@
                                             <div class="col-lg-7">
                                                 <input type="text" class="form-control" placeholder="Business Name"
                                                        autofocus
-                                                       id="legal_company_name" required>
+                                                       id="legal_company_name" name="legal_company_name" required>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label" for="tin">Tax Identification
                                                 Number</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" placeholder="TIN" id="tin"
+                                                <input type="text" class="form-control" placeholder="TIN" id="tin" name="tin"
                                                        required>
                                             </div>
                                         </div>
@@ -193,7 +177,7 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Create Password</label>
                                             <div class="col-lg-7">
-                                                <input type="password" class="form-control" name="password"
+                                                <input type="password" placeholder="Password" class="form-control" name="password"
                                                        required>
                                             </div>
                                         </div>
