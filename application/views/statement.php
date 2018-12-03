@@ -95,8 +95,8 @@
 
                         </div>
                         <div class="row">
-                            <div class="col-md-5 panel-bordered-default"
-                                 style="height:450px;border-right:none !important;padding:20px 10px 0;">
+                            <div class="col-md-5"
+                                 style="height:450px;padding:20px 10px 0;">
                                 <!--Panel with Tabs (Icon)-->
                                 <!--===================================================-->
                                 <div class="panel panel-default">
@@ -265,8 +265,8 @@
                                 <!--End Panel with Tabs (Icon)-->
 
                             </div>
-                            <div class="col-md-7 panel-bordered-default"
-                                 style="height:550px;border-left:none !important;">
+                            <div class="col-md-7"
+                                 style="height:550px;">
                                 <div class="panel" id="acc_state_table">
                                     <div class=" row text-center">
                                         <h6 class="col-md-6">Period<br/>26 Nov 2018 – 02 Dec 2018</h6><h6
@@ -363,8 +363,6 @@
 
 
                             </div>
-                            <div class="col-md-5 panel-bordered-default"
-                                 style="margin-top:-100px;height:100px;border-left:none !important;border-top:none !important;border-bottom:none !important;"></div>
                         </div>
                     </div>
                 </div>
