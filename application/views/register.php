@@ -147,14 +147,14 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">First Name</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="firstName"
+                                                <input type="text" class="form-control" name="first_name" id="first_name"
                                                        placeholder="First Name" required>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Last Name</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="lastName"
+                                                <input type="text" class="form-control" name="last_name" id="last_name"
                                                        placeholder="Last Name" required>
                                             </div>
                                         </div>
@@ -163,14 +163,14 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Store Name</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="storeName"
+                                                <input type="text" class="form-control" name="store_name"
                                                        placeholder="Store Name" required>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Phone Number</label>
                                             <div class="col-lg-7">
-                                                <input type="text" placeholder="080XXXXXXXX" name="phoneNumber"
+                                                <input type="text" placeholder="080XXXXXXXX" name="phone_number"
                                                        class="form-control" required>
                                             </div>
                                         </div>
@@ -187,7 +187,7 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Store Address</label>
                                             <div class="col-lg-7">
-                                                <input type="text" placeholder="Store Address" name="storeAddress"
+                                                <input type="text" placeholder="Store Address" name="store_address"
                                                        class="form-control" required>
                                             </div>
                                         </div>
@@ -235,7 +235,7 @@
                                             <label class="col-lg-4 control-label" for="pro_cond">Product
                                                 Condition</label>
                                             <div class="col-lg-7">
-                                                <select class="form-control" name="pro_cond" required>
+                                                <select class="form-control" name="product_condition" required>
                                                     <option value="new">New</option>
                                                     <option value="refurbished">Refurbished</option>
                                                 </select>
@@ -486,30 +486,33 @@
                         </button>
                     </div>
                     <div class="modal-body mx-3">
-                        <div class="md-form mb-5">
-                            <div class="col-md-3 text-right">
-                                <i class="fa fa-envelope prefix grey-text fa-2x"></i>
+                        <form action="<?=base_url('register/form')?>" method="post">
+                            <div class="md-form mb-5">
+                                <div class="col-md-3 text-right">
+                                    <i class="fa fa-envelope prefix grey-text fa-2x"></i>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="email" id="is_user_email" class="form-control" required>
+                                </div>
                             </div>
-                            <div class="col-md-7">
-                                <input type="email" id="is_user_email" class="form-control" required>
-                            </div>
-                        </div>
 
-                        <div class="md-form mb-4">
-                            <div class="col-md-3 text-right">
-                                <i class="fa fa-lock prefix grey-text fa-2x"></i>
+                            <div class="md-form mb-4">
+                                <div class="col-md-3 text-right">
+                                    <i class="fa fa-lock prefix grey-text fa-2x"></i>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="password" id="is_user_password" class="form-control" required>
+                                </div>
                             </div>
-                            <div class="col-md-7">
-                                <input type="password" id="is_user_password" class="form-control" required>
-                            </div>
-                        </div>
+                            <input type="submit" class="btn btn-primary" id="login" value="Confirm User"/>
+                            <button class="btn btn-danger" data-dismiss="modal">
+                                New User
+                            </button>
+                        </form>
 
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-primary" id="login">Confirm User</button>
-                        <button class="btn btn-danger" data-dismiss="modal">
-                            New User
-                        </button>
+
                     </div>
                 </div>
             </div>
@@ -567,11 +570,15 @@
 
         if (email && password) {
             $.ajax({
-                url: 'ajax/',
+                url: 'check_email',
                 method: 'GET',
                 data: {email: email, password: password},
                 success: function (response) {
-
+                    var data = $.parseJSON(response);
+                    console.log(data.first_name)
+                    $('#first_name').val(data.first_name);
+                    $('#last_name').val(data.last_name);
+                    $('#phone_number').val(data.phone);
                 },
                 error: () => {
 

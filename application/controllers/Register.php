@@ -36,7 +36,7 @@ class Register extends CI_Controller{
 
     function check_email()
     {
-        if (!$this->input->is_ajax_request()) {
+        if ($this->input->is_ajax_request()) {
             $check_data = array(
                 'email' => cleanit($this->input->post('email')),
                 'password' => cleanit($this->input->post('password'))
