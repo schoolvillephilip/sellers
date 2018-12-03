@@ -2,7 +2,6 @@
 
 Class Seller_model extends CI_Model
 {
-
     // Insert data
     function insert_data($table = 'users', $data = array())
     {
@@ -139,11 +138,6 @@ Class Seller_model extends CI_Model
         return $this->db->get('users')->row();
     }
 
-//SELECT * FROM elections WHERE election_id NOT IN (
-//SELECT elections.election_id from elections
-//JOIN votes USING(election_id)
-//WHERE votes.user_id='x'
-//)
     function get_product($id, $status = '')
     {
         switch ($status) {
@@ -154,7 +148,7 @@ Class Seller_model extends CI_Model
             case 'suspended':
                 $query = "SELECT p.product_name, p.id,p.sku,p.created_on,p.product_status,AVG(v.sale_price) AS sale_price, AVG(v.discount_price) AS discount_price FROM
                 products AS p  INNER JOIN product_variation AS v ON v.product_id = p.id WHERE p.seller_id = ? AND p.product_status = ? GROUP BY p.id ";
-                return $this->db->query($query, array($id,$status))->result_array();
+                return $this->db->query($query, array($id, $status))->result_array();
                 break;
             case 'missing_images':
                 $query = "SELECT p.product_name, p.id,p.sku,p.created_on,p.product_status,AVG(v.sale_price) AS sale_price, AVG(v.discount_price) AS discount_price FROM
@@ -209,6 +203,17 @@ Class Seller_model extends CI_Model
     *Function to get the parent category of a particular category
     *Called the parent_recurssive
     */
+
+    function get_parent_details($id)
+    {
+        $array = $this->parent_slug_top($id);
+        return $this->db->query("SELECT name, slug, description, specifications FROM categories WHERE id IN ('" . implode("','", $array) . "')")->result();
+    }
+
+    /*
+        Return an object (name, slug, description, specifications) of all the parent of a category
+    */
+
     function parent_slug_top($id)
     {
         // Select category
@@ -232,19 +237,11 @@ Class Seller_model extends CI_Model
 
     }
 
-    /*
-        Return an object (name, slug, description, specifications) of all the parent of a category
-    */
-    function get_parent_details($id)
-    {
-        $array = $this->parent_slug_top($id);
-        return $this->db->query("SELECT name, slug, description, specifications FROM categories WHERE id IN ('" . implode("','", $array) . "')")->result();
-    }
-
 
     /*
     *Called by the parent_slug top, helps to generate the parent id
     */
+
     function parent_recurssive($pid)
     {
         $category_pid = $pid;
@@ -343,7 +340,8 @@ Class Seller_model extends CI_Model
      * @param $productid
      * @return CI_DB_result_array
      */
-    function get_orders($id = '', $status = ''){
+    function get_orders($id = '', $status = '')
+    {
 
         $query = "SELECT p.product_name,p.id pid,v.variation, p.created_on created_on, o.order_date,o.id orid, g.image_name,o.qty,o.amount, o.status
                 FROM products p 
@@ -351,7 +349,9 @@ Class Seller_model extends CI_Model
                 LEFT JOIN product_gallery g ON (g.product_id = p.id AND g.featured_image = 1)
                 LEFT JOIN product_variation v ON (v.product_id = p.id)
                 WHERE o.seller_id = $id";
-        if( $status != '') { $query .= " AND o.status = '{$status}'"; }
+        if ($status != '') {
+            $query .= " AND o.status = '{$status}'";
+        }
         return $this->db->query($query)->result();
     }
 
@@ -386,7 +386,6 @@ Class Seller_model extends CI_Model
             }
         }
     }
-    // Get row
     // Get a row of a paticular table
     // Return CI_row
     function get_row($table_name, $select = '', $condition = '')
@@ -425,6 +424,4 @@ Class Seller_model extends CI_Model
     {
         return $this->db->query($query);
     }
-
-
 }

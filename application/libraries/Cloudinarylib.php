@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Cloudinarylib {
+
+class Cloudinarylib
+{
 
     public function __construct()
     {

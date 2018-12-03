@@ -9,8 +9,6 @@
     <link rel="icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
     <link rel="canonical" href="<?= current_url(); ?>"/>
     <meta name="robots" content="noindex,nofollow">
-    <!--=================================================-->
-    <!--Open Sans Font [ OPTIONAL ]-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -19,7 +17,6 @@
     <link href="<?= base_url('assets/seller/css/create.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/seller/css/demo/nifty-demo-icons.min.css')?>" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('assets/landing/css/font-awesome.css'); ?>">
-
     <?php if( in_array($pg_name, array('product','template','register'))) :?>
         <link href="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.css')?>" rel="stylesheet">
         <link href="<?= base_url('assets/seller/plugins/dropzone/dropzone.min.html')?>" rel="stylesheet">
