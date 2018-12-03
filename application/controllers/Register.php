@@ -37,8 +37,11 @@ class Register extends CI_Controller{
     function check_email()
     {
         if (!$this->input->is_ajax_request()) {
-            $email = $this->input->post('email');
-            $user = $this->seller->get_row('users', 'id', "( email = {$email})");
+            $check_data = array(
+                'email' => cleanit($this->input->post('email')),
+                'password' => cleanit($this->input->post('password'))
+            );
+            $user = $this->seller->login( $check_data);
             $data = array(
                 'first_name' => '',
                 'last_name' => '',
