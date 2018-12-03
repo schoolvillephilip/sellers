@@ -16,7 +16,6 @@
             <div class="panel-title" style="background-color: transparent !important;">
                 <div class="row">
                     <div class="col-md-4">
-
                     </div>
                     <div class="col-md-4">
                         <a href="<?= base_url(); ?>">
@@ -25,11 +24,11 @@
                         </a>
                     </div>
                     <div class="col-md-4">
-
                     </div>
                 </div>
             </div>
             <div class="panel-body">
+                    
 		            <div class="mar-ver pad-btm">
 		                <h1 class="h3 text-2x">Login</h1>
 		                <p class="text-semibold">Sign In to your seller account</p>

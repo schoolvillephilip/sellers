@@ -98,7 +98,7 @@
 
 
                     <!--Form-->
-                    <?= form_open('register/process', 'id="demo-bv-wz-form" class="form-horizontal"') ?>
+                    <?= form_open('register/process', 'id="" class="form-horizontal"') ?>
                         <div class="panel-body">
                             <div class="tab-content">
 
@@ -287,7 +287,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <!--Third tab-->
                                 <div id="acc_det" class="tab-pane">
                                     <div class="row">
@@ -444,7 +443,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!--Footer button-->
                         <div class="panel-footer text-center">
                             <div class="box-inline">
