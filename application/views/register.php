@@ -98,7 +98,7 @@
 
 
                     <!--Form-->
-                    <form id="demo-bv-wz-form" class="form-horizontal">
+                    <?= form_open('register/process', 'id="demo-bv-wz-form" class="form-horizontal"') ?>
                         <div class="panel-body">
                             <div class="tab-content">
 
@@ -450,10 +450,10 @@
                             <div class="box-inline">
                                 <button type="button" class="previous btn btn-primary">Previous</button>
                                 <button type="button" class="next btn btn-primary">Next</button>
-                                <button type="button" class="finish btn btn-warning" disabled>Finish</button>
+                                <button type="submit" class="finish btn btn-warning" disabled>Finish</button>
                             </div>
                         </div>
-                    </form>
+                    <?= form_close(); ?>
                 </div>
             </div>
             <div class="pad-all">
