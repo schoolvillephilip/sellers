@@ -25,13 +25,15 @@ class Register extends CI_Controller{
         $page_data['scripts'] = array('js/jquery.min.js','js/bootstrap.min.js', 'js/nifty.min.js');
         $this->load->view('regintro', $page_data);
     }
+
     public function form(){
-    $page_data['page_title'] = 'Seller Registration';
-    $page_data['pg_name'] = 'register';
-    $page_data['meta_tags'] = array('css/bootstrap.min.css','css/nifty.min.css','css/nifty-demo-icons.min.css','css/nifty-demo.min.css');
-    $page_data['scripts'] = array('js/jquery.min.js','js/bootstrap.min.js', 'js/nifty.min.js');
-    $this->load->view('regpro', $page_data);
-}
+        $page_data['page_title'] = 'Seller Registration';
+        $page_data['pg_name'] = 'register';
+        $page_data['meta_tags'] = array('css/bootstrap.min.css','css/nifty.min.css','css/nifty-demo-icons.min.css','css/nifty-demo.min.css');
+        $page_data['scripts'] = array('js/jquery.min.js','js/bootstrap.min.js', 'js/nifty.min.js');
+        $page_data['categories'] = $this->seller->get_results('categories', 'id,name', "( pid = 0)" );
+        $this->load->view('regpro', $page_data);
+    }
 
     /*
      * @Incoming : accepts the sign up POST parameters
@@ -41,7 +43,7 @@ class Register extends CI_Controller{
         // $this->output->enable_profiler(TRUE);    
         $this->form_validation->set_rules('firstname', 'First Name','trim|required|xss_clean');
         $this->form_validation->set_rules('lastname', 'Last Name','trim|required|xss_clean');
-        $this->form_validation->set_rules('email', 'Email Address','trim|required|xss_clean|valid_email|is_unique[users.email]',array('is_unique' => 'Sorry! This %s has already been registered!'));
+        $this->form_validation->set_rules('email', 'Email Address','trim|required|xss_clean|valid_email');
         // $this->form_validation->set_message('is_unique', 'The %s is already taken');
         $this->form_validation->set_rules('password', 'Password','trim|required|xss_clean|min_length[8]|max_length[15]');
         $this->form_validation->set_rules('confirm_password', 'Password','trim|required|xss_clean|min_length[8]|max_length[15]|matches[password]');
@@ -49,6 +51,34 @@ class Register extends CI_Controller{
             $this->session->set_flashdata('error_msg','<strong>There was an error when creating the account. Please fix the following</strong> <br />' . validation_errors() );
             redirect('register');
         }else{
+            // Check if email address is in the system
+            $email = $this->input->post('email');
+            $user = $this->seller->get_row('users','id', "( email = {$email})");
+            $license_to_sell = ( $this->input->post('license_to_sell') == true ) ? 1 : 0;
+            $seller_data = array(
+                'legal_company_name' => $this->input->post('legal_company_name'),
+                'address' => $this->input->post('address'),
+                'tin' => $this->input->post('tin'),
+                'main_category' => $this->input->post('main_category'),
+                'license_to_sell' => $license_to_sell,
+                'reg_no' => $this->input->post('reg_no'),
+                'no_of_products' => $this->input->post('no_of_products'),
+                'product_condition' => $this->input->post('product_condition'),
+                'account_number' => $this->input->post('account_number'),
+                'account_name' => $this->input->post('account_name'),
+                'bank_name' => $this->input->post('bank_name'),
+                'account_type' => $this->input->post('account_type')
+            );
+            $user_data = array(
+                'first_name' => $this->input->post('first_name'),
+                'last_name' => $this->input->post('last_name'),
+                'phone' => $this->input->post('phone')
+            );
+            if( $user ){
+                // we are updating
+            }else{
+                // we are creating
+            }
             $salt = salt(50);
             $data = array(
                 'first_name' => $this->input->post('firstname'),

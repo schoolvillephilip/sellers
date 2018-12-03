@@ -1,27 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Overview extends CI_Controller
+class Overview extends MY_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('seller_model', 'seller');
-        if (!$this->session->userdata('logged_in')) {
-            redirect('login');
-        }
-
-
-        // die( $this->session->userdata('logged_id')) ;
-        $user = $this->seller->get_profile($this->session->userdata('logged_id'));
-        if ($user->is_seller == 'false') {
-            $this->session->set_flashdata('success_msg', 'Please complete the below form to become a seller!');
-            redirect('application');
-        } elseif ($user->is_seller == 'pending') {
-            $this->session->set_flashdata('success_msg', 'Your account is under review.');
-            redirect('application/status');
-        }
 
     }
 

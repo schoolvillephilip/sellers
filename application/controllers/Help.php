@@ -10,7 +10,7 @@ class Help extends CI_Controller{
             // Ursher the person to where he is coming from
             $from = $this->session->userdata('referred_from');
             if( !empty( $from ) ) redirect($from);
-            redirect('seller/login');
+            redirect('login');
         }
         // $this->output->enable_profiler(TRUE);
 
@@ -20,7 +20,7 @@ class Help extends CI_Controller{
             redirect('seller/application');
         }elseif( $user->is_seller == 'pending'){
             $this->session->set_flashdata('success_msg','Your account is under review.');
-            redirect('seller/application/status');
+            redirect('application/status');
         } 
     }
     
@@ -29,7 +29,7 @@ class Help extends CI_Controller{
         $page_data['page_title'] = 'Help and Guidelines';
         $page_data['pg_name'] = 'help';
         $page_data['sub_name'] = '';
-        $this->load->view('seller/help', $page_data);
+        $this->load->view('help', $page_data);
 
     }
 

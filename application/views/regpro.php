@@ -1,34 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from www.themeon.net/nifty/v2.9.1/forms-wizard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Jul 2018 07:32:32 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title><?= $page_title; ?> | Onitshamarket.com</title>
+    <title><?= $page_title; ?> | <?= lang('app_name'); ?></title>
     <link rel="shortcut icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
     <link rel="icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
     <link rel="canonical" href="<?= current_url(); ?>"/>
     <meta name="robots" content="noindex,nofollow">
-
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
     <link href="<?= base_url('assets/seller/css/bootstrap.min.css'); ?>" rel="stylesheet">
-
     <link href="<?= base_url('assets/seller/css/nifty.min.css'); ?>" rel="stylesheet">
-
-
     <link href="<?= base_url('assets/seller/css/demo/nifty-demo-icons.min.css'); ?>" rel="stylesheet">
-
-
     <link href="<?= base_url('assets/seller/plugins/pace/pace.min.css'); ?>" rel="stylesheet">
     <script src="<?= base_url('assets/seller/plugins/pace/pace.min.js'); ?>"></script>
-
     <link href="<?= base_url('assets/seller/css/demo/nifty-demo.min.css'); ?>" rel="stylesheet">
-
     <link href="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.css'); ?>"
           rel="stylesheet">
 
@@ -60,7 +48,6 @@
             <div class="panel" style="padding:20px;">
                 <div id="demo-bv-wz">
                     <div class="wz-heading pad-top">
-
                         <!--Nav-->
                         <ul class="row wz-step wz-icon-bw wz-nav-off mar-top">
                             <li class="col-xs-3">
@@ -94,8 +81,6 @@
                     <div class="progress progress-xs">
                         <div class="progress-bar progress-bar-primary"></div>
                     </div>
-
-
                     <!--Form-->
                     <form id="demo-bv-wz-form" class="form-horizontal">
                         <div class="panel-body">
@@ -103,34 +88,13 @@
 
                                 <!--First tab-->
                                 <div id="sell_info" class="tab-pane">
-                                    <div class="row">
-                                        <div class="form-group col-md-6">
-                                            <label class="col-lg-4 control-label"></label>
-                                            <div class="col-lg-7" style="text-align:left;">
-
-                                                <div class="checkbox">
-                                                    <input id="bus_reg" type='checkbox' name="has_reg"
-                                                           title="Is Business Registered?"
-                                                           class="magic-checkbox">
-                                                    <label for="bus_reg">Is Business Registered?</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-6" id="reg_opt" style="display: none;">
-                                            <label class="col-lg-4 control-label" for="rc_num">RC</label>
-                                            <div class="col-lg-7">
-                                                <input type="text" name="rc_num" class="form-control"
-                                                       placeholder="00000"
-                                                       id="rc_num"/>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h5 class="text-semibold text-center text-dark">Please note that your...</h5><br />
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label" for="legal_company_name">Business
                                                 Name</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" placeholder="Business Name"
+                                                <input type="text" class="form-control" name="business_name" placeholder="Business Name"
                                                        autofocus
                                                        id="legal_company_name" required>
                                             </div>
@@ -139,7 +103,7 @@
                                             <label class="col-lg-4 control-label" for="tin">Tax Identification
                                                 Number</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" placeholder="TIN" id="tin"
+                                                <input type="text" class="form-control" name="tin" placeholder="TIN" id="tin"
                                                        required>
                                             </div>
                                         </div>
@@ -148,14 +112,14 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">First Name</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="firstName"
+                                                <input type="text" class="form-control" name="first_name"
                                                        placeholder="First Name" required>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Last Name</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="lastName"
+                                                <input type="text" class="form-control" name="last_name"
                                                        placeholder="Last Name" required>
                                             </div>
                                         </div>
@@ -164,14 +128,14 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Store Name</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="storeName"
+                                                <input type="text" class="form-control" name="legal_company_name"
                                                        placeholder="Store Name" required>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Phone Number</label>
                                             <div class="col-lg-7">
-                                                <input type="text" placeholder="080XXXXXXXX" name="phoneNumber"
+                                                <input type="text" placeholder="080XXXXXXXX" name="phone"
                                                        class="form-control" required>
                                             </div>
                                         </div>
@@ -188,8 +152,29 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Store Address</label>
                                             <div class="col-lg-7">
-                                                <input type="text" placeholder="Store Address" name="storeAddress"
+                                                <input type="text" placeholder="Store Address" name="address"
                                                        class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label"></label>
+                                            <div class="col-lg-7" style="text-align:left;">
+                                                <div class="checkbox">
+                                                    <input id="bus_reg" type='checkbox' name="license_to_sell"
+                                                           title="Is Your Business Registered?"
+                                                           class="magic-checkbox">
+                                                    <label for="bus_reg">Is Your Business Registered?</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6" id="reg_opt" style="display: none;">
+                                            <label class="col-lg-4 control-label" for="rc_num">RC</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" name="reg_no" class="form-control"
+                                                       placeholder="00000"
+                                                       id="rc_num"/>
                                             </div>
                                         </div>
                                     </div>
@@ -214,7 +199,7 @@
                                             <label class="col-lg-4 control-label" for="pro_cond">Product
                                                 Condition</label>
                                             <div class="col-lg-7">
-                                                <select class="form-control" name="pro_cond" required>
+                                                <select class="form-control" name="product_condition" required>
                                                     <option value="new">New</option>
                                                     <option value="refurbished">Refurbished</option>
                                                 </select>
@@ -237,8 +222,8 @@
                                         <div class="form-group col-md-6" id="plat_opt" style="display: none;">
                                             <label class="col-lg-4 control-label" for="platform">Platform</label>
                                             <div class="col-lg-7">
-                                                <input type="text" name="rc_num" class="form-control"
-                                                       placeholder="E.g: Jumia"
+                                                <input type="text" name="platform_selling" class="form-control"
+                                                       placeholder="E.g: Jumia.com.ng, Konga.com, Kara.com.ng, jiji.ng"
                                                        id="platform"/>
                                             </div>
                                         </div>
@@ -276,15 +261,8 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Bank Name</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="bankName"
+                                                <input type="text" class="form-control" name="bank_name"
                                                        placeholder="Bank Name" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label class="col-lg-4 control-label">Bank Location</label>
-                                            <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="bankLoc"
-                                                       placeholder="Bank Location" required>
                                             </div>
                                         </div>
                                     </div>
@@ -292,15 +270,8 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Account Name</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="accName"
+                                                <input type="text" class="form-control" name="account_name"
                                                        placeholder="Account Name" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label class="col-lg-4 control-label">Swift/BI Code</label>
-                                            <div class="col-lg-7">
-                                                <input type="text" placeholder="XXXXXX" name="bankCode"
-                                                       class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -308,7 +279,7 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label">Account Number</label>
                                             <div class="col-lg-7">
-                                                <input type="text" class="form-control" name="accNum"
+                                                <input type="text" class="form-control" name="account_number"
                                                        placeholder="XXXXXXXXXX"
                                                        required>
                                             </div>
@@ -316,7 +287,7 @@
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label" for="accType">Account Type</label>
                                             <div class="col-lg-7">
-                                                <select class="form-control" name="accType" required>
+                                                <select class="form-control" name="account_type" required>
                                                     <option value="current">Current</option>
                                                     <option value="savings">Savings</option>
                                                 </select>
@@ -442,7 +413,7 @@
                             <div class="box-inline">
                                 <button type="button" class="previous btn btn-primary">Previous</button>
                                 <button type="button" class="next btn btn-primary">Next</button>
-                                <button type="button" class="finish btn btn-warning" disabled>Finish</button>
+                                <button type="submit" class="finish btn btn-warning" disabled>Finish</button>
                             </div>
                         </div>
                     </form>
