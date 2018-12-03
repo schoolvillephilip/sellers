@@ -71,10 +71,6 @@
                                     class="brand-title img-responsive"></a>
                     </div>
                     <div class="col-md-4">
-                        <div class="text-center" style="vertical-align: middle;">
-                            <a href="" class="btn btn-warning btn-rounded mb-4" data-toggle="modal"
-                               data-target="#is_registered">Already have a User Account?</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -214,7 +210,34 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <h4 class="text-center">One Time Onitshamarket Agent login</h4>
+                                        <form action="<?=base_url('register/form')?>" method="post">
+                                            <div class="md-form mb-5">
+                                                <div class="col-md-3 text-right">
+                                                    <i class="fa fa-envelope prefix grey-text fa-2x"></i>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="email" id="is_user_email" class="form-control" required>
+                                                </div>
+                                            </div>
 
+                                            <div class="md-form mb-4">
+                                                <div class="col-md-3 text-right" style="margin-top:10px;margin-bottom:10px;">
+                                                    <i class="fa fa-lock prefix grey-text fa-2x"></i>
+                                                </div>
+                                                <div class="col-md-7" style="margin-top:10px;margin-bottom:10px;">
+                                                    <input type="password" id="is_user_password" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 text-center">
+                                                <input type="submit" class="btn btn-primary" id="login" value="Confirm User"/>
+                                                <button class="btn btn-danger" data-dismiss="modal">
+                                                    New User
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
 
                                 <!--Second tab-->
@@ -476,48 +499,6 @@
                 <a href="<?= base_url(); ?>" class="btn-link mar-rgt">Go to Homepage</a>
             </div>
         </div>
-        <div class="modal fade" id="is_registered" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header text-center">
-                        <h4 class="modal-title w-100 font-weight-bold">Do you already have an account with us?</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body mx-3">
-                        <?= form_open('register/form'); ?>
-                            <div class="md-form mb-5">
-                                <div class="col-md-3 text-right">
-                                    <i class="fa fa-envelope prefix grey-text fa-2x"></i>
-                                </div>
-                                <div class="col-md-7">
-                                    <input type="email" name="email" id="is_user_email" class="form-control" required>
-                                </div>
-                            </div>
-
-                            <div class="md-form mb-4">
-                                <div class="col-md-3 text-right">
-                                    <i class="fa fa-lock prefix grey-text fa-2x"></i>
-                                </div>
-                                <div class="col-md-7">
-                                    <input type="password" name="password" id="is_user_password" class="form-control" required>
-                                </div>
-                            </div>
-                            <input type="submit" class="btn btn-primary" id="login" value="Confirm User"/>
-                            <button class="btn btn-danger" data-dismiss="modal">
-                                New User
-                            </button>
-                        <?= form_close();?>
-
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center">
-
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 
@@ -560,33 +541,6 @@
             $('#terms').removeAttr('disabled');
         }
     });
-</script>
-<script>
-    $(document).ready(function () {
-        $('#is_registered').modal('show');
-    });
-    $('#login').on('click', function () {
-        var email = $('#is_user_email').val();
-        var password = $('#is_user_password').val();
-
-        if (email && password) {
-            $.ajax({
-                url: 'check_email',
-                method: 'GET',
-                data: {email: email, password: password},
-                success: function (response) {
-                    var data = $.parseJSON(response);
-                    console.log(data.first_name)
-                    $('#first_name').val(data.first_name);
-                    $('#last_name').val(data.last_name);
-                    $('#phone_number').val(data.phone);
-                },
-                error: () => {
-
-                }
-            })
-        }
-    })
 </script>
 </body>
 </html>

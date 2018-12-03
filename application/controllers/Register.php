@@ -38,9 +38,10 @@ class Register extends CI_Controller{
     {
         if ($this->input->is_ajax_request()) {
             $check_data = array(
-                'email' => cleanit($this->input->post('email')),
+                'email' => urlencode(cleanit($this->input->post('email'))),
                 'password' => cleanit($this->input->post('password'))
             );
+            var_dump($check_data);
             $user = $this->seller->login( $check_data);
             $data = array(
                 'first_name' => '',
