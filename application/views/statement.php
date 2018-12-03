@@ -96,7 +96,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-5"
-                                 style="height:450px;padding:20px 10px 0;">
+                                 style="height:550px;padding:20px 10px 0;">
                                 <!--Panel with Tabs (Icon)-->
                                 <!--===================================================-->
                                 <div class="panel panel-default">
