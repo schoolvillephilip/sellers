@@ -21,6 +21,8 @@ class Register extends CI_Controller{
     public function index(){
         $page_data['page_title'] = 'Register to be part of the community';
         $page_data['pg_name'] = 'regintro';
+        $page_data['meta_tags'] = array('css/bootstrap.min.css','css/nifty.min.css','css/nifty-demo-icons.min.css','css/nifty-demo.min.css');
+        $page_data['scripts'] = array('js/jquery.min.js','js/bootstrap.min.js', 'js/nifty.min.js');
         $this->load->view('introduction', $page_data);
     }
 
@@ -28,7 +30,8 @@ class Register extends CI_Controller{
         $page_data['page_title'] = 'Seller Registration';
         $page_data['pg_name'] = 'register';
         $page_data['categories'] = $this->seller->get_results('categories', 'id,name', " ( pid = 0) ");
-//        $this->session->set_flashdata('error_msg', 'Error');
+        $page_data['meta_tags'] = array('css/bootstrap.min.css','css/nifty.min.css','css/nifty-demo-icons.min.css','css/nifty-demo.min.css');
+        $page_data['scripts'] = array('js/jquery.min.js','js/bootstrap.min.js', 'js/nifty.min.js');
         $this->load->view('register', $page_data);
     }
     /*
