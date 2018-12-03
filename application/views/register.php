@@ -214,6 +214,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
                                 <!--Second tab-->
@@ -486,13 +487,13 @@
                         </button>
                     </div>
                     <div class="modal-body mx-3">
-                        <form action="<?=base_url('register/form')?>" method="post">
+                        <?= form_open('register/form'); ?>
                             <div class="md-form mb-5">
                                 <div class="col-md-3 text-right">
                                     <i class="fa fa-envelope prefix grey-text fa-2x"></i>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="email" id="is_user_email" class="form-control" required>
+                                    <input type="email" name="email" id="is_user_email" class="form-control" required>
                                 </div>
                             </div>
 
@@ -501,14 +502,14 @@
                                     <i class="fa fa-lock prefix grey-text fa-2x"></i>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="password" id="is_user_password" class="form-control" required>
+                                    <input type="password" name="password" id="is_user_password" class="form-control" required>
                                 </div>
                             </div>
                             <input type="submit" class="btn btn-primary" id="login" value="Confirm User"/>
                             <button class="btn btn-danger" data-dismiss="modal">
                                 New User
                             </button>
-                        </form>
+                        <?= form_close();?>
 
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
