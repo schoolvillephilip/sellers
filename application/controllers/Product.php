@@ -232,6 +232,8 @@ class Product extends MY_Controller{
                 $return['message'] = 'Error: There was an error submitting one of the Image. Go to "Manage Product" to fix it.';
             }else{
                 // New product mail to be sent to the seller
+
+
                 $this->session->unset_userdata('category_id');
                 $return['status'] = 'success';
                 $return['message'] = 'Success: Your product has been created, awaiting reviews and approval. You will be notified via email.';
