@@ -114,7 +114,7 @@
 
 
                     <!--Form-->
-                    <form id="demo-bv-wz-form" class="form-horizontal">
+                    <form id="demo-bv-wz-formc" class="form-horizontal">
                         <div class="panel-body">
                             <div class="tab-content">
 
@@ -374,7 +374,7 @@
                                 <div id="comp_form" class="tab-pane  mar-btm text-center">
                                     <h4>Sellers Agreement</h4>
                                     <div class="nano has-scrollbar text-justify col-md-9"
-                                         style="height: 250px;">
+                                         style="height: 150px;">
                                         <div class="nano-content read_here" tabindex="0" style="right: -17px;">
                                             When you say you want them to read it do you really mean that you want them
                                             to read it or that you want them to scroll to the bottom and press a button?
