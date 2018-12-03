@@ -11,37 +11,19 @@
 </head>
 <body>
 <div id="container" class="effect aside-float aside-bright mainnav-lg">
-    <!--NAVBAR-->
-    <!--===================================================-->
     <?php $this->load->view('templates/head_navbar'); ?>
-    <!--===================================================-->
-    <!--END NAVBAR-->
-
     <div class="boxed">
-
-        <!--CONTENT CONTAINER-->
-        <!--===================================================-->
         <div id="content-container">
             <div id="page-head">
-                <!--Page Title-->
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <div id="page-title">
                     <h1 class="page-header text-overflow">Account Statement</h1>
                 </div>
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                <!--End page title-->
-                <!--Breadcrumb-->
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <ol class="breadcrumb">
                     <li><i class="demo-pli-home"></i></li>
                     <li>Reports</li>
                     <li class="active">Account Statement</li>
                 </ol>
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                <!--End breadcrumb-->
             </div>
-            <!--Page content-->
-            <!--===================================================-->
             <div id="page-content">
                 <div class="panel">
                     <div class="panel-heading">
@@ -71,7 +53,6 @@
                                     </div>
                                 </a>
                             </div>
-
                             <div class="col-md-3">
                                 <div class="panel panel-bordered-pink panel-colorful">
                                     <div class="pad-all text-center">
@@ -92,16 +73,11 @@
                                     </div>
                                 </a>
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col-md-5"
                                  style="height:550px;padding:20px 10px 0;">
-                                <!--Panel with Tabs (Icon)-->
-                                <!--===================================================-->
                                 <div class="panel panel-default">
-
-                                    <!--Panel heading-->
                                     <div class="panel-heading">
                                         <div class="panel-control">
                                             <ul class="nav nav-tabs">
@@ -125,8 +101,6 @@
                                         </div>
                                         <h3 class="panel-title">Statement</h3>
                                     </div>
-
-                                    <!--Panel Body-->
                                     <div class="panel-body">
                                         <div class="tab-content">
                                             <div id="demo-tabs2-box-1" class="tab-pane fade in active">
@@ -141,8 +115,6 @@
                                                 </div>
                                                 <div class="txn nano has-scrollbar"
                                                      style="height:290px;margin-top:10px;">
-                                                    <!--Custom Content-->
-                                                    <!--===================================================-->
                                                     <div class="list-group nano-content">
                                                         <a href="#" class="list-group-item">
                                                             <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
@@ -175,9 +147,6 @@
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
                                                     </div>
-                                                    <!--===================================================-->
-
-
                                                 </div>
                                             </div>
                                             <div id="demo-tabs2-box-2" class="tab-pane fade">
@@ -192,8 +161,6 @@
                                                 </div>
                                                 <div class="txn nano has-scrollbar"
                                                      style="height:290px;margin-top:10px;">
-                                                    <!--Custom Content-->
-                                                    <!--===================================================-->
                                                     <div class="list-group nano-content">
                                                         <a href="#" class="list-group-item">
                                                             <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
@@ -201,9 +168,6 @@
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
                                                     </div>
-                                                    <!--===================================================-->
-
-
                                                 </div>
                                             </div>
                                             <div id="demo-tabs2-box-3" class="tab-pane fade">
@@ -218,8 +182,6 @@
                                                 </div>
                                                 <div class="txn nano has-scrollbar"
                                                      style="height:290px;margin-top:10px;">
-                                                    <!--Custom Content-->
-                                                    <!--===================================================-->
                                                     <div class="list-group nano-content">
                                                         <a href="#" class="list-group-item">
                                                             <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
@@ -227,9 +189,6 @@
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
                                                     </div>
-                                                    <!--===================================================-->
-
-
                                                 </div>
                                             </div>
                                             <div id="demo-tabs2-box-4" class="tab-pane fade">
@@ -244,8 +203,6 @@
                                                 </div>
                                                 <div class="txn nano has-scrollbar"
                                                      style="height:290px;margin-top:10px;">
-                                                    <!--Custom Content-->
-                                                    <!--===================================================-->
                                                     <div class="list-group nano-content">
                                                         <a href="#" class="list-group-item">
                                                             <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
@@ -253,17 +210,11 @@
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
                                                     </div>
-                                                    <!--===================================================-->
-
-
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!--===================================================-->
-                                <!--End Panel with Tabs (Icon)-->
-
                             </div>
                             <div class="col-md-7"
                                  style="height:550px;">
@@ -367,53 +318,33 @@
                     </div>
                 </div>
             </div>
-            <!--===================================================-->
-            <!--End page content-->
-
         </div>
         <?php $this->load->view('templates/menu'); ?>
-        <!--===================================================-->
-        <!--END MAIN NAVIGATION-->
-
     </div>
 
-
-    <!-- FOOTER -->
-    <!--===================================================-->
     <?php $this->load->view('templates/footer'); ?>
-    <!--===================================================-->
-    <!-- END FOOTER -->
-    <!-- SCROLL PAGE BUTTON -->
-    <!--===================================================-->
     <button class="scroll-top btn">
         <i class="pci-chevron chevron-up"></i>
     </button>
-    <!--===================================================-->
 </div>
-<!--===================================================-->
-<!-- END OF CONTAINER -->
-<!--JAVASCRIPT-->
-<!--=================================================-->
 <?php $this->load->view('templates/scripts'); ?>
 <script>
+    /**
+     * @return {boolean}
+     */
     function PrintElem(elem) {
         var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-
         mywindow.document.write('<html><head><style>td{border:1px solid #222922;padding:10px;}</style><title>' + document.title + '</title>');
         mywindow.document.write('</head><body >');
         mywindow.document.write('<h1 style="text-align:center;">' + document.title + '</h1><div style="padding:20px 0 0 90px;">');
         mywindow.document.write(document.getElementById(elem).innerHTML);
         mywindow.document.write('</div></body></html>');
-
-        mywindow.document.close(); // necessary for IE >= 10
-        mywindow.focus(); // necessary for IE >= 10*/
-
+        mywindow.document.close();
+        mywindow.focus();
         mywindow.print();
         mywindow.close();
-
         return true;
     }
-
     function trigger(e) {
         $(e).click();
     }

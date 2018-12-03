@@ -26,8 +26,6 @@ class Overview extends MY_Controller
           FROM orders o WHERE o.seller_id = {$uid} AND o.status != 'completed' GROUP BY omonth ORDER BY omonth DESC LIMIT 4")->result();
         $page_data['orders'] = $this->seller->run_sql("SELECT o.order_code, o.qty, o.amount, o.order_date, p.product_name FROM orders o LEFT JOIN products p ON (p.id = o.product_id) WHERE o.seller_id = {$uid} LIMIT 100")->result();
         $page_data['sales'] = $this->seller->get_row('orders', " MIN(amount) as min_sale, MAX(amount) as max_sale, SUM(amount) as total_amount ", "( seller_id = {$uid}) ");
-//        var_dump($page_data['total_sales']);
-//        $page_data['total_sales'] = $this->seller->run_sql("SELECT MIN(o.amount) as min_sale, MAX(o.amount) as max_sale, SUM(o.amount) as total_amount FROM orders o WHERE o.seller_id = {$uid} ")->row();
         $this->load->view('dashboard', $page_data);
     }
 }

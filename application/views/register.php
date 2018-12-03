@@ -1,52 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from www.themeon.net/nifty/v2.9.1/forms-wizard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Jul 2018 07:32:32 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title><?= $page_title; ?> | Onitshamarket.com</title>
     <link rel="shortcut icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
     <link rel="icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
     <link rel="canonical" href="<?= current_url(); ?>"/>
     <meta name="robots" content="noindex,nofollow">
-
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-
     <link href="<?= base_url('assets/seller/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('assets/landing/css/font-awesome.css'); ?>">
-
     <link href="<?= base_url('assets/seller/css/nifty.min.css'); ?>" rel="stylesheet">
-
-
     <link href="<?= base_url('assets/seller/css/demo/nifty-demo-icons.min.css'); ?>" rel="stylesheet">
-
-
     <link href="<?= base_url('assets/seller/plugins/pace/pace.min.css'); ?>" rel="stylesheet">
     <script src="<?= base_url('assets/seller/plugins/pace/pace.min.js'); ?>"></script>
-
     <link href="<?= base_url('assets/seller/css/demo/nifty-demo.min.css'); ?>" rel="stylesheet">
-
     <link href="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.css'); ?>"
           rel="stylesheet">
-
-
 </head>
 <body>
 <div id="container" class="cls-container" style="background-color: #fff !important;">
-
     <div id="bg-overlay"></div>
-
     <div class="container pad-all">
         <div class="cls-content-lg panel panel-colorful "
              style="border: 1px solid #26a69a !important;padding-top:10px;width:96%;margin-top:80px;">
             <div class="panel-title" style="background-color: transparent !important;">
                 <div class="row">
                     <div class="col-md-4">
-
                     </div>
                     <div class="col-md-4">
                         <a href="<?= base_url(); ?>" title="<?= lang('app_name'); ?>"><img
@@ -62,7 +44,6 @@
                 <?php $this->load->view('msg_view'); ?>
                 <div id="demo-bv-wz">
                     <div class="wz-heading pad-top">
-                        <!--Nav-->
                         <ul class="row wz-step wz-icon-bw wz-nav-off mar-top">
                             <li class="col-xs-3">
                                 <a data-toggle="tab" href="#sell_info">
@@ -90,19 +71,12 @@
                             </li>
                         </ul>
                     </div>
-
-                    <!--progress bar-->
                     <div class="progress progress-xs">
                         <div class="progress-bar progress-bar-primary"></div>
                     </div>
-
-
-                    <!--Form-->
                     <?= form_open('register/process', 'id="" class="form-horizontal"') ?>
                         <div class="panel-body">
                             <div class="tab-content">
-
-                                <!--First tab-->
                                 <div id="sell_info" class="tab-pane">
                                     <h4 class="text-center"></h4>
                                     <div class="row">
@@ -212,8 +186,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!--Second tab-->
                                 <div id="pro_info" class="tab-pane fade">
                                     <div class="row">
                                         <div class="form-group col-md-6">
@@ -287,7 +259,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--Third tab-->
                                 <div id="acc_det" class="tab-pane">
                                     <div class="row">
                                         <div class="form-group col-md-6">
@@ -331,8 +302,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!--Fourth tab-->
                                 <div id="comp_form" class="tab-pane  mar-btm text-center">
                                     <h4>Sellers Agreement</h4>
                                     <div class="nano has-scrollbar text-justify col-md-9"
@@ -443,7 +412,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!--Footer button-->
                         <div class="panel-footer text-center">
                             <div class="box-inline">
                                 <button type="button" class="previous btn btn-primary">Previous</button>
@@ -458,21 +426,13 @@
                 <a href="<?= base_url(); ?>" class="btn-link mar-rgt">Go to Homepage</a>
             </div>
         </div>
-
     </div>
-
 </div>
 <script src="<?= base_url('assets/seller/js/jquery.min.js'); ?>"></script>
-
 <script src="<?= base_url('assets/seller/js/bootstrap.min.js'); ?>"></script>
-
 <script src="<?= base_url('assets/seller/js/nifty.min.js'); ?>"></script>
-
-
 <script src="<?= base_url('assets/seller/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
-
 <script src="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.js'); ?>"></script>
-
 <script src="<?= base_url('assets/seller/js/demo/form-wizard.js'); ?>"></script>
 <script>
     $(document).ready(function () {

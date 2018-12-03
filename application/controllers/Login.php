@@ -8,7 +8,6 @@ class Login extends CI_Controller{
             redirect('overview');
         } 
     }
-
     public function index(){
         $page_data['page_title'] = 'Login to your seller account';
         $page_data['pg_name'] = 'login';
@@ -16,7 +15,6 @@ class Login extends CI_Controller{
         $page_data['scripts'] = array('js/jquery.min.js','js/bootstrap.min.js', 'js/nifty.min.js');
         $this->load->view('login', $page_data);
     }
-
     /*
      * @Incoming : accepts the login POST parameters : email and password
      * */
