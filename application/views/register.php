@@ -17,6 +17,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
     <link href="<?= base_url('assets/seller/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url('assets/landing/css/font-awesome.css'); ?>">
 
     <link href="<?= base_url('assets/seller/css/nifty.min.css'); ?>" rel="stylesheet">
 
@@ -31,6 +32,23 @@
 
     <link href="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.css'); ?>"
           rel="stylesheet">
+
+    <style>
+        .modal-dialog.cascading-modal.modal-avatar .modal-header {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            margin: -6rem 0 -1rem;
+        }
+
+        .modal-dialog.cascading-modal.modal-avatar .modal-header {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .modal-dialog.cascading-modal.modal-avatar {
+            margin-top: 6rem;
+        }
+    </style>
 
 </head>
 <body>
@@ -53,7 +71,10 @@
                                     class="brand-title img-responsive"></a>
                     </div>
                     <div class="col-md-4">
-
+                        <div class="text-center" style="vertical-align: middle;">
+                            <a href="" class="btn btn-warning btn-rounded mb-4" data-toggle="modal"
+                               data-target="#is_registered">Already have a User Account?</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -103,28 +124,6 @@
 
                                 <!--First tab-->
                                 <div id="sell_info" class="tab-pane">
-                                    <div class="row">
-                                        <div class="form-group col-md-6">
-                                            <label class="col-lg-4 control-label"></label>
-                                            <div class="col-lg-7" style="text-align:left;">
-
-                                                <div class="checkbox">
-                                                    <input id="bus_reg" type='checkbox' name="has_reg"
-                                                           title="Is Business Registered?"
-                                                           class="magic-checkbox">
-                                                    <label for="bus_reg">Is Business Registered?</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-6" id="reg_opt" style="display: none;">
-                                            <label class="col-lg-4 control-label" for="rc_num">RC</label>
-                                            <div class="col-lg-7">
-                                                <input type="text" name="rc_num" class="form-control"
-                                                       placeholder="00000"
-                                                       id="rc_num"/>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label class="col-lg-4 control-label" for="legal_company_name">Business
@@ -190,6 +189,28 @@
                                             <div class="col-lg-7">
                                                 <input type="text" placeholder="Store Address" name="storeAddress"
                                                        class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label"></label>
+                                            <div class="col-lg-7" style="text-align:left;">
+
+                                                <div class="checkbox">
+                                                    <input id="bus_reg" type='checkbox' name="has_reg"
+                                                           title="Is Business Registered?"
+                                                           class="magic-checkbox">
+                                                    <label for="bus_reg">Is Business Registered?</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6" id="reg_opt" style="display: none;">
+                                            <label class="col-lg-4 control-label" for="rc_num">RC</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" name="rc_num" class="form-control"
+                                                       placeholder="00000"
+                                                       id="rc_num"/>
                                             </div>
                                         </div>
                                     </div>
@@ -438,7 +459,7 @@
                         </div>
 
                         <!--Footer button-->
-                        <div class="panel-footer text-right">
+                        <div class="panel-footer text-center">
                             <div class="box-inline">
                                 <button type="button" class="previous btn btn-primary">Previous</button>
                                 <button type="button" class="next btn btn-primary">Next</button>
@@ -454,6 +475,46 @@
                 <a href="<?= base_url(); ?>" class="btn-link mar-rgt">Go to Homepage</a>
             </div>
         </div>
+        <div class="modal fade" id="is_registered" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Do you already have an account with us?</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-5">
+                            <div class="col-md-3 text-right">
+                                <i class="fa fa-envelope prefix grey-text fa-2x"></i>
+                            </div>
+                            <div class="col-md-7">
+                                <input type="email" id="is_user_email" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="md-form mb-4">
+                            <div class="col-md-3 text-right">
+                                <i class="fa fa-lock prefix grey-text fa-2x"></i>
+                            </div>
+                            <div class="col-md-7">
+                                <input type="password" id="is_user_password" class="form-control" required>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-primary" id="login">Confirm User</button>
+                        <button class="btn btn-danger" data-dismiss="modal">
+                            New User
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>
@@ -496,7 +557,29 @@
         }
     });
 </script>
+<script>
+    $(document).ready(function () {
+        $('#is_registered').modal('show');
+    });
+    $('#login').on('click', function () {
+        var email = $('#is_user_email').val();
+        var password = $('#is_user_password').val();
 
+        if (email && password) {
+            $.ajax({
+                url: 'ajax/',
+                method: 'GET',
+                data: {email: email, password: password},
+                success: function (response) {
+
+                },
+                error: () => {
+
+                }
+            })
+        }
+    })
+</script>
 </body>
 </html>
 
