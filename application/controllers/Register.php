@@ -78,7 +78,7 @@ class Register extends CI_Controller{
                 // we are updating
                 $seller_data['uid'] = $user->id;
                 // Do we already have this user in seller table
-                if( $this->seller->get_row('users','id', "( uid = {$user->id} ) ") ){
+                if( $this->seller->get_row('users','id', "( uid = $user->id ) ") ){
                     $this->session->set_flashdata('error_msg', 'You already have a seller account.');
                     redirect('application/status');
                 }
