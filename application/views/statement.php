@@ -223,9 +223,6 @@
                                         <h6 class="col-md-6">Period<br/>26 Nov 2018 – 02 Dec 2018</h6><h6
                                                 class="col-md-6">Status<br/><i class="demo-pli-thunder"></i>Open</h6>
                                     </div>
-
-                                    <!--Hover Rows-->
-                                    <!--===================================================-->
                                     <div class="panel-body">
                                         <table class="table table-hover table-vcenter">
                                             <tbody>
@@ -302,17 +299,12 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <!--===================================================-->
-                                    <!--End Hover Rows-->
-
                                 </div>
                                 <button style="margin-top:-30px;"
                                         class="btn btn-primary btn-rounded btn-labeled pull-right"
                                         onclick="PrintElem('acc_state_table');"><i
                                             class="btn-label demo-psi-printer"></i> Print Statement
                                 </button>
-
-
                             </div>
                         </div>
                     </div>
@@ -321,7 +313,6 @@
         </div>
         <?php $this->load->view('templates/menu'); ?>
     </div>
-
     <?php $this->load->view('templates/footer'); ?>
     <button class="scroll-top btn">
         <i class="pci-chevron chevron-up"></i>
