@@ -17,21 +17,26 @@
         .spacer {
             height: 700px;
         }
+
         .cd-faq-content {
             text-align: justify;
         }
+
         @media screen and (max-width: 767px) {
             .spacer {
                 height: 0 !important;
             }
         }
+
         table {
             width: 100%;
         }
+
         tr {
             mso-height-source: auto;
             border: 1px solid #000;
         }
+
         thead > tr > th {
             background-color: #35bbae;
             color: white;
@@ -39,9 +44,11 @@
             font-weight: bolder;
             padding: 10px;
         }
-        tr:nth-child(even){
-        background: #cecece;
+
+        tr:nth-child(even) {
+            background: #cecece;
         }
+
         col {
             mso-width-source: auto;
         }
@@ -49,6 +56,7 @@
         br {
             mso-data-placement: same-cell;
         }
+
         .style0 {
             mso-number-format: General;
             text-align: general;
@@ -69,6 +77,7 @@
             mso-style-name: Normal;
             mso-style-id: 0;
         }
+
         td {
             mso-style-parent: style0;
             padding: 5px;
@@ -90,20 +99,24 @@
             white-space: nowrap;
             mso-rotate: 0;
         }
+
         .xl65 {
             mso-style-parent: style0;
             font-weight: 700;
         }
+
         .xl66 {
             mso-style-parent: style0;
             font-weight: 700;
             mso-number-format: Percent;
         }
+
         .xl67 {
             mso-style-parent: style0;
             font-weight: 700;
             mso-number-format: 0%;
         }
+
         .xl68 {
             mso-style-parent: style0;
             font-weight: 700;
@@ -111,6 +124,7 @@
             background: #FFC000;
             mso-pattern: black none;
         }
+
         .xl69 {
             mso-style-parent: style0;
             font-weight: 700;
@@ -121,6 +135,7 @@
             background: #FFC000;
             mso-pattern: black none;
         }
+
         .xl70 {
             mso-style-parent: style0;
             font-weight: 700;
@@ -131,6 +146,7 @@
             background: #FFC000;
             mso-pattern: black none;
         }
+
         .xl71 {
             mso-style-parent: style0;
             font-weight: 700;
@@ -139,6 +155,7 @@
             border-bottom: none;
             border-left: .5pt solid windowtext;
         }
+
         .xl72 {
             mso-style-parent: style0;
             font-weight: 700;
@@ -146,11 +163,13 @@
             background: #FFC000;
             mso-pattern: black none;
         }
+
         .xl73 {
             mso-style-parent: style0;
             font-weight: 700;
             text-align: right;
         }
+
         .xl74 {
             mso-style-parent: style0;
             font-weight: 700;
@@ -158,6 +177,7 @@
             background: #FFC000;
             mso-pattern: black none;
         }
+
         .xl75 {
             mso-style-parent: style0;
             font-weight: 700;
@@ -230,7 +250,7 @@
                         "Register to sell". Once the registration details has been filled. &nbsp;You are
                         required to watch the short training videos and take the quiz. An email will be
                         sent with a link to create password.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">What can I sell?</a>
@@ -240,7 +260,7 @@
                         Electronics, Watches, Sunglasses, Baby and kids products, Toys, Health and
                         Beauty, Automobile, Sport and Fitness, Games and Consoles, Service Deals, Books,
                         Movies and Music, Weddings, Groceries.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">What I can't sell?</a>
@@ -283,7 +303,7 @@
                         which contravene to intellectual property
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp; Products with
                         shelf life of less than 3 months </p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">What information are required to Register?</a>
@@ -295,7 +315,7 @@
                         details
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp; To sell on
                         Onitshamarket.com, You will need a laptop with printer and Internet service</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">What is Onitshamarket.com Seller Center?</a>
@@ -303,7 +323,7 @@
                     <p>Onitshamarket.com Seller Center is an online platform that allows sellers to
                         manage
                         their products and operations on their e-Commerce shop.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How to use Onitshamarket.com Seller Center?</a>
@@ -311,7 +331,7 @@
                     <p>Our platform is user-friendly and you will be able to check our complete
                         guide online on <a href="https://seller.onitshamarket.com/">Onitshamarket.com
                             University.</a></p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How do I Login?</a>
@@ -320,7 +340,7 @@
                         to
                         login and use the email address used to register as email and the password
                         created as password.</p>
-                </div>  
+                </div>
             </li>
         </ul>
         <ul id="mobile" class="cd-faq-group">
@@ -337,7 +357,7 @@
                         and easy to schedule. Onitshamarket.com university has also made available training
                         materials online on Vendor hub, Youtube. so that in case you missed the offline
                         classes for any reasons, you can find all you need on online.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">What is Onitshamarket.com Vendor hub?</a>
@@ -348,14 +368,14 @@
                         needs. Whether you want to create your products or understand the importance of
                         Seller score and how it improves your store image or new information regarding
                         drop-off stations, you can find all of this and more on the vendor hub.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">What is Sellercenter Assistant?</a>
                 <div class="cd-faq-content">
                     <p>A tool designed to help you navigate seller center. It guides you while
                         providing information about anything you need on seller center.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How do I schedule training at Onitshamarket.com?</a>
@@ -363,7 +383,7 @@
                     <p>We have the basic training and advanced trainings. Please click&nbsp;<a
                                 href="https://vendorhub.onitshamarket.com/training-calendar/">here</a>&nbsp;to
                         view the training calendar for the month</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Training to improve my sales performance?</a>
@@ -376,7 +396,7 @@
                                 href="https://vendorhub.onitshamarket.com/training-calendar/">here</a>
                         to
                         view the training calendar.</p>
-                </div>  
+                </div>
             </li>
         </ul>
         <ul id="account" class="cd-faq-group">
@@ -412,7 +432,7 @@
                         <br><br>Find the content and images guidleines about product creation for each
                         category <a href="https://onitshamarket.com/"
                                     target="_blank">here</a>.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">What are the methods to upload products?</a>
@@ -430,7 +450,7 @@
                                 href="#">individually</a>.
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Upload <a
                                 href="#">multiple products</a> at once.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Information required when uploading the products?</a>
@@ -442,7 +462,7 @@
                         available on Onitshamarket.com University.
                         <br>Click <a
                                 href="#">here</a> to find out more now.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Why is my new product not online?</a>
@@ -458,7 +478,7 @@
                         the image of the product.<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp; For FMCG products,
                         NAFDAC Registration number is required.</p>
-                </div>  
+                </div>
             </li>
         </ul>
         <ul id="payments" class="cd-faq-group">
@@ -469,7 +489,7 @@
                     <p>You can fulfill your orders directly from the Seller Center platform.
                         <br><br>You will find tutorials to guide you through order management <a
                                 href="#">here</a></p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How will I be informed when I have an order?</a>
@@ -477,7 +497,7 @@
                     <p>Once you receive an order, you will get an email notification via your
                         Onitshamarket.com Sellercenter registered email. Once an
                         order is placed by a customer, it will land under “Pending”.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">What should I do when I receive an order?</a>
@@ -494,7 +514,7 @@
                                 href="#">here</a> for full order-fulfillment guide on
                         Onitshamarket.com
                         University.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Where can I see my orders?</a>
@@ -502,7 +522,7 @@
                     <p>You will be able to view your order summary in Onitshamarket.com Seller
                         Center’s
                         home page under the Orders tab.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How long am I given to respond to an order?</a>
@@ -511,7 +531,7 @@
                         prepare your order and drop off at our centers before your order is cancelled.
                         Abiding to the 48-hour timeline will increase your <a
                                 href="#">seller score</a> and your customer satisfaction.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How should I pack my products?</a>
@@ -529,14 +549,14 @@
                             here </a>to know how.<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>3</strong>&nbsp;&nbsp;Click
                         <a href="#">Here</a> to order</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How can I order packaging materials?</a>
                 <div class="cd-faq-content">
                     <p>Click <a href="#">here</a> to
                         order.</p>
-                </div>  
+                </div>
             </li>
         </ul>
         <ul id="privacy" class="cd-faq-group">
@@ -551,7 +571,7 @@
                         your
                         store reputation, and increase the percentage of the returns and declined
                         products.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How can I be prepared for the smart QC process?</a>
@@ -563,7 +583,7 @@
                         packaging material incase needed.<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;The quality check
                         will be done randomly on some items.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Are all my products going to undergo the smart QC process?</a>
@@ -571,7 +591,7 @@
                     <p>For new sellers, all orders will undergo the smart QC for 1 month.<br>
                         For older sellers, smart QC will be conducted randomly and on specific items
                         with a higher returns rate.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Why is the Smart QC important?</a>
@@ -584,7 +604,7 @@
                         trust and build your store reputation.<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;To achieve higher
                         seller score and get a Gold Badge.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Why will I be charged for incorrect delivery?</a>
@@ -601,7 +621,7 @@
                         50,000 NGN.<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Counterfeit: 50,000
                         NGN</p>
-                </div>  
+                </div>
             </li>
         </ul>
         <ul id="delivery" class="cd-faq-group">
@@ -612,7 +632,7 @@
                     <p>Please click&nbsp;<a
                                 href="#">here</a>&nbsp;to
                         find out all the available drop off stations.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">What are the working hours of the drop off stations?</a>
@@ -620,14 +640,14 @@
                     <p>Please click&nbsp;<a
                                 href="#">here</a>&nbsp;to
                         find out the working hours for all of our available drop off stations.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Can I use more than one drop off station?</a>
                 <div class="cd-faq-content">
                     <p>Yes, you can drop off at any drop off center, as long as it is selected
                         at the point of setting to "ready to ship" on seller center.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Why do we QC your product at the drop-off station?</a>
@@ -638,7 +658,7 @@
                         based on quality.<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp; To increase
                         delivered sales.</p>
-                </div>  
+                </div>
             </li>
         </ul>
         <ul id="payment" class="cd-faq-group">
@@ -649,7 +669,7 @@
                     <p>Whether you are an old partner or a newly joiner, you are eligible to
                         start boosting your sales on Onitshamarket.com by joining our weekly promotional
                         campaigns.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How can I join Onitshamarket.com Promotions?</a>
@@ -659,7 +679,7 @@
                         revenues providing more customer visibility.
                         <br><br>Click <a
                                 href="#">here</a> for subscription steps.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Customers ratings and comments? And why are these important?</a>
@@ -672,9 +692,9 @@
                         buy a product with good ratings. The ratings of your products are one of the
                         most used criteria to evaluate your performance as a vendor on
                         Onitshamarket.com</p>
-                </div>  
+                </div>
             </li>
-        </ul>  
+        </ul>
         <ul id="privac" class="cd-faq-group">
             <li class="cd-faq-title"><h2>Services for sellers</h2></li>
             <li>
@@ -701,7 +721,7 @@
                         <br><br>You can subscribe to this service by filling the raise a claim form <a
                                 href="#">Here</a>.
                     </p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Can I cancel my value added services?</a>
@@ -709,9 +729,9 @@
                     <p>You can cancel your Value Added Services whenever you want. Contact us
                         by sending an email to <a href="mailto:seller.support@onitshamarket.com">seller.support@onitshamarket.com&nbsp;</a>.
                     </p>
-                </div>  
+                </div>
             </li>
-        </ul>  
+        </ul>
         <ul id="deliver" class="cd-faq-group">
             <li class="cd-faq-title"><h2>Commissions and Shipping fees</h2></li>
             <li>
@@ -723,7 +743,7 @@
                     <table border="1" cellpadding="0" cellspacing="2" style="border-collapse:collapse;">
                         <thead class="xl65" height="20" style="height:15.0pt">
                         <tr>
-                            <th height="20"  width="199" style="height:15.0pt;width:149pt">Root
+                            <th height="20" width="199" style="height:15.0pt;width:149pt">Root
                                 Category
                             </th>
                             <th width="216" style="width:162pt">Category</th>
@@ -1430,17 +1450,15 @@
                             <td class="xl77"></td>
                             <td class="xl78" align="right">4.50%</td>
                         </tr>
-                        <!--[if supportMisalignedColumns]-->
                         <tr height="0" style="display:none">
                             <td width="199" style="width:149pt"></td>
                             <td width="216" style="width:162pt"></td>
                             <td width="225" style="width:169pt"></td>
                             <td width="207" style="width:155pt"></td>
                         </tr>
-                        <!--[endif]-->
                         </tbody>
                     </table>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">When do I have to pay for commissions and services?</a>
@@ -1449,14 +1467,14 @@
                         from your payment.
                         <br><br>You can always check your payment in your <a
                                 href="#">account statement</a>.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">What is shipping Fee?</a>
                 <div class="cd-faq-content">
                     <p>Shipping fees are service charges which will be deducted from your
                         account statement for the final delivered orders only.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Is the shipping fee charged based on order level or item level?</a>
@@ -1470,7 +1488,7 @@
                         400NGN
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Large items:
                         600NGN</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Small, medium or large sized
@@ -1479,7 +1497,7 @@
                     <p>Click <a
                                 href="#">here</a>
                     </p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Where can I find Onitshamarket.com’s Terms and Conditions for
@@ -1487,7 +1505,7 @@
                 <div class="cd-faq-content">
                     <p>Sellers Terms and Conditions are to be found on Seller Center. Click <a
                                 href="#">HERE</a> to view it.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">What is Onitshamarket.com Return Policy with Sellers?</a>
@@ -1501,9 +1519,9 @@
                         advertised.
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Wrong product
                         or missing items.</p>
-                </div>  
+                </div>
             </li>
-        </ul>  
+        </ul>
         <ul id="delive" class="cd-faq-group">
             <li class="cd-faq-title"><h2>About Payments</h2></li>
             <li>
@@ -1515,14 +1533,14 @@
                         make
                         sure you have entered your exact bank details on Seller Center to avoid any
                         delays.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How can I check my Payment on Seller Center?</a>
                 <div class="cd-faq-content">
                     <p>You can always check your payment statement on your account on Seller
                         Center by clicking on Reports &gt; Account Statement.</p>
-                </div>  
+                </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Why is my payment transfer delayed?</a>
@@ -1534,9 +1552,9 @@
                         details given are incorrect.<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp; Your payment date
                         falls on a public holiday</p>
-                </div>  
+                </div>
             </li>
-        </ul>  
+        </ul>
     </div>
     <a href="#0" class="cd-close-panel">Close</a>
     <div class="spacer"></div>

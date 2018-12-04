@@ -12,7 +12,7 @@
         border-radius: 4px 4px 0 0;
     }
 
-    .nav-tabs > li.active, .nav-tabs > li.active:focus > a{
+    .nav-tabs > li.active, .nav-tabs > li.active:focus > a {
         background: #2BA27D;
         color: #fff;
     }
@@ -39,15 +39,7 @@
 
 <body>
 <div id="container" class="container text-center" style="background-color: #fff !important;">
-
-
-    <!-- BACKGROUND IMAGE -->
-    <!--===================================================-->
     <div id="bg-overlay"></div>
-
-
-    <!-- REGISTRATION FORM -->
-    <!--===================================================-->
     <div id="container">
         <div class="row" style="text-align: center;"><br/>
             <h2 style="color:#736455;">Reach Over 200 million Customers</h2>
@@ -56,10 +48,11 @@
         <p class="title1 title1-pos" style=" font-size: 54px; font-weight: 500; line-height: 60px;">
             SELL NOW ON ONITSHAMARKET.COM AND<br/>START MAKING MONEY</p>
         <ul class="nav nav-tabs">
-            <li class="active col-xs-12 col-md-4"><a data-toggle="tab" href="#home"><h3>Sell on Onitshamarket.com</h3></a>
+            <li class="active col-xs-12 col-md-4"><a data-toggle="tab" href="#home"><h3>Sell on Onitshamarket.com</h3>
+                </a>
             </li>
             <li class="col-xs-12 col-md-4"><a data-toggle="tab" href="#menu1"><h3>Seller Support</h3></a></li>
-            <li class="col-xs-12 col-md-4"><a href="<?=base_url('pages/faq')?>" target="_blank"><h3>FAQS</h3></a></li>
+            <li class="col-xs-12 col-md-4"><a href="<?= base_url('pages/faq') ?>" target="_blank"><h3>FAQS</h3></a></li>
         </ul>
 
         <div class="tab-content">
@@ -231,12 +224,6 @@
     </main>
 </div>
 </div>
-<!--===================================================-->
-<!-- END OF CONTAINER -->
-
-
-<!--JAVASCRIPT-->
-<!--=================================================-->
 <?php foreach ($scripts as $tag) : ?>
     <script src="<?= base_url('assets/seller/') . $tag; ?>"></script>
 <?php endforeach; ?>

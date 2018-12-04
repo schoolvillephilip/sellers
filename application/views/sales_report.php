@@ -24,7 +24,7 @@
                         <div id="om-panel-order" class="panel">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Total Order Count</h3>
-                                <?php if(!$order_chart) : ?>
+                                <?php if (!$order_chart) : ?>
                                     <h3 class="text-danger text-center">No Data Available!</h3>
                                 <?php endif; ?>
                             </div>
@@ -35,7 +35,7 @@
                         <div id="om-panel-gross" class="panel">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Gross Sales Sum</h3>
-                                <?php if(!$gross_chart) : ?>
+                                <?php if (!$gross_chart) : ?>
                                     <h3 class="text-danger text-center">No Data Available!</h3>
                                 <?php endif; ?>
                             </div>
