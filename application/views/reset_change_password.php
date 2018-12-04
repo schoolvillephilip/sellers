@@ -28,12 +28,12 @@
                     <p class="text-semibold">Please provide a new password</p>
                     <?php $this->load->view('msg_view'); ?>
                 </div>
-                <?= form_open('login/process'); ?>
+                <?= form_open('reset'); ?>
                 <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="New Password" autofocus>
+                    <input type="password" class="form-control" name="password" placeholder="New Password" required autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password">
+                    <input type="password" class="form-control" name="confirm_password" required placeholder="Confirm Password">
                 </div>
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Reset Password</button>
                 <?= form_close(); ?>

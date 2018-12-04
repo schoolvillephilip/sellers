@@ -35,8 +35,6 @@
     }
 </style>
 </head>
-
-
 <body>
 <div id="container" class="container text-center" style="background-color: #fff !important;">
     <div id="bg-overlay"></div>
@@ -45,6 +43,7 @@
             <h2 style="color:#736455;">Reach Over 200 million Customers</h2>
             <hr style=" width: 100%;border:1px solid #2BA27D;"/>
         </div>
+        <?php $this->load->view('msg_view'); ?>
         <p class="title1 title1-pos" style=" font-size: 54px; font-weight: 500; line-height: 60px;">
             SELL NOW ON ONITSHAMARKET.COM AND<br/>START MAKING MONEY</p>
         <ul class="nav nav-tabs">
