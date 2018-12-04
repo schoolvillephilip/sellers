@@ -38,8 +38,6 @@ class Reset extends CI_Controller
             // Check if email address is in the system
             $email = $this->input->post('email');
             $user = $this->seller->get_row('users', 'id', "( email = '$email' ) ");
-
-
         }
     }
 }
