@@ -296,6 +296,17 @@ Class Seller_model extends CI_Model
         return $number;
     }
 
+    function generate_general_code($table = 'users', $label )
+    {
+        do {
+            $number = generate_token(12);
+            $this->db->where( $label, $number);
+            $this->db->from($table);
+            $count = $this->db->count_all_results();
+        } while ($count >= 1);
+        return $number;
+    }
+
     /**
      * Confirm if the person accessing thr product is the owner
      * @param $user_id |product_id

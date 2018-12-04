@@ -28,15 +28,16 @@
                     <p class="text-semibold">Please provide your email below</p>
                     <?php $this->load->view('msg_view'); ?>
                 </div>
-                <?= form_open('login/process'); ?>
+                <?= form_open('reset/process'); ?>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Username" name="email" autofocus>
+                    <input type="email" class="form-control" placeholder="Please enter your seller's email" name="email" autofocus>
                 </div>
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Reset Password</button>
                 <?= form_close(); ?>
             </div>
             <div class="pad-all">
-                <a href="<?= base_url('login'); ?>" class="btn-link mar-rgt">Login</a>
+                <a href="<?= base_url('login'); ?>" class="btn-link mar-lft">Already have an account? </a> |
+                <a href="<?= base_url('register'); ?>" class="btn-link mar-rgt">Become a Seller.</a>
             </div>
         </div>
     </div>
