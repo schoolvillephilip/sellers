@@ -19,16 +19,13 @@
     <script src="<?= base_url('assets/seller/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js'); ?>"></script>
 
 <?php endif; ?>
-
 <?php if( in_array($pg_name, array('overview','report'))) :?>
     <script src="<?= base_url('assets/seller/plugins/datatables/media/js/jquery.dataTables.js'); ?>"></script>
     <script src="<?= base_url('assets/seller/plugins/datatables/media/js/dataTables.bootstrap.js'); ?>"></script>
     <script src="<?= base_url('assets/seller/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js'); ?>"></script>
     <script src="<?= base_url('assets/seller/plugins/morris-js/morris.min.js'); ?>"></script>
     <script src="<?= base_url('assets/seller/plugins/morris-js/raphael-js/raphael.min.js'); ?>"></script>
-
 <?php endif; ?>
-
 <?php if( $pg_name === 'register') :?>
     <script src="<?= base_url('assets/seller/js/demo/form-file-upload.js'); ?>"></script>
     <script src="<?= base_url('assets/seller/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>

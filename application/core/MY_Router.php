@@ -1,7 +1,9 @@
 <?php
 
-class MY_Router extends CI_Router {
-    protected function _set_default_controller() {
+class MY_Router extends CI_Router
+{
+    protected function _set_default_controller()
+    {
 
         if (empty($this->default_controller)) {
 
@@ -13,7 +15,7 @@ class MY_Router extends CI_Router {
         }
 
         // This is what I added, checks if the class is a directory
-        if( is_dir(APPPATH.'controllers/'.$class) ) {
+        if (is_dir(APPPATH . 'controllers/' . $class)) {
 
             // Set the class as the directory
 
@@ -30,10 +32,7 @@ class MY_Router extends CI_Router {
             }
         }
 
-        if ( ! file_exists(APPPATH.'controllers/'.$this->directory.ucfirst($class).'.php')) {
-
-            // This will trigger 404 later
-
+        if (!file_exists(APPPATH . 'controllers/' . $this->directory . ucfirst($class) . '.php')) {
             return;
         }
         $this->set_class($class);

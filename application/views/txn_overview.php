@@ -2,46 +2,26 @@
 </head>
 <body>
 <div id="container" class="effect aside-float aside-bright mainnav-lg">
-    <!--NAVBAR-->
-    <!--===================================================-->
     <?php $this->load->view('templates/head_navbar'); ?>
-    <!--===================================================-->
-    <!--END NAVBAR-->
-
     <div class="boxed">
-
-        <!--CONTENT CONTAINER-->
-        <!--===================================================-->
         <div id="content-container">
             <div id="page-head">
-                <!--Page Title-->
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <div id="page-title">
                     <h1 class="page-header text-overflow">Transaction Overview</h1>
                 </div>
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                <!--End page title-->
-                <!--Breadcrumb-->
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <ol class="breadcrumb">
                     <li><i class="demo-pli-home"></i></li>
                     <li>Reports</li>
                     <li>Sales Report</li>
                     <li class="active">Transaction overview</li>
                 </ol>
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                <!--End breadcrumb-->
             </div>
-            <!--Page content-->
-            <!--===================================================-->
             <div id="page-content">
                 <div class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Transaction Overview</h3>
                     </div>
                     <div class="panel-body">
-
-
                         <div id="om-panel-order" class="panel">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Total Order Count</h3>
@@ -53,7 +33,6 @@
                                 <div id="txn_chart" style="height: 350px; margin-bottom: 40px;"></div>
                             </div>
                         </div>
-
                         <div class="panel">
                             <div class="panel-body">
                                 <table id="demo-dt-selection" class="table table-striped table-bordered" cellspacing="0"
@@ -93,10 +72,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <?php $this->load->view('templates/menu'); ?>
-
     </div>
     <?php $this->load->view('templates/footer'); ?>
     <button class="scroll-top btn">

@@ -4,9 +4,6 @@
 </head>
 <body>
     <div id="container" class="effect aside-float aside-bright mainnav-lg">
-        
-        <!--NAVBAR-->
-        <!--===================================================-->
         <?php $this->load->view('templates/head_navbar'); ?>
         <!--===================================================-->
         <!--END NAVBAR-->

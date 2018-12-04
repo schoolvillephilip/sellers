@@ -1,11 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Register extends CI_Controller
+class Reset extends CI_Controller
 {
     public function __construct()
     {
-        // @todo
         parent::__construct();
         $this->load->model('seller_model', 'seller');
         if ($this->session->userdata('logged_in')) {
@@ -17,21 +16,11 @@ class Register extends CI_Controller
 
     public function index()
     {
-        $page_data['page_title'] = 'Register to be part of the community';
-        $page_data['pg_name'] = 'regintro';
+        $page_data['page_title'] = 'Reset your password';
+        $page_data['pg_name'] = 'reset';
         $page_data['meta_tags'] = array('css/bootstrap.min.css', 'css/nifty.min.css', 'css/nifty-demo-icons.min.css', 'css/nifty-demo.min.css');
         $page_data['scripts'] = array('js/jquery.min.js', 'js/bootstrap.min.js', 'js/nifty.min.js');
-        $this->load->view('introduction', $page_data);
-    }
-
-    public function form()
-    {
-        $page_data['page_title'] = 'Seller Registration';
-        $page_data['pg_name'] = 'register';
-        $page_data['categories'] = $this->seller->get_results('categories', 'id,name', " ( pid = 0) ");
-        $page_data['meta_tags'] = array('css/bootstrap.min.css', 'css/nifty.min.css', 'css/nifty-demo-icons.min.css', 'css/nifty-demo.min.css');
-        $page_data['scripts'] = array('js/jquery.min.js', 'js/bootstrap.min.js', 'js/nifty.min.js');
-        $this->load->view('register', $page_data);
+        $this->load->view('reset', $page_data);
     }
 
     /*
@@ -40,8 +29,7 @@ class Register extends CI_Controller
      * */
     function process()
     {
-        $this->form_validation->set_rules('first_name', 'First Name', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|xss_clean');
+
         $this->form_validation->set_rules('email', 'Email Address', 'trim|required|xss_clean|valid_email');
         // $this->form_validation->set_message('is_unique', 'The %s is already taken');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|min_length[8]|max_length[15]');
