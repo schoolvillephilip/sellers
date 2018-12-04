@@ -25,7 +25,7 @@
             <div class="panel-body">
                 <div class="mar-ver pad-btm">
                     <h1 class="h3 text-2x">Reset Password</h1>
-                    <p class="text-semibold">Please provide your email below</p>
+                    <p class="text-semibold">Please provide a new password</p>
                     <?php $this->load->view('msg_view'); ?>
                 </div>
                 <?= form_open('login/process'); ?>
