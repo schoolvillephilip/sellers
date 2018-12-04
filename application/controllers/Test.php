@@ -9,14 +9,13 @@ class Test extends CI_Controller{
     }
     
     public function index(){
-//        die( realpath('./assets/landing/img/carrito-logo.png') );
         $msg = Mailgun::create('key-43b8790557f9cf676ccfe03a2bdb5405');
         $result = $msg->messages()->send('sandbox94c46233ed0f4a0a9e4a14a131bab550.mailgun.org',array(
             'from' => 'philip.sokoya@schoolville.com',
             'to'    => 'philipsokoya@gmail.com',
             'subject' => 'Testing the Mailgun SDK',
             'text' => 'Lets test email attachment.',
-            array('attachment' => realpath('./assets/landing/img/carrito-logo.png'))
+            array('attachment' => realpath('./assets/landing/img/onitshamarket-logo.png'))
         ));
         var_dump( $result );
 
