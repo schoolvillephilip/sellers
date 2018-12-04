@@ -15,10 +15,12 @@ class MY_Controller extends CI_Controller {
         $user = $this->seller->get_profile( $this->session->userdata('logged_id') );
         if( $user->is_seller == 'false' ){
             $this->session->set_flashdata('success_msg','Please complete the below form to become a seller!');
-            redirect('application');
+            $this->session->sess_destroy();
+            redirect('login');
         }elseif( $user->is_seller == 'pending'){
-            $this->session->set_flashdata('success_msg','Your account is under review.');
-            redirect('application/status');
+            $this->session->set_flashdata('success_msg','Your account is under review. You will be notified of the status via email.');
+            $this->session->sess_destroy();
+            redirect('login');
         }
     }
 }

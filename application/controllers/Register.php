@@ -62,6 +62,7 @@ class Register extends CI_Controller{
                 'reg_no' => $this->input->post('reg_no'),
                 'no_of_products' => $this->input->post('no_of_products'),
                 'product_condition' => $this->input->post('product_condition'),
+                'platform_selling' => $this->input->post('platform'),
                 'account_number' => $this->input->post('account_number'),
                 'account_name' => $this->input->post('account_name'),
                 'bank_name' => $this->input->post('bank_name'),
@@ -78,9 +79,9 @@ class Register extends CI_Controller{
                 // we are updating
                 $seller_data['uid'] = $user->id;
                 // Do we already have this user in seller table
-                if( $this->seller->get_row('users','id', "( uid = $user->id ) ") ){
-                    $this->session->set_flashdata('error_msg', 'You already have a seller account.');
-                    redirect('application/status');
+                if( $this->seller->get_row('sellers','id', "( uid = $user->id ) ") ){
+                    $this->session->set_flashdata('error_msg', 'You already have a seller account. login with your details to access your dashboard.');
+                    redirect('login');
                 }
                 if( $this->seller->create_account( $seller_data, 'sellers')){
                     $this->seller->update_data( $user->id, $user_data, 'users');
