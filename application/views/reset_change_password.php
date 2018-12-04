@@ -28,9 +28,12 @@
                     <p class="text-semibold">Please provide your email below</p>
                     <?php $this->load->view('msg_view'); ?>
                 </div>
-                <?= form_open('reset/process'); ?>
+                <?= form_open('login/process'); ?>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Username" name="email" autofocus>
+                    <input type="password" class="form-control" name="password" placeholder="New Password" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password">
                 </div>
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Reset Password</button>
                 <?= form_close(); ?>
