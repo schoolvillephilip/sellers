@@ -38,8 +38,6 @@ class Reset extends CI_Controller
             // Check if email address is in the system
             $email = $this->input->post('email');
             $user = $this->seller->get_row('users', 'id', "email = '$email' AND is_seller != 'false' ");
-//            var_dump( $user );
-//            exit;
             if( $user ){
                 $data['code'] = $code = $this->seller->generate_general_code( 'users', 'code');
                 if( $this->seller->update_data("id = {$user->id}", $data, 'users')) {
@@ -48,12 +46,12 @@ class Reset extends CI_Controller
                     $email = $this->input->post('email');
                     $this->session->set_flashdata('success_msg', "Reset mail has been sent to " . $email . " please click on the link in your email to reset your password.");
                     redirect('login');
-                }else{
+                } else {
                     // Not a seller
                     $this->session->set_flashdata('error_msg', "There was an error updating your account, please try again, and if persist, contact support.");
                     redirect('reset');
                 }
-            }else{
+            } else {
                 // Not a seller
                 $this->session->set_flashdata('error_msg', "Not a registered seller member, Become a seller now.");
                 redirect('register');

@@ -47,15 +47,15 @@
         <p class="title1 title1-pos" style=" font-size: 54px; font-weight: 500; line-height: 60px;">
             SELL NOW ON ONITSHAMARKET.COM AND<br/>START MAKING MONEY</p>
         <ul class="nav nav-tabs">
-            <li class="active col-xs-12 col-md-4"><a data-toggle="tab" href="#home"><h3>Sell on Onitshamarket.com</h3>
+            <li class="active col-xs-12 col-md-4"><a data-toggle="tab" href="#sell"><h3>Sell on Onitshamarket.com</h3>
                 </a>
             </li>
-            <li class="col-xs-12 col-md-4"><a data-toggle="tab" href="#menu1"><h3>Seller Support</h3></a></li>
+            <li class="col-xs-12 col-md-4"><a data-toggle="tab" href="#support"><h3>Seller Support</h3></a></li>
             <li class="col-xs-12 col-md-4"><a href="<?= base_url('pages/faq') ?>" target="_blank"><h3>FAQS</h3></a></li>
         </ul>
 
         <div class="tab-content">
-            <div id="home" class="tab-pane fade in active">
+            <div id="sell" class="tab-pane fade in active">
                 <div id="cnt1">
                     <div class="row">
                         <p class="sub-title1" style="margin-top:20px;">Grow your business with Onitshamarket.com</p>
@@ -131,7 +131,7 @@
                     </div>
                 </div>
             </div>
-            <div id="menu1" class="tab-pane fade text-justify">
+            <div id="support" class="tab-pane fade text-justify">
                 <div id="cnt2" style="padding-top:40px;">
                     <div class="row">
                         <div class="col-xs-12 col-md-2 text-center">
@@ -215,6 +215,8 @@
             <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('register/form'); ?>">Become
                 A Seller <i
                         class="fa fa-cart-plus"></i></a>
+            <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('register/form'); ?>">Login <i
+                        class="fa fa-sign-in"></i></a>
             <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url(); ?>">Contact Seller Support
                 <i
                         class="fa fa-headphones"></i></a>
