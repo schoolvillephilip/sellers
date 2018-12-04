@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller{
     public function __construct(){
         parent::__construct();
-        $this->load->model('seller_model', 'seller');
         if( $this->session->userdata('logged_in') ){
             redirect('overview');
         } 
@@ -33,18 +32,15 @@ class Login extends CI_Controller{
                     'email' => $this->input->post('email'),
                     'password' => $this->input->post('password')
                 );
-
                 $user = $this->seller->login($data);
                 if( $user ) {
                     if( $user->is_seller == 'false' ){
-                        $this->session->set_flashdata('error_msg','Please fill the form below to proceed.');
-                        $session_data = array('logged_in' => true, 'logged_id' => $user->id, 'seller_status' => $user->is_seller, 'email' => $data['email']);
-                        $this->session->set_userdata($session_data);
+                        $this->session->set_flashdata('error_msg',"You don't have a seller account. Please fill the form below to proceed.");
                         // redirect them to the big form
-                        redirect('application');
+                        redirect('register/form');
                     }elseif( $user->is_seller == 'pending' ){
-                        $this->session->set_flashdata('error_msg','Your seller application is under review. You will receive a mail on approval.');
-                        redirect($_SERVER['HTTP_RERFFER']);
+                        $this->session->set_flashdata('error_msg','Your seller application is still under review. You will receive a mail once approved.');
+                        redirect('login');
                     }else{
                         $session_data = array('logged_in' => true, 'logged_id' => $user->id, 'seller_status' => $user->is_seller, 'email' => $data['email']);
                         $this->session->set_userdata($session_data);

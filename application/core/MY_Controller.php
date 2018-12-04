@@ -12,13 +12,16 @@ class MY_Controller extends CI_Controller
             if (!empty($from)) redirect($this->session->userdata('referred_from'));
             redirect('login');
         }
-        $user = $this->seller->get_profile($this->session->userdata('logged_id'));
-        if ($user->is_seller == 'false') {
-            $this->session->set_flashdata('success_msg', 'Please complete the below form to become a seller!');
-            redirect('application');
-        } elseif ($user->is_seller == 'pending') {
-            $this->session->set_flashdata('success_msg', 'Your account is under review.');
-            redirect('application/status');
+        // $this->output->enable_profiler(TRUE);
+        $user = $this->seller->get_profile( $this->session->userdata('logged_id') );
+        if( $user->is_seller == 'false' ){
+            $this->session->set_flashdata('error_msg',"You don't have seller account.");
+            $this->session->sess_destroy();
+            redirect('login');
+        }elseif( $user->is_seller == 'pending'){
+            $this->session->set_flashdata('success_msg','Your account is under review. You will be notified of the status via email.');
+            $this->session->sess_destroy();
+            redirect('login');
         }
     }
 }

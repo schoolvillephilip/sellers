@@ -178,13 +178,12 @@
                                                 <label for="bus_reg">Is Your Business Registered?</label>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group col-md-6" id="reg_opt" style="display: none;">
-                                        <label class="col-lg-4 control-label" for="rc_num">RC</label>
-                                        <div class="col-lg-7">
-                                            <input type="text" name="rc_num" class="form-control"
-                                                   placeholder="00000"
-                                                   id="rc_num"/>
+                                        <div class="form-group col-md-6" id="reg_opt" style="display: none;">
+                                            <label class="col-lg-4 control-label" for="reg_no">Registration Number</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" name="reg_no" class="form-control"
+                                                       placeholder="Enter your registration number"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -216,28 +215,6 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label class="col-lg-4 control-label"></label>
-                                        <div class="col-lg-7" style="text-align:left;">
-
-                                            <div class="checkbox">
-                                                <input id="plat_reg" type='checkbox' name="has_reg"
-                                                       title="Selling with another platform?"
-                                                       class="magic-checkbox">
-                                                <label for="plat_reg">Do you sell with another platform?</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6" id="plat_opt" style="display: none;">
-                                        <label class="col-lg-4 control-label" for="platform">Platform</label>
-                                        <div class="col-lg-7">
-                                            <input type="text" name="rc_num" class="form-control"
-                                                   placeholder="E.g: Jumia"
-                                                   id="platform"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-6">
                                         <label class="col-lg-4 control-label" for="no_of_products">Duration</label>
                                         <div class="col-lg-7">
                                             <select class="form-control" name="no_of_products" required>
@@ -258,6 +235,47 @@
                                                 <option value="501-more">501 +</option>
                                                 <option value="pack">Large Packaged Quantities</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label"></label>
+                                            <div class="col-lg-7" style="text-align:left;">
+                                                <div class="checkbox">
+                                                    <input id="plat_reg" type='checkbox' name="has_reg"
+                                                           title="Selling with another platform?"
+                                                           class="magic-checkbox">
+                                                    <label for="plat_reg">Do you sell with another platform?</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6" id="plat_opt" style="display: none;">
+                                            <label class="col-lg-4 control-label" for="platform">Platform</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" name="platform" class="form-control"
+                                                       placeholder="E.g: Kara.com.ng, Jumia.com.ng, Konga.com"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-lg-4 control-label"></label>
+                                            <div class="col-lg-7" style="text-align:left;">
+                                                <div class="checkbox">
+                                                    <input id="license" type='checkbox' name="license_to_sell"
+                                                           title="Do you have license to sell this products"
+                                                           class="magic-checkbox">
+                                                    <label for="license">Do you have license to sell?</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6" id="plat_opt" style="display: none;">
+                                            <label class="col-lg-4 control-label" for="platform">Platform</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" name="rc_num" class="form-control"
+                                                       placeholder="E.g: Kara.com.ng, jiji.ng, Jumia.com.ng, konga.com..."
+                                                       id="platform"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

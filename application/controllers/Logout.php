@@ -12,6 +12,7 @@ class Logout extends CI_Controller
                 $this->session->unset_userdata($key);
             }
         }
+        $this->session_destroy();
         redirect(base_url('login'));
     }
 
