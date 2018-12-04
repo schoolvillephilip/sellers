@@ -216,9 +216,8 @@
             <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('register/form'); ?>">Become
                 A Seller <i
                         class="fa fa-cart-plus"></i></a>
-            <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('register/form'); ?>">Become
-                A Seller <i
-                        class="fa fa-user-circle-o"></i></a>
+            <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('register/form'); ?>">Login <i
+                        class="fa fa-sign-in"></i></a>
             <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url(); ?>">Contact Seller Support
                 <i
                         class="fa fa-headphones"></i></a>
