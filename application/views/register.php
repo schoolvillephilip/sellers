@@ -74,7 +74,7 @@
                     <div class="progress progress-xs">
                         <div class="progress-bar progress-bar-primary"></div>
                     </div>
-                    <?= form_open('register/process', 'id="" class="form-horizontal"') ?>
+                    <?= form_open('register/process', 'id="demo-bv-wz-form" class="form-horizontal"') ?>
                     <div class="panel-body">
                         <div class="tab-content">
                             <div id="sell_info" class="tab-pane">
