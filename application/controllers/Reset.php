@@ -20,6 +20,7 @@ class Reset extends CI_Controller
         $page_data['pg_name'] = 'reset';
         $page_data['meta_tags'] = array('css/bootstrap.min.css', 'css/nifty.min.css', 'css/nifty-demo-icons.min.css', 'css/nifty-demo.min.css');
         $page_data['scripts'] = array('js/jquery.min.js', 'js/bootstrap.min.js', 'js/nifty.min.js');
+//        $this->session->set_flashdata('error_msg', 'How are you');
         $this->load->view('reset', $page_data);
     }
 
@@ -42,10 +43,18 @@ class Reset extends CI_Controller
                 $data['code'] = $code = $this->seller->generate_general_code( 'users', 'code');
                 if( $this->seller->update_data("id = {$user->id}", $data, 'users')) {
                     // send mail
-                    // Not a seller
-                    $email = $this->input->post('email');
-                    $this->session->set_flashdata('success_msg', "Reset mail has been sent to " . $email . " please click on the link in your email to reset your password.");
-                    redirect('login');
+                    $email_array = array(
+                        'email' => $email,
+                        'reset_link' => base_url('reset/activate?token='.$code)
+                    );
+                    $status = $this->email->reset_password( $email_array);
+                    if( $status['success'] ){
+                        $this->session->set_flashdata('success_msg', "Reset mail has been sent to <strong>" . $email . "</strong> please click on the link in your email to reset your password.");
+                        redirect('login');
+                    }else{
+                        $this->session->set_flashdata('error_msg', $status['error']);
+                        redirect('reset');
+                    }
                 } else {
                     // Not a seller
                     $this->session->set_flashdata('error_msg', "There was an error updating your account, please try again, and if persist, contact support.");
@@ -62,16 +71,16 @@ class Reset extends CI_Controller
     public function activate(){
         $token = cleanit($this->input->get('token'));
         if( $token && !empty( $token )){
-            $user = $this->get_row('users', 'id', "code = {$token}");
+            $user = $this->seller->get_row('users', 'id', "code = '$token'");
             if( $user ){
-                $this->session->set_userdata('id', $user->id);
-                $this->session->userdata('success_msg', 'Token confirmed! Please set a new password');
+                $this->session->set_userdata(array('id' => $user->id));
+                $this->session->set_flashdata('success_msg', 'Token confirmed! Please set a new password');
                 redirect('reset/reset_password');
             }else{
-                $this->session->userdata('error_msg', 'Incorrect recovery token, please contact support team for more assistance.');
+                $this->session->set_flashdata('error_msg', 'Incorrect recovery token or has expired, please contact support team for more assistance.');
             }
         }
-        redirect('recover');
+        redirect('reset');
     }
 
     public function reset_password(){
@@ -80,6 +89,7 @@ class Reset extends CI_Controller
         $page_data['meta_tags'] = array('css/bootstrap.min.css', 'css/nifty.min.css', 'css/nifty-demo-icons.min.css', 'css/nifty-demo.min.css');
         $page_data['scripts'] = array('js/jquery.min.js', 'js/bootstrap.min.js', 'js/nifty.min.js');
 
+
         if( !$this->session->userdata('id')) redirect('reset');
         if( $this->input->post() ){
             $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
@@ -87,15 +97,17 @@ class Reset extends CI_Controller
             if ($this->form_validation->run() === FALSE) {
                 $this->session->set_flashdata('error_msg', '<strong>Please fix the error</strong> <br />' . validation_errors());
             }else{
+
                 $id = $this->session->userdata('id');
                 $password = cleanit($this->input->post('password'));
+
                 if($this->seller->change_password($password, $id, 'users')){
                     // delete the token
-                    $this->db->seller->update_data("( id = $id)", array('code' => '', 'users' ));
-                    $this->session->userdata('success_msg', 'Password changed successfully, please enter your email, and new password.');
+                    $this->seller->update_data("( id = $id)", array('code' => ''), 'users' );
+                    $this->session->set_flashdata('success_msg', 'Password changed successfully, please enter your email, and new password.');
                     redirect('login');
                 }
-                $this->session->userdata('error_msg', 'Error updating your new password, please contact support.');
+                $this->session->set_flashdata('error_msg', 'Error updating your new password, please contact support.');
             }
             redirect('reset/reset_password');
         }else{

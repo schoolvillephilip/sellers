@@ -170,7 +170,6 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-lg-4 control-label"></label>
                                         <div class="col-lg-7" style="text-align:left;">
-
                                             <div class="checkbox">
                                                 <input id="bus_reg" type='checkbox' name="has_reg"
                                                        title="Is Business Registered?"
@@ -178,12 +177,12 @@
                                                 <label for="bus_reg">Is Your Business Registered?</label>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-6" id="reg_opt" style="display: none;">
-                                            <label class="col-lg-4 control-label" for="reg_no">Registration Number</label>
-                                            <div class="col-lg-7">
-                                                <input type="text" name="reg_no" class="form-control"
-                                                       placeholder="Enter your registration number"/>
-                                            </div>
+                                    </div>
+                                    <div class="form-group col-md-6" id="reg_opt" style="display: none;">
+                                        <label class="col-lg-4 control-label" for="reg_no">Registration Number</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" name="reg_no" class="form-control"
+                                                   placeholder="Enter your registration number"/>
                                         </div>
                                     </div>
                                 </div>

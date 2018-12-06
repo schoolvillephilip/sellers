@@ -70,13 +70,14 @@ class Register extends CI_Controller
                 'account_name' => $this->input->post('account_name'),
                 'bank_name' => $this->input->post('bank_name'),
                 'account_type' => $this->input->post('account_type'),
-                'date_applied' => get_now()
+                'date_applied' => get_now(),
+                'seller_phone' => $this->input->post('phone_number')
             );
             $user_data = array(
                 'is_seller' => 'pending',
                 'first_name' => $this->input->post('first_name'),
-                'last_name' => $this->input->post('last_name'),
-                'phone' => $this->input->post('phone_number')
+                'last_name' => $this->input->post('last_name')
+
             );
             if ($user) {
                 // we are updating
@@ -90,6 +91,19 @@ class Register extends CI_Controller
                     $this->seller->update_data($user->id, $user_data, 'users');
                     $this->session->set_flashdata('success_msg', 'Congrats your application has been received and under review, you will be mailed on the update.');
                     // Email Model
+                    $email_array = array(
+                        'email' => $email,
+                        'recipent' => 'Dear '. $user_data['first_name'] . ' ' . $user_data['last_name']
+                    );
+                    $status = $this->email->welcome_user( $email_array);
+                    if( !$status['success'] ){
+                        // log the error
+                        $error_action = array(
+                            'error_action' => 'Seller Register Controller',
+                            'error_message' => $status['error']
+                        );
+                        $this->email->insert_data('error_logs', $error_action);
+                    }
                     redirect('login');
                 } else {
                     $this->session->set_flashdata('error_msg', 'There was an error creating your seller account, please you can contact support if it persist.');
@@ -112,6 +126,21 @@ class Register extends CI_Controller
                     $seller_data['uid'] = $user_id;
                     if ($this->seller->create_account($seller_data, 'sellers')) {
                         // Email Model
+                        $bodyHytml = '<p>Please note that you can as well use this same details to buy items on onitshamarket.com</p>';
+                        $email_array = array(
+                            'email' => $email,
+                            'recipent' => 'Dear '. $user_data['first_name'] . ' ' . $user_data['last_name'],
+                            'bodyHtml' => $bodyHytml
+                        );
+                        $status = $this->email->welcome_user( $email_array);
+                        if( !$status['success'] ){
+                            // log the error
+                            $error_action = array(
+                                'error_action' => 'Seller Register Controller',
+                                'error_message' => $status['error']
+                            );
+                            $this->email->insert_data('error_logs', $error_action);
+                        }
                         $this->session->set_flashdata('success_msg', 'Congrats your application has been received and under review, you will be mailed on the update.');
                         redirect('login');
                     } else {

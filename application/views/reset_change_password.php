@@ -26,16 +26,16 @@
                 <div class="mar-ver pad-btm">
                     <h1 class="h3 text-2x">Reset Password</h1>
                     <p class="text-semibold">Please provide a new password</p>
-                    <?php $this->load->view('msg_view'); ?>
                 </div>
-                <?= form_open('reset'); ?>
-                <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="New Password" required autofocus>
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" name="confirm_password" required placeholder="Confirm Password">
-                </div>
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Reset Password</button>
+                <?php $this->load->view('msg_view'); ?>
+                <?= form_open('reset/reset_password'); ?>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="New Password" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="confirm_password" required placeholder="Confirm Password">
+                    </div>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Reset Password</button>
                 <?= form_close(); ?>
             </div>
             <div class="pad-all">
