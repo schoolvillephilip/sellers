@@ -82,7 +82,7 @@
 </div>
 <?php $this->load->view('templates/scripts'); ?>
 <script>
-    $(document).ready(function (x) {
+    $(document).ready(function() {
         $("#demo-dt-selection").dataTable({
             "responsive": true,
             "language": {
