@@ -17,7 +17,6 @@ class Orders extends MY_Controller
         $page_data['sub_name'] = 'order_' . $status;
         $page_data['profile'] = $this->seller->get_profile_details($this->session->userdata('logged_id'),
             'first_name,last_name,email,profile_pic');
-        // get product
         $page_data['orders'] = $this->seller->get_orders($this->session->userdata('logged_id'), $status
         );
         $this->load->view('orders', $page_data);
