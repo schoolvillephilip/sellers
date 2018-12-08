@@ -68,6 +68,11 @@ Class Seller_model extends CI_Model
         return $result;
     }
 
+    function delete_data($id, $table){
+        $this->db->where('id', $id);
+        return $this->db->delete( $table );
+    }
+
     // check if the password is correct
 
     function cur_pass_match($password = null, $access = '', $table = 'users')
