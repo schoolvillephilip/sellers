@@ -25,30 +25,33 @@
                                width="100%">
                             <thead>
                             <tr>
-                                <th colspan="2">Product Name</th>
+                                <th>Product Name</th>
                                 <th class="min-tablet">Ordered Date</th>
                                 <th class="min-tablet">Qty (Amount)</th>
-                                <td class="min-tablet">Ordered.</td>
-                                <?php $type = $this->input->get('type');
+                                <th class="min-tablet">Ordered.</th>
+                                <?php
+                                $type = $this->input->get('type');
                                 if (empty($type)) : ?>
-                                    <td class="min-tablet">Order Status</td> <?php endif; ?>
+                                    <th class="min-tablet">Order Status</th>
+                                <?php endif; ?>
                             </tr>
                             </thead>
                             <tbody>
                             <?php foreach ($orders as $order) : ?>
                                 <tr>
-                                    <td colspan="2">
+                                    <td>
                                         <span><img width="65"
                                                    src="<?= base_url('data/products/' . $order->pid . '/' . $order->image_name); ?>"></span>
-                                        <?= character_limiter($order->product_name, 30); ?>
-                                        <a href="<?= base_url('order/detail/' . $order->orid); ?>"></a>
+                                        <a href="#" class="btn btn-link"><?= character_limiter($order->product_name, 30); ?></a>
                                     </td>
                                     <td><?= neatDate($order->order_date); ?></td>
                                     <td><?= $order->qty . ' Item (s) - <span class="text text-danger"> ( ' . ngn($order->amount) . ' )</span>'; ?></td>
                                     <td><?= $order->variation; ?></td>
-                                    <?php $type = $this->input->get('type');
+                                    <?php
+                                    $type = $this->input->get('type');
                                     if (empty($type)) : ?>
-                                        <td class="min-tablet"><?= productStatus($order->status); ?></td> <?php endif; ?>
+                                        <td class="min-tablet"><?= productStatus($order->status); ?></td>
+                                    <?php endif; ?>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -66,7 +69,7 @@
 </div>
 <?php $this->load->view('templates/scripts'); ?>
 <script>
-    $(document).ready(function (x) {
+    $(document).ready(function () {
         $('#demo-dt-basic').dataTable({
             "responsive": true,
             "language": {

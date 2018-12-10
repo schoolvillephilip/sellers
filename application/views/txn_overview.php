@@ -24,7 +24,7 @@
                     <div class="panel-body">
                         <div id="om-panel-order" class="panel">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Total Order Count</h3>
+                                <h3 class="panel-title">Payout Tracking</h3>
                                 <?php if (!$txn_chart) : ?>
                                     <h3 class="text-danger text-center">No Data Available!</h3>
                                 <?php endif; ?>

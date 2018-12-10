@@ -10,8 +10,6 @@
     <link rel="canonical" href="<?= current_url(); ?>"/>
     <meta name="robots" content="noindex,nofollow">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="<?= base_url('assets/seller/css/bootstrap.min.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/seller/css/nifty.min.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/seller/css/create.css')?>" rel="stylesheet">
@@ -24,8 +22,7 @@
         <link href="<?= base_url('assets/seller/plugins/bootstrap-select/bootstrap-select.min.css')?>" rel="stylesheet">
         <link href="<?= base_url('assets/seller/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css')?>" rel="stylesheet">
     <?php endif; ?>
-    <?php if( in_array($pg_name, array('manage_product','overview','message','report') ) ): ?>
-        <!--DataTables [ OPTIONAL ]-->
+    <?php if( in_array($pg_name, array('manage_product','overview','message','report','orders') ) ): ?>
         <link href="<?= base_url('assets/seller/plugins/datatables/media/css/dataTables.bootstrap.css'); ?>" rel="stylesheet">
         <link href="<?= base_url('assets/seller/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css'); ?>" rel="stylesheet">
     <?php endif;?>
