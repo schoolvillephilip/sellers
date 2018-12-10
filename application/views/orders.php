@@ -7,12 +7,12 @@
         <div id="content-container">
             <div id="page-head">
                 <div id="page-title">
-                    <h1 class="page-header text-overflow">Product</h1>
+                    <h1 class="page-header text-overflow">Orders</h1>
                 </div>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="demo-pli-home"></i></a></li>
                     <li><a href="#">Manage</a></li>
-                    <li class="active"><?= ucfirst($this->input->get('type')) ?>products</li>
+                    <li class="active"><?= ucfirst($this->input->get('type')) ?>Orders</li>
                 </ol>
             </div>
             <div id="page-content">

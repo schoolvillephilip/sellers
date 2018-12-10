@@ -40,8 +40,9 @@
                     </div>
                     <div class="panel-body">
                         <div class="col-md-5">
+                            <div class="alert alert-success" id="status" style="display: none;"></div>
                             <div class="fluid">
-                                <div id="demo-email-list">
+                                <div id="">
                                     <div class="row">
                                         <div class="col-sm-7 toolbar-left">
                                             <div class="btn-group">
@@ -51,29 +52,30 @@
                                                     <label for="select-all-mail"></label>
                                                 </label>
                                             </div>
-                                            <button id="demo-mail-ref-btn" data-toggle="panel-overlay"
-                                                    data-target="#demo-email-list" class="btn btn-default"
-                                                    type="button">
-                                                <i class="demo-psi-repeat-2"></i>
-                                            </button>
                                             <div class="btn-group dropdown">
-                                                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"
+                                                <button data-toggle="dropdown" class="btn btn-default"
                                                         type="button">
                                                     Action <i class="dropdown-caret"></i>
                                                 </button>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="javascript:;"><i class="demo-pli-mail-send"></i> Mark
+                                                    <li><a href="javascript:;" class="action-dropdown" data-action="read"><i class="demo-pli-mail-send"></i> Mark
                                                             as read</a></li>
-                                                    <li><a href="javascript:;"><i class="demo-pli-mail-unread"></i> Mark
+                                                    <li><a href="javascript:;" class="action-dropdown" data-action="unread"><i class="demo-pli-mail-unread"></i> Mark
                                                             as unread</a></li>
                                                     <li class="divider"></li>
-                                                    <li><a href="javascript:;"><i class="demo-pli-recycling"></i> Delete</a>
+                                                    <li><a href="javascript:;" class="action-dropdown" data-action="delete"><i class="demo-pli-recycling"></i> Delete</a>
                                                     </li>
                                                 </ul>
                                             </div>
+                                            <button data-toggle="panel-overlay"
+                                                    data-target="#" class="btn btn-default refresh"
+                                                    type="button">
+                                                <i class="demo-psi-repeat-2"></i>
+                                            </button>
                                         </div>
                                     </div>
-                                    <ul id="demo-mail-list" class="mail-list pad-top bord-top">
+                                    <?= form_open('message/incoming', 'id="message-form"'); ?>
+                                    <ul id="mail-list" class="mail-list pad-top bord-top">
                                         <?php if ($messages) : ?>
                                             <?php $mes = $messages->first_row('object'); ?>
                                             <?php foreach ($messages->result() as $message) : ?>
@@ -81,7 +83,7 @@
                                                     style="cursor: pointer" data-mid="<?= $message->id; ?>"
                                                     data-title="<?= $message->id; ?>_title">
                                                     <div class="mail-control">
-                                                        <input id="<?= $message->id; ?>" class="magic-checkbox"
+                                                        <input id="<?= $message->id; ?>" name="message[<?= $message->id;?>]" class="magic-checkbox"
                                                                type="checkbox">
                                                         <label for="<?= $message->id; ?>"></label>
                                                     </div>
@@ -94,6 +96,16 @@
                                             <li> No Message</li>
                                         <?php endif; ?>
                                     </ul>
+                                    <?=  form_close(); ?>
+                                    <div id="mail-list-processing"
+                                         style="display:none;position: center;top: 0;left: 0;width: auto;height: auto%;background: #f4f4f4;z-index: 99;">
+                                        <div class="text"
+                                             style="position: absolute;top: 35%;left: 0;height: 100%;width: 100%;font-size: 18px;text-align: center;">
+                                            <img src="<?= base_url('assets/seller/img/load.gif'); ?>"
+                                                 alt="Processing...">
+                                            Processing the data. Please Wait!
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +169,6 @@
     all.click(function () {
         $('input:checkbox').prop('checked', this.checked);
     });
-
     $('.message_item').on('click', function () {
         $('.message_item').removeClass('active-message');
         $(this).addClass('active-message');
@@ -182,6 +193,41 @@
             },
             error: response => console.log(response)
 
+        });
+    });
+
+    $('.refresh').on('click', function () {
+        $('#mail-list-processing').css('display', 'block');
+        $('.mail-list').load(`${base_url}message .mail-list`);
+        setTimeout(function () {
+            $('#mail-list-processing').css('display', 'none');
+        }, 500);
+    });
+
+    $('.action-dropdown').on('click', function(){
+        $('#mail-list-processing').css('display', 'block');
+        let action = $(this).data('action');
+        let data = $('#message-form').serializeArray();
+        data.push({name:'action', value: action});
+        $.ajax({
+            url: base_url + "message/message_action",
+            method: "POST",
+            data: data,
+            dataType: "json",
+            success: response => {
+                $('#status').css('display', 'block').html('Success');
+                $('.mail-list').load(`${base_url}message .mail-list`);
+                setTimeout(function () {
+                    $('#mail-list-processing').css('display', 'none');
+                }, 300);
+            },
+            error: () => {
+                $('#status').css('display','block').html('There was an error performing that action, please try again or contact support');
+                $('.mail-list').load(`${base_url}message .mail-list`);
+                setTimeout(function () {
+                    $('#mail-list-processing').css('display', 'none');
+                }, 300);
+            }
         });
     });
 </script>

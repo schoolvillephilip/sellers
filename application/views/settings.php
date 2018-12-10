@@ -62,6 +62,12 @@
                                                        disabled>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="seller-phone">Business Phone</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="seller_phone" class="form-control" value="<?= $profile->seller_phone; ?>">
+                                            </div>
+                                        </div>
                                         <p class="text-main text-semibold">Business Information</p>
                                         <div class="form-group ">
                                             <label class="col-sm-3 control-label" for="carrito-cmp-name">Legal
@@ -135,10 +141,10 @@
                                             <div class="col-sm-9">
                                                 <select class="demo_select2 form-control" name="own_brand">
                                                     <option value="">--Select an Option--</option>
-                                                    <option value="1" <?php if ($profile->own_brand) echo 'selected' ?> >
+                                                    <option value="1" <?php if ($profile->own_brand == 1 ) echo 'selected' ?> >
                                                         Yes, I do
                                                     </option>
-                                                    <option value="0" <?php if ($profile->own_brand) echo 'selected' ?> >
+                                                    <option value="0" <?php if ($profile->own_brand == 0) echo 'selected' ?> >
                                                         No.
                                                     </option>
                                                 </select>
@@ -150,8 +156,11 @@
                                             <div class="col-sm-9">
                                                 <select class="demo_select2 form-control" name="main_category">
                                                     <option value="">--Select Main Product Category--</option>
-                                                    <?php foreach ($categories as $root_categories): ?>
-                                                        <option value="<?= $root_categories->name; ?>" <?php if ($profile->main_category == trim($root_categories->name)) echo 'selected'; ?> ><?= $root_categories->name; ?></option>
+                                                    <?php foreach ($categories as $category): ?>
+                                                        <option value="<?= $category->name; ?>"
+                                                            <?php if (strtolower(trim($profile->main_category)) == trim(strtolower($category->name))) echo 'selected'; ?> >
+                                                            <?= $category->name; ?>
+                                                        </option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -162,11 +171,11 @@
                                             <div class="col-sm-9">
                                                 <select class="demo_select2 form-control" name="no_of_products">
                                                     <option value="">--Select an Option--</option>
-                                                    <option value="1-10" <?php if ($profile->no_of_products == "1-10") echo 'selected'; ?> >
-                                                        1-10
+                                                    <option value="1-20" <?php if ($profile->no_of_products == "1-20") echo 'selected'; ?> >
+                                                        1-20
                                                     </option>
-                                                    <option value="11-50" <?php if ($profile->no_of_products == "11-50") echo 'selected'; ?> >
-                                                        11-50
+                                                    <option value="21-50" <?php if ($profile->no_of_products == "21-50") echo 'selected'; ?> >
+                                                        21-50
                                                     </option>
                                                     <option value="51-100" <?php if ($profile->no_of_products == "51-100") echo 'selected'; ?> >
                                                         51-100
@@ -183,7 +192,7 @@
                                                     <option value="5001-10000" <?php if ($profile->no_of_products == "5001-10") echo 'selected'; ?> >
                                                         5001-10000
                                                     </option>
-                                                    <option value="10001-50000" <?php if ($profile->no_of_products == "1-10") echo 'selected'; ?> >
+                                                    <option value="10001-50000" <?php if ($profile->no_of_products == "10001-50000") echo 'selected'; ?> >
                                                         10001-50000
                                                     </option>
                                                 </select>
@@ -238,8 +247,7 @@
                                     <div class="tab-pane fade" id="carrito-tabs-box-2">
                                         <p class="text-main text-semibold">Your Terms & Conditions</p>
                                         <p>Fill in your Terms & Conditions</p>
-                                        <?= form_open('seller/settings/process', 'class="form-horizontal"'); ?>
-                                        <form class="form-horizontal">
+                                        <?= form_open('settings/process', 'class="form-horizontal"'); ?>
                                             <div class="form-group ">
                                                 <label class="col-sm-3 control-label">Terms & Conditions</label>
                                                 <div class="col-sm-9">
@@ -251,23 +259,26 @@
                                             <div class="panel-footer text-right">
                                                 <button class="btn btn-primary" type="submit">Save</button>
                                             </div>
-                                            <?= form_close(); ?>
+                                        <?= form_close(); ?>
                                     </div>
                                     <div class="tab-pane fade" id="carrito-tabs-box-3">
                                         <p class="text-main text-semibold">Upload your logo</p>
-                                        <form class="form-horizontal">
+                                        <?= form_open_multipart('settings/process', 'class="form-horizontal"')?>
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Logo</label>
-                                                <div class="col-md-9">
-					                        <span class="pull-left btn btn-primary btn-file ">
-					                            Select File <input type="file">
-					                        </span>
-                                                </div>
+                                                <span class="pull-left btn btn-primary btn-file ">
+                                                    Select File <input type="file">
+                                                </span>
                                             </div>
+                                            <?php if(!is_null($profile->company_pic)): ?>
+                                                <div class="form-group">
+                                                    <span><?= anchor('#'); ?></span>
+                                                </div>
+                                            <?php endif;?>
                                             <div class="panel-footer text-right">
                                                 <button class="btn btn-primary" type="submit">Save</button>
                                             </div>
-                                        </form>
+                                        <?= form_close(); ?>
                                     </div>
                                     <div class="tab-pane fade" id="carrito-tabs-box-4">
                                         <p class="text-main text-semibold">Commissions & Fees</p>

@@ -58,6 +58,7 @@ Class Seller_model extends CI_Model
     // Update table
     function update_data($access, $data = array(), $table_name = 'sellers')
     {
+
         try {
             $this->db->where($access);
             $result = $this->db->update($table_name, $data);
@@ -65,6 +66,11 @@ Class Seller_model extends CI_Model
             $result = $e->getMessage();
         }
         return $result;
+    }
+
+    function delete_data($id, $table){
+        $this->db->where('id', $id);
+        return $this->db->delete( $table );
     }
 
     // check if the password is correct
@@ -353,7 +359,6 @@ Class Seller_model extends CI_Model
      */
     function get_orders($id = '', $status = '')
     {
-
         $query = "SELECT p.product_name,p.id pid,v.variation, p.created_on created_on, o.order_date,o.id orid, g.image_name,o.qty,o.amount, o.status
                 FROM products p 
                 LEFT JOIN orders o ON (p.id = o.product_id)

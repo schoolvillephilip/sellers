@@ -35,7 +35,6 @@ class Settings extends MY_Controller
                         redirect('settings');
                     } else {
                         $data = $user_data = array();
-                        $uid = base64_decode($this->session->userdata('logged_id'));
                         $name = explode(' ', $this->input->post('name'));
                         $user_data['first_name'] = $name[0];
                         $user_data['last_name'] = $name[1];
@@ -49,22 +48,11 @@ class Settings extends MY_Controller
                         $data['main_category'] = $this->input->post('main_category');
                         $data['bank_name'] = $this->input->post('bank_name');
                         $data['bvn'] = $this->input->post('bvn');
+                        $data['seller_phone'] = $this->input->post('seller_phone');
                         $data['account_name'] = $this->input->post('account_name');
                         $data['account_number'] = $this->input->post('account_number');
-                        if (isset($_FILES['vat_file']) && !is_null($_FILES)) {
-                            // is the file the same as present
-                            if (!is_dir(base_url('data/sellers/' . $uid . '/')) || !file_exists(base_url('data/sellers/' . $uid . '/'))) mkdir('./data/sellers/' . $uid);
-                            $file1 = './data/sellers/' . $uid . '/' . $page_data['profile']->vat_file;
-                            $filename = $this->do_upload('vat_file', $page_data['profile']->id);
-                            if ($filename && (md5_file($filename) === md5_file($file1))) {
-                                // unset the image
-                                unlink('./data/sellers/' . $uid . '/' . $page_data['profile']->vat_file);
-                            }
-                            $data['vat_file'] = $filename;
-                        }
                         // update user table
                         $this->seller->update_data(array('id' => $uid), $user_data, 'users');
-
                         if ($this->seller->update_data(array('uid' => $uid), $data, 'sellers')) {
                             $this->session->set_flashdata('success_msg', 'Success: Your information has been saved successfully.');
                         } else {
@@ -116,7 +104,7 @@ class Settings extends MY_Controller
 
     public function change_password()
     {
-        $id = base64_decode($this->session->userdata('logged_id'));
+        $id = $this->session->userdata('logged_id');
         $page_data['profile'] = $this->seller->get_profile($id);
         if (!$this->input->post()) {
             $page_data['page_title'] = "Seller's Profile Setting - " . lang('app_name');

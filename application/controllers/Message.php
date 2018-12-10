@@ -33,6 +33,39 @@ class Message extends MY_Controller
         $output['created_on'] = neatDate($result['created_on']);
         echo json_encode($result, JSON_UNESCAPED_SLASHES);
         exit;
+    }
 
+    function message_action(){
+        if( !$this->input->is_ajax_request() ){
+            redirect(base_url());
+        }else{
+            $messages = $this->input->post('message');
+            $action = $this->input->post('action');
+            switch ($action) {
+                case 'read':
+                    foreach( $messages as $key => $value ){
+                        $this->seller->update_data(array('id' => $key ), array('is_read' => 1 ), 'sellers_notification_message');
+                    }
+                    echo json_encode( array('status' => 'success'));
+                    exit;
+                    break;
+                case 'unread':
+                    foreach( $messages as $key => $value ){
+                        $this->seller->update_data(array('id' => $key ), array('is_read' => 0 ), 'sellers_notification_message');
+                    }
+                    echo json_encode( array('status' => 'success'));
+                    exit;
+                case 'delete':
+                    foreach( $messages as $key => $value ){
+                        $this->seller->delete_table($key,'sellers_notification_message');
+                    }
+                    echo json_encode( array('status' => 'success'));
+                    exit;
+                default:
+                    redirect(base_url());
+                    break;
+
+            }
+        }
     }
 }
