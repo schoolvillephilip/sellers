@@ -303,7 +303,7 @@
                                 <button style="margin-top:-30px;"
                                         class="btn btn-primary btn-rounded btn-labeled pull-right"
                                         onclick="PrintElem('acc_state_table');"><i
-                                            class="btn-label demo-psi-printer"></i> Print Statement
+                                            class="btn-label demo-psi-printer"></i>Print Statement
                                 </button>
                             </div>
                         </div>

@@ -1,11 +1,6 @@
 <nav id="mainnav-container">
     <div id="mainnav">
         <div class="mainnav-brand">
-            <a href="<?= base_url(); ?>" class="brand">
-                <img src="<?= base_url('assets/landing/img/onitshamarket-logo.png'); ?>"
-                     alt="<?= lang('app_name'); ?> logo" class="brand-icon">
-                <span class="brand-text"><?= lang('app_name'); ?></span>
-            </a>
             <a href="javascript:;" class="mainnav-toggle"><i class="pci-cross pci-circle icon-lg"></i></a>
         </div>
         <div id="mainnav-menu-wrap">
@@ -135,6 +130,9 @@
                                 <li <?php if ($sub_name == 'sales_report') echo 'class="active-link"' ?>><a
                                             href="<?= base_url('account/sales_report'); ?>">
                                         <i class="demo-pli-star"></i>Sales Report</a></li>
+                                <li <?php if ($sub_name == 'payout') echo 'class="active-link"' ?>><a
+                                            href="<?= base_url('account/payout'); ?>">
+                                        <i class="demo-pli-star"></i>Request Payout</a></li>
                             </ul>
                         </li>
                         <li class="list-divider"></li>
