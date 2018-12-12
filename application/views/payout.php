@@ -79,11 +79,11 @@
                                         <div class="panel-control">
                                             <ul class="nav nav-tabs">
                                                 <li class="active">
-                                                    <a data-toggle="tab" href="#demo-tabs2-box-1" id="his_trig">Payout History
+                                                    <a data-toggle="tab" href="#demo-tabs2-box-1" id="his_trig">History
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a data-toggle="tab" href="#demo-tabs2-box-2" id="inc_trig">Incoming Transactions
+                                                    <a data-toggle="tab" href="#demo-tabs2-box-2" id="inc_trig">Incoming
                                                     </a>
                                                 </li>
                                             </ul>
@@ -224,8 +224,8 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <button class="btn btn-primary btn-rounded btn-labeled"
-                                                        onclick="PrintElem('acc_state_table');"><i
-                                                            class="btn-label demo-psi-receipt-4"></i>Payout
+                                                        onclick="PrintElem('acc_state_table');">
+                                                    <i class="btn-label demo-psi-receipt-4"></i>Request Payout
                                                 </button>
                                             </div>
                                         </div>

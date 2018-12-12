@@ -1,11 +1,6 @@
 <nav id="mainnav-container">
     <div id="mainnav">
         <div class="mainnav-brand">
-            <a href="<?= base_url(); ?>" class="brand">
-                <img src="<?= base_url('assets/landing/img/onitshamarket-logo.png'); ?>"
-                     alt="<?= lang('app_name'); ?> logo" class="brand-icon">
-                <span class="brand-text"><?= lang('app_name'); ?></span>
-            </a>
             <a href="javascript:;" class="mainnav-toggle"><i class="pci-cross pci-circle icon-lg"></i></a>
         </div>
         <div id="mainnav-menu-wrap">
