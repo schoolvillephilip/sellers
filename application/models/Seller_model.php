@@ -366,9 +366,9 @@ Class Seller_model extends CI_Model
                 LEFT JOIN product_variation v ON (v.product_id = p.id)
                 WHERE o.seller_id = $id";
         if ($status != '') {
-            $query .= " AND o.status = '{$status}'";
+            $query .= " AND o.active_status = '{$status}'";
         }
-        return $this->db->query($query)->result();
+        return $this->db->query($query, array($id, $status))->result();
     }
 
 
@@ -440,4 +440,7 @@ Class Seller_model extends CI_Model
     {
         return $this->db->query($query);
     }
+
+
+
 }
