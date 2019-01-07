@@ -48,11 +48,36 @@ class Account extends CI_Controller
     }
     public function payout()
     {
+        $id = $this->session->userdata('logged_id');
         $page_data['pg_name'] = 'report';
         $page_data['page_title'] = "Request Payout";
         $page_data['sub_name'] = "payout";
-        $page_data['profile'] = $this->seller->get_profile($this->session->userdata('logged_id'));
-        $this->load->view('payout', $page_data);
+        $page_data['profile'] = $this->seller->get_profile($id);
+        if( $this->input->post() ){
+            $this->form_validation->set_rules('payout_amount', 'Amount','trim|required|xss_clean');
+            $this->form_validation->set_rules('payout_password', 'Password','trim|required|xss_clean');
+            if( $this->form_validation->run() == FALSE) {
+                $this->session->set_flashdata('error_msg', validation_errors());
+                redirect('account/payout/');
+            }
+            // confirm password
+            $amount = $this->input->post('payout_amount', true);
+            $password = $this->input->post('payout_password', true);
+            if( $this->seller->cur_pass_match($password , $id)){
+                // check if the balance does not exeeds
+                if( $amount > $page_data['profile']->balance ){
+                    $this->session->set_flashdata('error_msg', 'You can not request more than available balance.');
+                    redirect('account/payout/');
+                }
+                // Generate code
+                $data['code'] = $code = $this->user->generate_code( 'users', 'code');
+            }
+            $this->session->set_flashdata('error_msg', 'You can not request more than available balance.');
+            redirect('account/payout/');
+        }else{
+            $this->load->view('payout', $page_data);
+        }
+
     }
 
     public function txn_overview()

@@ -868,7 +868,7 @@
                                         <div class="box-inline">
                                             <button type="button" class="previous btn btn-primary">Previous</button>
                                             <button type="button" class="next btn btn-primary">Next</button>
-                                            <button type="button" class="preview btn btn-primary">Preview</button>
+<!--                                            <button type="button" class="preview btn btn-primary">Preview</button>-->
                                             <button type="submit" class="finish btn btn-warning">Finish</button>
                                         </div>
                                     </div>
@@ -992,9 +992,9 @@
             // Gets triggered when the files have successfully been sent.
             // Redirect user or notify of success.
             $('#processing').hide();
-            if (response.startus == 'error') {
+            if (response.status == 'error') {
                 $('#processing').hide();
-                $('#status').html(`<p class="alert alert-error">There was an error posting the property. <br /> ${response.message} </p>`).slideDown('fast').delay(4000).slideUp('slow');
+                $('#status').html(`<p class="alert alert-error">There was an error posting the product. <br /> ${response.message} </p>`).slideDown('fast').delay(4000).slideUp('slow');
             } else {
                 $('#processing').hide();
                 $('.add_product_form').trigger('reset');

@@ -427,6 +427,7 @@ class Product extends MY_Controller
                     $_FILES['file']['error'] = $files['file']['error'][$x];
                     $_FILES['file']['size'] = $files['file']['size'][$x];
                     // check if we have the file already uploaded
+                    $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $product_id);
                     if (file_exists(realpath('./data/products/' . $id . '/' . $old_name))) {
                         $product_gallery['image_name'] = $upload_result;
                         $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name == $_POST['featured_image'])) ? 1 : 0;
@@ -437,7 +438,8 @@ class Product extends MY_Controller
                         }
                     } else {
                         // we have a new file to upload
-                        $upload_result = $this->do_upload('file', $id);
+                        $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $product_id);
+//                        $upload_result = $this->do_upload('file', $id); //
                         if ($upload_result) {
                             $product_gallery = array(
                                 'product_id' => $id,
@@ -471,6 +473,9 @@ class Product extends MY_Controller
         }
     }
 
+    /*
+     * for local upload
+     * */
     function do_upload($file, $id = '')
     {
         $config['upload_path'] = "./data/products/$id/";
@@ -490,6 +495,9 @@ class Product extends MY_Controller
         }
     }
 
+    /*
+     * Load all images for a single product
+     * To be used for product edit...*/
     public function load_images($id = '')
     {
         if (!$this->input->is_ajax_request()) redirect(base_url());
@@ -498,8 +506,10 @@ class Product extends MY_Controller
         foreach ($galleries as $gallery) {
             $img_name = $gallery->image_name;
             $obj['filename'] = $img_name;
-            $obj['fileURL'] = base_url('data/products/' . $id . '/' . $img_name);
-            $obj['filesize'] = filesize(realpath('./data/products/' . $id . '/' . $img_name));
+            $obj['fileURL'] = PRODUCTS_IMAGE_PATH . $img_name;
+//            $obj['fileURL'] = base_url('data/products/' . $id . '/' . $img_name);
+//            $obj['filesize'] = filesize(realpath('./data/products/' . $id . '/' . $img_name));
+            $obj['filesize'] = filesize(PRODUCTS_IMAGE_PATH . $img_name);
             $obj['featured'] = $gallery->featured_image;
             $result[] = $obj;
         }

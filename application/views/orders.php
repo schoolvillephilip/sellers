@@ -41,16 +41,20 @@
                                 <tr>
                                     <td>
                                         <span><img width="65"
-                                                   src="<?= base_url('data/products/' . $order->pid . '/' . $order->image_name); ?>"></span>
+                                                   src="<?= PRODUCTS_IMAGE_PATH . $order->image_name; ?>"></span>
                                         <a href="#" class="btn btn-link"><?= character_limiter($order->product_name, 30); ?></a>
                                     </td>
                                     <td><?= neatDate($order->order_date); ?></td>
-                                    <td><?= $order->qty . ' Item (s) - <span class="text text-danger"> ( ' . ngn($order->amount) . ' )</span>'; ?></td>
+                                    <td><?= $order->qty . ' Item (s) - <span class="text text-info"> ( ' . ngn($order->amount) . ' )</span>'; ?></td>
                                     <td><?= $order->variation; ?></td>
                                     <?php
                                     $type = $this->input->get('type');
-                                    if (empty($type)) : ?>
-                                        <td class="min-tablet"><?= productStatus($order->status); ?></td>
+                                    if (empty($type)) :
+                                        $json = json_decode($order->status);
+                                        $last = array_keys((array)$json);
+                                        $last =  $last[0];
+                                    ?>
+                                        <td class="min-tablet"><?= productStatus($last); ?></td>
                                     <?php endif; ?>
                                 </tr>
                             <?php endforeach; ?>

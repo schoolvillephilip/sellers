@@ -34,7 +34,7 @@
                             <div class="col-md-3">
                                 <div class="panel panel-bordered-dark panel-colorful">
                                     <div class="pad-all text-center">
-                                        <span class="text-3x text-thin">&#8358; 0</span>
+                                        <span class="text-3x text-thin"><?= ngn($profile->balance)?></span>
                                         <p>CURRENT BALANCE</p>
                                         <i class="demo-pli-credit-card-2 icon-lg"></i>
                                     </div>
@@ -160,76 +160,78 @@
                             <div class="col-md-7">
                                 <div class="text-center">
                                     <h3>REQUEST PAYOUT</h3>
-                                    <div id="acc_det" class="tab-pane" style="margin-top:20px;border:1px solid #35bbae;height:fit-content;padding:30px 0;">
-                                        <h4>Confirm Payout Details</h4>
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label class="col-lg-4 control-label">Bank Name</label>
-                                                <div class="col-lg-7">
-                                                    <select name="required" class="form-control" disabled>
-                                                        <option value="">-- Select Bank Name--</option>
-                                                        <?php $banks = explode(',', lang('banks'));
-                                                        foreach ($banks as $bank) :
-                                                            ?>
-                                                            <option value="<?= trim($bank); ?>"><?= trim($bank); ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
+                                    <?= form_open('account/payout'); ?>
+                                        <div id="acc_det" class="tab-pane" style="margin-top:20px;border:1px solid #35bbae;height:fit-content;padding:30px 0;">
+                                            <h4>Confirm Payout Details</h4>
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label class="col-lg-4 control-label">Bank Name</label>
+                                                    <div class="col-lg-7">
+                                                        <select name="required" name="bank_name" class="form-control" disabled>
+                                                            <option value="">-- Select Bank Name--</option>
+                                                            <?php $banks = explode(',', lang('banks'));
+                                                            foreach ($banks as $bank) :
+                                                                ?>
+                                                                <option <?php if( trim($bank) == $profile->bank_name) echo 'selected';?> value="<?= trim($bank); ?>"><?= trim($bank); ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="col-lg-4 control-label">Account Name</label>
+                                                    <div class="col-lg-7">
+                                                        <input type="text" class="form-control" value="<?= $profile->account_name; ?>" name="account_name"
+                                                               placeholder="Account Name" required disabled>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="col-lg-4 control-label">Account Name</label>
-                                                <div class="col-lg-7">
-                                                    <input type="text" class="form-control" name="account_name"
-                                                           placeholder="Account Name" required disabled>
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label class="col-lg-4 control-label">Account Number</label>
+                                                    <div class="col-lg-7">
+                                                        <input type="text" class="form-control" value="<?= $profile->account_number; ?>" name="account_number"
+                                                               placeholder="XXXXXXXXXX"
+                                                               required disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="col-lg-4 control-label" for="account_type">Account Type</label>
+                                                    <div class="col-lg-7">
+                                                        <select class="form-control" name="account_type" required disabled>
+                                                            <option <?php if($profile->account_type == 'current') echo 'selected';?> value="current">Current</option>
+                                                            <option <?php if($profile->account_type == 'savings') echo 'selected';?> value="savings">Savings</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label class="col-lg-4 control-label">Amount &#8358;</label>
+                                                    <div class="col-lg-7">
+                                                        <input type="number" class="form-control" required name="payout_amount"
+                                                               placeholder="0.00"
+                                                               required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="col-lg-4 control-label" for="payout_password">Confirm Password</label>
+                                                    <div class="col-lg-7">
+                                                        <input type="password" autocomplete="off" required class="form-control" name="payout_password"
+                                                               placeholder="Enter password"
+                                                               required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button class="btn btn-primary btn-rounded btn-labeled"
+                                                            onclick="PrintElem('acc_state_table');">
+                                                        <i class="btn-label demo-psi-receipt-4"></i>Request Payout
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label class="col-lg-4 control-label">Account Number</label>
-                                                <div class="col-lg-7">
-                                                    <input type="text" class="form-control" name="account_number"
-                                                           placeholder="XXXXXXXXXX"
-                                                           required disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="col-lg-4 control-label" for="account_type">Account Type</label>
-                                                <div class="col-lg-7">
-                                                    <select class="form-control" name="account_type" required disabled>
-                                                        <option value="current">Current</option>
-                                                        <option value="savings">Savings</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label class="col-lg-4 control-label">Amount &#8358;</label>
-                                                <div class="col-lg-7">
-                                                    <input type="number" class="form-control" name="payout_amount"
-                                                           placeholder="0.00"
-                                                           required>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="col-lg-4 control-label" for="payout_password">Confirm Password</label>
-                                                <div class="col-lg-7">
-                                                    <input type="password" class="form-control" name="payout_password"
-                                                           placeholder="password"
-                                                           required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <button class="btn btn-primary btn-rounded btn-labeled"
-                                                        onclick="PrintElem('acc_state_table');">
-                                                    <i class="btn-label demo-psi-receipt-4"></i>Request Payout
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?= form_close(); ?>
                                 </div>
                             </div>
                         </div>

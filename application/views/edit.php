@@ -621,7 +621,7 @@
                                         <div class="box-inline">
                                             <button type="button" class="previous btn btn-primary">Previous</button>
                                             <button type="button" class="next btn btn-primary">Next</button>
-                                            <button type="button" class="preview btn btn-primary">Preview</button>
+<!--                                            <button type="button" class="preview btn btn-primary">Preview</button>-->
                                             <button type="submit" class="finish btn btn-warning">Finish</button>
                                         </div>
                                     </div>
@@ -657,7 +657,7 @@
 <script src="<?= base_url('assets/seller/js/bootstrap.min.js'); ?>"></script>
 <script src="<?= base_url('assets/seller/js/nifty.min.js'); ?>"></script>
 <script src="<?= base_url('assets/seller/js/demo/nifty-demo.min.js'); ?>"></script>
-<script type="text/javascript"> base_url = '<?= base_url('seller'); ?>';</script>
+<script type="text/javascript"> base_url = '<?= base_url(); ?>';</script>
 <script type="text/javascript"> product_id = <?= $product->id; ?></script>
 <script src="<?= base_url('assets/seller/plugins/dropzone/dropzone.min.js'); ?>"></script>
 <script src="<?= base_url('assets/seller/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
@@ -727,6 +727,7 @@
             file._captionBox = Dropzone.createElement(`<input id="${file.name}" type='radio' name='featured_image' value="${file.name}">`);
             file.previewElement.appendChild(file._captionBox);
             file.previewElement.appendChild(file._captionLabel);
+            $('input[type="radio"]').first().prop('checked', true);
         });
         myDropzone.on("sendingmultiple", function (file, xhr, formData) {
             // Show the total progress bar when upload starts
@@ -750,13 +751,14 @@
             // Gets triggered when the files have successfully been sent.
             // Redirect user or notify of success.
             $('#processing').hide();
-            if (response.startus == 'error') {
+            if (response.status == 'error') {
                 $('#processing').hide();
-                $('#status').html(`<p class="alert alert-error">There was an error posting the property. <br /> ${response.message} </p>`).slideDown('fast').delay(4000).slideUp('slow');
+                $('#status').html(`<p class="alert alert-error">There was an error posting the product. <br /> ${response.message} </p>`).slideDown('fast').delay(4000).slideUp('slow');
             } else {
                 $('#processing').hide();
                 $('.edit_product_form').trigger('reset');
-                $('#status').html(`<p class="alert alert-success">Congrats the property has been posted successfully.</p>`).slideDown('fast').delay(5000).slideUp('slow');
+                $('#status').html(`<p class="alert alert-success">Congrats the product has been edited successfully. Awaiting Approval</p>`).slideDown('fast')
+                    .delay(5000).slideUp('slow');
             }
             console.log(response);
         });
@@ -863,7 +865,6 @@
             startDate: '0d'
         });
     }
-
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover({animation: true});
     });
