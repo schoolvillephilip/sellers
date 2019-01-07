@@ -66,13 +66,41 @@ class Account extends CI_Controller
             if( $this->seller->cur_pass_match($password , $id)){
                 // check if the balance does not exeeds
                 if( $amount > $page_data['profile']->balance ){
-                    $this->session->set_flashdata('error_msg', 'You can not request more than available balance.');
+                    $this->session->set_flashdata('error_msg', 'You can not request more than your available balance.');
                     redirect('account/payout/');
                 }
                 // Generate code
-                $data['code'] = $code = $this->user->generate_code( 'users', 'code');
+                $code = $this->seller->generate_general_code('payouts', 'token');
+                $payout_array = array(
+                    'user_id'   => $id,
+                    'amount'    => $amount,
+                    'token'     => $code,
+                    'date_requested'    => get_now(),
+                    'status'    => 'pending'
+                );
+
+                // send mail
+                $email_array = array(
+                    'email' => $page_data['profile']->email,
+                    'recipent' => 'Dear ' . $page_data['profile']->legal_company_name,
+                    'link'  => base_url('authenticate/payment_request/?code=' . $code)
+                );
+                try {
+                    // insert into payment request table
+                    $this->seller->insert_data('payouts', $payout_array);
+                    $this->seller->set_field('sellers', 'balance', "balance-{$amount}", array('uid' => $id));
+                    $this->email->payment_request($email_array);
+                    $this->session->set_flashdata('success_msg', "Payment request made. A mail was sent to " . $page_data['profile']->email . ", click on the link to complete your request.");
+                } catch (Exception $e) {
+                    $error_action = array(
+                        'error_action' => 'Seller - Account controller - Payment Request.',
+                        'error_message' => $e->getMessage()
+                    );
+                    $this->email->insert_data('error_logs', $error_action);
+                }
+            }else{
+                $this->session->set_flashdata('error_msg', 'ERROR: Password is incorrect.');
             }
-            $this->session->set_flashdata('error_msg', 'You can not request more than available balance.');
             redirect('account/payout/');
         }else{
             $this->load->view('payout', $page_data);

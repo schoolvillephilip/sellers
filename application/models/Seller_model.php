@@ -58,7 +58,6 @@ Class Seller_model extends CI_Model
     // Update table
     function update_data($access, $data = array(), $table_name = 'sellers')
     {
-
         try {
             $this->db->where($access);
             $result = $this->db->update($table_name, $data);
@@ -441,6 +440,9 @@ Class Seller_model extends CI_Model
         return $this->db->query($query);
     }
 
-
-
+    function set_field( $table, $field, $set, $where ){
+        $this->db->where($where);
+        $this->db->set($field, $set, false);
+        $this->db->update($table);
+    }
 }

@@ -72,6 +72,7 @@
                                 </a>
                             </div>
                         </div>
+                        <?php $this->load->view('msg_view'); ?>
                         <div class="row">
                             <div class="col-md-5" style="padding:20px 10px 0;">
                                 <div class="panel panel-default">
