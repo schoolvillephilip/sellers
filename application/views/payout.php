@@ -34,7 +34,7 @@
                             <div class="col-md-3">
                                 <div class="panel panel-bordered-dark panel-colorful">
                                     <div class="pad-all text-center">
-                                        <span class="text-3x text-thin"><?= ngn($profile->balance)?></span>
+                                        <span class="text-3x text-thin">&#8358; 0 </span>
                                         <p>CURRENT BALANCE</p>
                                         <i class="demo-pli-credit-card-2 icon-lg"></i>
                                     </div>
@@ -43,7 +43,7 @@
                             <div class="col-md-3">
                                 <div class="panel panel-bordered-primary panel-colorful">
                                     <div class="pad-all text-center">
-                                        <span class="text-3x text-thin">&#8358; 0</span>
+                                        <span class="text-3x text-thin"><?= ngn($profile->balance)?></span>
                                         <p>AVAILABLE BALANCE</p>
                                         <i class="demo-pli-credit-card-2 icon-lg"></i>
                                     </div>
