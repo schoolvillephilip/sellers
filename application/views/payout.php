@@ -7,8 +7,9 @@
     td p {
         margin: 12px;
     }
-    table.modal_table td, table.modal_table th{
-        padding:10px;
+
+    table.modal_table td, table.modal_table th {
+        padding: 10px;
     }
 </style>
 </head>
@@ -54,9 +55,10 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="panel panel-bordered-pink panel-colorful">
-                                    <a href="<?= base_url('orders/?type=delivered')?>">
+                                    <a href="<?= base_url('orders/?type=delivered') ?>">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin"><?//= count($incoming_transactions) - 1;?>2</span>
+                                            <span class="text-3x text-thin"><? //= count($incoming_transactions) - 1;?>
+                                                2</span>
                                             <p>INCOMING TRANSACTIONS</p>
                                             <i class="demo-pli-credit-card-2 icon-lg"></i>
                                         </div>
@@ -103,15 +105,18 @@
                                                 <div class="txn nano has-scrollbar"
                                                      style="height:290px;margin-top:10px;">
                                                     <div class="list-group nano-content">
-                                                        <?php if($orders) : foreach( $orders as $order ): ?>
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order <?= $order->order_code; ?>" data-order-id="<?= $order->order_code; ?>">
-                                                            <h5 class="list-group-item-text">Order <?= $order->order_code; ?>
-                                                                <i class="demo-pli-thunder"></i></h5>
-                                                            <p class="list-group-item-heading">&#8358; <?= $order->amount; ?></p>
-                                                        </a>
-                                                        <?php endforeach; else :?>
-                                                        <p class="list-group-item-heading text-bold">No Pending Order Payment.</p>
-                                                        <?php endif;?>
+                                                        <?php if ($orders) : foreach ($orders as $order): ?>
+                                                            <a href="#" class="list-group-item incoming_info"
+                                                               data-name="Order <?= $order->order_code; ?>"
+                                                               data-order-id="<?= $order->order_code; ?>">
+                                                                <h5 class="list-group-item-text">
+                                                                    Order <?= $order->order_code; ?>
+                                                                    <i class="demo-pli-thunder"></i></h5>
+                                                            </a>
+                                                        <?php endforeach; else : ?>
+                                                            <p class="list-group-item-heading text-bold">No Pending
+                                                                Order Payment.</p>
+                                                        <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -231,7 +236,7 @@
                                             <td>PTX<?= $history->id; ?></td>
                                             <td><?= ngn($history->amount); ?></td>
                                             <td>
-                                                <?php if($history->date_approved) : ?>
+                                                <?php if ($history->date_approved) : ?>
                                                     <?= date('l, F d', strtotime($history->date_approved)); ?>
                                                 <?php else : ?>
                                                     <span class="text-info">No action yet.</span>
@@ -267,9 +272,10 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12 table-responsive">
-                        <table class="table-responsive table-hover modal_table" width="100%" cellpadding="0" cellspacing="0">
+                        <table class="table-responsive table-hover modal_table" width="100%" cellpadding="0"
+                               cellspacing="0">
                             <thead>
-                            <tr>
+                            <tr style="font-size: 12px; font-weight:500;">
                                 <th>
                                     #
                                 </th>
@@ -277,43 +283,26 @@
                                     Item
                                 </th>
                                 <th style="text-align: center;">
-                                    Quantity
-                                </th>
-                                <th style="text-align: center;">
-                                    Price
+                                    Qty
                                 </th>
                                 <th style="text-align: center;">
                                     Sub Total
                                 </th>
                                 <th style="text-align: center;">
-                                    Commission (-)
+                                    Commission
+                                </th>
+                                <th style="text-align: center;">
+                                    Fee (-)
                                 </th>
                                 <th style="text-align: right;">
                                     Total
                                 </th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr style="font-size: 12px;">
-                                <td>1</td>
-                                <td>iPhone XS Max</td>
-                                <td style="text-align: center;">2</td>
-                                <td style="text-align: center;">&#8358; 320,000</td>
-                                <td style="text-align: center;">&#8358; 640,000</td>
-                                <td style="text-align: center;">&#8358; 32,000</td>
-                                <td style="text-align: right;">&#8358; 608,000</td>
-                            </tr>
+                            <tbody id="info_table_body">
+
                             </tbody>
-                            <tfoot style="font-weight: bolder;">
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td style="text-align: right;border-top: 1px solid #4f4f4f;border-bottom: 1px solid #4f4f4f;">Gross Total</td>
-                                <td style="text-align: right;border-top: 1px solid #4f4f4f;border-bottom: 1px solid #4f4f4f;">&#8358; 608,000</td>
-                            </tr>
+                            <tfoot style="font-weight: bolder;" id="info_table_foot">
                             </tfoot>
                         </table>
                     </div>
@@ -331,7 +320,8 @@
         let self = $(this);
         let title = self.data('name');
         let oid = self.data('order-id');
-
+        var amount = "", qty = "", category = "", product = "", commission = "", fee = "", count = 1;
+        var table_data = "", table_foot, gross = 0;
         $.ajax({
             url: base_url + 'account/get_order_detail',
             method: 'post',
@@ -339,14 +329,31 @@
             dataType: 'json',
             success: function (d) {
                 $.each(d, function (k, value) {
-
+                    amount = value.amount;
+                    qty = value.qty;
+                    category = value.category;
+                    product = value.product;
+                    commission = value.commission;
+                    fee = value.fee;
+                    gross += parseInt(amount - fee);
+                    table_data += '<tr style="font-size: 12px;"><td>' +
+                        count + '</td><td>' + product.toString() + '</td><td style="text-align: center;">' +
+                        qty + '</td><td style="text-align: center;">&#8358; ' + amount + '</td><td style="text-align: center;">' +
+                        commission + ' (%)</td><td style="text-align: center;">- &#8358; ' + fee + '</td><td style="text-align: right;">&#8358; ' + (amount - fee) + '</td></tr>';
+                    count++;
                 });
+                table_foot = '<tr><td></td><td></td><td></td><td colspan="2" style="text-align: right;border-top: 1px solid #4f4f4f;border-bottom: 1px solid #4f4f4f;">' +
+                    'Gross Total</td><td colspan="2" style="text-align: right;border-top: 1px solid #4f4f4f;border-bottom: 1px solid #4f4f4f;">&#8358; ' + gross + '</td></tr>';
+                $('#info_modal')
+                    .find('.modal-header > h5')
+                    .text(title).end()
+                    .find('#info_table_body')
+                    .html(table_data).end()
+                    .find('#info_table_foot')
+                    .html(table_foot).end()
+                    .modal('show');
             },
         });
-        $('#info_modal')
-            .find('.modal-header > h5')
-            .text(title).end()
-            .modal('show');
     });
     $(document).ready(function () {
         $("#dt-history").dataTable({
