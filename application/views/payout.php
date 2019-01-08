@@ -7,6 +7,9 @@
     td p {
         margin: 12px;
     }
+    table.modal_table td, table.modal_table th{
+        padding:10px;
+    }
 </style>
 </head>
 <body>
@@ -100,28 +103,28 @@
                                                 <div class="txn nano has-scrollbar"
                                                      style="height:290px;margin-top:10px;">
                                                     <div class="list-group nano-content">
-                                                        <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">Order OMI2100
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2100">
+                                                            <h5 class="list-group-item-text">Order OMI-2100
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
-                                                        <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">Order OMI2101
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2101">
+                                                            <h5 class="list-group-item-text">Order OMI-2101
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
-                                                        <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">Order OMI2103
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2103">
+                                                            <h5 class="list-group-item-text">Order OMI-2103
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
-                                                        <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">Order OMI2105
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2105">
+                                                            <h5 class="list-group-item-text">Order OMI-2105
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
-                                                        <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">Order OMI2109
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2109">
+                                                            <h5 class="list-group-item-text">Order OMI-2109
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
@@ -213,8 +216,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <button class="btn btn-primary btn-rounded btn-labeled"
-                                                        onclick="PrintElem('acc_state_table');">
+                                                <button class="btn btn-primary btn-rounded btn-labeled">
                                                     <i class="btn-label demo-psi-receipt-4"></i>Request Payout
                                                 </button>
                                             </div>
@@ -239,13 +241,13 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php foreach($histories as $history) :?>
+                                    <?php foreach ($histories as $history) : ?>
                                         <tr>
                                             <td><?= date('Y/m/d H:i:s', strtotime($history->date_requested)); ?></td>
                                             <td>PTX<?= $history->id; ?></td>
                                             <td><?= ngn($history->amount); ?></td>
                                             <td>
-                                                <?php if($history->date_approved) : ?>
+                                                <?php if ($history->date_approved) : ?>
                                                     <?= date('Y/m/d H:i:s', strtotime($history->date_approved)); ?>
                                                 <?php else : ?>
                                                     <span class="text-info">No action yet.</span>
@@ -269,12 +271,102 @@
         <i class="pci-chevron chevron-up"></i>
     </button>
 </div>
+<div class="modal fade" id="info_modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 table-responsive">
+                        <table class="table-responsive table-hover modal_table" width="100%" cellpadding="0" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Item
+                                </th>
+                                <th style="text-align: center;">
+                                    Quantity
+                                </th>
+                                <th style="text-align: center;">
+                                    Price
+                                </th>
+                                <th style="text-align: center;">
+                                    Sub Total
+                                </th>
+                                <th style="text-align: center;">
+                                    Commission (-)
+                                </th>
+                                <th style="text-align: right;">
+                                    Total
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr style="font-size: 12px;">
+                                <td>1</td>
+                                <td>iPhone XS Max</td>
+                                <td style="text-align: center;">2</td>
+                                <td style="text-align: center;">&#8358; 320,000</td>
+                                <td style="text-align: center;">&#8358; 640,000</td>
+                                <td style="text-align: center;">&#8358; 32,000</td>
+                                <td style="text-align: right;">&#8358; 608,000</td>
+                            </tr>
+                            </tbody>
+                            <tfoot style="font-weight: bolder;">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td style="text-align: right;border-top: 1px solid #4f4f4f;border-bottom: 1px solid #4f4f4f;">Gross Total</td>
+                                <td style="text-align: right;border-top: 1px solid #4f4f4f;border-bottom: 1px solid #4f4f4f;">&#8358; 608,000</td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <?php $this->load->view('templates/scripts'); ?>
 <script>
     function trigger(e) {
         $(e).click();
     }
-    $(document).ready(function() {
+
+    $('.incoming_info').on('click', function () {
+        let self = $(this);
+        let title = self.data('name');
+        let oid = self.data('order_id');
+
+        $.ajax({
+            url: base_url + 'ajax/fetch_order_info',
+            method: 'get',
+            data: {order_id: oid},
+            dataType: 'json',
+            success: function (d) {
+                
+            }
+        })
+        $('#info_modal')
+            .find('.modal-header > h5')
+            .text(title).end()
+            .modal('show');
+    });
+    $(document).ready(function () {
         $("#dt-history").dataTable({
             "responsive": true,
             "language": {
