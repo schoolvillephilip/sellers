@@ -343,22 +343,20 @@
 </div>
 <?php $this->load->view('templates/scripts'); ?>
 <script>
-    function trigger(e) {
-        $(e).click();
-    }
-
     $('.incoming_info').on('click', function () {
         let self = $(this);
         let title = self.data('name');
         let oid = self.data('order_id');
 
         $.ajax({
-            url: base_url + 'ajax/fetch_order_info',
-            method: 'get',
-            data: {order_id: oid},
+            url: base_url + 'account/get_order_detail',
+            method: 'post',
+            data: {ocode: oid},
             dataType: 'json',
             success: function (d) {
+                $.each(d, function (k, value) {
 
+                }
             }
         })
         $('#info_modal')
