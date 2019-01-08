@@ -51,9 +51,9 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="panel panel-bordered-pink panel-colorful">
-                                    <a href="javascript:;" onclick="trigger('#inc_trig');">
+                                    <a href="<?= base_url('orders/?type=delivered')?>">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin">5</span>
+                                            <span class="text-3x text-thin"><?= count($incoming_transactions) - 1;?></span>
                                             <p>INCOMING TRANSACTIONS</p>
                                             <i class="demo-pli-credit-card-2 icon-lg"></i>
                                         </div>
@@ -63,7 +63,7 @@
                             <div class="col-md-3">
                                 <div class="panel panel-bordered-purple panel-colorful">
                                     <div class="pad-all text-center">
-                                        <span class="text-3x text-thin">&#8358; 0</span>
+                                        <span class="text-3x text-thin"><?= ngn($paid->amt); ?></span>
                                         <p>PAYOUT HISTORY - PAID</p>
                                         <i class="demo-pli-credit-card-2 icon-lg"></i>
                                     </div>
@@ -246,7 +246,7 @@
                                             <td><?= ngn($history->amount); ?></td>
                                             <td>
                                                 <?php if($history->date_approved) : ?>
-                                                    <?= date('Y/m/d H:i:s', strtotime($history->date_approved)); ?>
+                                                    <?= date('l, F d', strtotime($history->date_approved)); ?>
                                                 <?php else : ?>
                                                     <span class="text-info">No action yet.</span>
                                                 <?php endif; ?>

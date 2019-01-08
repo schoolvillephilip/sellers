@@ -440,9 +440,34 @@ Class Seller_model extends CI_Model
         return $this->db->query($query);
     }
 
+    // Set a field by its label
     function set_field( $table, $field, $set, $where ){
         $this->db->where($where);
         $this->db->set($field, $set, false);
         $this->db->update($table);
+    }
+
+    // Get order details based on the order code
+    function get_order_details( $order_code){
+        $id = $this->session->userdata('logged_id');
+        $query = $this->run_sql("SELECT qty,amount,product_id, FROM orders WHERE seller_id = {$id} AND order_code = {$order_code} AND active_status = 'completed' 
+AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->result_array();
+        if( $query ){
+            $result = array();
+            foreach( $query as $q ){
+                $res['amount'] = $q['amount'];
+                $res['qty']  = $q['qty'];
+                // make a query for the product
+                $pquery = $this->run_sql("SELECT p.product_name, c.commision, c.name FROM products p JOIN categories c ON (p.category_id = c.id) WHERE p.id = {$q['product_id']}")->result_array();
+                $res['category'] = $pquery['name'];
+                $res['product'] = $pquery['product_name'];
+                $res['commission'] = $pquery['commission'];
+                $res['fee']  =  (($pquery['commission'] / 100) * $q['amount'] ) ;
+                array_push($result, $res);
+            }
+            return $result;
+        }
+        return array();
+
     }
 }
