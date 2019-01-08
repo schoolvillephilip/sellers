@@ -113,8 +113,10 @@ AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->num_rows();
     }
 
     function get_order_detail(){
+
         if($this->input->is_ajax_request() && $this->input->post()){
             $order_code = $this->input->post('ocode');
+
             echo json_encode( $this->seller->get_order_details( $order_code) );
             exit;
         }
