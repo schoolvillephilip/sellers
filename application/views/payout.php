@@ -56,7 +56,7 @@
                                 <div class="panel panel-bordered-pink panel-colorful">
                                     <a href="<?= base_url('orders/?type=delivered')?>">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin"><?= count($incoming_transactions) - 1;?></span>
+                                            <span class="text-3x text-thin"><?//= count($incoming_transactions) - 1;?>2</span>
                                             <p>INCOMING TRANSACTIONS</p>
                                             <i class="demo-pli-credit-card-2 icon-lg"></i>
                                         </div>
@@ -103,27 +103,27 @@
                                                 <div class="txn nano has-scrollbar"
                                                      style="height:290px;margin-top:10px;">
                                                     <div class="list-group nano-content">
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2100">
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2100" data-order-id="2">
                                                             <h5 class="list-group-item-text">Order OMI-2100
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2101">
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2101" data-order-id="2">
                                                             <h5 class="list-group-item-text">Order OMI-2101
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2103">
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2103" data-order-id="2">
                                                             <h5 class="list-group-item-text">Order OMI-2103
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2105">
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2105" data-order-id="2">
                                                             <h5 class="list-group-item-text">Order OMI-2105
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2109">
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2109" data-order-id="2">
                                                             <h5 class="list-group-item-text">Order OMI-2109
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
@@ -346,7 +346,7 @@
     $('.incoming_info').on('click', function () {
         let self = $(this);
         let title = self.data('name');
-        let oid = self.data('order_id');
+        let oid = self.data('order-id');
 
         $.ajax({
             url: base_url + 'account/get_order_detail',
@@ -356,9 +356,9 @@
             success: function (d) {
                 $.each(d, function (k, value) {
 
-                }
-            }
-        })
+                });
+            },
+        });
         $('#info_modal')
             .find('.modal-header > h5')
             .text(title).end()
