@@ -103,31 +103,15 @@
                                                 <div class="txn nano has-scrollbar"
                                                      style="height:290px;margin-top:10px;">
                                                     <div class="list-group nano-content">
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2100" data-order-id="2">
-                                                            <h5 class="list-group-item-text">Order OMI-2100
+                                                        <?php if($orders) : foreach( $orders as $order ): ?>
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2100" data-order-id="<?= $order->order_code; ?>">
+                                                            <h5 class="list-group-item-text">Order <?= $order->order_code; ?>
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2101" data-order-id="2">
-                                                            <h5 class="list-group-item-text">Order OMI-2101
-                                                                <i class="demo-pli-thunder"></i></h5>
-                                                            <p class="list-group-item-heading">&#8358; 0</p>
-                                                        </a>
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2103" data-order-id="2">
-                                                            <h5 class="list-group-item-text">Order OMI-2103
-                                                                <i class="demo-pli-thunder"></i></h5>
-                                                            <p class="list-group-item-heading">&#8358; 0</p>
-                                                        </a>
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2105" data-order-id="2">
-                                                            <h5 class="list-group-item-text">Order OMI-2105
-                                                                <i class="demo-pli-thunder"></i></h5>
-                                                            <p class="list-group-item-heading">&#8358; 0</p>
-                                                        </a>
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2109" data-order-id="2">
-                                                            <h5 class="list-group-item-text">Order OMI-2109
-                                                                <i class="demo-pli-thunder"></i></h5>
-                                                            <p class="list-group-item-heading">&#8358; 0</p>
-                                                        </a>
+                                                        <?php endforeach; else :?>
+                                                        <p class="list-group-item-heading text-bold">No Pending Order Payment.</p>
+                                                        <?php endif;?>
                                                     </div>
                                                 </div>
                                             </div>
