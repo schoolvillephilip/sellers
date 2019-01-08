@@ -450,8 +450,7 @@ Class Seller_model extends CI_Model
     // Get order details based on the order code
     function get_order_details( $order_code){
         $id = $this->session->userdata('logged_id');
-        $query = $this->run_sql("SELECT qty,amount,product_id, FROM orders WHERE seller_id = {$id} AND order_code = {$order_code} AND active_status = 'completed' 
-AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->result_array();
+        $query = $this->run_sql("SELECT qty,amount,product_id, FROM orders WHERE seller_id = {$id} AND order_code = {$order_code} AND active_status = 'completed' AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->result_array();
         if( $query ){
             $result = array();
             foreach( $query as $q ){
