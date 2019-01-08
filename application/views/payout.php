@@ -101,27 +101,27 @@
                                                      style="height:290px;margin-top:10px;">
                                                     <div class="list-group nano-content">
                                                         <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
+                                                            <h5 class="list-group-item-text">Order OMI2100
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
                                                         <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
+                                                            <h5 class="list-group-item-text">Order OMI2101
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
                                                         <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
+                                                            <h5 class="list-group-item-text">Order OMI2103
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
                                                         <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
+                                                            <h5 class="list-group-item-text">Order OMI2105
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
                                                         <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
+                                                            <h5 class="list-group-item-text">Order OMI2109
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
