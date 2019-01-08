@@ -108,7 +108,7 @@ class Account extends CI_Controller
             $page_data['incoming_transactions'] = $this->seller->run_sql("SELECT COUNT(*) FROM orders WHERE seller_id = {$id} AND active_status = 'completed' 
 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->num_rows();
             $page_data['paid'] = $this->seller->run_sql("SELECT SUM(amount) as amt FROM payouts WHERE user_id = {$id} AND status = 'successful' ")->row();
-            $page_data['orders'] = $this->seller->run_sql("SELECT order_code FROM orders WHERE seller_id = {$id} AND SUBDATE(NOW(), 'INTERVAL 7 DAY') AND active_status='completed'")->result();
+            $page_data['orders'] = $this->seller->run_sql("SELECT order_code, amount FROM orders WHERE seller_id = {$id} AND SUBDATE(NOW(), 'INTERVAL 7 DAY') AND active_status='completed'")->result();
             $this->load->view('payout', $page_data);
         }
     }
