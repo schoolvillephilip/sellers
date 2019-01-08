@@ -103,6 +103,8 @@ class Account extends CI_Controller
             }
             redirect('account/payout/');
         }else{
+            // get the payout history
+            $page_data['histories'] = $this->seller->get_results('payouts', 'id,amount,status,date_requested,date_approved,remark', array('user_id' => $id));
             $this->load->view('payout', $page_data);
         }
 
