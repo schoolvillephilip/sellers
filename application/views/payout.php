@@ -64,7 +64,7 @@
                                 <div class="panel panel-bordered-purple panel-colorful">
                                     <div class="pad-all text-center">
                                         <span class="text-3x text-thin">&#8358; 0</span>
-                                        <p>PAYOUT HISTORY</p>
+                                        <p>PAYOUT HISTORY - PAID</p>
                                         <i class="demo-pli-credit-card-2 icon-lg"></i>
                                     </div>
                                 </div>
@@ -234,20 +234,26 @@
                                         <th>Date Initiated</th>
                                         <th>Payout ID</th>
                                         <th class="min-tablet">Amount</th>
-                                        <th class="min-tablet">Fee</th>
                                         <th class="min-desktop">Date Reconciled</th>
                                         <th class="min-desktop">Payment Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>06/01/2019</td>
-                                        <td>PTX12039</td>
-                                        <td>&#8358; 320,800</td>
-                                        <td>&#8358; 62.70</td>
-                                        <td>12/01/2019</td>
-                                        <td>Paid</td>
-                                    </tr>
+                                    <?php foreach($histories as $history) :?>
+                                        <tr>
+                                            <td><?= date('Y/m/d H:i:s', strtotime($history->date_requested)); ?></td>
+                                            <td>PTX<?= $history->id; ?></td>
+                                            <td><?= ngn($history->amount); ?></td>
+                                            <td>
+                                                <?php if($history->date_approved) : ?>
+                                                    <?= date('Y/m/d H:i:s', strtotime($history->date_approved)); ?>
+                                                <?php else : ?>
+                                                    <span class="text-info">No action yet.</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td><?= paymentStatus($history->status); ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>

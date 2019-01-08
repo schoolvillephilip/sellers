@@ -169,53 +169,30 @@ if (!function_exists('productStatus')) {
     }
 }
 
-// This functions round up the overall rating
-if (!function_exists('product_overall_rating')) {
-    function product_overall_rating($results): float
-    {
-        $rate5 = $rate4 = $rate3 = $rate2 = $rate1 = $total_outcome = 0;
-        foreach ($results as $key) {
-            switch ($key['rating_score']) {
-                case 5:
-                    $rate5 = $key['occurence'] * 5;
-                    break;
-                case 4:
-                    $rate4 = $key['occurence'] * 4;
-                    break;
-                case 3:
-                    $rate3 = $key['occurence'] * 3;
-                    break;
-                case 2:
-                    $rate2 = $key['occurence'] * 2;
-                    break;
-                case 1:
-                    $rate1 = $key['occurence'] * 1;
-                    break;
-            }
-            $total_outcome += $key['occurence'];
-        }
-        return round($rate5 / $total_outcome + $rate4 / $total_outcome + $rate3 / $total_outcome + $rate2 / $total_outcome + $rate1 / $total_outcome, 1, PHP_ROUND_HALF_UP);
-    }
-}
-
-if (!function_exists('product_percentage_rating')) {
-    function product_percentage_rating($results): array
-    {
-        $rate5 = $rate4 = $rate3 = $rate2 = $rate1 = $total_outcome = 0;
-        foreach ($results as $key) {
-            $total_outcome += $key['occurence'];
-        }
-        foreach ($results as $key) {
-
-        }
-
-    }
-}
-
 function current_full_url()
 {
     $CI =& get_instance();
 
     $url = $CI->config->site_url($CI->uri->uri_string());
     return $_SERVER['QUERY_STRING'] ? $url . '?' . $_SERVER['QUERY_STRING'] : $url;
+}
+
+if (!function_exists('paymentStatus')) {
+    function paymentStatus($status)
+    {
+        switch ($status) {
+            case 'pending':
+                return '<label class="label label-table label-info">' . ucfirst($status) . '</label>';
+                break;
+            case 'approved':
+                return '<label class="label label-table label-success">' . ucfirst($status) . '</label>';
+                break;
+            case 'processing':
+                return '<label class="label label-table label-warning">' . ucfirst($status) . '</label>';
+                break;
+            default:
+                return '<label class="label label-table label-danger">' . ucfirst($status) . '</label>';
+                break;
+        }
+    }
 }
