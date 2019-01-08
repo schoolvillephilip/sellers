@@ -27,6 +27,19 @@ class Email_model extends CI_Model {
         return $this->send_now($post);
     }
 
+    // Payment request
+    function payment_request( $data ){
+        $post = array(
+            'subject' => 'Payment Request Initiated',
+            'to' => $data['email'],
+            'template' => 'PaymentRequest',
+            'merge_recipent' => $data['recipent'],
+            'merge_link' => $data['link'],
+            'isTransactional' => false
+        );
+        return $this->send_now($post);
+    }
+
     // Curl function to send
     function send_now($post){
         $url = 'https://api.elasticemail.com/v2/email/send';
