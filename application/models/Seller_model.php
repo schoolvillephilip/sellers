@@ -457,7 +457,8 @@ Class Seller_model extends CI_Model
                 $res['amount'] = $q['amount'];
                 $res['qty']  = $q['qty'];
                 // make a query for the product
-                $pquery = $this->run_sql("SELECT p.product_name, c.commision, c.name FROM products p JOIN categories c ON (p.category_id = c.id) WHERE p.id = {$q['product_id']}")->result_array();
+                $pquery = $this->run_sql("SELECT p.product_name, c.commission, c.name FROM products p JOIN categories c ON (p.category_id = c.id) WHERE p.id = {$q['product_id']}")->row_array();
+
                 $res['category'] = $pquery['name'];
                 $res['product'] = $pquery['product_name'];
                 $res['commission'] = $pquery['commission'];

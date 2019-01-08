@@ -103,17 +103,17 @@
                                                 <div class="txn nano has-scrollbar"
                                                      style="height:290px;margin-top:10px;">
                                                     <div class="list-group nano-content">
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2100" data-order-id="2">
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2100" data-order-id="46189573">
                                                             <h5 class="list-group-item-text">Order OMI-2100
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2101" data-order-id="2">
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2101" data-order-id="8">
                                                             <h5 class="list-group-item-text">Order OMI-2101
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
-                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2103" data-order-id="2">
+                                                        <a href="#" class="list-group-item incoming_info" data-name="Order OMI-2103" data-order-id="10">
                                                             <h5 class="list-group-item-text">Order OMI-2103
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
