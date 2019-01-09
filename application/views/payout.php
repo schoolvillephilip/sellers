@@ -57,8 +57,8 @@
                                 <div class="panel panel-bordered-pink panel-colorful">
                                     <a href="<?= base_url('orders/?type=delivered') ?>">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin"><? //= count($incoming_transactions) - 1;?>
-                                                2</span>
+                                            <span class="text-3x text-thin"><?=$incoming_transactions;?>
+                                                </span>
                                             <p>INCOMING TRANSACTIONS</p>
                                             <i class="demo-pli-credit-card-2 icon-lg"></i>
                                         </div>

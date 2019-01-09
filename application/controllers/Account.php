@@ -108,7 +108,7 @@ class Account extends CI_Controller
         }else{
             // get the payout history
             $page_data['histories'] = $this->seller->get_results('payouts', 'id,amount,status,date_requested,date_approved,remark', array('user_id' => $id));
-            $page_data['incoming_transactions'] = $this->seller->run_sql("SELECT COUNT(*) FROM orders WHERE seller_id = {$id} AND active_status = 'completed' 
+            $page_data['incoming_transactions'] = $this->seller->run_sql("SELECT * FROM orders WHERE seller_id = {$id} AND active_status = 'completed' 
 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->num_rows();
             $page_data['paid'] = $this->seller->run_sql("SELECT SUM(amount) as amt FROM payouts WHERE user_id = {$id} AND status = 'completed' ")->row();
             $page_data['orders'] = $this->seller->run_sql("SELECT order_code FROM orders WHERE seller_id = {$id} AND SUBDATE(NOW(), 'INTERVAL 7 DAY') AND active_status='completed'")->result();
