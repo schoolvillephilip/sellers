@@ -25,47 +25,12 @@
                         <div id="om-panel-order" class="panel">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Payout Tracking</h3>
-                                <?php if (!$txn_chart) : ?>
+                                <?php if (!$transactions) : ?>
                                     <h3 class="text-danger text-center">No Data Available!</h3>
                                 <?php endif; ?>
                             </div>
                             <div class="panel-body">
                                 <div id="txn_chart" style="height: 350px; margin-bottom: 40px;"></div>
-                            </div>
-                        </div>
-                        <div class="panel">
-                            <div class="panel-body">
-                                <table id="demo-dt-selection" class="table table-striped table-bordered" cellspacing="0"
-                                       width="100%">
-                                    <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>TXN Type</th>
-                                        <th class="min-tablet">TXN Number</th>
-                                        <th class="min-tablet">Order Number</th>
-                                        <th class="min-desktop">Details</th>
-                                        <th class="min-desktop">Amount</th>
-                                        <th class="min-desktop">VAT</th>
-                                        <th class="min-desktop">WHT</th>
-                                        <th class="min-desktop">Payment status</th>
-                                        <th class="min-desktop">Statement</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
 
@@ -99,6 +64,24 @@
                 'pdfHtml5'
             ]
         });
+    });
+</script>
+<script>
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    new Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'txn_chart',
+        data: [
+            <?php foreach( $transactions as $chart) : ?>
+            {month: '<?= $chart->omonth; ?>', value: <?= $chart->amount; ?>},
+            <?php endforeach;?>
+        ],
+        xkey: 'month',
+        ykeys: ['value'],
+        xLabelFormat: function (x) {
+            return months[x.getMonth()];
+        },
+        labels: ['Amount Received']
     });
 </script>
 </body>

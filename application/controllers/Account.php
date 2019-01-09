@@ -21,7 +21,7 @@ class Account extends CI_Controller
         }
     }
 
-    //FAQ
+
     public function index()
     {
         redirect('account/statement');
@@ -29,10 +29,13 @@ class Account extends CI_Controller
 
     public function statement()
     {
+        $uid = $this->session->userdata('logged_id');
         $page_data['pg_name'] = 'report';
         $page_data['page_title'] = "Account Statement";
         $page_data['sub_name'] = "statement";
-        $page_data['profile'] = $this->seller->get_profile($this->session->userdata('logged_id'));
+        $page_data['profile'] = $this->seller->get_profile($uid);
+        $page_data['last_3_month'] = $this->seller->run_sql("SELECT SUM(amount) as amount, DATE_FORMAT(date_requested,'%Y-%m') omonth 
+          FROM payouts WHERE user_id = {$uid} AND status != 'completed' GROUP BY omonth ORDER BY omonth DESC LIMIT 3")->result();
         $this->load->view('statement', $page_data);
     }
 
@@ -46,6 +49,7 @@ class Account extends CI_Controller
         $page_data['profile'] = $this->seller->get_profile($this->session->userdata('logged_id'));
         $this->load->view('sales_report', $page_data);
     }
+//    Account Payout Overview and request
     public function payout()
     {
         $id = $this->session->userdata('logged_id');
@@ -78,7 +82,6 @@ class Account extends CI_Controller
                     'date_requested'    => get_now(),
                     'status'    => 'pending'
                 );
-
                 // send mail
                 $email_array = array(
                     'email' => $page_data['profile']->email,
@@ -107,14 +110,14 @@ class Account extends CI_Controller
             $page_data['histories'] = $this->seller->get_results('payouts', 'id,amount,status,date_requested,date_approved,remark', array('user_id' => $id));
             $page_data['incoming_transactions'] = $this->seller->run_sql("SELECT COUNT(*) FROM orders WHERE seller_id = {$id} AND active_status = 'completed' 
 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->num_rows();
-            $page_data['paid'] = $this->seller->run_sql("SELECT SUM(amount) as amt FROM payouts WHERE user_id = {$id} AND status = 'successful' ")->row();
+            $page_data['paid'] = $this->seller->run_sql("SELECT SUM(amount) as amt FROM payouts WHERE user_id = {$id} AND status = 'completed' ")->row();
             $page_data['orders'] = $this->seller->run_sql("SELECT order_code FROM orders WHERE seller_id = {$id} AND SUBDATE(NOW(), 'INTERVAL 7 DAY') AND active_status='completed'")->result();
             $this->load->view('payout', $page_data);
         }
     }
 
+//    Get order detail ajax used in payout request
     function get_order_detail(){
-
         if($this->input->is_ajax_request() && $this->input->post()){
             $order_code = $this->input->post('ocode');
             echo json_encode( $this->seller->get_order_details( $order_code) );
@@ -122,13 +125,18 @@ AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->num_rows();
         }
     }
 
+
     public function txn_overview()
     {
+        $uid = $this->session->userdata('logged_id');
         $page_data['pg_name'] = 'report';
         $page_data['page_title'] = "Transaction Overview";
         $page_data['sub_name'] = "statement";
-        $page_data['txn_chart'] = "";
-        $page_data['profile'] = $this->seller->get_profile($this->session->userdata('logged_id'));
+        $page_data['profile'] = $this->seller->get_profile($uid);
+        $page_data['transactions'] = $this->seller->run_sql("SELECT SUM(amount) as amount, DATE_FORMAT(date_requested,'%Y-%m') omonth 
+          FROM payouts WHERE user_id = {$uid} AND status = 'completed'
+          AND `date_requested` BETWEEN DATE_SUB(CURDATE(),INTERVAL 3 MONTH ) AND DATE_SUB(CURDATE() ,INTERVAL 0 MONTH)
+          GROUP BY omonth ORDER BY omonth")->result();
         $this->load->view('txn_overview', $page_data);
     }
 
