@@ -31,7 +31,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <a href="javascript:;" onclick="trigger('#due_trig');">
                                     <div class="panel panel-bordered-dark panel-colorful">
                                         <div class="pad-all text-center">
@@ -42,7 +42,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <a href="javascript:;" onclick="trigger('#open_trig');">
                                     <div class="panel panel-bordered-primary panel-colorful">
                                         <div class="pad-all text-center">
@@ -53,16 +53,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-3">
-                                <div class="panel panel-bordered-pink panel-colorful">
-                                    <div class="pad-all text-center">
-                                        <span class="text-3x text-thin">0</span>
-                                        <p>MY DASHBOARD</p>
-                                        <i class="demo-pli-credit-card-2 icon-lg"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <a href="<?=base_url('account/txn_overview')?>">
                                     <div class="panel panel-bordered-purple panel-colorful">
                                         <div class="pad-all text-center">
@@ -87,10 +78,6 @@
                                                 </li>
                                                 <li>
                                                     <a data-toggle="tab" href="#demo-tabs2-box-2" id="open_trig">Open
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-toggle="tab" href="#demo-tabs2-box-3">Paid
                                                     </a>
                                                 </li>
                                                 <li>
@@ -165,27 +152,6 @@
                                                         <a href="#" class="list-group-item">
                                                             <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
                                                                 <i class="demo-pli-thunder"></i></h5>
-                                                            <p class="list-group-item-heading">&#8358; 0</p>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="demo-tabs2-box-3" class="tab-pane fade">
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <i class="demo-pli-credit-card-2 text-main icon-3x"></i>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <p class="text-main text-lg mar-no">Paid</p>
-                                                        All Paid Transactions
-                                                    </div>
-                                                </div>
-                                                <div class="txn nano has-scrollbar"
-                                                     style="height:290px;margin-top:10px;">
-                                                    <div class="list-group nano-content">
-                                                        <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
-                                                                <i class="demo-pli-credit-card-2"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
                                                     </div>
