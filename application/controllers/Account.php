@@ -109,13 +109,32 @@ class Account extends CI_Controller
             redirect('account/payout/');
         }else{
             // get the payout history
-            $page_data['histories'] = $this->seller->run_sql("SELECT id, amount, status, date_requested,date_approved,status, remark FROM payouts WHERE user_id = {$id} ORDER BY date_requested DESC")->result();
+            $page_data['histories'] = $this->seller->run_sql("SELECT id, amount, status,transaction_code, date_requested,date_approved,status, remark FROM payouts WHERE user_id = {$id} ORDER BY date_requested DESC")->result();
             $page_data['incoming_transactions'] = $this->seller->run_sql("SELECT COUNT(*) FROM orders WHERE seller_id = {$id} AND active_status = 'completed' 
 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->num_rows();
             $page_data['paid'] = $this->seller->run_sql("SELECT SUM(amount) as amt FROM payouts WHERE user_id = {$id} AND status = 'completed' ")->row();
             $page_data['orders'] = $this->seller->run_sql("SELECT order_code FROM orders WHERE seller_id = {$id} AND SUBDATE(NOW(), 'INTERVAL 7 DAY') AND active_status='completed'")->result();
             $this->load->view('payout', $page_data);
         }
+    }
+
+    function rescend_mail(){
+        if( $this->input->post('code')){
+            $code = $this->input->post('code', true);
+            $email = $this->session->userdata('email');
+            $email_array = array(
+                'email' => $email,
+                'recipent' => 'Hello' ,
+                'link'  => base_url('authenticate/payment_request/?code=' . $code)
+            );
+            try {
+                $this->email->payment_request($email_array);
+                $this->session->set_flashdata('success_msg', 'A new mail has been sent to your email (' . $email . ' ), kindly check your span if not seen in inbox section.');
+            } catch (Exception $e) {
+                $this->session->set_flashdata('error_msg', 'There was an error performing that action');
+            }
+        }
+        redirect( $_SERVER['HTTP_REFERER']);
     }
 
 //    Get order detail ajax used in payout request

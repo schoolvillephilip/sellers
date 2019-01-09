@@ -227,13 +227,14 @@
                                         <th class="min-tablet">Amount</th>
                                         <th class="min-desktop">Date Reconciled</th>
                                         <th class="min-desktop">Payment Status</th>
+                                        <th class="min-desktop">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php foreach ($histories as $history) : ?>
                                         <tr>
                                             <td><?= date('Y/m/d H:i:s', strtotime($history->date_requested)); ?></td>
-                                            <td>PTX<?= $history->id; ?></td>
+                                            <td>PTX<?= $history->transaction_code; ?></td>
                                             <td><?= ngn($history->amount); ?></td>
                                             <td>
                                                 <?php if (!$history->date_approved == '0000-00-00 00:00:00') : ?>
@@ -243,6 +244,16 @@
                                                 <?php endif; ?>
                                             </td>
                                             <td><?= paymentStatus($history->status); ?></td>
+                                            <td>
+                                                <?php if( $history->status == 'pending') : ?>
+                                                <form action="<?= base_url('account/rescend_mail');?>" method="post">
+                                                    <input type="hidden" name="code" value="<?= $history->transaction_code; ?>">
+                                                    <button type="submit" class="btn btn-hover-success">Re-scend Email</button>
+                                                </form>
+                                                <?php else : ?>
+                                                    <span class="text-muted">No Action</span>
+                                                <?php endif; ?>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                     </tbody>
