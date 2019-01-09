@@ -12,7 +12,7 @@
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="demo-pli-home"></i></a></li>
                     <li><a href="#">Manage</a></li>
-                    <li class="active"><?= ucfirst($this->input->get('type')) ?>Orders</li>
+                    <li class="active"><?= ucfirst($this->input->get('type')) ?> Orders</li>
                 </ol>
             </div>
             <div id="page-content">

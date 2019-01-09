@@ -57,8 +57,8 @@
                                 <div class="panel panel-bordered-pink panel-colorful">
                                     <a href="<?= base_url('orders/?type=delivered') ?>">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin"><? //= count($incoming_transactions) - 1;?>
-                                                2</span>
+                                            <span class="text-3x text-thin"><?=$incoming_transactions;?>
+                                                </span>
                                             <p>INCOMING TRANSACTIONS</p>
                                             <i class="demo-pli-credit-card-2 icon-lg"></i>
                                         </div>
@@ -236,7 +236,7 @@
                                             <td>PTX<?= $history->id; ?></td>
                                             <td><?= ngn($history->amount); ?></td>
                                             <td>
-                                                <?php if ($history->date_approved) : ?>
+                                                <?php if (!$history->date_approved == '0000-00-00 00:00:00') : ?>
                                                     <?= date('l, F d', strtotime($history->date_approved)); ?>
                                                 <?php else : ?>
                                                     <span class="text-info">No action yet.</span>
