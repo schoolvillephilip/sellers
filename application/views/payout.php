@@ -236,7 +236,7 @@
                                             <td>PTX<?= $history->id; ?></td>
                                             <td><?= ngn($history->amount); ?></td>
                                             <td>
-                                                <?php if ($history->date_approved) : ?>
+                                                <?php if (!$history->date_approved == '0000-00-00 00:00:00') : ?>
                                                     <?= date('l, F d', strtotime($history->date_approved)); ?>
                                                 <?php else : ?>
                                                     <span class="text-info">No action yet.</span>
