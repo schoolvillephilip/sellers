@@ -427,6 +427,7 @@ Class Seller_model extends CI_Model
         if (!empty($condition)) {
             $this->db->where($condition);
         }
+
         return $this->db->get($table_name)->result();
     }
 

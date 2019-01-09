@@ -75,10 +75,12 @@ class Account extends CI_Controller
                 }
                 // Generate code
                 $code = $this->seller->generate_general_code('payouts', 'token');
+                $txn_code = time() + $id ;
                 $payout_array = array(
                     'user_id'   => $id,
                     'amount'    => $amount,
                     'token'     => $code,
+                    'transaction_code' => $txn_code,
                     'date_requested'    => get_now(),
                     'status'    => 'pending'
                 );
@@ -107,7 +109,7 @@ class Account extends CI_Controller
             redirect('account/payout/');
         }else{
             // get the payout history
-            $page_data['histories'] = $this->seller->get_results('payouts', 'id,amount,status,date_requested,date_approved,remark', array('user_id' => $id));
+            $page_data['histories'] = $this->seller->run_sql("SELECT id, amount, status, date_requested,date_approved,status, remark FROM payouts WHERE user_id = {$id} ORDER BY date_requested DESC")->result();
             $page_data['incoming_transactions'] = $this->seller->run_sql("SELECT COUNT(*) FROM orders WHERE seller_id = {$id} AND active_status = 'completed' 
 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->num_rows();
             $page_data['paid'] = $this->seller->run_sql("SELECT SUM(amount) as amt FROM payouts WHERE user_id = {$id} AND status = 'completed' ")->row();
