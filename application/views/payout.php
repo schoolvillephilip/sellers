@@ -59,7 +59,7 @@
                                         <div class="pad-all text-center">
                                             <span class="text-3x text-thin"><?=$incoming_transactions;?>
                                                 </span>
-                                            <p>INCOMING TRANSACTIONS</p>
+                                            <p>COMMISSIONS</p>
                                             <i class="demo-pli-credit-card-2 icon-lg"></i>
                                         </div>
                                     </a>
