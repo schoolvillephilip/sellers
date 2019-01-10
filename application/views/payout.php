@@ -36,7 +36,7 @@
                             <div class="col-md-3">
                                 <div class="panel panel-bordered-dark panel-colorful">
                                     <div class="pad-all text-center">
-                                        <span class="text-3x text-thin">&#8358; 0 </span>
+                                        <span class="text-3x text-thin"><?= ngn($incoming_balance->incoming_bal); ?></span>
                                         <p>INCOMING BALANCE</p>
                                         <i class="demo-pli-credit-card-2 icon-lg"></i>
                                     </div>
