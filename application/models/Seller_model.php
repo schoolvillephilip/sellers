@@ -358,7 +358,7 @@ Class Seller_model extends CI_Model
      */
     function get_orders($id = '', $status = '')
     {
-        $query = "SELECT p.product_name,p.id pid,v.variation, p.created_on created_on, o.order_date,o.id orid, g.image_name,o.qty,o.amount, o.status
+        $query = "SELECT p.product_name,p.id pid,v.variation, p.created_on created_on, o.order_date, o.commission commission, o.id orid, g.image_name,o.qty,o.amount, o.status
                 FROM products p 
                 LEFT JOIN orders o ON (p.id = o.product_id)
                 LEFT JOIN product_gallery g ON (g.product_id = p.id AND g.featured_image = 1)
@@ -459,7 +459,6 @@ Class Seller_model extends CI_Model
                 $res['qty']  = $q['qty'];
                 // make a query for the product
                 $pquery = $this->run_sql("SELECT p.product_name, c.commission, c.name FROM products p JOIN categories c ON (p.category_id = c.id) WHERE p.id = {$q['product_id']}")->row_array();
-
                 $res['category'] = $pquery['name'];
                 $res['product'] = $pquery['product_name'];
                 $res['commission'] = $pquery['commission'];

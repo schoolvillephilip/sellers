@@ -28,6 +28,7 @@
                                 <th>Product Name</th>
                                 <th class="min-tablet">Ordered Date</th>
                                 <th class="min-tablet">Qty (Amount)</th>
+                                <th class="min-tablet">Commission (Amount)</th>
                                 <th class="min-tablet">Ordered.</th>
                                 <?php
                                 $type = $this->input->get('type');
@@ -46,6 +47,7 @@
                                     </td>
                                     <td><?= neatDate($order->order_date); ?></td>
                                     <td><?= $order->qty . ' Item (s) - <span class="text text-info"> ( ' . ngn($order->amount) . ' )</span>'; ?></td>
+                                    <td><?= ngn($order->commission); ?></td>
                                     <td><?= $order->variation; ?></td>
                                     <?php
                                     $type = $this->input->get('type');
