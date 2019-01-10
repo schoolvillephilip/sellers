@@ -59,7 +59,7 @@
                                         <div class="pad-all text-center">
                                             <span class="text-3x text-thin"><?=$incoming_transactions;?>
                                                 </span>
-                                            <p>INCOMING TRANSACTIONS</p>
+                                            <p>COMMISSIONS</p>
                                             <i class="demo-pli-credit-card-2 icon-lg"></i>
                                         </div>
                                     </a>
@@ -106,7 +106,7 @@
                                                      style="height:290px;margin-top:10px;">
                                                     <div class="list-group nano-content">
                                                         <?php if ($orders) : foreach ($orders as $order): ?>
-                                                            <a href="#" class="list-group-item incoming_info"
+                                                            <a href="javascript:;" class="list-group-item incoming_info"
                                                                data-name="Order <?= $order->order_code; ?>"
                                                                data-order-id="<?= $order->order_code; ?>">
                                                                 <h5 class="list-group-item-text">
