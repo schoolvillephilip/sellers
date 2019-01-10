@@ -114,6 +114,7 @@ class Account extends CI_Controller
 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->num_rows();
             $page_data['paid'] = $this->seller->run_sql("SELECT SUM(amount) as amt FROM payouts WHERE user_id = {$id} AND status = 'completed' ")->row();
             $page_data['orders'] = $this->seller->run_sql("SELECT order_code FROM orders WHERE seller_id = {$id} AND SUBDATE(NOW(), 'INTERVAL 7 DAY') AND active_status='completed'")->result();
+            $page_data['total_commission'] = $this->seller->run_sql("SELECT SUM(commission) commission FROM orders WHERE active_status = 'completed' AND seller_id = {$id}")->row();
             $this->load->view('payout', $page_data);
         }
     }

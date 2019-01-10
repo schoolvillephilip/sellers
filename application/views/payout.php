@@ -3,11 +3,9 @@
     .list-group-item {
         border: 0 !important;
     }
-
     td p {
         margin: 12px;
     }
-
     table.modal_table td, table.modal_table th {
         padding: 10px;
     }
@@ -57,7 +55,7 @@
                                 <div class="panel panel-bordered-pink panel-colorful">
                                     <a href="<?= base_url('orders/?type=delivered') ?>">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin"><?=$incoming_transactions;?>
+                                            <span class="text-3x text-thin"><?=ngn($total_commission->commission);?>
                                                 </span>
                                             <p>COMMISSIONS</p>
                                             <i class="demo-pli-credit-card-2 icon-lg"></i>
