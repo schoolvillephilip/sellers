@@ -448,10 +448,40 @@ Class Seller_model extends CI_Model
         $this->db->update($table);
     }
 
-    // Get order details based on the order code
-    function get_order_details( $order_code){
+
+    /*
+     * Incoming Balance: SUM of Item Sold - Commision on each Item at the status of shipping or active_status = 'delivered or active_status = 'completed'
+     * That the seller has not received to his wallet
+     * From the orders_table
+     * */
+    function incoming_balance( $id ){
+        $query = "SELECT (SUM(amount) - SUM(commission)) incoming_bal FROM orders WHERE seller_id = {$id} AND active_status = 'shipping' OR active_status = 'delivered' OR active_status = 'completed' AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')";
+        return $this->run_sql( $query )->row();
+    }
+
+    /*
+     * Incoming_order_code :
+     * The order code of the above query
+     * */
+    function incoming_order_code( $id ){
+        $query = "SELECT order_code FROM orders WHERE seller_id = {$id} AND active_status = 'shipping' OR active_status = 'delivered' OR active_status = 'completed' AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')";
+        return $this->run_sql( $query )->result();
+    }
+    /*
+     * Get the last 7 days commission on products sold
+     * And has not been received by the seller
+     * */
+    function last_7_days_commision( $id ){
+        $query = "SELECT SUM(commission) as commission FROM orders WHERE seller_id = {$id} AND active_status = 'shipping' OR active_status = 'delivered' OR active_status = 'completed' AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')";
+        return $this->run_sql( $query )->row();
+    }
+
+    /*
+     * Get all commission, products relating to the order code
+     * */
+    function incoming_order_code_detail( $order_code){
         $id = $this->session->userdata('logged_id');
-        $query = $this->run_sql("SELECT qty,amount,product_id FROM orders WHERE seller_id = {$id} AND order_code = {$order_code} AND active_status = 'completed' AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->result_array();
+        $query = $this->run_sql("SELECT qty,amount,product_id FROM orders WHERE seller_id = {$id} AND order_code = {$order_code}")->result_array();
         if( $query ){
             $result = array();
             foreach( $query as $q ){
@@ -468,6 +498,6 @@ Class Seller_model extends CI_Model
             return $result;
         }
         return array();
-
     }
+
 }

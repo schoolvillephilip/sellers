@@ -37,17 +37,7 @@
                                 <div class="panel panel-bordered-dark panel-colorful">
                                     <div class="pad-all text-center">
                                         <span class="text-3x text-thin"><?= ngn($incoming_balance->incoming_bal); ?></span>
-                                        <p>INCOMING BALANCE</p>
-                                        <i class="demo-pli-credit-card-2 icon-lg"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="panel panel-bordered-primary panel-colorful">
-                                    <div class="pad-all text-center">
-                                        <span class="text-3x text-thin"><?= ngn($profile->balance) ?></span>
-                                        <p>AVAILABLE BALANCE</p>
-                                        <i class="demo-pli-credit-card-2 icon-lg"></i>
+                                        <p>LAST 7 DAYS INCOMING BALANCE</p>
                                     </div>
                                 </div>
                             </div>
@@ -57,18 +47,25 @@
                                         <div class="pad-all text-center">
                                             <span class="text-3x text-thin"><?=ngn($total_commission->commission);?>
                                                 </span>
-                                            <p>COMMISSIONS</p>
-                                            <i class="demo-pli-credit-card-2 icon-lg"></i>
+                                            <p>LAST 7 DAYS COMMISSIONS</p>
                                         </div>
                                     </a>
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <div class="panel panel-bordered-primary panel-colorful">
+                                    <div class="pad-all text-center">
+                                        <span class="text-3x text-thin"><?= ngn($profile->balance) ?></span>
+                                        <p>AVAILABLE BALANCE</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
                                 <div class="panel panel-bordered-purple panel-colorful">
                                     <div class="pad-all text-center">
                                         <span class="text-3x text-thin"><?= ngn($paid->amt); ?></span>
                                         <p>PAYOUT HISTORY - PAID</p>
-                                        <i class="demo-pli-credit-card-2 icon-lg"></i>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +100,7 @@
                                                 <div class="txn nano has-scrollbar"
                                                      style="height:290px;margin-top:10px;">
                                                     <div class="list-group nano-content">
-                                                        <?php if ($orders) : foreach ($orders as $order): ?>
+                                                        <?php if ($incoming_order_code) : foreach ($incoming_order_code as $order): ?>
                                                             <a href="javascript:;" class="list-group-item incoming_info"
                                                                data-name="Order <?= $order->order_code; ?>"
                                                                data-order-id="<?= $order->order_code; ?>">
@@ -113,7 +110,7 @@
                                                             </a>
                                                         <?php endforeach; else : ?>
                                                             <p class="list-group-item-heading text-bold">No Pending
-                                                                Order Payment.</p>
+                                                                Incoming Order Payment.</p>
                                                         <?php endif; ?>
                                                     </div>
                                                 </div>

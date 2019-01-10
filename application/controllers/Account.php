@@ -110,11 +110,11 @@ class Account extends CI_Controller
         }else{
             // get the payout history
             $page_data['histories'] = $this->seller->run_sql("SELECT id, amount, status,transaction_code, date_requested,date_approved,status, remark FROM payouts WHERE user_id = {$id} ORDER BY date_requested DESC")->result();
-            $page_data['incoming_balance'] = $this->seller->run_sql("SELECT (SUM(amount) - SUM(commission)) as incoming_bal FROM orders WHERE seller_id = {$id} AND active_status = 'delivered' 
-AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->row();
+            $page_data['incoming_balance'] = $this->seller->incoming_balance( $id );
+            $page_data['incoming_order_code'] = $this->seller->incoming_order_code( $id );
+            $page_data['total_commission'] = $this->seller->last_7_days_commision( $id );
+
             $page_data['paid'] = $this->seller->run_sql("SELECT SUM(amount) as amt FROM payouts WHERE user_id = {$id} AND status = 'completed' ")->row();
-            $page_data['orders'] = $this->seller->run_sql("SELECT order_code FROM orders WHERE seller_id = {$id} AND SUBDATE(NOW(), 'INTERVAL 7 DAY') AND active_status='completed'")->result();
-            $page_data['total_commission'] = $this->seller->run_sql("SELECT SUM(commission) commission FROM orders WHERE active_status = 'completed' AND seller_id = {$id}")->row();
             $this->load->view('payout', $page_data);
         }
     }
@@ -138,11 +138,11 @@ AND SUBDATE(NOW(), 'INTERVAL 7 DAY')")->row();
         redirect( $_SERVER['HTTP_REFERER']);
     }
 
-//    Get order detail ajax used in payout request
+    //    Get order detail ajax used in payout request
     function get_order_detail(){
         if($this->input->is_ajax_request() && $this->input->post()){
             $order_code = $this->input->post('ocode');
-            echo json_encode( $this->seller->get_order_details( $order_code) );
+            echo json_encode( $this->seller->incoming_order_code_detail( $order_code) );
             exit;
         }
     }
