@@ -34,6 +34,7 @@ class Account extends CI_Controller
         $page_data['page_title'] = "Account Statement";
         $page_data['sub_name'] = "statement";
         $page_data['profile'] = $this->seller->get_profile($uid);
+        $page_data['due_unpaid'] = $this->seller->due_unpaid( $uid);
         $page_data['last_3_month'] = $this->seller->run_sql("SELECT SUM(amount) as amount, DATE_FORMAT(date_requested,'%Y-%m') omonth 
           FROM payouts WHERE user_id = {$uid} AND status != 'completed' GROUP BY omonth ORDER BY omonth DESC LIMIT 3")->result();
         $this->load->view('statement', $page_data);
@@ -113,7 +114,6 @@ class Account extends CI_Controller
             $page_data['incoming_balance'] = $this->seller->incoming_balance( $id );
             $page_data['incoming_order_code'] = $this->seller->incoming_order_code( $id );
             $page_data['total_commission'] = $this->seller->last_7_days_commision( $id );
-
             $page_data['paid'] = $this->seller->run_sql("SELECT SUM(amount) as amt FROM payouts WHERE user_id = {$id} AND status = 'completed' ")->row();
             $this->load->view('payout', $page_data);
         }

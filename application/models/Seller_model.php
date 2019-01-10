@@ -500,4 +500,12 @@ Class Seller_model extends CI_Model
         return array();
     }
 
+    /*
+     * Due and unpaid
+     * */
+    function due_unpaid( $id ){
+        $query = "SELECT (SUM(amount) - SUM(commission)) due FROM orders WHERE seller_id = {$id} AND active_status = 'completed' AND NOW() >= SUBDATE(NOW(), 'INTERVAL 7 DAY') ";
+        return $this->run_sql( $query )->row();
+    }
+
 }
