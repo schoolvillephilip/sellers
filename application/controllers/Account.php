@@ -35,8 +35,10 @@ class Account extends CI_Controller
         $page_data['sub_name'] = "statement";
         $page_data['profile'] = $this->seller->get_profile($uid);
         $page_data['due_unpaid'] = $this->seller->due_unpaid( $uid);
-        $page_data['last_3_month'] = $this->seller->run_sql("SELECT SUM(amount) as amount, DATE_FORMAT(date_requested,'%Y-%m') omonth 
-          FROM payouts WHERE user_id = {$uid} AND status != 'completed' GROUP BY omonth ORDER BY omonth DESC LIMIT 3")->result();
+        $page_data['commission'] = $this->seller->run_sql("SELECT SUM(commission) amount FROM orders WHERE seller_id = {$uid} AND active_status = 'completed'")->row();
+        $page_data['last_3_month'] = $this->seller->last_3_month($uid);
+        $page_data['last_3_month_paid'] = $this->seller->last_3_month_paid($uid);
+        $page_data['completed_sales'] = $this->seller->run_sql("SELECT SUM(amount) amount FROM orders WHERE seller_id = {$uid} AND active_status ='completed'")->row();
         $this->load->view('statement', $page_data);
     }
 

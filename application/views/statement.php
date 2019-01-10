@@ -31,35 +31,52 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <a href="javascript:;" onclick="trigger('#due_trig');">
                                     <div class="panel panel-bordered-dark panel-colorful">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin">&#8358; 0</span>
+                                            <span class="text-3x text-thin"><?= ngn($due_unpaid->due);?></span>
                                             <p>DUE AND UNPAID</p>
-                                            <i class="demo-pli-credit-card-2 icon-lg"></i>
                                         </div>
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
+                                <a href="javascript:;">
+                                    <div class="panel panel-bordered-info panel-colorful">
+                                        <div class="pad-all text-center">
+                                            <span class="text-3x text-thin"><?= ngn($commission->amount);?></span>
+                                            <p>TOTAL COMMISSION RECEIVED </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="javascript:;">
+                                    <div class="panel panel-bordered-info panel-colorful">
+                                        <div class="pad-all text-center">
+                                            <span class="text-3x text-thin"><?= ngn($profile->balance); ?></span>
+                                            <p>CURRENT BALANCE</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
                                 <a href="javascript:;" onclick="trigger('#open_trig');">
                                     <div class="panel panel-bordered-primary panel-colorful">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin">&#8358; 0</span>
-                                            <p>OPEN STATEMENT</p>
-                                            <i class="demo-pli-credit-card-2 icon-lg"></i>
+                                            <span class="text-3x text-thin"><?= ngn($completed_sales->amount);?></span>
+                                            <p>TOTAL SALES MADE</p>
                                         </div>
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <a href="<?=base_url('account/txn_overview')?>">
                                     <div class="panel panel-bordered-purple panel-colorful">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin">&#8358; 0</span>
-                                            <p>PAID IN LAST 3 MONTHS</p>
-                                            <i class="demo-pli-credit-card-2 icon-lg"></i>
+                                            <span class="text-3x text-thin"><?= ngn($last_3_month_paid->amount)?></span>
+                                            <p>MONEY RECEIVED IN LAST 3 MONTHS</p>
                                         </div>
                                     </div>
                                 </a>

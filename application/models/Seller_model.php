@@ -501,10 +501,26 @@ Class Seller_model extends CI_Model
     }
 
     /*
-     * Due and unpaid
+     * Due and unpaid money
      * */
     function due_unpaid( $id ){
         $query = "SELECT (SUM(amount) - SUM(commission)) due FROM orders WHERE seller_id = {$id} AND active_status = 'completed' AND NOW() >= SUBDATE(NOW(), 'INTERVAL 7 DAY') ";
+        return $this->run_sql( $query )->row();
+    }
+
+    /*
+     * Last 3 months Money received
+     * */
+    function last_3_month($uid){
+        $query = "SELECT SUM(amount) as amount, DATE_FORMAT(date_requested,'%Y-%m') omonth 
+          FROM payouts WHERE user_id = {$uid} AND status != 'completed' GROUP BY omonth ORDER BY omonth DESC LIMIT 3";
+        return $this->run_sql( $query )->result();
+    }
+    /*
+     * Total money paid to the seller for 3 months
+     * */
+    function last_3_month_paid( $id ){
+        $query = " SELECT SUM(amount) as amount FROM payouts WHERE user_id = {$id} AND status = 'completed'";
         return $this->run_sql( $query )->row();
     }
 
