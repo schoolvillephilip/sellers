@@ -106,7 +106,7 @@
                                                      style="height:290px;margin-top:10px;">
                                                     <div class="list-group nano-content">
                                                         <?php if ($orders) : foreach ($orders as $order): ?>
-                                                            <a href="#" class="list-group-item incoming_info"
+                                                            <a href="javascript:;" class="list-group-item incoming_info"
                                                                data-name="Order <?= $order->order_code; ?>"
                                                                data-order-id="<?= $order->order_code; ?>">
                                                                 <h5 class="list-group-item-text">
@@ -328,6 +328,7 @@
 <?php $this->load->view('templates/scripts'); ?>
 <script>
     $('.incoming_info').on('click', function () {
+        alert(yeah)
         let self = $(this);
         let title = self.data('name');
         let oid = self.data('order-id');
