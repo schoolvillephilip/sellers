@@ -328,7 +328,6 @@
 <?php $this->load->view('templates/scripts'); ?>
 <script>
     $('.incoming_info').on('click', function () {
-        alert(yeah)
         let self = $(this);
         let title = self.data('name');
         let oid = self.data('order-id');
