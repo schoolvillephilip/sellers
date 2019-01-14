@@ -44,15 +44,15 @@
                                 <div class="row">
                                     <div class="col-md-12 panel-bordered-default"
                                          style="height: 145px;margin-top:7.5px;">
-                                        <h5 style="margin-top:35px;">Total Delivery</h5>
+                                        <h5 style="margin-top:35px;">Total Commission</h5>
                                         <h2>&#8358; 20,000</h2>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 panel-bordered-default"
                                          style="height: 145px;margin-top:7.5px;">
-                                        <h5 style="margin-top:35px;">Total Commission</h5>
-                                        <h2>&#8358; 10,000</h2>
+                                        <h5 style="margin-top:35px;">Total Balance</h5>
+                                        <h2>&#8358; 180,000</h2>
                                     </div>
                                 </div>
                             </div>
