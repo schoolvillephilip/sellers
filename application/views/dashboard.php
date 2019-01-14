@@ -45,15 +45,15 @@
                                 </div>
                             </div>
                             <div class="media-body">
-                                <p class="text-2x mar-no text-semibold">2841</p>
+                                <p class="text-2x mar-no text-semibold"><?= $completed_orders->total + $other_orders->total;?></p>
                                 <p class="mar-no">Sales</p>
                                 <div>
                                     <div class="pad-all">
                                         <p class="mar-no">
-                                            <span class="pull-right text-bold">34</span> Completed
+                                            <span class="pull-right text-bold"><?= $completed_orders->total; ?></span> Completed Sales
                                         </p>
                                         <p class="mar-no">
-                                            <span class="pull-right text-bold">79</span> Total
+                                            <span class="pull-right text-bold"><?= $other_orders->total; ?></span> Total
                                         </p>
                                     </div>
                                 </div>
@@ -68,18 +68,9 @@
                                 </div>
                             </div>
                             <div class="media-body">
-                                <p class="text-2x mar-no text-semibold">1</p>
+                                <p class="text-2x mar-no text-semibold"><?= $dispute->total; ?></p>
                                 <p class="mar-no">Disputes</p>
-                                <div>
-                                    <div class="pad-all">
-                                        <p class="mar-no">
-                                            <span class="pull-right text-bold">34</span> Completed
-                                        </p>
-                                        <p class="mar-no">
-                                            <span class="pull-right text-bold">79</span> Total
-                                        </p>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
