@@ -245,7 +245,7 @@
                                                 <?php if( $history->status == 'pending') : ?>
                                                 <form action="<?= base_url('account/rescend_mail');?>" method="post">
                                                     <input type="hidden" name="code" value="<?= $history->transaction_code; ?>">
-                                                    <button type="submit" class="btn btn-hover-success">Re-scend Email</button>
+                                                    <button type="submit" class="btn btn-hover-success">Re-send Email</button>
                                                 </form>
                                                 <?php else : ?>
                                                     <span class="text-muted">No Action</span>
