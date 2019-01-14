@@ -124,6 +124,9 @@
                                 <i class="arrow"></i>
                             </a>
                             <ul class="collapse <?php if ($pg_name == 'report') echo 'in'; ?>">
+                                <li <?php if ($sub_name == 'sales_report') echo 'class="active-link"' ?>><a
+                                            href="<?= base_url('account/sales_report'); ?>">
+                                        <i class="demo-pli-star"></i>Sales Report</a></li>
                                 <li <?php if ($sub_name == 'statement') echo 'class="active"' ?>><a
                                             href="<?= base_url('account/statement'); ?>">
                                         <i class="demo-pli-star"></i>Account Statement</a></li>
