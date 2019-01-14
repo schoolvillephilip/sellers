@@ -21,8 +21,8 @@
                 <div class="row">
                     <?php $this->load->view('msg_view'); ?>
                     <div class="col-md-3">
-                        <p style="padding: 5px;">
-                            <img class=""
+                        <p>
+                            <img class="pad-all"
                                  src="<?= PRODUCTS_IMAGE_PATH . $product->image_name; ?>"
                                  alt="<?= $product->product_name; ?>"
                                  title="<?= $product->product_name; ?>" style="max-width: 330px;">
@@ -86,7 +86,7 @@
                             </div>
                             <div class="media-body pad-all">
                                 <p class="text-2x mar-no text-semibold text-main"><?= ngn($product->amount); ?></p>
-                                <p class="text-muted mar-no">Total Amount Earned</p>
+                                <p class="text-muted mar-no">Total Amount</p>
                             </div>
                         </div>
                         <div class="panel media middle">

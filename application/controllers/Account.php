@@ -44,17 +44,23 @@ class Account extends CI_Controller
 
     public function sales_report()
     {
+        $uid = $this->session->userdata('logged_id');
         $page_data['pg_name'] = 'report';
         $page_data['page_title'] = "Sales Report";
         $page_data['sub_name'] = "sales_report";
         $page_data['order_chart'] = "";
         $page_data['gross_chart'] = "";
-        $page_data['profile'] = $this->seller->get_profile($this->session->userdata('logged_id'));
+        $page_data['profile'] = $this->seller->get_profile($uid);
+        $page_data['order_chart'] = $this->seller->order_chart($uid);
+        $page_data['commission'] = $this->seller->run_sql("SELECT SUM(commission) amount FROM orders WHERE seller_id = {$uid} AND active_status = 'completed'")->row();
+        $page_data['total_sales'] = $this->seller->run_sql("SELECT SUM(amount) amount FROM orders WHERE seller_id = {$uid} AND active_status = 'completed'")->row();
+        $page_data['sales'] = $page_data['total_sales']->amount - $page_data['commission']->amount;
+        $page_data['completed_sales'] = $this->seller->run_sql("SELECT SUM(amount) amount FROM orders WHERE seller_id = {$uid} AND active_status ='completed'")->row();
+        $page_data['top_orders'] = $this->seller->top_20_sales( $uid );
         $this->load->view('sales_report', $page_data);
     }
 //    Account Payout Overview and request
-    public function payout()
-    {
+    public function payout(){
         $id = $this->session->userdata('logged_id');
         $page_data['pg_name'] = 'report';
         $page_data['page_title'] = "Request Payout";

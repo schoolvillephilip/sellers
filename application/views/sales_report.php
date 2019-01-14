@@ -38,21 +38,21 @@
                                 <div class="row">
                                     <div class="col-md-12 panel-bordered-default" style="height: 145px;">
                                         <h5 style="margin-top:35px;">Total Sales</h5>
-                                        <h2>&#8358; 200,000</h2>
+                                        <h2><?= ngn($total_sales->amount);?></h2>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 panel-bordered-default"
                                          style="height: 145px;margin-top:7.5px;">
                                         <h5 style="margin-top:35px;">Total Commission</h5>
-                                        <h2>&#8358; 20,000</h2>
+                                        <h2><?= ngn($commission->amount); ?></h2>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 panel-bordered-default"
                                          style="height: 145px;margin-top:7.5px;">
-                                        <h5 style="margin-top:35px;">Total Balance</h5>
-                                        <h2>&#8358; 180,000</h2>
+                                        <h5 style="margin-top:35px;">Total Earned</h5>
+                                        <h2><?= ngn($total_sales->amount - $commission->amount); ?></h2>
                                     </div>
                                 </div>
                             </div>
@@ -63,14 +63,14 @@
                             <div class="col-md-3 text-center">
                                 <div class="row">
                                     <div class="col-md-12 panel-bordered-default" style="height: 220px;">
-                                        <h5 style="margin-top:70px;">Total Order Count</h5>
-                                        <h2>200,000</h2>
+                                        <h5 style="margin-top:70px;">Total Order This Year</h5>
+                                        <h2><?= (int) $order_chart['total_yearly']; ?></h2>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 panel-bordered-default"
                                          style="height: 220px;margin-top:10px;">
-                                        <h5 style="margin-top:70px;">Avg Order Per Customer</h5>
+                                        <h5 style="margin-top:70px;">Avg Order Per Months</h5>
                                         <h2>2.5</h2>
                                     </div>
                                 </div>
@@ -78,27 +78,27 @@
                         </div>
                         <div class="row" style="margin-top:10px;">
                             <div class="col-md-12">
-                                <h5>Top Products By Order</h5>
+                                <h5 class="text text-info">Your Top 20 Products Ordered.</h5>
                                 <table id="top_selling_products" class="table table-striped table-bordered"
                                        cellspacing="0"
                                        width="100%">
                                     <thead>
                                     <tr>
                                         <th width="10%">S/N</th>
-                                        <th width="10%"></th>
-                                        <th width="40%" class="min-tablet">Product</th>
-                                        <th width="20%" class="min-tablet">Category</th>
+                                        <th width="40%" class="min-tablet">Product Name</th>
                                         <th width="20%" class="min-desktop">Orders Completed</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><img src="me.jpg" alt="Product Image"/></td>
-                                        <td>Samsung Galaxy J5</td>
-                                        <td>Phones &amp; Tablets</td>
-                                        <td>61</td>
-                                    </tr>
+                                    <?php $x = 1; foreach($top_orders as $order) :?>
+                                        <tr>
+                                            <td><?= $x; ?></td>
+                                            <td>
+                                                <a href="<?= base_url('manage/stat/' . $order->id); ?>" class="btn-link"><?= word_limiter($order->product_name, 20); ?></a>
+                                            </td>
+                                            <td><?= $order->no_of_sales; ?></td>
+                                        </tr>
+                                    <?php $x++; endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -125,23 +125,31 @@
                     "previous": '<i class="demo-psi-arrow-left"></i>',
                     "next": '<i class="demo-psi-arrow-right"></i>'
                 }
-            }
+            },
+            dom: 'Bfrtip',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ]
         });
+
         Morris.Bar({
             element: 'sales_chart',
             data: [
-                { y: 'Jan', a: 80},
-                { y: 'Feb', a: 100},
-                { y: 'Mar', a: 75},
-                { y: 'Apr', a: 20},
-                { y: 'May', a: 50},
-                { y: 'June', a: 75},
-                { y: 'July', a: 15},
-                { y: 'Aug', a: 70},
-                { y: 'Sept', a: 100},
-                { y: 'Oct', a: 50},
-                { y: 'Nov', a: 20},
-                { y: 'Dec', a: 40}
+                { y: 'Jan', a: <?= (int) $order_chart['Jan']; ?>},
+                { y: 'Feb', a: <?= (int) $order_chart['Feb']; ?>},
+                { y: 'Mar', a: <?= (int) $order_chart['Mar']; ?>},
+                { y: 'Apr', a: <?= (int) $order_chart['Apr']; ?>},
+                { y: 'May', a: <?= (int) $order_chart['May']; ?>},
+                { y: 'June', a: <?= (int) $order_chart['Jun']; ?>},
+                { y: 'July', a: <?= (int) $order_chart['Jul']; ?>},
+                { y: 'Aug', a: <?= (int) $order_chart['Aug']; ?>},
+                { y: 'Sept', a: <?= (int) $order_chart['Sep']; ?>},
+                { y: 'Oct', a: <?= (int) $order_chart['Oct']; ?>},
+                { y: 'Nov', a: <?= (int) $order_chart['Nov']; ?>},
+                { y: 'Dec', a: <?= (int) $order_chart['Dec']; ?>}
             ],
             xkey: 'y',
             ykeys: 'a',
