@@ -20,6 +20,7 @@ class Orders extends MY_Controller
             'first_name,last_name,email,profile_pic');
         $page_data['orders'] = $this->seller->get_orders($id, $status
         );
+//        var_dump($page_data['orders'] ); exit;
         $this->load->view('orders', $page_data);
     }
 }

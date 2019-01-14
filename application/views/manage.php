@@ -30,21 +30,22 @@
                                 <th class="min-tablet">Created On</th>
                                 <th class="min-tablet">Average Sale Price(N)</th>
                                 <th class="min-tablet">Avg Discount Price(N)</th>
-                                <th class="min-desktop">Available</th>
-                                <th class="min-desktop min-tablet">Action</th>
+                                <th class="min-desktop">Status</th>
+                                <th class="min-desktop min-tablet">Detail</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php foreach ($products as $product) : ?>
                                 <tr>
                                     <td>
-                                        <?php if ($product['product_name'] !== null) echo $product['product_name']; ?>
+                                        <?= word_limiter($product['product_name'], 15); ?>
                                     </td>
                                     <td><?php if ($product['sku'] !== null) echo $product['sku']; ?></td>
                                     <td><?php if ($product['created_on']) echo neatDate($product['created_on']); ?></td>
                                     <td><?php if ($product['sale_price']) echo ngn($product['sale_price']); ?></td>
                                     <td><?php if ($product['sale_price']) echo ngn($product['discount_price']); ?></td>
                                     <td><?php if ($product['sale_price']) echo productStatus($product['product_status']); ?></td>
+                                    <td><a class="btn-link" href="<?= base_url('manage/stat/' . $product['id']); ?>">View Product Detail</a></td>
                                     <?php if (in_array($product['product_status'], array('pending', 'missing_images'))): ?>
                                         <td>
                                             <a href="<?= base_url('product/edit/' . $product['id']); ?>">

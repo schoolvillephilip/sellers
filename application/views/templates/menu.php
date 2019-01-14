@@ -3,6 +3,12 @@
         <div class="mainnav-brand">
             <a href="javascript:;" class="mainnav-toggle"><i class="pci-cross pci-circle icon-lg"></i></a>
         </div>
+        <?php
+            // Count Query
+            $uid = $this->session->userdata('logged_id');
+            $order_count = $this->seller->run_sql("SELECT * FROM orders WHERE seller_id = {$uid} AND active_status = 'processing'")->num_rows();
+            $message_count = $this->seller->get_unread_message($this->session->userdata('logged_id'));
+        ?>
         <div id="mainnav-menu-wrap">
             <div class="nano">
                 <div class="nano-content">
@@ -73,7 +79,7 @@
                         <li <?php if ($pg_name == 'orders') echo 'class="active"' ?>">
                         <a href="javascript:;">
                             <i class="demo-pli-cart-coin"></i>
-                            <span class="menu-title">Orders</span>
+                            <span class="menu-title">Orders <?php if($order_count) echo '(' . $order_count.')'; ?></span>
                             <i class="arrow"></i>
                         </a>
                         <ul class="collapse <?php if ($pg_name == 'orders') echo 'in'; ?>">
@@ -108,12 +114,11 @@
                         </ul>
                         </li>
                         <li class="list-divider"></li>
-                        <?php $message_count = $this->seller->get_unread_message(base64_decode($this->session->userdata('logged_id'))); ?>
+
                         <li class="<?php if ($pg_name == 'message') echo 'active' ?>">
                             <a href="<?= base_url('message'); ?>">
                                 <i class="demo-pli-mail"></i>
-                                <span class="menu-title">Messages (<?= $message_count < 1 ? '0 New' : $message_count; ?>
-                                    )</span>
+                                <span class="menu-title">Messages <?= $message_count < 1 ? '' : '(' .$message_count.' new)'; ?></span>
                             </a>
                         </li>
                         <li class="list-divider"></li>

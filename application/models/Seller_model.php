@@ -180,6 +180,21 @@ Class Seller_model extends CI_Model
         return $output;
     }
 
+    /*
+     * Get single product detail
+     * */
+    function get_single_product_detail($sid, $pid){
+        $query = "SELECT p.*, g.image_name, o.amount, o.quantity_sold, v.variation_qty, g.image_name FROM products AS p
+                    LEFT JOIN (SELECT ga.image_name, ga.product_id FROM product_gallery ga WHERE ga.featured_image = 1 AND ga.product_id = {$pid} ) g 
+                    ON (p.id = g.product_id )
+                    LEFT JOIN (SELECT SUM(ord.amount) as amount, ord.product_id, SUM(ord.qty) quantity_sold FROM orders AS ord GROUP BY ord.product_id ) AS o
+                    ON ( o.product_id = p.id)
+                    LEFT JOIN (SELECT SUM(var.quantity) AS variation_qty, var.product_id FROM product_variation var GROUP BY var.product_id ) v
+                    ON ( v.product_id = p.id)
+                    WHERE p.id = {$pid} AND p.seller_id = {$sid} GROUP BY p.id ";
+        return $this->db->query($query)->row();
+    }
+
     /**
      * @param $id
      * @param $label
@@ -367,6 +382,7 @@ Class Seller_model extends CI_Model
         if ($status != '') {
             $query .= " AND o.active_status = '{$status}'";
         }
+//        $query .= " GROUP BY o.order_code";
         return $this->db->query($query, array($id, $status))->result();
     }
 
@@ -380,7 +396,7 @@ Class Seller_model extends CI_Model
     {
         $this->db->where('seller_id', $sid);
         $this->db->where('is_read', 0);
-        return $this->db->get('sellers_notification_message')->num_rows();
+        return $this->db->get(TABLE_SELLER_NOTIFICATION_MESSAGE)->num_rows();
 
     }
 
@@ -389,15 +405,15 @@ Class Seller_model extends CI_Model
         if ($type == 'all') {
             $this->db->where('seller_id', $sid);
             $this->db->order_by('created_on', 'ASC');
-            return $this->db->get('sellers_notification_message');
+            return $this->db->get(TABLE_SELLER_NOTIFICATION_MESSAGE);
         } else {
             $this->db->where('seller_id', $sid);
             $this->db->where('id', $id);
-            if ($this->db->update('sellers_notification_message', array('is_read' => 1))) {
+            if ($this->db->update(TABLE_SELLER_NOTIFICATION_MESSAGE, array('is_read' => 1))) {
                 $this->db->select('title,content,created_on');
                 $this->db->where('seller_id', $sid);
                 $this->db->where('id', $id);
-                return $this->db->get('sellers_notification_message')->row_array();
+                return $this->db->get(TABLE_SELLER_NOTIFICATION_MESSAGE)->row_array();
             }
         }
     }
@@ -450,12 +466,12 @@ Class Seller_model extends CI_Model
 
 
     /*
-     * Incoming Balance: SUM of Item Sold - Commision on each Item at the status of shipping or active_status = 'delivered or active_status = 'completed'
+     * Incoming Balance: SUM of Item Sold - Commision on each Item at the status of shipped or active_status = 'delivered or active_status = 'completed'
      * That the seller has not received to his wallet
      * From the orders_table
      * */
     function incoming_balance( $id ){
-        $query = "SELECT (SUM(amount) - SUM(commission)) incoming_bal FROM orders WHERE seller_id = {$id} AND active_status = 'shipping' OR active_status = 'delivered' OR active_status = 'completed' AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')";
+        $query = "SELECT (SUM(amount) - SUM(commission)) incoming_bal FROM orders WHERE seller_id = {$id} AND active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed' AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')";
         return $this->run_sql( $query )->row();
     }
 
@@ -464,7 +480,7 @@ Class Seller_model extends CI_Model
      * The order code of the above query
      * */
     function incoming_order_code( $id ){
-        $query = "SELECT order_code FROM orders WHERE seller_id = {$id} AND active_status = 'shipping' OR active_status = 'delivered' OR active_status = 'completed' AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')";
+        $query = "SELECT order_code FROM orders WHERE seller_id = {$id} AND active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed' AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')";
         return $this->run_sql( $query )->result();
     }
     /*
@@ -472,7 +488,7 @@ Class Seller_model extends CI_Model
      * And has not been received by the seller
      * */
     function last_7_days_commision( $id ){
-        $query = "SELECT SUM(commission) as commission FROM orders WHERE seller_id = {$id} AND active_status = 'shipping' OR active_status = 'delivered' OR active_status = 'completed' AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')";
+        $query = "SELECT SUM(commission) as commission FROM orders WHERE seller_id = {$id} AND active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed' AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')";
         return $this->run_sql( $query )->row();
     }
 

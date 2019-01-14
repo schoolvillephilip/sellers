@@ -41,9 +41,11 @@
                             <?php foreach ($orders as $order) : ?>
                                 <tr>
                                     <td>
-                                        <span><img width="65"
-                                                   src="<?= PRODUCTS_IMAGE_PATH . $order->image_name; ?>"></span>
-                                        <a href="#" class="btn btn-link"><?= character_limiter($order->product_name, 30); ?></a>
+                                        <span>
+                                            <img width="65"
+                                                   src="<?= PRODUCTS_IMAGE_PATH . $order->image_name; ?>" />
+                                            <a href="<?= base_url('manage/stat/' . $order->pid); ?>" class="btn btn-link"><?= character_limiter($order->product_name, 12); ?></a>
+                                        </span>
                                     </td>
                                     <td><?= neatDate($order->order_date); ?></td>
                                     <td><?= $order->qty . ' Item (s) - <span class="text text-info"> ( ' . ngn($order->amount) . ' )</span>'; ?></td>
