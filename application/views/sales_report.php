@@ -70,8 +70,8 @@
                                 <div class="row">
                                     <div class="col-md-12 panel-bordered-default"
                                          style="height: 220px;margin-top:10px;">
-                                        <h5 style="margin-top:70px;">Avg Order Per Months</h5>
-                                        <h2>2.5</h2>
+                                        <h5 style="margin-top:70px;">Avg Order Per Customer</h5>
+                                        <h2><?= $avg_order; ?></h2>
                                     </div>
                                 </div>
                             </div>
