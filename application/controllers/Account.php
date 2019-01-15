@@ -48,7 +48,6 @@ class Account extends CI_Controller
         $page_data['pg_name'] = 'report';
         $page_data['page_title'] = "Sales Report";
         $page_data['sub_name'] = "sales_report";
-        $page_data['order_chart'] = "";
         $page_data['gross_chart'] = "";
         $page_data['profile'] = $this->seller->get_profile($uid);
         $page_data['order_chart'] = $this->seller->order_chart($uid);
@@ -115,7 +114,7 @@ class Account extends CI_Controller
                     $this->email->insert_data('error_logs', $error_action);
                 }
             }else{
-                $this->session->set_flashdata('error_msg', 'ERROR: Password is incorrect.');
+                $this->session->set_flashdata('error_msg', 'ERROR: The password you entered is incorrect.');
             }
             redirect('account/payout/');
         }else{
