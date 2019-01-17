@@ -20,6 +20,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Showing all products</h3>
                     </div>
+                    <?php $this->load->view('msg_view'); ?>
                     <div class="panel-body">
                         <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="0"
                                width="100%">

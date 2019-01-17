@@ -32,8 +32,6 @@ class Manage extends MY_Controller
         if( !$page_data['product']){
             redirect($_SERVER['HTTP_REFERER']);
         }
-//        var_dump( $page_data['product'] );
-//        exit;
         $page_data['page_title'] = 'Product Detail';
         $page_data['pg_name'] = 'product_stat';
         $page_data['sub_name'] = '';
