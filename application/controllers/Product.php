@@ -191,7 +191,8 @@ class Product extends MY_Controller
                     $product_id = md5(md5($product_id));
                     $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $product_id);
                     if ($upload_result) {
-                        $product_gallery['image_name'] = $upload_result['public_id'] . $upload_result['format'];
+                        $image_name = explode('/', $upload_result['public_id']);
+                        $product_gallery['image_name'] = $image_name[1] .'.'. $upload_result['format'];
                         $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name == $_POST['featured_image'])) ? 1 : 0;
                         if ($counts == 1) $product_gallery['featured_image'] = 1;
                         if (!is_int($this->seller->insert_data('product_gallery', $product_gallery))) {
@@ -402,7 +403,7 @@ class Product extends MY_Controller
                     $variation_data['discount_price'] = $discount_price[$i];
                     $variation_data['start_date'] = $start_date[$i];
                     $variation_data['end_date'] = $end_date[$i];
-                    if ($variation_data['quantity'] > 10) $variation_data['quantity'] = 10;
+//                    if ($variation_data['quantity'] > 10) $variation_data['quantity'] = 10;
                     if (empty($variation_data['discount_price'])) {
                         $variation_data['start_date'] = $variation_data['end_date'] = '';
                     }
@@ -507,9 +508,7 @@ class Product extends MY_Controller
             $img_name = $gallery->image_name;
             $obj['filename'] = $img_name;
             $obj['fileURL'] = PRODUCTS_IMAGE_PATH . $img_name;
-//            $obj['fileURL'] = base_url('data/products/' . $id . '/' . $img_name);
-//            $obj['filesize'] = filesize(realpath('./data/products/' . $id . '/' . $img_name));
-            $obj['filesize'] = filesize(PRODUCTS_IMAGE_PATH . $img_name);
+            $obj['filesize'] = $this->get_image_filesize(PRODUCTS_IMAGE_PATH . $img_name);
             $obj['featured'] = $gallery->featured_image;
             $result[] = $obj;
         }
@@ -517,5 +516,16 @@ class Product extends MY_Controller
         header('Content-type: application/json');
         echo json_encode($result);
         exit;
+    }
+
+    function get_image_filesize( $image_url ){
+        $ch = curl_init($image_url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, TRUE);
+        curl_setopt($ch, CURLOPT_NOBODY, TRUE);
+        $data = curl_exec($ch);
+        $size = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
+        curl_close($ch);
+        return $size;
     }
 }

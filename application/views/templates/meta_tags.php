@@ -14,7 +14,8 @@
     <link href="<?= base_url('assets/seller/css/nifty.min.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/seller/css/create.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/seller/css/demo/nifty-demo-icons.min.css')?>" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url('assets/landing/css/font-awesome.css'); ?>">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <?php if( in_array($pg_name, array('product','template','register'))) :?>
         <link href="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.css')?>" rel="stylesheet">
         <link href="<?= base_url('assets/seller/plugins/dropzone/dropzone.min.html')?>" rel="stylesheet">

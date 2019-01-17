@@ -74,21 +74,20 @@
                                         </li>
                                         <li class="col-xs-3">
                                             <a data-toggle="tab" href="#product-description-tab">
-                                                <span class="text-warning text-2x"><i
-                                                            class="fab fa-product-hunt"></i></span>
+                                                <span class="text-warning text-2x"><i class="fab fa-product-hunt" aria-hidden="true"></i></span>
                                                 <p class="text-semibold mar-no">Product Description & Attributes</p>
                                             </a>
                                         </li>
                                         <li class="col-xs-3">
                                             <a data-toggle="tab" href="#product-variation-tab">
                                                 <span class="text-info text-2x"><i
-                                                            class="fas fa-money-check"></i></span>
+                                                            class="fas fa-money-bill-alt"></i></span>
                                                 <p class="text-semibold mar-no">Product Pricing</p>
                                             </a>
                                         </li>
                                         <li class="col-xs-3">
                                             <a data-toggle="tab" href="#image-upload-tab">
-                                                <span class="text-success text-2x"><i class="fas fa-images"></i></span>
+                                                <span class="text-success text-2x"><i class="fas fa-image"></i></span>
                                                 <p class="text-semibold mar-no">Image</p>
                                             </a>
                                         </li>

@@ -89,7 +89,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 // Database Table
 
 // General Settings
-defined('PRODUCTS_IMAGE_PATH') OR define('PRODUCTS_IMAGE_PATH', "https://res.cloudinary.com/de9lpikx3/image/upload/");
+defined('PRODUCTS_IMAGE_PATH') OR define('PRODUCTS_IMAGE_PATH', "https://res.cloudinary.com/de9lpikx3/image/upload/product/");
 // defined('FACEBOOK_LINK') OR define('FACEBOOK_LINK', $this->config->item('facebook_link'));
 
 
