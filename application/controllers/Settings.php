@@ -27,7 +27,6 @@ class Settings extends MY_Controller
                 case 'profile':
                     $this->form_validation->set_rules('name', 'First name and last name', 'trim|required|xss_clean');
                     $this->form_validation->set_rules('bank_name', 'Bank name', 'trim|required|xss_clean');
-                    $this->form_validation->set_rules('bvn', 'Bank Verification Number', 'trim|required|xss_clean');
                     $this->form_validation->set_rules('account_name', 'Account name', 'trim|required|xss_clean');
                     $this->form_validation->set_rules('account_number', 'Account number', 'trim|required|xss_clean');
                     if ($this->form_validation->run() === false) {

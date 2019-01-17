@@ -229,7 +229,7 @@
                                     <?php foreach ($histories as $history) : ?>
                                         <tr>
                                             <td><?= date('Y/m/d H:i:s', strtotime($history->date_requested)); ?></td>
-                                            <td>PTX<?= $history->transaction_code; ?></td>
+                                            <td>PTX<?= $history->id; ?></td>
                                             <td><?= ngn($history->amount); ?></td>
                                             <td>
                                                 <?php
