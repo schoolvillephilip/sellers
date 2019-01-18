@@ -74,7 +74,8 @@
                                         </li>
                                         <li class="col-xs-3">
                                             <a data-toggle="tab" href="#product-description-tab">
-                                                <span class="text-warning text-2x"><i class="fab fa-product-hunt" aria-hidden="true"></i></span>
+                                                <span class="text-warning text-2x"><i class="fab fa-product-hunt"
+                                                                                      aria-hidden="true"></i></span>
                                                 <p class="text-semibold mar-no">Product Description & Attributes</p>
                                             </a>
                                         </li>
@@ -136,7 +137,7 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Name of the product. For a better listing quality, the name should consist the actual product name, if available colour, edition, speciality">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -158,14 +159,14 @@
                                                                             <?php endforeach; ?>
                                                                             <option value="others">Others</option>
                                                                         </select>
-                                                                        <span class="text-sm text-dark">Brand of the product. If brand does not exist, please copy https://goo.gl/Hw8vma into your browser and fill accordingly.</span>
+                                                                        <span class="text-sm text-dark">Brand of the product</span>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:;" title="Brand Name"
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="What is the maker of the product, e.g Sansung, Apple, Toshiba etc.">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -183,7 +184,7 @@
                                                                            data-placement="top" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Product Model e.g Samsung S9+, iPhone XR etc.">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -214,7 +215,7 @@
                                                                            data-placement="top" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Main color is the primary color of the product, e,g Blue, Green, etc.">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -235,7 +236,7 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Your registered shop name">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -262,10 +263,10 @@
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:void(0);"
                                                                            title="Color Family"
-                                                                           data-placement="bottom" data-toggle="popover"
+                                                                           data-placement="top" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Add as many colors as you have for the different types of the product">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -293,10 +294,10 @@
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:void(0);"
                                                                            title="Main Material"
-                                                                           data-placement="bottom" data-toggle="popover"
+                                                                           data-placement="top" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Material used to manufacture product, e.g Aluminium, Plastic, etc.">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -336,7 +337,7 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="The full product description including specs and advert images from manufacturer">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -346,7 +347,7 @@
                                                                             class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">YouTube
                                                                         ID</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <input type="email" class="form-control"
+                                                                        <input type="text" class="form-control"
                                                                                name="youtube_id"
                                                                                placeholder="YouTube ID">
                                                                         <span class="text-sm text-dark">Example: e.g. http://www.youtube.com/watch?v=htlgaXRAe2k it is: htlgaXRAe2k</span>
@@ -356,7 +357,7 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Enter the youtube link to product video if available">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -379,7 +380,7 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="All information about unboxing the product and contents in the box">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -400,7 +401,7 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Enter short major highlights of the product, to make the purchase decision for the customer easier, e.g  Best expierience ever - super fast and easy navigation - better control">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -432,7 +433,7 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Height, Width, &amp; Depth dimensions of the product">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -452,7 +453,7 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Provide the weight of the product as specified by manufacturer">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -592,7 +593,7 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Select product owned certifications and product test certificates ">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -614,7 +615,7 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Provide the warranty validity period eg. 1 Year Warranty, N/A">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -644,7 +645,7 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Select the type of warranty service you want to offer">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -665,7 +666,7 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="I am your help and i will help you even if you dont want to be helped">
+                                                                           data-content="Address of warranty shop: e.g Service Center Address: 20b Caro Road, Ikeja. Lagos | Repair by Vendor Address: 5 Paris Street, Yaba. Lagos.">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -867,7 +868,7 @@
                                         <div class="box-inline">
                                             <button type="button" class="previous btn btn-primary">Previous</button>
                                             <button type="button" class="next btn btn-primary">Next</button>
-<!--                                            <button type="button" class="preview btn btn-primary">Preview</button>-->
+                                            <!--                                            <button type="button" class="preview btn btn-primary">Preview</button>-->
                                             <button type="submit" class="finish btn btn-warning">Finish</button>
                                         </div>
                                     </div>
