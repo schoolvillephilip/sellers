@@ -154,9 +154,6 @@
                                 <li <?php if ($sub_name == 'change_password') echo 'class="active-link"' ?>><a
                                             href="<?= base_url('settings/change_password'); ?>">
                                         <i class="demo-pli-lock-2"></i>Change Password</a></li>
-                                <li <?php if ($sub_name == 'notification') echo 'class="active-link"' ?>><a
-                                            href="javascript:;">
-                                        <i class="demo-pli-medal-2"></i>Notification Setting</a></li>
                             </ul>
                         </li>
                         <li <?php if ($pg_name == 'help') echo 'class="active"' ?>>
