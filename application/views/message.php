@@ -25,11 +25,10 @@
         <div id="content-container">
             <div id="page-head">
                 <div id="page-title">
-                    <h1 class="page-header text-overflow">User</h1>
+                    <h1 class="page-header text-overflow">Messages</h1>
                 </div>
                 <ol class="breadcrumb">
                     <li><i class="demo-pli-home"></i></li>
-                    <li>User</li>
                     <li class="active">Messages</li>
                 </ol>
             </div>

@@ -30,7 +30,7 @@
                 </div>
                 <?= form_open('login/process'); ?>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Username" name="email" autofocus>
+                    <input type="email" class="form-control" placeholder="example@example.com" name="email" autofocus>
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" name="password" placeholder="Password">

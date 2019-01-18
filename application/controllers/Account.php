@@ -56,7 +56,7 @@ class Account extends CI_Controller
         $page_data['sales'] = $page_data['total_sales']->amount - $page_data['commission']->amount;
         $page_data['completed_sales'] = $this->seller->run_sql("SELECT SUM(amount) amount FROM orders WHERE seller_id = {$uid} AND active_status ='completed'")->row();
         $avg = $this->seller->run_sql("SELECT SUM(qty) qty, COUNT(DISTINCT(buyer_id)) buyers FROM orders WHERE seller_id = {$uid} AND active_status= 'completed'")->row();
-        $page_data['avg_order'] = ($avg->qty != 0 || $avg->qty != null) ? $avg->qty/$avg->buyers: 0;
+        $page_data['avg_order'] = ($avg->qty != 0 || $avg->qty  !== null) ? $avg->qty/$avg->buyers : 0;
         $page_data['top_orders'] = $this->seller->top_20_sales( $uid );
         $this->load->view('sales_report', $page_data);
     }

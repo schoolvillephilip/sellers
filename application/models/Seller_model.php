@@ -469,7 +469,7 @@ Class Seller_model extends CI_Model
      * From the orders_table
      * */
     function incoming_balance( $id ){
-        $query = "SELECT (SUM(amount) - SUM(commission)) incoming_bal FROM orders WHERE seller_id = {$id} AND active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed' AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')";
+        $query = "SELECT (SUM(amount) - SUM(commission)) incoming_bal FROM orders WHERE (seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY'))";
         return $this->run_sql( $query )->row();
     }
 
@@ -478,7 +478,7 @@ Class Seller_model extends CI_Model
      * The order code of the above query
      * */
     function incoming_order_code( $id ){
-        $query = "SELECT order_code FROM orders WHERE seller_id = {$id} AND active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed' AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')";
+        $query = "SELECT order_code FROM orders WHERE (seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY'))";
         return $this->run_sql( $query )->result();
     }
     /*
@@ -486,7 +486,7 @@ Class Seller_model extends CI_Model
      * And has not been received by the seller
      * */
     function last_7_days_commision( $id ){
-        $query = "SELECT SUM(commission) as commission FROM orders WHERE seller_id = {$id} AND active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed' AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY')";
+        $query = "SELECT SUM(commission) as commission FROM orders WHERE (seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY'))";
         return $this->run_sql( $query )->row();
     }
 

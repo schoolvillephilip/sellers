@@ -46,7 +46,7 @@
                                     <div class="panel panel-bordered-info panel-colorful">
                                         <div class="pad-all text-center">
                                             <span class="text-3x text-thin"><?= ngn($commission->amount);?></span>
-                                            <p>TOTAL COMMISSION RECEIVED </p>
+                                            <p>TOTAL COMMISSION PAID</p>
                                         </div>
                                     </div>
                                 </a>
