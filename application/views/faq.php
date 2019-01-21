@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
-    <link rel="icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
+    <link rel="shortcut icon" href="<?= base_url('assets/img/favicon.png'); ?>" type="image/png">
+    <link rel="icon" href="<?= base_url('assets/img/favicon.png'); ?>" type="image/png">
     <link rel="canonical" href="<?= current_url(); ?>"/>
     <meta name="robots" content="noindex,nofollow">
-    <link href="<?= base_url('assets/landing/css/reset.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/landing/css/style.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/seller/plugins/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet">
-    <script src="<?= base_url('assets/landing/js/modernizr.js'); ?>"></script>
+    <link href="<?= base_url('assets/css/reset.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/plugins/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet">
+    <script src="<?= base_url('assets/js/modernizr.js'); ?>"></script>
     <title>Sellers FAQ | Onithsamarket.com</title>
     <style>
         .spacer {
@@ -125,17 +125,6 @@
             mso-pattern: black none;
         }
 
-        .xl69 {
-            mso-style-parent: style0;
-            font-weight: 700;
-            border-top: .5pt solid windowtext;
-            border-right: .5pt solid windowtext;
-            border-bottom: none;
-            border-left: .5pt solid windowtext;
-            background: #FFC000;
-            mso-pattern: black none;
-        }
-
         .xl70 {
             mso-style-parent: style0;
             font-weight: 700;
@@ -156,26 +145,11 @@
             border-left: .5pt solid windowtext;
         }
 
-        .xl72 {
-            mso-style-parent: style0;
-            font-weight: 700;
-            text-align: right;
-            background: #FFC000;
-            mso-pattern: black none;
-        }
 
         .xl73 {
             mso-style-parent: style0;
             font-weight: 700;
             text-align: right;
-        }
-
-        .xl74 {
-            mso-style-parent: style0;
-            font-weight: 700;
-            text-align: left;
-            background: #FFC000;
-            mso-pattern: black none;
         }
 
         .xl75 {
@@ -1559,8 +1533,8 @@
     <a href="#0" class="cd-close-panel">Close</a>
     <div class="spacer"></div>
 </section>
-<script src="<?= base_url('assets/landing/js/jquery-2.1.1.js'); ?>"></script>
-<script src="<?= base_url('assets/landing/js/jquery.mobile.custom.min.js'); ?>"></script>
-<script src="<?= base_url('assets/landing/js/main.js'); ?>"></script>
+<script src="<?= base_url('assets/js/jquery-2.1.1.js'); ?>"></script>
+<script src="<?= base_url('assets/js/jquery.mobile.custom.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/main.js'); ?>"></script>
 </body>
 </html>

@@ -62,7 +62,7 @@
                                 <div class="progress progress-xs">
                                     <div class="progress-bar progress-bar-primary"></div>
                                 </div>
-                                <form id=""
+                                <form id="" action="<?= base_url('seller/product/edit'); ?>"
                                       class="form-horizontal edit_product_form" novalidate method="POST" action=""
                                       enctype="multipart/form-data">
                                     <input type="hidden" name="product_id" value="<?= $product->id; ?>">

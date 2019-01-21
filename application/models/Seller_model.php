@@ -162,10 +162,12 @@ Class Seller_model extends CI_Model
                 break;
             default:
                 $query = "SELECT p.product_name, p.id,p.sku,p.created_on,p.product_status,AVG(v.sale_price) AS sale_price, AVG(v.discount_price) AS discount_price FROM
-                products AS p INNER JOIN product_variation AS v ON v.product_id = p.id WHERE p.seller_id = ? GROUP BY p.id ORDER BY p.id DESC";
+                products AS p INNER JOIN product_variation AS v ON v.product_id = p.id WHERE p.seller_id = ? GROUP BY p.id";
                 return $this->db->query($query, array($id))->result_array();
 
         }
+
+
         $query = "SELECT p.product_name, p.id, p.sku, p.created_on, p.product_status, AVG(v.sale_price) AS sale_price, AVG(v.discount_price) AS discount_price 
         FROM products AS p JOIN product_variation AS v ON v.product_id = p.id ";
         if ($status !== '' AND $status !== 'missing_images') {

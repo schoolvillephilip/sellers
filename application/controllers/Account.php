@@ -83,10 +83,6 @@ class Account extends CI_Controller
                     $this->session->set_flashdata('error_msg', 'You can not request more than your available balance.');
                     redirect('account/payout/');
                 }
-                if( $amount < 1000 ){
-                    $this->session->set_flashdata('error_msg', 'You can not request less than ' . ngn(1000));
-                    redirect('account/payout/');
-                }
                 // Generate code
                 $code = $this->seller->generate_general_code('payouts', 'token');
                 $txn_code = time() + $id ;
