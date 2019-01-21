@@ -369,7 +369,7 @@ Class Seller_model extends CI_Model
      * @param $productid
      * @return CI_DB_result_array
      */
-    function get_orders($id = '', $status = '')
+    function get_orders($id = '', $status = '', $array = array() )
     {
         $query = "SELECT p.product_name,p.id pid,v.variation, p.created_on created_on, o.order_date, o.commission commission, o.id orid, g.image_name,o.qty,o.amount, o.status
                 FROM products p 
@@ -380,8 +380,11 @@ Class Seller_model extends CI_Model
         if ($status != '') {
             $query .= " AND o.active_status = '{$status}'";
         }
-//        $query .= " GROUP BY o.order_code";
-        return $this->db->query($query, array($id, $status))->result();
+        $limit = $array['is_limit'];
+        if( $limit == true ){
+            $query .=" LIMIT " .$array['offset']. "," .$array['limit'];
+        }
+        return $this->db->query($query)->result();
     }
 
 
@@ -459,7 +462,7 @@ Class Seller_model extends CI_Model
     function set_field( $table, $field, $set, $where ){
         $this->db->where($where);
         $this->db->set($field, $set, false);
-        $this->db->update($table);
+        return $this->db->update($table);
     }
 
 
@@ -469,7 +472,7 @@ Class Seller_model extends CI_Model
      * From the orders_table
      * */
     function incoming_balance( $id ){
-        $query = "SELECT (SUM(amount) - SUM(commission)) incoming_bal FROM orders WHERE (seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY'))";
+        $query = "SELECT ((SUM(amount)/SUM(qty)) - SUM(commission)) incoming_bal FROM orders WHERE (seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY'))";
         return $this->run_sql( $query )->row();
     }
 
@@ -485,7 +488,7 @@ Class Seller_model extends CI_Model
      * Get the last 7 days commission on products sold
      * And has not been received by the seller
      * */
-    function last_7_days_commision( $id ){
+    function last_7_days_commission( $id ){
         $query = "SELECT SUM(commission) as commission FROM orders WHERE (seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY'))";
         return $this->run_sql( $query )->row();
     }
@@ -499,14 +502,14 @@ Class Seller_model extends CI_Model
         if( $query ){
             $result = array();
             foreach( $query as $q ){
-                $res['amount'] = $q['amount'];
+                $res['amount'] = $q['amount']/$q['qty'];
                 $res['qty']  = $q['qty'];
                 // make a query for the product
                 $pquery = $this->run_sql("SELECT p.product_name, c.commission, c.name FROM products p JOIN categories c ON (p.category_id = c.id) WHERE p.id = {$q['product_id']}")->row_array();
                 $res['category'] = $pquery['name'];
                 $res['product'] = $pquery['product_name'];
                 $res['commission'] = $pquery['commission'];
-                $res['fee']  =  (($pquery['commission'] / 100) * $q['amount'] ) ;
+                $res['fee']  =  (($pquery['commission'] / 100) * ($q['amount']/$q['qty']) ) ;
                 array_push($result, $res);
             }
             return $result;
@@ -516,9 +519,10 @@ Class Seller_model extends CI_Model
 
     /*
      * Due and unpaid money
+     * @TODO - The query needs revamp
      * */
     function due_unpaid( $id ){
-        $query = "SELECT (SUM(amount) - SUM(commission)) due FROM orders WHERE seller_id = {$id} AND active_status = 'completed' AND NOW() >= SUBDATE(NOW(), 'INTERVAL 7 DAY') ";
+        $query = "SELECT  ( SUM(amount)/SUM(qty) - SUM(commission) ) due FROM orders WHERE seller_id = {$id} AND active_status = 'completed' AND NOW() >= SUBDATE(NOW(), 'INTERVAL 7 DAY') ";
         return $this->run_sql( $query )->row();
     }
 

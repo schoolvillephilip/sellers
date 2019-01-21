@@ -64,7 +64,16 @@
                             <?php endforeach; ?>
                             </tbody>
                         </table>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-2">
+                                    <?= $pagination; ?>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
         </div>

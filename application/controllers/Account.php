@@ -38,7 +38,7 @@ class Account extends CI_Controller
         $page_data['commission'] = $this->seller->run_sql("SELECT SUM(commission) amount FROM orders WHERE seller_id = {$uid} AND active_status = 'completed'")->row();
         $page_data['last_3_month'] = $this->seller->last_3_month($uid);
         $page_data['last_3_month_paid'] = $this->seller->last_3_month_paid($uid);
-        $page_data['completed_sales'] = $this->seller->run_sql("SELECT SUM(amount) amount FROM orders WHERE seller_id = {$uid} AND active_status ='completed'")->row();
+        $page_data['completed_sales'] = $this->seller->run_sql("SELECT ( SUM(amount)/SUM(qty) ) amount FROM orders WHERE seller_id = {$uid} AND active_status ='completed'")->row();
         $this->load->view('statement', $page_data);
     }
 
@@ -52,9 +52,9 @@ class Account extends CI_Controller
         $page_data['profile'] = $this->seller->get_profile($uid);
         $page_data['order_chart'] = $this->seller->order_chart($uid);
         $page_data['commission'] = $this->seller->run_sql("SELECT SUM(commission) amount FROM orders WHERE seller_id = {$uid} AND active_status = 'completed'")->row();
-        $page_data['total_sales'] = $this->seller->run_sql("SELECT SUM(amount) amount FROM orders WHERE seller_id = {$uid} AND active_status = 'completed'")->row();
+        $page_data['total_sales'] = $this->seller->run_sql("SELECT (SUM(amount)/SUM(qty)) amount FROM orders WHERE seller_id = {$uid} AND active_status = 'completed'")->row();
         $page_data['sales'] = $page_data['total_sales']->amount - $page_data['commission']->amount;
-        $page_data['completed_sales'] = $this->seller->run_sql("SELECT SUM(amount) amount FROM orders WHERE seller_id = {$uid} AND active_status ='completed'")->row();
+        $page_data['completed_sales'] = $this->seller->run_sql("SELECT (SUM(amount)/SUM(qty)) amount FROM orders WHERE seller_id = {$uid} AND active_status ='completed'")->row();
         $avg = $this->seller->run_sql("SELECT SUM(qty) qty, COUNT(DISTINCT(buyer_id)) buyers FROM orders WHERE seller_id = {$uid} AND active_status= 'completed'")->row();
         $page_data['avg_order'] = ($avg->qty != 0 || $avg->qty  !== null) ? $avg->qty/$avg->buyers : 0;
         $page_data['top_orders'] = $this->seller->top_20_sales( $uid );
@@ -126,7 +126,7 @@ class Account extends CI_Controller
             $page_data['histories'] = $this->seller->run_sql("SELECT id, amount, status,transaction_code, date_requested,date_approved,status, remark FROM payouts WHERE user_id = {$id} ORDER BY date_requested DESC")->result();
             $page_data['incoming_balance'] = $this->seller->incoming_balance( $id );
             $page_data['incoming_order_code'] = $this->seller->incoming_order_code( $id );
-            $page_data['total_commission'] = $this->seller->last_7_days_commision( $id );
+            $page_data['total_commission'] = $this->seller->last_7_days_commission( $id );
             $page_data['paid'] = $this->seller->run_sql("SELECT SUM(amount) as amt FROM payouts WHERE user_id = {$id} AND status = 'completed' ")->row();
             $this->load->view('payout', $page_data);
         }
