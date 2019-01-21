@@ -28,11 +28,6 @@
                                     <ul class="nav nav-tabs">
                                         <li class="active"><a href="#carrito-tabs-box-1" data-toggle="tab">General</a>
                                         </li>
-<!--                                        <li><a href="#carrito-tabs-box-2" data-toggle="tab">Terms & Conditions</a></li>-->
-<!--                                        <li><a href="#carrito-tabs-box-3" data-toggle="tab">Seller Logo</a></li>-->
-<!--                                        <li><a href="#carrito-tabs-box-4" data-toggle="tab">Commisions & Fees</a></li>-->
-<!--                                        <li><a href="#carrito-tabs-box-5" data-toggle="tab">Shipping</a></li>-->
-<!--                                        <li><a href="#carrito-tabs-box-6" data-toggle="tab">Brands</a></li>-->
                                     </ul>
                                 </div>
                                 <h3 class="panel-title">Your Profile</h3>

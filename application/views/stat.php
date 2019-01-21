@@ -66,10 +66,6 @@
                                             <td>Main Material:</td>
                                             <td><?= $product->main_material; ?></td>
                                         </tr>
-                                        <tr>
-                                            <td>Product Status:</td>
-                                            <td><?= productStatus($product->product_status); ?></td>
-                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -84,7 +80,15 @@
                                 <i class="demo-pli-shopping-bag icon-lg"></i>
                             </div>
                         </div>
-
+                        <div class="panel media middle">
+                            <div class="media-left bg-mint pad-all">
+                                <i class=" demo-pli-bag-coin icon-3x"></i>
+                            </div>
+                            <div class="media-body pad-all">
+                                <p class="text-2x mar-no text-semibold text-main"><?= ngn($product->amount); ?></p>
+                                <p class="text-muted mar-no">Total Amount</p>
+                            </div>
+                        </div>
                         <div class="panel media middle">
                             <div class="media-left bg-purple pad-all">
                                 <i class="demo-pli-bag-coin icon-3x"></i>
@@ -107,8 +111,7 @@
                         </div>
                     </div>
                 </div>
-                <?php $attributes = json_decode($product->attributes); if( $attributes ) :?>
-                    <div class="panel" id="pr-spec">
+                <div class="panel" id="pr-spec">
                     <div class="panel-heading">
                         <h3 class="panel-title">Product Specifications</h3>
                     </div>
@@ -123,7 +126,7 @@
                             </thead>
                             <tbody>
                             <?php
-
+                            $attributes = json_decode($product->attributes);
                             foreach ($attributes as $key => $value) :
                                 ?>
                                 <tr>
@@ -135,8 +138,6 @@
                         </table>
                     </div>
                 </div>
-                <?php endif; ?>
-
                 <div class="panel" id="pr-detail">
                     <div class="panel-heading">
                         <div class="panel-control">

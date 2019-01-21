@@ -125,31 +125,6 @@
                                                                 <i class="demo-pli-thunder"></i></h5>
                                                             <p class="list-group-item-heading">&#8358; 0</p>
                                                         </a>
-                                                        <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
-                                                                <i class="demo-pli-credit-card-2"></i></h5>
-                                                            <p class="list-group-item-heading">&#8358; 0</p>
-                                                        </a>
-                                                        <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
-                                                                <i class="demo-pli-information"></i></h5>
-                                                            <p class="list-group-item-heading">&#8358; 0</p>
-                                                        </a>
-                                                        <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
-                                                                <i class="demo-pli-thunder"></i></h5>
-                                                            <p class="list-group-item-heading">&#8358; 0</p>
-                                                        </a>
-                                                        <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
-                                                                <i class="demo-pli-credit-card-2"></i></h5>
-                                                            <p class="list-group-item-heading">&#8358; 0</p>
-                                                        </a>
-                                                        <a href="#" class="list-group-item">
-                                                            <h5 class="list-group-item-text">26 Nov 2018 - 02 Dec 2018
-                                                                <i class="demo-pli-information"></i></h5>
-                                                            <p class="list-group-item-heading">&#8358; 0</p>
-                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

@@ -125,17 +125,6 @@
             mso-pattern: black none;
         }
 
-        .xl69 {
-            mso-style-parent: style0;
-            font-weight: 700;
-            border-top: .5pt solid windowtext;
-            border-right: .5pt solid windowtext;
-            border-bottom: none;
-            border-left: .5pt solid windowtext;
-            background: #FFC000;
-            mso-pattern: black none;
-        }
-
         .xl70 {
             mso-style-parent: style0;
             font-weight: 700;
@@ -156,26 +145,11 @@
             border-left: .5pt solid windowtext;
         }
 
-        .xl72 {
-            mso-style-parent: style0;
-            font-weight: 700;
-            text-align: right;
-            background: #FFC000;
-            mso-pattern: black none;
-        }
 
         .xl73 {
             mso-style-parent: style0;
             font-weight: 700;
             text-align: right;
-        }
-
-        .xl74 {
-            mso-style-parent: style0;
-            font-weight: 700;
-            text-align: left;
-            background: #FFC000;
-            mso-pattern: black none;
         }
 
         .xl75 {

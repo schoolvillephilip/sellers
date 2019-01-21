@@ -12,7 +12,6 @@ class Cron extends MY_Controller
     }
 
     public function inburse_seller(){
-        /*
-         * Run a query to pass seller money to */
+
     }
 }
