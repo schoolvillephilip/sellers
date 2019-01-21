@@ -15,7 +15,7 @@
                     <div id="mainnav-profile" class="mainnav-profile">
                         <div class="profile-wrap text-center">
                             <div class="pad-btm">
-                                <img src="<?= base_url('assets/landing/img/onitshamarket-logo.png'); ?>"
+                                <img src="<?= base_url('assets/img/onitshamarket-logo.png'); ?>"
                                      alt="<?= lang('app_name'); ?>" class="brand-title img-responsive">
                             </div>
                             <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
