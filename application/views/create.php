@@ -39,6 +39,13 @@
     .fav_drop_ico {
         margin: 15px;
     }
+    .bootstrap-select>.dropdown-toggle {
+        z-index:unset !important;
+    }
+
+    .control-label{
+        color: #4b4b4b !important;
+    }
 </style>
 </head>
 <body>
@@ -74,7 +81,7 @@
                                         </li>
                                         <li class="col-xs-3">
                                             <a data-toggle="tab" href="#product-description-tab">
-                                                <span class="text-warning text-2x"><i class="fab fa-product-hunt"
+                                                <span class="text-warning text-2x"><i class="fab "
                                                                                       aria-hidden="true"></i></span>
                                                 <p class="text-semibold mar-no">Product Description & Attributes</p>
                                             </a>
@@ -876,7 +883,7 @@
                                          style="display:none;position: center;top: 0;left: 0;width: auto;height: auto%;background: #f4f4f4;z-index: 99;">
                                         <div class="text"
                                              style="position: absolute;top: 35%;left: 0;height: 100%;width: 100%;font-size: 18px;text-align: center;">
-                                            <img src="<?= base_url('assets/seller/img/load.gif'); ?>"
+                                            <img src="<?= base_url('assets/img/load.gif'); ?>"
                                                  alt="Processing...">
                                             Processing the data. Please Wait! <Br>Meanwhile Please <b
                                                     style="color: rgba(2.399780888618386%,61.74193548387097%,46.81068368248487%,0.843);">BE
@@ -901,18 +908,18 @@
         <i class="pci-chevron chevron-up"></i>
     </button>
 </div>
-<script src="<?= base_url('assets/seller/js/jquery.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/js/bootstrap.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/js/nifty.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/js/demo/nifty-demo.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/jquery.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/nifty.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/demo/nifty-demo.min.js'); ?>"></script>
 <script type="text/javascript"> base_url = '<?= base_url(); ?>';</script>
-<script src="<?= base_url('assets/seller/plugins/dropzone/dropzone.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/js/demo/form-wizard.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/plugins/bootstrap-markdown/js/bootstrap-markdown.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/plugins/bootstrap-select/bootstrap-select.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/bootstrap-validator/bootstrapValidator.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/demo/form-wizard.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/bootstrap-markdown/js/bootstrap-markdown.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/bootstrap-select/bootstrap-select.min.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js'); ?>"></script>
 
 <script type="text/javascript">
     $('.datepicker').datepicker({

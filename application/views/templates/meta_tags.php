@@ -12,7 +12,6 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
     <link href="<?= base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/nifty.min.css')?>" rel="stylesheet">
-    <link href="<?= base_url('assets/css/create.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/demo/nifty-demo-icons.min.css')?>" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('assets/css/font-awesome.css'); ?>">
     <?php if( in_array($pg_name, array('product','template','register'))) :?>

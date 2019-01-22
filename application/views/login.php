@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-md-4">
                         <a href="<?= base_url(); ?>">
-                            <img src="<?= base_url('assets/landing/img/onitshamarket-logo.png'); ?>"
+                            <img src="<?= base_url('assets/img/onitshamarket-logo.png'); ?>"
                                  alt="<?= lang('app_name'); ?>"
                                  class="brand-title img-responsive">
                         </a>
