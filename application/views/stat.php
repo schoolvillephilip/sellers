@@ -51,19 +51,19 @@
                                             <td><?= !empty($category->name) ? $category->name : ''; ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Product Brand Name:</td>
+                                            <td><strong>Product Brand Name:</strong></td>
                                             <td><?= $product->brand_name; ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Model:</td>
+                                            <td><strong>Model:</strong></td>
                                             <td><?= $product->model; ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Main Color</td>
+                                            <td><strong>Main Color</strong></td>
                                             <td><?= $product->main_colour; ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Main Material:</td>
+                                            <td><strong>Main Material:</strong></td>
                                             <td><?= $product->main_material; ?></td>
                                         </tr>
                                         </tbody>
@@ -85,8 +85,8 @@
                                 <i class=" demo-pli-bag-coin icon-3x"></i>
                             </div>
                             <div class="media-body pad-all">
-                                <p class="text-2x mar-no text-semibold text-main"><?= ngn($product->amount); ?></p>
-                                <p class="text-muted mar-no">Total Amount</p>
+                                <p class="text-2x mar-no text-semibold text-main"><?= ($product->quantity_sold > 0) ? ngn($product->amount/$product->quantity_sold) : 0; ?></p>
+                                <p class="text-muted mar-no">Total Amount Sold</p>
                             </div>
                         </div>
                         <div class="panel media middle">
@@ -111,7 +111,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel" id="pr-spec">
+                <?php if(!empty($product->attributes)) : ?>
+                    <div class="panel" id="pr-spec">
                     <div class="panel-heading">
                         <h3 class="panel-title">Product Specifications</h3>
                     </div>
@@ -138,6 +139,7 @@
                         </table>
                     </div>
                 </div>
+                <?php endif; ?>
                 <div class="panel" id="pr-detail">
                     <div class="panel-heading">
                         <div class="panel-control">

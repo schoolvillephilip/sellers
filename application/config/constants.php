@@ -89,7 +89,11 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 // Database Table
 
 // General Settings
-defined('PRODUCTS_IMAGE_PATH') OR define('PRODUCTS_IMAGE_PATH', "https://res.cloudinary.com/de9lpikx3/image/upload/product/");
+//https://res.cloudinary.com/de9lpikx3/image/upload/product/{IMAGE_NAME}
+//https://res.cloudinary.com/de9lpikx3/product/a10e90a57f770bec3911288a9ce79e7c.jpg
+//https://res.cloudinary.com/de9lpikx3/product/
+defined('PRODUCTS_IMAGE_PATH') OR define('PRODUCTS_IMAGE_PATH', "https://res.cloudinary.com/de9lpikx3/product/");
+defined('PRODUCTS_IMAGE_FOLDER') OR define('PRODUCTS_IMAGE_FOLDER', "onitshamarket/product");
 
 
 // Database

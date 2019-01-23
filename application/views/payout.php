@@ -303,7 +303,7 @@
                                     Fee (-)
                                 </th>
                                 <th style="text-align: right;">
-                                    Total
+                                    You Receive
                                 </th>
                             </tr>
                             </thead>
@@ -328,8 +328,8 @@
         let self = $(this);
         let title = self.data('name');
         let oid = self.data('order-id');
-        var amount = "", qty = "", category = "", product = "", commission = "", fee = "", count = 1;
-        var table_data = "", table_foot, gross = 0;
+        var amount = qty  = category = product = commission = fee = '', count = 1;
+        var table_data = "", table_foot, gross = subtotal = 0;
         $.ajax({
             url: base_url + 'account/get_order_detail',
             method: 'post',
@@ -343,11 +343,12 @@
                     product = value.product;
                     commission = value.commission;
                     fee = value.fee;
-                    gross += parseInt(amount - fee);
+                    subtotal = parseInt((amount * fee) - commission);
+                    gross += subtotal;
                     table_data += '<tr style="font-size: 12px;"><td>' +
                         count + '</td><td>' + product.toString() + '</td><td style="text-align: center;">' +
                         qty + '</td><td style="text-align: center;">&#8358; ' + amount + '</td><td style="text-align: center;">' +
-                        commission + ' (%)</td><td style="text-align: center;">- &#8358; ' + fee + '</td><td style="text-align: right;">&#8358; ' + (amount - fee) + '</td></tr>';
+                        commission + ' (%)</td><td class="text-info" style="text-align: center;">- &#8358; ' + fee + '</td><td style="text-align: right;">&#8358; ' + subtotal + '</td></tr>';
                     count++;
                 });
                 table_foot = '<tr><td></td><td></td><td></td><td colspan="2" style="text-align: right;border-top: 1px solid #4f4f4f;border-bottom: 1px solid #4f4f4f;">' +

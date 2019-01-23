@@ -24,7 +24,7 @@ class Cron extends CI_Controller
         $results = $this->db->query( $query)->result();
         if( $results && INBURSE_SELLER){
             foreach( $results as $result ){
-                $real_amount = ( $result->amount / $result->qty );
+                $real_amount = ( $result->amount * $result->qty );
                 $earned = $real_amount - $result->commission;
                 $earned = $earned + $result->balance;
                 try {

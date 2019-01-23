@@ -62,8 +62,8 @@
                                 <div class="progress progress-xs">
                                     <div class="progress-bar progress-bar-primary"></div>
                                 </div>
-                                <form id="" action="<?= base_url('seller/product/edit'); ?>"
-                                      class="form-horizontal edit_product_form" novalidate method="POST" action=""
+                                <form id="" action="<?= base_url('product/edit'); ?>"
+                                      class="form-horizontal edit_product_form" novalidate method="POST"
                                       enctype="multipart/form-data">
                                     <input type="hidden" name="product_id" value="<?= $product->id; ?>">
                                     <div class="panel-body">
@@ -368,14 +368,12 @@
                                                                                 title="Example: Organic, Suitable for Allergics Fair Trade..."
                                                                                 data-width="100%">
                                                                             <?php
-
                                                                             $certs = json_decode($product->certifications);
                                                                             $certifications = explode(',', lang('certifications'));
-                                                                            foreach ($certifications as $certification):
-                                                                                ?>
-                                                                                <option value="<?= trim($certification); ?>" <?php if (in_array($certification, $certs)) echo 'selected'; ?> > <?= $certification; ?></option>
+                                                                            foreach ($certifications as $certification): ?>
+                                                                                <option value="<?= trim($certification); ?>"
+                                                                                <?php if (!is_null($certs) && in_array($certification, $certs)) echo 'selected'; ?> > <?= $certification; ?></option>
                                                                             <?php endforeach; ?>
-
                                                                         </select>
                                                                         <span class="text-sm text-dark">Select different certifications, that the product owns, or with which certifications the product was marked</span>
                                                                     </div>
@@ -629,7 +627,7 @@
                                          style="display:none;position: center;top: 0;left: 0;width: auto;height: auto%;background: #f4f4f4;z-index: 99;">
                                         <div class="text"
                                              style="position: absolute;top: 35%;left: 0;height: 100%;width: 100%;font-size: 18px;text-align: center;">
-                                            <img src="<?= base_url('assets/seller/img/load.gif'); ?>"
+                                            <img src="<?= base_url('assets/img/load.gif'); ?>"
                                                  alt="Processing...">
                                             Processing the data. Please Wait! <Br>Meanwhile Please <b
                                                     style="color: rgba(2.399780888618386%,61.74193548387097%,46.81068368248487%,0.843);">BE
@@ -653,19 +651,19 @@
         <i class="pci-chevron chevron-up"></i>
     </button>
 </div>
-<script src="<?= base_url('assets/seller/js/jquery.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/js/bootstrap.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/js/nifty.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/js/demo/nifty-demo.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/jquery.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/nifty.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/demo/nifty-demo.min.js'); ?>"></script>
 <script type="text/javascript"> base_url = '<?= base_url(); ?>';</script>
 <script type="text/javascript"> product_id = <?= $product->id; ?></script>
-<script src="<?= base_url('assets/seller/plugins/dropzone/dropzone.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/js/demo/form-wizard.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/plugins/bootstrap-markdown/js/bootstrap-markdown.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/plugins/bootstrap-select/bootstrap-select.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/bootstrap-validator/bootstrapValidator.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/demo/form-wizard.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/bootstrap-markdown/js/bootstrap-markdown.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/bootstrap-select/bootstrap-select.min.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js'); ?>"></script>
 <script type="text/javascript">
     $(document).on('nifty.ready', function () {
         Dropzone.autoDiscover = false;
@@ -776,20 +774,21 @@
 
     });
 </script>
+</body>
+</html>
 <script type="text/javascript">
     $.fn.rowCount = function () {
         return $('tr', $(this).find('tbody')).length;
     };
-    let variation_name = `<td><div class="form-group-sm"><input title="variation" type="text" class="form-control" name="variation[]" /></div></td>`;
+    let variation_name = `<td><div class="form-group-sm"><input type="hidden" name="variation_id[]" value="new"><input title="variation" type="text" class="form-control" name="variation[]" /></div></td>`;
     <?php if( !empty($variation_options)) : ?>
-    variation_name = `<td><div class="form-group-sm"><select class="form-control" required name="variation[]" title="variation">
+    variation_name += `<td><div class="form-group-sm"><select class="form-control" required name="variation[]" title="variation">
         <?php foreach( $variation_options as $option) :?>
             <option value="<?= $option; ?>"><?= $option; ?></option>
         <?php endforeach; ?>
             </select></div></td>`;
     <?php endif; ?>
     $('.add_more').on('click', add_new_row);
-
     function add_new_row() {
         let row_id = $('.pricing_table').rowCount() * 1;
         let new_id = row_id + 1;
@@ -869,5 +868,3 @@
         $('[data-toggle="popover"]').popover({animation: true});
     });
 </script>
-</body>
-</html>

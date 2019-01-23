@@ -163,10 +163,10 @@ class Product extends MY_Controller
                     $variation_data['discount_price'] = $discount_price[$i];
                     $variation_data['start_date'] = $start_date[$i];
                     $variation_data['end_date'] = $end_date[$i];
-                    if (empty($variation_data['discount_price'])) {
-                        $variation_data['start_date'] = $variation_data['end_date'] = '';
-                    }
-                    if ($variation_data['quantity'] > 10) $variation_data['quantity'] = 10;
+//                    if (empty($variation_data['discount_price'])) {
+//                        $variation_data['start_date'] = $variation_data['end_date'] = '';
+//                    }
+                    if ($variation_data['quantity'] < 1) $variation_data['quantity'] = 10;
                     if (!is_int($this->seller->insert_data('product_variation', $variation_data))) {
                         throw new Exception('There was an error inserting the variation' . $this->seller->insert_data('product_variation', $variation_data));
                     }
@@ -191,7 +191,9 @@ class Product extends MY_Controller
                     $product_id = md5(md5($product_id));
                     $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $product_id);
                     if ($upload_result) {
-                        $product_gallery['image_name'] = $upload_result['public_id'] . $upload_result['format'];
+                        $explode = explode('/', $upload_result);
+                        $image = end( $explode );
+                        $product_gallery['image_name'] = $image .'.' . $upload_result['format'];
                         $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name == $_POST['featured_image'])) ? 1 : 0;
                         if ($counts == 1) $product_gallery['featured_image'] = 1;
                         if (!is_int($this->seller->insert_data('product_gallery', $product_gallery))) {
@@ -224,7 +226,8 @@ class Product extends MY_Controller
         $this->load->library('cloudinarylib');
         $return = \Cloudinary\Uploader::upload($filepath,
             array("tags" => $product_name,
-                "folder" => "product",
+                "folder" => 'folder',
+//                "folder" => PRODUCT_IMAGE_FOLDER,
                 "public_id" => $product_name,
                 "resource_type" => "image",
                 "eager" => array(
@@ -328,6 +331,11 @@ class Product extends MY_Controller
             $this->load->view('edit', $page_data);
         } else {
             // Process
+//            'variation_id' =>
+////    array (size=2)
+////      0 => string '72794' (length=5)
+////      1 => string 'new' (length=3)
+//            var_dump( $_POST ); exit;
             $id = $this->input->post('product_id');
             $pricing_error = $image_error = 0;
             $return['status'] = 'error';
@@ -341,22 +349,22 @@ class Product extends MY_Controller
             $colour_family = (!empty($colour_family)) ? json_encode($colour_family) : '';
             $description = $this->input->post('product_description');
             $product_table = array(
-                'product_name' => cleanit($this->input->post('product_name')),
-                'brand_name' => cleanit($this->input->post('brand_name')),
-                'model' => cleanit($this->input->post('model')),
+                'product_name' => cleanit($this->input->post('product_name', true)),
+                'brand_name' => cleanit($this->input->post('brand_name', true)),
+                'model' => cleanit($this->input->post('model', true)),
                 'main_colour' => $this->input->post('main_colour'),
                 'product_description' => htmlentities($description, ENT_QUOTES),
-                'youtube_id' => cleanit($this->input->post('youtube_id')),
-                'in_the_box' => htmlentities($this->input->post('in_the_box'), ENT_QUOTES),
-                'highlights' => htmlentities($this->input->post('highlights'), ENT_QUOTES),
-                'product_line' => cleanit($this->input->post('product_line')),
+                'youtube_id' => cleanit($this->input->post('youtube_id',true)),
+                'in_the_box' => htmlentities($this->input->post('in_the_box',true), ENT_QUOTES),
+                'highlights' => htmlentities($this->input->post('highlights',true), ENT_QUOTES),
+                'product_line' => cleanit($this->input->post('product_line',true)),
                 'colour_family' => $colour_family,
-                'main_material' => $this->input->post('main_material'),
-                'dimensions' => cleanit($this->input->post('dimensions')),
-                'weight' => cleanit($this->input->post('weight')),
-                'product_warranty' => htmlentities($this->input->post('product_warranty'), ENT_QUOTES),
+                'main_material' => $this->input->post('main_material',true),
+                'dimensions' => cleanit($this->input->post('dimensions',true)),
+                'weight' => cleanit($this->input->post('weight',true)),
+                'product_warranty' => htmlentities($this->input->post('product_warranty',true), ENT_QUOTES),
                 'warranty_type' => $warranty_type,
-                'warranty_address' => $this->input->post('warranty_address'),
+                'warranty_address' => $this->input->post('warranty_address',true),
                 'certifications' => $certifications,
                 'product_status' => 'pending'
             );
@@ -378,76 +386,77 @@ class Product extends MY_Controller
             }
             $product_table['attributes'] = json_encode($attributes);
             // update product table
-            $product_id = $this->seller->update_data(array('id' => $id), $product_table, 'products');
+            $this->seller->update_data(array('id' => $id), $product_table, 'products');
             // Product Variation Block
-            $count_check = sizeof($this->input->post('sale_price'));
+            $count_check = sizeof($this->input->post('variation_id'));
             // Declare all variables
-            $variation = $this->input->post('variation');
-            $isbn = $this->input->post('isbn');
-            $sku = $this->input->post('sku');
-            $quantity = $this->input->post('quantity');
-            $sale_price = $this->input->post('sale_price');
-            $discount_price = $this->input->post('discount_price');
+            $variation = $this->input->post('variation',true);
+            $isbn = $this->input->post('isbn',true);
+            $sku = $this->input->post('sku',true);
+            $quantity = $this->input->post('quantity',true);
+            $sale_price = $this->input->post('sale_price',true);
+            $discount_price = $this->input->post('discount_price',true);
             $start_date = $this->input->post('start_date');
             $end_date = $this->input->post('end_date');
             $variation_id = $this->input->post('variation_id');
-            if ($count_check > 0) {
+            if ($count_check > 0){
+                $msg = '';
                 for ($i = 0; $i < $count_check; $i++) {
-                    $variation_id = $variation_id[$i];
-                    $variation_data['variation'] = $variation[$i];
-                    $variation_data['sku'] = $sku[$i];
-                    $variation_data['isbn'] = $isbn[$i];
-                    $variation_data['quantity'] = $quantity[$i];
-                    $variation_data['sale_price'] = $sale_price[$i];
-                    $variation_data['discount_price'] = $discount_price[$i];
+                    $variation_id['id'] = $variation_id[$i];
+                    $variation_data['variation'] = cleanit($variation[$i]);
+                    $variation_data['sku'] = cleanit($sku[$i]);
+                    $variation_data['isbn'] = cleanit($isbn[$i]);
+                    $variation_data['quantity'] = cleanit($quantity[$i]);
+                    $variation_data['sale_price'] = cleanit($sale_price[$i]);
+                    $variation_data['discount_price'] = cleanit($discount_price[$i]);
                     $variation_data['start_date'] = $start_date[$i];
                     $variation_data['end_date'] = $end_date[$i];
-                    if ($variation_data['quantity'] > 10) $variation_data['quantity'] = 10;
-                    if (empty($variation_data['discount_price'])) {
-                        $variation_data['start_date'] = $variation_data['end_date'] = '';
-                    }
-                    if ($variation_id == 'new') {
-                        $variation_data['product_id'] = $product_id;
+                    if ($variation_data['quantity'] < 1) $variation_data['quantity'] = 10;
+//                    if (empty($variation_data['discount_price'])) {
+//                        $variation_data['start_date'] = $variation_data['end_date'] = '';
+//                    }
+                    if ($variation_id['id'] == 'new') {
+                        $variation_data['product_id'] = $id;
                         $this->seller->insert_data('product_variation', $variation_data);
                     } else {
-                        $this->seller->update_data(array('id' => $variation_id), $variation_data, 'product_variation');
+                        $this->seller->update_data(array('id' => $variation_id['id']), $variation_data, 'product_variation');
                     }
+
                 }
             }
+            $this->session->set_flashdata('error_msg', $msg);
+
             // Product Gallery Block
             if (isset($_FILES) && !empty($_FILES)) {
                 $counts = sizeof($_FILES['file']['tmp_name']);
                 $product_gallery = array();
                 $files = $_FILES;
                 for ($x = 0; $x < $counts; $x++) {
-                    $old_name = $files['file']['name'][$x];
+                    $old_name['old_name'] = $files['file']['name'][$x];
                     $_FILES['file']['name'] = $files['file']['name'][$x];
                     $_FILES['file']['type'] = $files['file']['type'][$x];
                     $_FILES['file']['tmp_name'] = $files['file']['tmp_name'][$x];
                     $_FILES['file']['error'] = $files['file']['error'][$x];
                     $_FILES['file']['size'] = $files['file']['size'][$x];
                     // check if we have the file already uploaded
-                    $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $product_id);
-                    if (file_exists(realpath('./data/products/' . $id . '/' . $old_name))) {
-                        $product_gallery['image_name'] = $upload_result;
-                        $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name == $_POST['featured_image'])) ? 1 : 0;
+                    if( $this->curl_get_file_size(PRODUCTS_IMAGE_PATH . $old_name['old_name']) ){
+                        $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name['old_name'] == $_POST['featured_image'])) ? 1 : 0;
                         if ($counts == 1) $product_gallery['featured_image'] = 1;
-                        // Updating the image by its name
-                        if (!$this->seller->update_data(array('name' => $old_name), $product_gallery, 'product_gallery')) {
+                        if (!$this->seller->update_data(array('name' => $old_name['old_name']), $product_gallery, 'product_gallery')) {
                             $image_error++;
                         }
-                    } else {
+                    }else {
                         // we have a new file to upload
-                        $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $product_id);
-//                        $upload_result = $this->do_upload('file', $id); //
+                        $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $id);
                         if ($upload_result) {
                             $product_gallery = array(
                                 'product_id' => $id,
                                 'seller_id' => $this->session->userdata('logged_id'),
                                 'created_at' => get_now()
                             );
-                            $product_gallery['image_name'] = $upload_result;
-                            $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name == $_POST['featured_image'])) ? 1 : 0;
+                            $explode = explode('/', $upload_result);
+                            $image = end( $explode );
+                            $product_gallery['image_name'] = $image;
                             if ($counts == 1) $product_gallery['featured_image'] = 1;
                             if (!is_int($this->seller->insert_data('product_gallery', $product_gallery))) {
                                 $image_error++;
@@ -473,7 +482,10 @@ class Product extends MY_Controller
         }
     }
 
+
+
     /*
+     * DEPRECATED
      * for local upload
      * */
     function do_upload($file, $id = '')
@@ -509,7 +521,7 @@ class Product extends MY_Controller
             $obj['fileURL'] = PRODUCTS_IMAGE_PATH . $img_name;
 //            $obj['fileURL'] = base_url('data/products/' . $id . '/' . $img_name);
 //            $obj['filesize'] = filesize(realpath('./data/products/' . $id . '/' . $img_name));
-            $obj['filesize'] = filesize(PRODUCTS_IMAGE_PATH . $img_name);
+            $obj['filesize'] = $this->curl_get_file_size(PRODUCTS_IMAGE_PATH . $img_name);
             $obj['featured'] = $gallery->featured_image;
             $result[] = $obj;
         }
@@ -517,5 +529,34 @@ class Product extends MY_Controller
         header('Content-type: application/json');
         echo json_encode($result);
         exit;
+    }
+
+
+    function curl_get_file_size( $url ) {
+        // Assume failure.
+        $result = -1;
+        $curl = curl_init( $url );
+        // Issue a HEAD request and follow any redirects.
+        curl_setopt( $curl, CURLOPT_NOBODY, true );
+        curl_setopt( $curl, CURLOPT_HEADER, true );
+        curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
+        curl_setopt( $curl, CURLOPT_FOLLOWLOCATION, true );
+        $data = curl_exec( $curl );
+        curl_close( $curl );
+        if( $data ) {
+            $content_length = "unknown";
+            $status = "unknown";
+            if( preg_match( "/^HTTP\/1\.[01] (\d\d\d)/", $data, $matches ) ) {
+                $status = (int)$matches[1];
+            }
+            if( preg_match( "/Content-Length: (\d+)/", $data, $matches ) ) {
+                $content_length = (int)$matches[1];
+            }
+            // http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+            if( $status == 200 || ($status > 300 && $status <= 308) ) {
+                $result = $content_length;
+            }
+        }
+        return $result;
     }
 }

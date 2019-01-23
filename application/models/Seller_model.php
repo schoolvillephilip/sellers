@@ -148,34 +148,34 @@ Class Seller_model extends CI_Model
         switch ($status) {
             case 'pending':
                 $query = "SELECT p.product_name, p.id,p.sku,p.created_on,p.product_status,AVG(v.sale_price) AS sale_price, AVG(v.discount_price) AS discount_price FROM
-                products AS p JOIN product_variation AS v ON v.product_id = p.id WHERE p.seller_id = ? AND p.product_status = ? GROUP BY p.id ";
+                products AS p JOIN product_variation AS v ON v.product_id = p.id WHERE p.seller_id = ? AND p.product_status = ? GROUP BY p.id ORDER BY p.id DESC ";
                 return $this->db->query($query, array($id, $status))->result_array();
             case 'suspended':
                 $query = "SELECT p.product_name, p.id,p.sku,p.created_on,p.product_status,AVG(v.sale_price) AS sale_price, AVG(v.discount_price) AS discount_price FROM
-                products AS p  INNER JOIN product_variation AS v ON v.product_id = p.id WHERE p.seller_id = ? AND p.product_status = ? GROUP BY p.id ";
+                products AS p  INNER JOIN product_variation AS v ON v.product_id = p.id WHERE p.seller_id = ? AND p.product_status = ? GROUP BY p.id ORDER BY p.id DESC";
                 return $this->db->query($query, array($id, $status))->result_array();
                 break;
             case 'missing_images':
                 $query = "SELECT p.product_name, p.id,p.sku,p.created_on,p.product_status,AVG(v.sale_price) AS sale_price, AVG(v.discount_price) AS discount_price FROM
-                products AS p JOIN product_variation AS v ON (v.product_id = p.id) WHERE NOT EXISTS (select 1 from product_gallery g where p.id = g.product_id ) AND p.seller_id = ? ";
+                products AS p JOIN product_variation AS v ON (v.product_id = p.id) WHERE NOT EXISTS (select 1 from product_gallery g where p.id = g.product_id ) AND p.seller_id = ? ORDER BY p.id DESC";
                 return $this->db->query($query, array($id))->result_array();
                 break;
             default:
                 $query = "SELECT p.product_name, p.id,p.sku,p.created_on,p.product_status,AVG(v.sale_price) AS sale_price, AVG(v.discount_price) AS discount_price FROM
-                products AS p INNER JOIN product_variation AS v ON v.product_id = p.id WHERE p.seller_id = ? GROUP BY p.id";
+                products AS p INNER JOIN product_variation AS v ON v.product_id = p.id WHERE p.seller_id = ? GROUP BY p.id ORDER BY p.id DESC";
                 return $this->db->query($query, array($id))->result_array();
 
         }
 
 
         $query = "SELECT p.product_name, p.id, p.sku, p.created_on, p.product_status, AVG(v.sale_price) AS sale_price, AVG(v.discount_price) AS discount_price 
-        FROM products AS p JOIN product_variation AS v ON v.product_id = p.id ";
+        FROM products AS p JOIN product_variation AS v ON v.product_id = p.id  ";
         if ($status !== '' AND $status !== 'missing_images') {
             $query .= " AND p.product_status = '$status'";
         } elseif ($status == 'missing_images') {
             $query .= "INNER JOIN product_gallery AS g";
         }
-        $query .= " WHERE p.seller_id = $id GROUP BY p.id ";
+        $query .= " WHERE p.seller_id = $id GROUP BY p.id ORDER BY p.id DESC";
         $output = $this->db->query($query)->result_array();
         return $output;
     }
@@ -474,7 +474,7 @@ Class Seller_model extends CI_Model
      * From the orders_table
      * */
     function incoming_balance( $id ){
-        $query = "SELECT ((SUM(amount)/SUM(qty)) - SUM(commission)) incoming_bal FROM orders WHERE (seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY'))";
+        $query = "SELECT ( (SUM(amount) * SUM(qty)) - SUM(commission)) incoming_bal FROM orders WHERE ( seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND order_date <= SUBDATE(NOW(), INTERVAL 7 DAY) )";
         return $this->run_sql( $query )->row();
     }
 
@@ -483,7 +483,7 @@ Class Seller_model extends CI_Model
      * The order code of the above query
      * */
     function incoming_order_code( $id ){
-        $query = "SELECT order_code FROM orders WHERE (seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY'))";
+        $query = "SELECT order_code FROM orders WHERE (seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND order_date <= SUBDATE(NOW(), INTERVAL 7 DAY) )";
         return $this->run_sql( $query )->result();
     }
     /*
@@ -491,7 +491,7 @@ Class Seller_model extends CI_Model
      * And has not been received by the seller
      * */
     function last_7_days_commission( $id ){
-        $query = "SELECT SUM(commission) as commission FROM orders WHERE (seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND SUBDATE(NOW(), 'INTERVAL 7 DAY'))";
+        $query = "SELECT SUM(commission) as commission FROM orders WHERE ( seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND order_date <= SUBDATE(NOW(), INTERVAL 7 DAY) ) ";
         return $this->run_sql( $query )->row();
     }
 
@@ -504,14 +504,14 @@ Class Seller_model extends CI_Model
         if( $query ){
             $result = array();
             foreach( $query as $q ){
-                $res['amount'] = $q['amount']/$q['qty'];
+                $res['amount'] = $q['amount'];
                 $res['qty']  = $q['qty'];
                 // make a query for the product
                 $pquery = $this->run_sql("SELECT p.product_name, c.commission, c.name FROM products p JOIN categories c ON (p.category_id = c.id) WHERE p.id = {$q['product_id']}")->row_array();
                 $res['category'] = $pquery['name'];
-                $res['product'] = $pquery['product_name'];
+                $res['product'] = anchor(base_url('manage/stat/'. $q['product_id']), character_limiter($pquery['product_name'], 10), 'class="btn-link"');
                 $res['commission'] = $pquery['commission'];
-                $res['fee']  =  (($pquery['commission'] / 100) * ($q['amount']/$q['qty']) ) ;
+                $res['fee']  =  (($pquery['commission'] / 100) * ($q['amount'] * $q['qty']) ) ;
                 array_push($result, $res);
             }
             return $result;
@@ -521,33 +521,28 @@ Class Seller_model extends CI_Model
 
     /*
      * Due and unpaid money
-     * @TODO - The query needs revamp
+     * Get the sum of amount multiplied by the total quantity subtract onitshamarket commission
+     * From a seller and the active_status = 'completed' and has passed 7 days delivery
      * */
     function due_unpaid( $id ){
-        $query = "SELECT  ( SUM(amount)/SUM(qty) - SUM(commission) ) due FROM orders WHERE seller_id = {$id} AND active_status = 'completed' AND NOW() >= SUBDATE(NOW(), 'INTERVAL 7 DAY') ";
+        $query = "SELECT  (SUM(amount) * SUM(qty) - SUM(commission) ) due FROM orders 
+        WHERE (seller_id = {$id} AND active_status = 'completed' AND  order_date <= SUBDATE(NOW(), INTERVAL 7 DAY) ) ";
         return $this->run_sql( $query )->row();
     }
 
     /*
-     * Last 3 months Money received
-     * */
-    function last_3_month($uid){
-        $query = "SELECT SUM(amount) as amount, DATE_FORMAT(date_requested,'%Y-%m') omonth 
-          FROM payouts WHERE user_id = {$uid} AND status != 'completed' GROUP BY omonth ORDER BY omonth DESC LIMIT 3";
-        return $this->run_sql( $query )->result();
-    }
-    /*
-     * Total money paid to the seller for 3 months
+     * Total money paid to the seller for the last 3 months
      * */
     function last_3_month_paid( $id ){
-        $query = "SELECT SUM(amount) as amount FROM payouts WHERE user_id = {$id} AND status = 'completed'";
+        $query = "SELECT SUM(amount) as amount FROM payouts WHERE (user_id = {$id} AND status = 'completed')";
         return $this->run_sql( $query )->row();
     }
 
     /*
      * Get top 20 sales for a seller*/
     function top_20_sales( $uid ){
-        $query = "SELECT p.product_name, p.id, SUM(o.qty) no_of_sales FROM orders o LEFT JOIN products p ON (p.id = o.product_id) 
+        $query = "SELECT p.product_name, p.id, SUM(o.qty) no_of_sales FROM orders o 
+        LEFT JOIN products p ON (p.id = o.product_id) 
         WHERE o.seller_id = {$uid} AND active_status = 'completed' GROUP BY o.product_id ORDER BY o.qty";
         return $this->run_sql( $query )->result();
     }

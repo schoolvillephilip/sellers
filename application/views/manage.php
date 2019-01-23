@@ -16,6 +16,7 @@
                 </ol>
             </div>
             <div id="page-content">
+                <?php $this->load->view('msg_view'); ?>
                 <div class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Showing all products</h3>
