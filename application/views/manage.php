@@ -55,7 +55,7 @@
                                         </td>
                                     <?php elseif ($product['product_status']) : ?>
                                         <td>
-                                            <a href="<?= base_url(urlify($product['product_name'], $product['id'])); ?>">
+                                            <a href="<?= lang('site_domain') . urlify($product['product_name'], $product['id']); ?>">
                                                 <i class="fa fa-plus" title="Edit"></i> View Product Online
                                             </a>
                                         </td>

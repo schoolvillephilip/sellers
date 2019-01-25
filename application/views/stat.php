@@ -1,5 +1,4 @@
 <?php $this->load->view('templates/meta_tags'); ?>
-<link href="<?= base_url('assets/plugins/unitegallery/css/unitegallery.min.css'); ?>" rel="stylesheet">
 </head>
 <body>
 <div id="container" class="effect aside-float aside-bright mainnav-lg">
@@ -22,7 +21,7 @@
                     <?php $this->load->view('msg_view'); ?>
                     <div class="col-md-3">
                         <p>
-                            <img class="pad-all"
+                            <img class="product-img pad-all"
                                  src="<?= PRODUCTS_IMAGE_PATH . $product->image_name; ?>"
                                  alt="<?= $product->product_name; ?>"
                                  title="<?= $product->product_name; ?>" style="max-width: 330px;">
@@ -35,7 +34,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">
-                                    <table class="table table-striped">
+                                    <table id="list-table" class="table table-striped">
                                         <tbody>
                                         <tr>
                                             <td><strong>Posted On</strong></td>
@@ -195,10 +194,8 @@
 </div>
 
 <?php $this->load->view('templates/scripts'); ?>
-<script src="<?= base_url('assets/plugins/unitegallery/js/unitegallery.min.js'); ?>"></script>
-<script src="<?= base_url('assets/plugins/unitegallery/themes/slider/ug-theme-slider.js'); ?>"></script>
 <script>
-    $('#demo-dt-basic').dataTable({
+    $('#list-table').dataTable({
         "responsive": true,
         "language": {
             "paginate": {

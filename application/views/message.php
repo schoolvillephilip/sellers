@@ -133,14 +133,14 @@
                                 <div class="nano has-scrollbar" style="height: 350px;">
                                     <div class="nano-content" tabindex="0" style="right: -17px;">
                                         <div class="mail-message">
-                                            Hey <?= ucfirst($profile->first_name); ?>,<br/><br/>
+                                            Hello <?= ucfirst($profile->first_name); ?>,<br/><br/>
                                             <blockquote style="font-size:14px;text-align:justify;" id="message_detail">
                                                 <?= !empty($mes->content) ? $mes->content : ''; ?>
                                             </blockquote>
                                             <div class="pull-right">
                                                 <br><br> Regards,
                                                 <br><br>
-                                                <strong>Admin</strong><br>admin@onitshamarket.com<br>
+                                                <strong>Admin</strong><br>support@onitshamarket.com<br>
                                             </div>
                                         </div>
                                     </div>

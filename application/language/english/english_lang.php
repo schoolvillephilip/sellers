@@ -4,7 +4,7 @@ $lang['site_state'] = 'development';
 $lang['app_name'] = 'Onitshamarket.com';
 $lang['app_email'] = '';
 $lang['notify_email'] = '';
-$lang['domain'] = 'https://onitshamarket.com';
+$lang['site_domain'] = 'https://www.onitshamarket.com/';
 
 
 
@@ -15,7 +15,7 @@ $lang['new_arrival'] = 'New Arrival';
 $lang['new_arrival_link'] = 'new-arrival';
 $lang['top_seller'] = 'Top Seller';
 $lang['top_seller_link'] = 'top-seller';
-$lang['sell'] = 'Sell On Onitsha Market';
+$lang['sell'] = 'Sell On Onitshamarket';
 $lang['sell_link'] = 'become-a-seller';
 $lang['community'] = 'Community';
 $lang['community_link'] = 'Community';

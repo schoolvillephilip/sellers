@@ -407,7 +407,7 @@ Class Seller_model extends CI_Model
     {
         if ($type == 'all') {
             $this->db->where('seller_id', $sid);
-            $this->db->order_by('created_on', 'ASC');
+            $this->db->order_by('created_on', 'DESC');
             return $this->db->get(TABLE_SELLER_NOTIFICATION_MESSAGE);
         } else {
             $this->db->where('seller_id', $sid);

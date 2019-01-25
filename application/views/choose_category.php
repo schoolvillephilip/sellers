@@ -24,7 +24,7 @@
                             <div class="panel panel-body text-center">
                                 <div class="panel-heading">
                                     <h3>Select A Product Category</h3>
-                                    <h5 class="text-semibold">Please select the appropriate categories and sub
+                                    <h5 class="text-semibold">Please select the appropriate category and sub
                                         categories for the product.</h5>
                                 </div>
                                 <div class="panel-body">
@@ -34,8 +34,8 @@
                                             <h5 style="color: #232323; float: left">Select Category</h5>
                                             <select class="rootcat form-control" name="rootcategory" required>
                                                 <option value=""> -- Please select the root category --</option>
-                                                <?php foreach ($categories as $category): ?>
-                                                    <option
+                                                <?php foreach ($categories as $category):?>
+                                                    <option data-next="<?= ($this->seller->has_child($category->id)) ? '1' : '0';  ?>"
                                                             value="<?= $category->id; ?>"><?= $category->name; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
@@ -72,34 +72,50 @@
     }
 
     $('.rootcat').change(function ($x) {
-        $('.smt-btn').prop('disabled', true);
-        $('.n-append').remove();
-        $(".cat").empty();
-        $('.selected-product-c').hide();
-        let id = $(this).val();
-        if (id != '') {
-            $.ajax({
-                method: "POST",
-                url: base_url + 'product/append_category',
-                data: {id: id, 'csrf_carrito': csrf_token},
-                dataType: 'json'
-            }).done(function (msg) {
-                let rid = getRndInteger(0, 255);
-                $('.category-section').append(`
+        if( $(".rootcat option:selected").data('next') == 0){
+            $('.n-append').remove();
+            $(".cat").empty();
+            $('.smt-btn').prop('disabled', false);
+            $('.selected-product').html($(this).find(':selected').text());
+            $('.selected-product-c').show();
+        }else{
+            $('.smt-btn').prop('disabled', true);
+            $('.n-append').remove();
+            $(".cat").empty();
+            $('.selected-product-c').hide();
+            let id = $(this).val();
+            if (id != '') {
+                $.ajax({
+                    method: "POST",
+                    url: base_url + 'product/append_category',
+                    data: {id: id, 'csrf_carrito': csrf_token},
+                    dataType: 'json'
+                }).done(function (msg) {
+                    let rid = getRndInteger(0, 255);
+                    $('.category-section').append(`
 					<div class="col-md-12 n-append" style="margin-bottom: 20px;">
             		<select class="cat form-control n-cat-${rid}-${msg[0].id}" required></select>
-
 					</select>
 					</div>
             	`);
 
-                $(`.n-cat-${rid}-${msg[0].id}`).append("<option> -- Please select a sub category -- </option>");
-                $.each(msg, function (i) {
-                    $(`.n-cat-${rid}-${msg[0].id}`).append(`<option data-next='${msg[i].has_child}' value="${msg[i].id}">${msg[i].name}</option>`);
-                });
+                    $(`.n-cat-${rid}-${msg[0].id}`).append("<option> -- Please select a sub category -- </option>");
+                    $.each(msg, function (i) {
+                        $(`.n-cat-${rid}-${msg[0].id}`).append(`<option data-next='${msg[i].has_child}' value="${msg[i].id}">${msg[i].name}</option>`);
+                    });
 
-                $(`.n-cat-${rid}-${msg[0].id}`).on('change', child_change);
-            });
+                    $(`.n-cat-${rid}-${msg[0].id}`).on('change', child_change);
+                });
+            }
+        }
+    });
+
+    $('.node').on('change', function(){
+        var $others = $(this).closest('.n-append');
+        // Get current
+        var current = $others.index(this);
+        while (++current < $others.length) {
+            $(".cat").empty();
         }
     });
 

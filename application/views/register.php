@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><?= $page_title; ?> | Onitshamarket.com</title>
-    <link rel="shortcut icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
-    <link rel="icon" href="<?= base_url('assets/landing/img/favicon.png'); ?>" type="image/png">
+    <link rel="shortcut icon" href="<?= base_url('assets/img/favicon.png'); ?>" type="image/png">
+    <link rel="icon" href="<?= base_url('assets/img/favicon.png'); ?>" type="image/png">
     <link rel="canonical" href="<?= current_url(); ?>"/>
     <meta name="robots" content="noindex,nofollow">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-    <link href="<?= base_url('assets/seller/css/bootstrap.min.css'); ?>" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url('assets/landing/css/font-awesome.css'); ?>">
-    <link href="<?= base_url('assets/seller/css/nifty.min.css'); ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/seller/css/demo/nifty-demo-icons.min.css'); ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/seller/plugins/pace/pace.min.css'); ?>" rel="stylesheet">
-    <script src="<?= base_url('assets/seller/plugins/pace/pace.min.js'); ?>"></script>
-    <link href="<?= base_url('assets/seller/css/demo/nifty-demo.min.css'); ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.css'); ?>"
+    <link href="<?= base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url('assets/css/font-awesome.css'); ?>">
+    <link href="<?= base_url('assets/css/nifty.min.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/demo/nifty-demo-icons.min.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/plugins/pace/pace.min.css'); ?>" rel="stylesheet">
+    <script src="<?= base_url('assets/plugins/pace/pace.min.js'); ?>"></script>
+    <link href="<?= base_url('assets/css/demo/nifty-demo.min.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/plugins/bootstrap-validator/bootstrapValidator.min.css'); ?>"
           rel="stylesheet">
 </head>
 <body>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-md-4">
                         <a href="<?= base_url(); ?>" title="<?= lang('app_name'); ?>"><img
-                                    src="<?= base_url('assets/landing/img/onitshamarket-logo.png'); ?>"
+                                    src="<?= base_url('assets/img/onitshamarket-logo.png'); ?>"
                                     alt="<?= lang('app_name'); ?>"
                                     class="brand-title img-responsive"></a>
                     </div>
@@ -448,12 +448,12 @@
         </div>
     </div>
 </div>
-<script src="<?= base_url('assets/seller/js/jquery.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/js/bootstrap.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/js/nifty.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/plugins/bootstrap-validator/bootstrapValidator.min.js'); ?>"></script>
-<script src="<?= base_url('assets/seller/js/demo/form-wizard.js'); ?>"></script>
+<script src="<?= base_url('assets/js/jquery.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/nifty.min.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/bootstrap-validator/bootstrapValidator.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/demo/form-wizard.js'); ?>"></script>
 <script>
     $(document).ready(function () {
         $('#bus_reg').change(function () {
