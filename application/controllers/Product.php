@@ -66,7 +66,8 @@ class Product extends MY_Controller
             $page_data['sub_name'] = 'add_product';
             $page_data['profile'] = $this->seller->get_profile_details($uid,
                 'first_name,last_name,email,profile_pic');
-            $page_data['store_name'] = $this->seller->get_row('sellers', 'legal_company_name', "( uid = {$uid})")->legal_company_name;
+            $legal_company_name = $this->seller->get_row('sellers', 'legal_company_name', "( uid = {$uid})");
+            $page_data['store_name'] = ( $legal_company_name ) ?  $legal_company_name->legal_company_name : '';
             $page_data['brands'] = $this->seller->get_results('brands');
             $category_details = $this->seller->get_row('categories', 'variation_name, variation_options', "( id = {$sub_id})");
             $option_array = array();
