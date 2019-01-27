@@ -66,6 +66,7 @@ class Product extends MY_Controller
             $page_data['sub_name'] = 'add_product';
             $page_data['profile'] = $this->seller->get_profile_details($uid,
                 'first_name,last_name,email,profile_pic');
+            $page_data['store_name'] = $this->seller->get_row('sellers', 'legal_company_name', "( uid = {$uid})")->legal_company_name;
             $page_data['brands'] = $this->seller->get_results('brands');
             $category_details = $this->seller->get_row('categories', 'variation_name, variation_options', "( id = {$sub_id})");
             $option_array = array();
@@ -180,6 +181,7 @@ class Product extends MY_Controller
                     'seller_id' => $this->session->userdata('logged_id'),
                     'created_at' => get_now()
                 );
+
                 $files = $_FILES;
                 for ($x = 0; $x < $counts; $x++) {
                     $old_name = $files['file']['name'][$x];
@@ -188,20 +190,19 @@ class Product extends MY_Controller
                     $_FILES['file']['tmp_name'] = $files['file']['tmp_name'][$x];
                     $_FILES['file']['error'] = $files['file']['error'][$x];
                     $_FILES['file']['size'] = $files['file']['size'][$x];
-                    $product_id = md5(md5($product_id));
-                    $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $product_id);
-                    if ($upload_result) {
-                        $explode = explode('/', $upload_result);
-                        $image = end( $explode );
-                        $product_gallery['image_name'] = $image .'.' . $upload_result['format'];
+                    $image_name = md5(md5($_FILES['file']['name']));
+//                    try {
+                        $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $image_name);
+                        $product_gallery['image_name'] = $image_name .'.' . $upload_result['format'];
                         $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name == $_POST['featured_image'])) ? 1 : 0;
                         if ($counts == 1) $product_gallery['featured_image'] = 1;
-                        if (!is_int($this->seller->insert_data('product_gallery', $product_gallery))) {
+                        if(!$this->seller->insert_data('product_gallery', $product_gallery)){
                             $image_error++;
                         }
-                    } else {
-                        $image_error++;
-                    }
+//                    } catch (Exception $e) {
+//                        $image_error++;
+//                    }
+                    unset($_FILES['file']['tmp_name']);
                 }// end of for loop
             }
             // Check for errors
@@ -216,27 +217,13 @@ class Product extends MY_Controller
                 $return['message'] = 'Success: Your product has been created, awaiting reviews and approval. You will be notified via email.';
                 $this->session->set_flashdata('success_msg', 'Success: Your product has been created, awaiting reviews and approval. You will be notified via email.');
             }
+            // Unset the category session
+            $this->session->unset_userdata('category_id');
             echo json_encode($return);
             exit;
         }
     }
 
-    function upload_image($filepath, $product_name)
-    {
-        $this->load->library('cloudinarylib');
-        $return = \Cloudinary\Uploader::upload($filepath,
-            array("tags" => $product_name,
-                "folder" => 'folder',
-//                "folder" => PRODUCT_IMAGE_FOLDER,
-                "public_id" => $product_name,
-                "resource_type" => "image",
-                "eager" => array(
-                    array("width" => 500, "height" => 500, "crop" => "fill")
-                )
-            )
-        );
-        return $return;
-    }
 
     /**
      * @param int : root_category_id
@@ -331,11 +318,6 @@ class Product extends MY_Controller
             $this->load->view('edit', $page_data);
         } else {
             // Process
-//            'variation_id' =>
-////    array (size=2)
-////      0 => string '72794' (length=5)
-////      1 => string 'new' (length=3)
-//            var_dump( $_POST ); exit;
             $id = $this->input->post('product_id');
             $pricing_error = $image_error = 0;
             $return['status'] = 'error';
@@ -442,21 +424,20 @@ class Product extends MY_Controller
                     if( $this->curl_get_file_size(PRODUCTS_IMAGE_PATH . $old_name['old_name']) ){
                         $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name['old_name'] == $_POST['featured_image'])) ? 1 : 0;
                         if ($counts == 1) $product_gallery['featured_image'] = 1;
-                        if (!$this->seller->update_data(array('name' => $old_name['old_name']), $product_gallery, 'product_gallery')) {
+                        if (!$this->seller->update_data(array('image_name' => $old_name['old_name']), $product_gallery, 'product_gallery')) {
                             $image_error++;
                         }
                     }else {
                         // we have a new file to upload
-                        $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $id);
+                        $image_name = md5(md5($_FILES['file']['name']));
+                        $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $image_name);
                         if ($upload_result) {
                             $product_gallery = array(
                                 'product_id' => $id,
                                 'seller_id' => $this->session->userdata('logged_id'),
                                 'created_at' => get_now()
                             );
-                            $explode = explode('/', $upload_result);
-                            $image = end( $explode );
-                            $product_gallery['image_name'] = $image;
+                            $product_gallery['image_name'] = $image_name;
                             if ($counts == 1) $product_gallery['featured_image'] = 1;
                             if (!is_int($this->seller->insert_data('product_gallery', $product_gallery))) {
                                 $image_error++;
@@ -505,6 +486,25 @@ class Product extends MY_Controller
         } else {
             return $this->upload->data('file_name');
         }
+    }
+
+
+    function upload_image($filepath, $product_name)
+    {
+        $this->load->library('cloudinarylib');
+        $return = \Cloudinary\Uploader::upload($filepath,
+            array("tags" => $product_name,
+                "folder" => PRODUCT_IMAGE_FOLDER,
+                "public_id" => $product_name,
+                "resource_type" => "image",
+                "overwrite" => true,
+                "eager_async" => true,
+                "eager" => array(
+                    array("width" => 630, "height" => 570, "crop" => "fill")
+                )
+            )
+        );
+        return $return;
     }
 
     /*

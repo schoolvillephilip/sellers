@@ -47,6 +47,8 @@ class Login extends CI_Controller{
                         redirect('overview');
                     }
                 }else{
+                    $link = "<a href='" .base_url('register'). "'>Become A Seller Now </a>";
+                    $this->session->set_flashdata('error_msg',"Sorry we couldn't find your details in our system. {$link}." );
                     redirect(base_url());
                 }
             }

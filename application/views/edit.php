@@ -697,7 +697,7 @@
             parallelUploads: 100,
             init: function () {
                 $.ajax({
-                    url: `${base_url}/product/load_images/${product_id}`,
+                    url: `${base_url}product/load_images/${product_id}`,
                     method: "GET",
                     dataType: "json",
                     success: function (data) {

@@ -51,27 +51,27 @@ class Register extends CI_Controller
             redirect('register');
         } else {
             // Check if email address is in the system
-            $email = $this->input->post('email');
+            $email = $this->input->post('email', true);
             $user = $this->seller->get_row('users', '*', "( email = '$email' ) ");
             $license_to_sell = ($this->input->post('license_to_sell') == true) ? 1 : 0;
             $plat = $this->input->post('platform');
             $platform = ( !empty( $plat )) ? $plat : '';
             $seller_data = array(
-                'legal_company_name' => $this->input->post('legal_company_name'),
-                'address' => $this->input->post('store_address'),
-                'tin' => $this->input->post('tin'),
-                'main_category' => $this->input->post('main_category'),
+                'legal_company_name' => $this->input->post('legal_company_name', true),
+                'address' => $this->input->post('store_address', true),
+                'tin' => $this->input->post('tin', true),
+                'main_category' => $this->input->post('main_category', true),
                 'license_to_sell' => $license_to_sell,
-                'reg_no' => $this->input->post('reg_no'),
-                'no_of_products' => $this->input->post('no_of_products'),
-                'product_condition' => $this->input->post('product_condition'),
+                'reg_no' => $this->input->post('reg_no', true),
+                'no_of_products' => $this->input->post('no_of_products', true),
+                'product_condition' => $this->input->post('product_condition', true),
                 'platform_selling' => $platform,
-                'account_number' => $this->input->post('account_number'),
-                'account_name' => $this->input->post('account_name'),
-                'bank_name' => $this->input->post('bank_name'),
-                'account_type' => $this->input->post('account_type'),
+                'account_number' => $this->input->post('account_number', true),
+                'account_name' => $this->input->post('account_name', true),
+                'bank_name' => $this->input->post('bank_name', true),
+                'account_type' => $this->input->post('account_type', true),
                 'date_applied' => get_now(),
-                'seller_phone' => $this->input->post('phone_number')
+                'seller_phone' => $this->input->post('phone_number', true)
             );
             $user_data = array(
                 'is_seller' => 'pending',
@@ -102,7 +102,7 @@ class Register extends CI_Controller
                             'error_action' => 'Seller Register Controller',
                             'error_message' => $status['error']
                         );
-                        $this->email->insert_data('error_logs', $error_action);
+                        $this->seller->insert_data('error_logs', $error_action);
                     }
                     redirect('login');
                 } else {
@@ -126,23 +126,24 @@ class Register extends CI_Controller
                     $seller_data['uid'] = $user_id;
                     if ($this->seller->create_account($seller_data, 'sellers')) {
                         // Email Model
-                        $bodyHytml = '<p>Please note that you can as well use this same details to buy items on onitshamarket.com</p>';
-                        $email_array = array(
-                            'email' => $email,
-                            'recipent' => 'Dear '. $user_data['first_name'] . ' ' . $user_data['last_name'],
-                            'bodyHtml' => $bodyHytml
-                        );
-                        $status = $this->email->welcome_user( $email_array);
-                        if( !$status['success'] ){
+                        try {
+                            $bodyHytml = '<p>Please note that you can as well use this same details to buy items on onitshamarket.com</p>';
+                            $email_array = array(
+                                'email' => $email,
+                                'recipent' => 'Dear '. $user_data['first_name'] . ' ' . $user_data['last_name'],
+                                'bodyHtml' => $bodyHytml
+                            );
+                            $this->email->welcome_user( $email_array);
+                            $this->session->set_flashdata('success_msg', 'Congrats your application has been received and under review, you will be mailed on the update.');
+                            redirect('login');
+                        } catch (Exception $e) {
                             // log the error
                             $error_action = array(
                                 'error_action' => 'Seller Register Controller',
-                                'error_message' => $status['error']
+                                'error_message' => $e->getMessage()
                             );
-                            $this->email->insert_data('error_logs', $error_action);
+                            $this->seller->insert_data('error_logs', $error_action);
                         }
-                        $this->session->set_flashdata('success_msg', 'Congrats your application has been received and under review, you will be mailed on the update.');
-                        redirect('login');
                     } else {
                         $this->session->set_flashdata('error_msg', 'There was an error creating your seller account, please you can contact support if it persist.');
                         redirect('register/form');

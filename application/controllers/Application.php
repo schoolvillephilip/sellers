@@ -49,7 +49,7 @@ class Application extends CI_Controller
             } else {
                 $data = array();
                 foreach ($_POST as $key => $value) {
-                    $data[$key] = cleanit($value);
+                    $data[$key] = cleanit(trim($value));
                 }
                 $data['uid'] = $this->session->userdata('logged_id');
                 $data['date_applied'] = get_now();
@@ -58,7 +58,7 @@ class Application extends CI_Controller
                     // update the seller status to pending
                     $user_data['is_seller'] = 'pending';
                     $this->seller->update_data(array('id' => $data['uid']), $user_data, 'users');
-                    $this->session->set_flashdata('success_msg', 'Congrats! Your application has been received, we will get back to you shortly.');
+                    $this->session->set_flashdata('success_msg', 'Congrats! Your application has been received, and it is under review. We will get back to you shortly.');
                     redirect('application/status');
                 } else {
                     $this->session->set_flashdata('error_msg', 'There was an error submitting the form. Please try again or contact support for assistance.');

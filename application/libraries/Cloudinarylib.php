@@ -13,9 +13,12 @@ class Cloudinarylib
 
         // configure Cloudinary API connection
         \Cloudinary::config(array(
-            "cloud_name" => "de9lpikx3",
-            "api_key" => "921392971762216", /*874837483274837*/
-            "api_secret" => "3mm1rX2AFwtjvGjoV54Sb1knCVs" /* a676b67565c6767a6767d6767f676fe1 */
+//            "cloud_name" => "de9lpikx3",
+//            "api_key" => "921392971762216", /*874837483274837*/
+//            "api_secret" => "3mm1rX2AFwtjvGjoV54Sb1knCVs" /* a676b67565c6767a6767d6767f676fe1 */
+            "cloud_name" => CLOUDINARY_CLOUD_NAME,
+            "api_key" => CLOUDINARY_API_KEY, /*874837483274837*/
+            "api_secret" => CLOUDINARY_API_SECRET /* a676b67565c6767a6767d6767f676fe1 */
         ));
     }
 }

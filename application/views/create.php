@@ -233,10 +233,9 @@
                                                                         Name</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <input type="text"
-                                                                               placeholder="Enter In Here Your Store Name"
+                                                                               value="<?= $store_name; ?>"
                                                                                name="product_line" class="form-control"
                                                                                required>
-                                                                        <span class="text-sm text-dark">Eg: Fouani Nigeria, Trendy Woman Ltd, SEOLAK</span>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:void(0);" title="Shop Name"

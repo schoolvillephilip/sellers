@@ -85,15 +85,14 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
-// My Constants
-// Database Table
-
-// General Settings
-//https://res.cloudinary.com/de9lpikx3/image/upload/product/{IMAGE_NAME}
-//https://res.cloudinary.com/de9lpikx3/product/a10e90a57f770bec3911288a9ce79e7c.jpg
-//https://res.cloudinary.com/de9lpikx3/product/
-defined('PRODUCTS_IMAGE_PATH') OR define('PRODUCTS_IMAGE_PATH', "https://res.cloudinary.com/de9lpikx3/product/");
-defined('PRODUCTS_IMAGE_FOLDER') OR define('PRODUCTS_IMAGE_FOLDER', "onitshamarket/product");
+/*
+ * Image Processor
+ * */
+defined('CLOUDINARY_CLOUD_NAME') OR define('CLOUDINARY_CLOUD_NAME', "onitshamarket");
+defined('CLOUDINARY_API_KEY') OR define('CLOUDINARY_API_KEY', "225471712598732");
+defined('CLOUDINARY_API_SECRET') OR define('CLOUDINARY_API_SECRET', "CAg5I2si21ibz-bFx-U759ljqTk");
+defined('PRODUCT_IMAGE_FOLDER') OR define('PRODUCT_IMAGE_FOLDER', "onitshamarket/product/");
+defined('PRODUCTS_IMAGE_PATH') OR define('PRODUCTS_IMAGE_PATH', "https://res.cloudinary.com/onitshamarket/" . PRODUCT_IMAGE_FOLDER);
 
 
 // Database
