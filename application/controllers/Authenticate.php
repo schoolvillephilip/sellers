@@ -14,7 +14,11 @@ class Authenticate extends CI_Controller
         redirect(base_url());
     }
 
+    /*
+     *
+     * Authenticate Payment Request Token for seller...*/
     public function payment_request(){
+
         $code = cleanit($this->input->get('code', true));
         $user = $this->seller->get_row('payouts','id,user_id', array('token' => $code ));
         if( $code && $user ){
