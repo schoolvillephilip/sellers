@@ -244,21 +244,21 @@ $(document).on('nifty.ready', function () {
 				}
 			},
 
-			brand_name: {
-				validators: {
-					notEmpty: {
-						message: 'Please enter a brand name'
-					},
-				}
-			},
+			// brand_name: {
+			// 	validators: {
+			// 		notEmpty: {
+			// 			message: 'Please enter a brand name'
+			// 		},
+			// 	}
+			// },
 
-			model: {
-				validators: {
-					notEmpty: {
-						message: 'Please select a model'
-					},
-				}
-			},
+			// model: {
+			// 	validators: {
+			// 		notEmpty: {
+			// 			message: 'Please select a model'
+			// 		},
+			// 	}
+			// },
 
 
 			product_line: {
@@ -270,30 +270,29 @@ $(document).on('nifty.ready', function () {
 			},
 
 
-			colour_family: {
-				validators: {
-					notEmpty: {
-						message: 'Please select color family'
-					},
-				}
-			},
+			// colour_family: {
+			// 	validators: {
+			// 		notEmpty: {
+			// 			message: 'Please select color family'
+			// 		},
+			// 	}
+			// },
 
-			main_material: {
-				validators: {
-					notEmpty: {
-						message: 'Please select a main material'
-					},
-				}
-			},
+			// main_material: {
+			// 	validators: {
+			// 		notEmpty: {
+			// 			message: 'Please select a main material'
+			// 		},
+			// 	}
+			// },
 
-			main_colour: {
-				validators: {
-					notEmpty: {
-						message: 'Please select a main color'
-					},
-				}
-			},
-
+			// main_colour: {
+			// 	validators: {
+			// 		notEmpty: {
+			// 			message: 'Please select a main color'
+			// 		},
+			// 	}
+			// },
 
 			product_description: {
 				validators: {
@@ -302,13 +301,13 @@ $(document).on('nifty.ready', function () {
 					},
 				}
 			},
-			dimensions: {
-				validators: {
-					notEmpty: {
-						message: 'Please enter dimensions'
-					},
-				}
-			},
+			// dimensions: {
+			// 	validators: {
+			// 		notEmpty: {
+			// 			message: 'Please enter dimensions'
+			// 		},
+			// 	}
+			// },
 			variation: {
 				validators: {
 					notEmpty: {

@@ -151,12 +151,31 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Shop
+                                                                        Name</label>
+                                                                    <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
+                                                                        <input type="text"
+                                                                               value="<?= $store_name; ?>"
+                                                                               name="product_line" class="form-control"
+                                                                               required>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
+                                                                        <a href="javascript:void(0);" title="Shop Name"
+                                                                           data-placement="bottom" data-toggle="popover"
+                                                                           tabindex="-1"
+                                                                           data-trigger="focus"
+                                                                           data-content="Your registered shop name">
+                                                                            <i class="demo-pli-question help_text"
+                                                                               title="Help Text"></i> </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label
                                                                             class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Brand
-                                                                        Name
-                                                                        *</label>
+                                                                        Name</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <select class="form-control selectpicker"
-                                                                                name="brand_name" required=""
+                                                                                name="brand_name"
                                                                                 data-width="100%">
                                                                             <option value="">-- Select Brand Name --
                                                                             </option>
@@ -182,7 +201,7 @@
                                                                     <label
                                                                             class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Model</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <input type="text" class="form-control" required
+                                                                        <input type="text" class="form-control"
                                                                                name="model"
                                                                                placeholder="Eg:  iPhone 4S Samsung TV 4T">
                                                                     </div>
@@ -201,7 +220,7 @@
                                                                             class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Main
                                                                         Colour</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <select name="main_colour" required
+                                                                        <select name="main_colour"
                                                                                 class="selectpicker"
                                                                                 title="Choose main colour"
                                                                                 data-width="100%">
@@ -227,32 +246,13 @@
                                                                                title="Help Text"></i> </a>
                                                                     </div>
                                                                 </div>
-                                                                <div class="form-group">
-                                                                    <label
-                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Shop
-                                                                        Name</label>
-                                                                    <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <input type="text"
-                                                                               value="<?= $store_name; ?>"
-                                                                               name="product_line" class="form-control"
-                                                                               required>
-                                                                    </div>
-                                                                    <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
-                                                                        <a href="javascript:void(0);" title="Shop Name"
-                                                                           data-placement="bottom" data-toggle="popover"
-                                                                           tabindex="-1"
-                                                                           data-trigger="focus"
-                                                                           data-content="Your registered shop name">
-                                                                            <i class="demo-pli-question help_text"
-                                                                               title="Help Text"></i> </a>
-                                                                    </div>
-                                                                </div>
+
                                                                 <div class="form-group">
                                                                     <label
                                                                             class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Colour
                                                                         Family</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <select name="colour_family[]" required
+                                                                        <select name="colour_family[]"
                                                                                 class="selectpicker" multiple
                                                                                 title="Select colour family..."
                                                                                 data-width="100%">

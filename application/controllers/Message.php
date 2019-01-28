@@ -57,14 +57,13 @@ class Message extends MY_Controller
                     exit;
                 case 'delete':
                     foreach( $messages as $key => $value ){
-                        $this->seller->delete_table($key,'sellers_notification_message');
+                        $this->seller->delete_data($key,'sellers_notification_message');
                     }
                     echo json_encode( array('status' => 'success'));
                     exit;
                 default:
                     redirect(base_url());
                     break;
-
             }
         }
     }
