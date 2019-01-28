@@ -32,6 +32,7 @@ class Email_model extends CI_Model {
         $post = array(
             'subject' => 'Payment Request Initiated',
             'to' => $data['email'],
+            'from' => 'seller.payment@onitshamarket.com',
             'template' => 'PaymentRequest',
             'merge_recipent' => $data['recipent'],
             'merge_link' => $data['link'],
@@ -45,7 +46,7 @@ class Email_model extends CI_Model {
         $url = 'https://api.elasticemail.com/v2/email/send';
         try{
             $post['merge_base_url'] = base_url();
-            $post['from'] = 'philo4u2c@gmail.com';
+            $post['from'] = isset($post['from']) ? $post['from'] : 'noreply@onitshamarket.com';
             $post['fromName'] = 'Onitshamarket.com';
             $post['apikey'] = 'f818fbbb-bb76-4de0-ad47-e458303b0d12';
             $ch = curl_init();
