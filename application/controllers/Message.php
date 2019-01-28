@@ -20,6 +20,17 @@ class Message extends MY_Controller
         $this->load->view('message', $page_data);
     }
 
+    public function questions()
+    {
+        $page_data['page_title'] = 'Customer Questions';
+        $page_data['pg_name'] = 'questions';
+        $page_data['sub_name'] = 'questions';
+        $page_data['profile'] = $this->seller->get_profile_details($this->session->userdata('logged_id'),
+            'first_name,last_name,email,profile_pic');
+        $page_data['questions'] = $this->seller->get_message($this->session->userdata('logged_id'));
+        $this->load->view('questions', $page_data);
+    }
+
     function message_detail()
     {
         if (!$this->input->is_ajax_request()) {
