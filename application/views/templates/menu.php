@@ -121,13 +121,13 @@
                                 <i class="arrow"></i>
                             </a>
                             <ul class="collapse <?php if ($pg_name == 'message') echo 'in'; ?>">
-                                <li class="<?php if ($pg_name == 'message') echo 'active' ?>">
+                                <li class="<?php if ($pg_name == 'message') echo 'active-link' ?>">
                                     <a href="<?= base_url('message'); ?>">
                                         <i class="demo-pli-mail"></i>
                                         <span class="menu-title">Messages <?= $message_count < 1 ? '' : '(' . $message_count . ' new)'; ?></span>
                                     </a>
                                 </li>
-                                <li class="<?php if ($pg_name == 'questions') echo 'active' ?>">
+                                <li class="<?php if ($pg_name == 'questions') echo 'active-link' ?>">
                                     <a href="<?= base_url('message/questions'); ?>">
                                         <i class="demo-pli-question"></i>
                                         <span class="menu-title">Questions <?//= $questions_count < 1 ? '' : '(' . $questions_count . ' new)'; ?></span>

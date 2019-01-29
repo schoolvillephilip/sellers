@@ -1113,7 +1113,6 @@
         $('.om_summer_note').summernote({
             placeholder: 'write here...',
             height: '150px',
-            focus: true,
             toolbar: [
                 ["style", ["style"]],
                 ["font", ["bold", "underline"]],
