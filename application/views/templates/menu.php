@@ -76,7 +76,7 @@
                             </ul>
                         </li>
                         <li class="list-divider"></li>
-                        <li <?php if ($pg_name == 'orders') echo 'class="active"' ?>">
+                        <li <?php if ($pg_name == 'orders') echo 'class="active"' ?>>
                         <a href="javascript:;">
                             <i class="demo-pli-cart-coin"></i>
                             <span class="menu-title">Orders <?php if($order_count) echo '(' . $order_count.')'; ?></span>

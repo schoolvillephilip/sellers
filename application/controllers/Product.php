@@ -91,6 +91,7 @@ class Product extends MY_Controller
     public function process()
     {
         if ($this->input->post() || isset($_FILES)) {
+            var_dump( $_POST );exit;
             $pricing_error = $image_error = 0;
             $return['status'] = 'error';
             $return['message'] = '';
@@ -110,7 +111,7 @@ class Product extends MY_Controller
                 'brand_name' => cleanit($this->input->post('brand_name')),
                 'model' => cleanit($this->input->post('model')),
                 'main_colour' => $this->input->post('main_colour'),
-                'product_description' => htmlentities($this->input->post('product_description'), ENT_QUOTES),
+                'product_description' => $this->input->post('product_description'),
                 'youtube_id' => cleanit($this->input->post('youtube_id')),
                 'in_the_box' => htmlentities($this->input->post('in_the_box'), ENT_QUOTES),
                 'highlights' => htmlentities($this->input->post('highlights'), ENT_QUOTES),
