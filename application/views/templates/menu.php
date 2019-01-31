@@ -8,6 +8,7 @@
         $uid = $this->session->userdata('logged_id');
         $order_count = $this->seller->run_sql("SELECT * FROM orders WHERE seller_id = {$uid} AND active_status = 'processing'")->num_rows();
         $message_count = $this->seller->get_unread_message($this->session->userdata('logged_id'));
+        $questions_count = count($this->seller->get_questions($uid));
         ?>
         <div id="mainnav-menu-wrap">
             <div class="nano">
@@ -130,7 +131,7 @@
                                 <li class="<?php if ($pg_name == 'questions') echo 'active-link' ?>">
                                     <a href="<?= base_url('message/questions'); ?>">
                                         <i class="demo-pli-question"></i>
-                                        <span class="menu-title">Questions <?//= $questions_count < 1 ? '' : '(' . $questions_count . ' new)'; ?></span>
+                                        <span class="menu-title">Questions <?= $questions_count < 1 ? '' : '(' . $questions_count . ' new)'; ?></span>
                                     </a>
                                 </li>
                             </ul>
