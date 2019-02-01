@@ -1,5 +1,4 @@
 <?php $this->load->view('templates/meta_tags'); ?>
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
 <style>
     .help_text {
         color: #ffffff;
@@ -40,12 +39,11 @@
     .fav_drop_ico {
         margin: 15px;
     }
-
-    .bootstrap-select > .dropdown-toggle {
-        z-index: unset !important;
+    .bootstrap-select>.dropdown-toggle {
+        z-index:unset !important;
     }
 
-    .control-label {
+    .control-label{
         color: #4b4b4b !important;
     }
 </style>
@@ -60,13 +58,11 @@
                 <div id="page-title">
                     <h1 class="page-header text-overflow">Product</h1>
                 </div>
-
                 <ol class="breadcrumb">
-                    <li><a href="javascript:;"><i class="demo-pli-home"></i>&nbsp; You're posting under</a></li>
+                    <li><a href="javascript:;"><i class="demo-pli-home"></i></a></li>
                     <?php foreach ($categories_name as $name) : ?>
                         <li><?= $name ?></li>
                     <?php endforeach; ?>
-                    <li><a href="<?= base_url('product/'); ?>">Change Category ?</a></li>
                 </ol>
             </div>
             <div id="page-content">
@@ -93,7 +89,7 @@
                                         <li class="col-xs-3">
                                             <a data-toggle="tab" href="#product-variation-tab">
                                                 <span class="text-info text-2x"><i
-                                                        class="fas fa-money-check"></i></span>
+                                                            class="fas fa-money-check"></i></span>
                                                 <p class="text-semibold mar-no">Product Pricing</p>
                                             </a>
                                         </li>
@@ -125,7 +121,7 @@
                                                                    href="#general-info">
                                                                     General information
                                                                     <span
-                                                                        class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span>
+                                                                            class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span>
                                                                 </a>
                                                             </h4>
                                                         </div>
@@ -133,7 +129,7 @@
                                                             <div class="panel-body">
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Product
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Product
                                                                         Name *</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <input type="text" class="form-control"
@@ -155,37 +151,18 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Shop
-                                                                        Name</label>
-                                                                    <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <input type="text"
-                                                                               value="<?= $store_name; ?>"
-                                                                               name="product_line" class="form-control"
-                                                                               required>
-                                                                    </div>
-                                                                    <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
-                                                                        <a href="javascript:void(0);" title="Shop Name"
-                                                                           data-placement="bottom" data-toggle="popover"
-                                                                           tabindex="-1"
-                                                                           data-trigger="focus"
-                                                                           data-content="Your registered shop name">
-                                                                            <i class="demo-pli-question help_text"
-                                                                               title="Help Text"></i> </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label
                                                                             class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Brand
-                                                                        Name</label>
+                                                                        Name
+                                                                        *</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <select class="form-control selectpicker"
-                                                                                name="brand_name"
+                                                                                name="brand_name" required=""
                                                                                 data-width="100%">
                                                                             <option value="">-- Select Brand Name --
                                                                             </option>
                                                                             <?php foreach ($brands as $brand) : ?>
                                                                                 <option
-                                                                                    value="<?= ucwords($brand->brand_name); ?>"><?= ucwords($brand->brand_name); ?></option>
+                                                                                        value="<?= ucwords($brand->brand_name); ?>"><?= ucwords($brand->brand_name); ?></option>
                                                                             <?php endforeach; ?>
                                                                             <option value="others">Others</option>
                                                                         </select>
@@ -203,9 +180,9 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Model</label>
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Model</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <input type="text" class="form-control"
+                                                                        <input type="text" class="form-control" required
                                                                                name="model"
                                                                                placeholder="Eg:  iPhone 4S Samsung TV 4T">
                                                                     </div>
@@ -221,10 +198,10 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Main
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Main
                                                                         Colour</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <select name="main_colour"
+                                                                        <select name="main_colour" required
                                                                                 class="selectpicker"
                                                                                 title="Choose main colour"
                                                                                 data-width="100%">
@@ -252,10 +229,30 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Colour
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Shop
+                                                                        Name</label>
+                                                                    <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
+                                                                        <input type="text"
+                                                                               value="<?= $store_name; ?>"
+                                                                               name="product_line" class="form-control"
+                                                                               required>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
+                                                                        <a href="javascript:void(0);" title="Shop Name"
+                                                                           data-placement="bottom" data-toggle="popover"
+                                                                           tabindex="-1"
+                                                                           data-trigger="focus"
+                                                                           data-content="Your registered shop name">
+                                                                            <i class="demo-pli-question help_text"
+                                                                               title="Help Text"></i> </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Colour
                                                                         Family</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <select name="colour_family[]"
+                                                                        <select name="colour_family[]" required
                                                                                 class="selectpicker" multiple
                                                                                 title="Select colour family..."
                                                                                 data-width="100%">
@@ -264,7 +261,7 @@
                                                                             foreach ($colours as $colour):
                                                                                 ?>
                                                                                 <option
-                                                                                    value="<?= trim($colour); ?>"><?= trim(ucfirst($colour)); ?> </option>
+                                                                                        value="<?= trim($colour); ?>"><?= trim(ucfirst($colour)); ?> </option>
                                                                             <?php endforeach; ?>
                                                                         </select>
                                                                         <span class="text-sm text-dark">Add a generalisation of the main color, to help customers find the product using the provided color-filter in the shop</span>
@@ -282,7 +279,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Main
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Main
                                                                         Material</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <select name="main_material"
@@ -294,11 +291,11 @@
                                                                             foreach ($materials as $material) :
                                                                                 ?>
                                                                                 <option
-                                                                                    value="<?= trim($material); ?>"> <?= trim(ucwords($material)); ?> </option>
+                                                                                        value="<?= trim($material); ?>"> <?= trim(ucwords($material)); ?> </option>
                                                                             <?php endforeach; ?>
                                                                         </select>
                                                                         <span
-                                                                            class="text-sm text-dark">Eg: Leather</span>
+                                                                                class="text-sm text-dark">Eg: Leather</span>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:void(0);"
@@ -324,7 +321,7 @@
                                                                 <a data-parent="#accordion" data-toggle="collapse"
                                                                    href="#description-tab">
                                                                     Product Description<span
-                                                                        class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span>
+                                                                            class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span>
                                                                 </a>
                                                             </h4>
                                                         </div>
@@ -332,10 +329,13 @@
                                                             <div class="panel-body">
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Product
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Product
                                                                         Description </label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <textarea class="full_description" name="product_description" placeholder="Give a detailed product description" id="product_description"></textarea>
+                                                                        <textarea placeholder="Product description"
+                                                                                  data-provide="markdown" rows="8"
+                                                                                  name="product_description"
+                                                                                  class="form-control"></textarea>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:void(0);"
@@ -343,14 +343,14 @@
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="The full product description including specs and advert images from manufacturer if available">
+                                                                           data-content="The full product description including specs and advert images from manufacturer">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">YouTube
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">YouTube
                                                                         ID</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <input type="text" class="form-control"
@@ -370,11 +370,15 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">What's
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">What's
                                                                         in the
                                                                         box?</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <textarea class="half_description" name="in_the_box" id="in_the_box"></textarea>
+                                                                        <textarea
+                                                                                placeholder="Any information in the box"
+                                                                                data-provide="markdown"
+                                                                                name="in_the_box" rows="8"
+                                                                                class="form-control"></textarea>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:;"
@@ -389,10 +393,12 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Highlights</label>
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Highlights</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <div class="om_summer_note" id="highlights">
-                                                                        </div>
+                                                                        <textarea placeholder="Additional info"
+                                                                                  name="highlights"
+                                                                                  data-provide="markdown" rows="8"
+                                                                                  class="form-control"></textarea>
                                                                         <span class="text-sm text-dark">Enter short major highlights of the product, to make the purchase decision for the customer easier.</span>
                                                                         <span class="text-sm text-dark">Example: Best expierience ever - super fast and easy navigation - better control</span>
                                                                     </div>
@@ -414,14 +420,14 @@
                                                             <h4 class="panel-title text-dark">
                                                                 <a data-parent="#accordion" data-toggle="collapse"
                                                                    href="#measurement">Measurement<span
-                                                                        class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span></a>
+                                                                            class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span></a>
                                                             </h4>
                                                         </div>
                                                         <div class="panel-collapse " id="measurement">
                                                             <div class="panel-body">
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Dimension</label>
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Dimension</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <input type="text"
                                                                                placeholder="Example: 12 x 3 x 90"
@@ -440,7 +446,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Weight
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Weight
                                                                         * (in
                                                                         Kg)</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
@@ -472,7 +478,7 @@
                                                                            data-toggle="collapse"
                                                                            href="#<?= $y; ?>"><?= $feature['category_name']; ?>
                                                                             Attribute<span
-                                                                                class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span></a>
+                                                                                    class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span></a>
                                                                     </h4>
                                                                 </div>
                                                                 <div class="panel-collapse " id="<?= $y; ?>">
@@ -481,9 +487,9 @@
                                                                         foreach ($feature['specifications'] as $specification) : ?>
                                                                             <div class="form-group">
                                                                                 <label
-                                                                                    class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label"><?= ucwords($specification['spec_name']); ?></label>
+                                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label"><?= ucwords($specification['spec_name']); ?></label>
                                                                                 <div
-                                                                                    class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
+                                                                                        class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                                     <?php if (!empty($specification['spec_options'])) :
                                                                                         $options = json_decode($specification['spec_options']);
                                                                                         ?>
@@ -498,7 +504,7 @@
                                                                                                 data-width="100%">
                                                                                             <?php foreach ($options as $key => $value) : ?>
                                                                                                 <option
-                                                                                                    value="<?= trim($value); ?>"><?= ucwords(trim($value)); ?></option>
+                                                                                                        value="<?= trim($value); ?>"><?= ucwords(trim($value)); ?></option>
                                                                                             <?php endforeach; ?>
                                                                                         </select>
                                                                                     <?php else: ?>
@@ -508,10 +514,10 @@
                                                                                                class="form-control">
                                                                                     <?php endif; ?>
                                                                                     <span
-                                                                                        class="text-sm text-dark"><?= $specification['spec_description']; ?></span>
+                                                                                            class="text-sm text-dark"><?= $specification['spec_description']; ?></span>
                                                                                 </div>
                                                                                 <div
-                                                                                    class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
+                                                                                        class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                                     <a href="javascript:;"
                                                                                        title="<?= ucwords($specification['spec_name']); ?>"
                                                                                        data-placement="bottom"
@@ -536,14 +542,14 @@
                                                                 <a data-parent="#accordion" data-toggle="collapse"
                                                                    href="#additional_product_attribute">Additional
                                                                     Product Attribute<span
-                                                                        class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span></a>
+                                                                            class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span></a>
                                                             </h4>
                                                         </div>
                                                         <div class="panel-collapse " id="additional_product_attribute">
                                                             <div class="panel-body">
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Certification</label>
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Certification</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <select name="certifications[]"
                                                                                 class="selectpicker" multiple
@@ -552,7 +558,7 @@
                                                                             <option name="AFRDI Leather">AFRDI Leather
                                                                             </option>
                                                                             <option
-                                                                                name="AFRDI - Australian Furnishing Research & Development Institute">
+                                                                                    name="AFRDI - Australian Furnishing Research & Development Institute">
                                                                                 AFRDI - Australian Furnishing Research &
                                                                                 Development Institute
                                                                             </option>
@@ -565,18 +571,18 @@
                                                                             <option name="Eco Friendly">Eco Friendly
                                                                             </option>
                                                                             <option
-                                                                                name="FSC - Forest Stewardship Council">
+                                                                                    name="FSC - Forest Stewardship Council">
                                                                                 FSC - Forest Stewardship Council
                                                                             </option>
                                                                             <option name="Fair Trade">Fair Trade
                                                                             </option>
                                                                             <option
-                                                                                name="GECA - Good Environmental Choice Australia">
+                                                                                    name="GECA - Good Environmental Choice Australia">
                                                                                 GECA Good Environmental Choice Australia
                                                                             </option>
                                                                             <option name="Organic">Organic</option>
                                                                             <option
-                                                                                name="PEFC - Programme for the Endorcement of Forest Certification">
+                                                                                    name="PEFC - Programme for the Endorcement of Forest Certification">
                                                                                 PEFC -Programme for the Endorcement of
                                                                                 Forest Certification
                                                                             </option>
@@ -600,10 +606,14 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Product
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Product
                                                                         Warranty</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <textarea name="product_warranty" class="half_description" id="product_warranty"></textarea>
+                                                                        <textarea
+                                                                                placeholder="Detailed product waranty for this product"
+                                                                                name="product_warranty"
+                                                                                data-provide="markdown" rows="8"
+                                                                                class="form-control"></textarea>
                                                                         <span class="text-sm text-dark">Example: Provide the warranty validity period eg. 1 Year Warranty, N/A</span>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
@@ -618,7 +628,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Waranty
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Waranty
                                                                         Type</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <select name="warranty_type[]"
@@ -648,11 +658,13 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Warranty
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Warranty
                                                                         address</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <div class="om_summer_note" id="warranty_address">
-                                                                        </div>
+                                                                        <textarea name="warranty_address"
+                                                                                  data-provide="markdown" rows="8"
+                                                                                  placeholder="Enter the Service Centre Address. If you have multi-options selected in the Warranty Type use the sample format for addresses."
+                                                                                  class="form-control"></textarea>
                                                                         <span class="text-sm text-dark">Example: Service Center Address: 20b Caro Road, Ikeja. Lagos | Repair by Vendor Address: 5 Paris Street, Yaba. Lagos.</span>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
@@ -793,7 +805,7 @@
                                                 <div class="panel">
                                                     <div class="panel-heading">
                                                         <h3 class="panel-title">Upload Images<span
-                                                                class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span>
+                                                                    class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span>
                                                         </h3>
                                                     </div>
                                                     <div class="panel-body">
@@ -823,21 +835,21 @@
                                                                                 <p class="text-main text-bold mar-no text-overflow"
                                                                                    data-dz-name></p>
                                                                                 <span
-                                                                                    class="dz-error text-danger text-sm"
-                                                                                    data-dz-errormessage></span>
+                                                                                        class="dz-error text-danger text-sm"
+                                                                                        data-dz-errormessage></span>
                                                                                 <p class="text-sm" data-dz-size></p>
                                                                                 <div id="dz-total-progress"
                                                                                      style="opacity:0">
                                                                                     <div
-                                                                                        class="progress progress-xs active"
-                                                                                        role="progressbar"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"
-                                                                                        aria-valuenow="0">
+                                                                                            class="progress progress-xs active"
+                                                                                            role="progressbar"
+                                                                                            aria-valuemin="0"
+                                                                                            aria-valuemax="100"
+                                                                                            aria-valuenow="0">
                                                                                         <div
-                                                                                            class="progress-bar progress-bar-success"
-                                                                                            style="width:0%;"
-                                                                                            data-dz-uploadprogress></div>
+                                                                                                class="progress-bar progress-bar-success"
+                                                                                                style="width:0%;"
+                                                                                                data-dz-uploadprogress></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -873,7 +885,7 @@
                                             <img src="<?= base_url('assets/img/load.gif'); ?>"
                                                  alt="Processing...">
                                             Processing the data. Please Wait! <Br>Meanwhile Please <b
-                                                style="color: rgba(2.399780888618386%,61.74193548387097%,46.81068368248487%,0.843);">BE
+                                                    style="color: rgba(2.399780888618386%,61.74193548387097%,46.81068368248487%,0.843);">BE
                                                 ONLINE</b>
                                         </div>
                                     </div>
@@ -895,12 +907,10 @@
         <i class="pci-chevron chevron-up"></i>
     </button>
 </div>
-<!-- include libraries(jQuery, bootstrap) -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="<?= base_url('assets/js/jquery.min.js'); ?>"></script>
 <script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
 <script src="<?= base_url('assets/js/nifty.min.js'); ?>"></script>
 <script src="<?= base_url('assets/js/demo/nifty-demo.min.js'); ?>"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 <script type="text/javascript"> base_url = '<?= base_url(); ?>';</script>
 <script src="<?= base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
@@ -909,7 +919,6 @@
 <script src="<?= base_url('assets/plugins/bootstrap-markdown/js/bootstrap-markdown.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/bootstrap-select/bootstrap-select.min.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js'); ?>"></script>
-<script src="<?= base_url('assets/plugins/summernote/summernote.min.js'); ?>"></script>
 
 <script type="text/javascript">
     $('.datepicker').datepicker({
@@ -1110,64 +1119,6 @@
 
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover({animation: true});
-        $('.full_description').summernote({
-            height: '150px',
-            toolbar: [ ["style", ["style"]], ["font", ["bold", "underline"]], ["para", ["ul", "ol", "paragraph"]], ["table", ["table"]],
-                ["insert", ["picture"]], ["view", ["fullscreen"]] ],
-            callbacks: {
-                onImageUpload: function(files) {
-                    sendFile(files[0]);
-                },
-                onMediaDelete: function(target) {
-                    deleteFile(target[0].src);
-                }
-            }
-        });
-
-        function sendFile(file){
-            data = new FormData();
-            data.append("file", file);
-            $.ajax({
-                url: base_url + 'product/description_image_upload',
-                data: data,
-                cache: false,
-                contentType: false,
-                processData: false,
-                type: 'POST',
-                success: function (data) {
-                    var image = $('<img>').attr('src', data);
-                    $('.full_description').summernote("insertNode", image[0]);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus+" "+errorThrown);
-                }
-            });
-        }
-
-        function deleteFile(src) {
-            $.ajax({
-                data: {src : src},
-                type: "POST",
-                url: base_url + "product/decription_image_remove",
-                cache: false,
-                success: function(resp) {
-                    console.log(resp);
-                }
-            });
-        }
-
-        $('.half_description').summernote({
-            placeholder: 'Write here...',
-            height: '150px',
-            focus: true,
-            toolbar: [
-                ["style", ["style"]],
-                ["font", ["bold", "underline"]],
-                ["para", ["ul", "ol", "paragraph"]],
-                ["table", ["table"]],
-                ["view", ["fullscreen"]]
-            ],
-        });
     });
 </script>
 </body>

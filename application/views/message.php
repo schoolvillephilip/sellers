@@ -29,6 +29,7 @@
                 </div>
                 <ol class="breadcrumb">
                     <li><i class="demo-pli-home"></i></li>
+                    <li>Notifications</li>
                     <li class="active">Messages</li>
                 </ol>
             </div>

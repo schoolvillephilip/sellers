@@ -20,6 +20,30 @@ class Message extends MY_Controller
         $this->load->view('message', $page_data);
     }
 
+    public function questions()
+    {
+        $page_data['page_title'] = 'Customer Questions';
+        $page_data['pg_name'] = 'questions';
+        $page_data['sub_name'] = 'questions';
+        $page_data['profile'] = $this->seller->get_profile_details($this->session->userdata('logged_id'),
+            'first_name,last_name,email,profile_pic');
+        $page_data['questions'] = $this->seller->get_questions($this->session->userdata('logged_id'));
+        $this->load->view('questions', $page_data);
+    }
+
+    public function answer_question()
+    {
+        $qid = $this->input->post('qid');
+        $answer = $this->input->post('answer');
+        if ($this->seller->answer_question($qid, $answer)) {
+            $this->session->set_flashdata('success_msg', 'Question has been successfully answered');
+            redirect('message/questions');
+        }else{
+            $this->session->set_flashdata('error_msg', 'There was an error performing that action. Contact webmaster');
+            redirect('message/questions');
+        }
+    }
+
     function message_detail()
     {
         if (!$this->input->is_ajax_request()) {
@@ -35,31 +59,32 @@ class Message extends MY_Controller
         exit;
     }
 
-    function message_action(){
-        if( !$this->input->is_ajax_request() ){
+    function message_action()
+    {
+        if (!$this->input->is_ajax_request()) {
             redirect(base_url());
-        }else{
+        } else {
             $messages = $this->input->post('message');
             $action = $this->input->post('action');
             switch ($action) {
                 case 'read':
-                    foreach( $messages as $key => $value ){
-                        $this->seller->update_data(array('id' => $key ), array('is_read' => 1 ), 'sellers_notification_message');
+                    foreach ($messages as $key => $value) {
+                        $this->seller->update_data(array('id' => $key), array('is_read' => 1), 'sellers_notification_message');
                     }
-                    echo json_encode( array('status' => 'success'));
+                    echo json_encode(array('status' => 'success'));
                     exit;
                     break;
                 case 'unread':
-                    foreach( $messages as $key => $value ){
-                        $this->seller->update_data(array('id' => $key ), array('is_read' => 0 ), 'sellers_notification_message');
+                    foreach ($messages as $key => $value) {
+                        $this->seller->update_data(array('id' => $key), array('is_read' => 0), 'sellers_notification_message');
                     }
-                    echo json_encode( array('status' => 'success'));
+                    echo json_encode(array('status' => 'success'));
                     exit;
                 case 'delete':
                     foreach( $messages as $key => $value ){
                         $this->seller->delete_data($key,'sellers_notification_message');
                     }
-                    echo json_encode( array('status' => 'success'));
+                    echo json_encode(array('status' => 'success'));
                     exit;
                 default:
                     redirect(base_url());

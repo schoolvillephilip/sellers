@@ -67,9 +67,10 @@ Class Seller_model extends CI_Model
         return $result;
     }
 
-    function delete_data($id, $table){
+    function delete_data($id, $table)
+    {
         $this->db->where('id', $id);
-        return $this->db->delete( $table );
+        return $this->db->delete($table);
     }
 
     // check if the password is correct
@@ -183,7 +184,8 @@ Class Seller_model extends CI_Model
     /*
      * Get single product detail
      * */
-    function get_single_product_detail($sid, $pid){
+    function get_single_product_detail($sid, $pid)
+    {
         $query = "SELECT p.*, g.image_name, o.amount, o.quantity_sold, v.variation_qty, g.image_name FROM products AS p
                     LEFT JOIN (SELECT ga.image_name, ga.product_id FROM product_gallery ga WHERE ga.featured_image = 1 AND ga.product_id = {$pid} ) g 
                     ON (p.id = g.product_id )
@@ -316,11 +318,11 @@ Class Seller_model extends CI_Model
         return $number;
     }
 
-    function generate_general_code($table = 'users', $label )
+    function generate_general_code($table = 'users', $label)
     {
         do {
             $number = generate_token(40);
-            $this->db->where( $label, $number);
+            $this->db->where($label, $number);
             $this->db->from($table);
             $count = $this->db->count_all_results();
         } while ($count >= 1);
@@ -371,7 +373,7 @@ Class Seller_model extends CI_Model
      * @param $productid
      * @return CI_DB_result_array
      */
-    function get_orders($id = '', $status = '', $array = array() )
+    function get_orders($id = '', $status = '', $array = array())
     {
         $query = "SELECT p.product_name,p.id pid,v.variation, p.created_on created_on, o.order_date, o.commission commission, o.id orid, g.image_name,o.qty,o.amount, o.status
                 FROM products p 
@@ -383,8 +385,8 @@ Class Seller_model extends CI_Model
             $query .= " AND o.active_status = '{$status}'";
         }
         $limit = $array['is_limit'];
-        if( $limit == true ){
-            $query .=" LIMIT " .$array['offset']. "," .$array['limit'];
+        if ($limit == true) {
+            $query .= " LIMIT " . $array['offset'] . "," . $array['limit'];
         }
         return $this->db->query($query)->result();
     }
@@ -450,6 +452,28 @@ Class Seller_model extends CI_Model
         return $this->db->get($table_name)->result();
     }
 
+    function set_field($table, $field, $set, $where)
+    {
+        $this->db->where($where);
+        $this->db->set($field, $set, false);
+        return $this->db->update($table);
+    }
+
+    // Set a field by its label
+
+    function incoming_balance($id)
+    {
+        $query = "SELECT ( (SUM(amount) * SUM(qty)) - SUM(commission)) incoming_bal FROM orders WHERE ( seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND order_date <= SUBDATE(NOW(), INTERVAL 7 DAY) )";
+        return $this->run_sql($query)->row();
+    }
+
+
+    /*
+     * Incoming Balance: SUM of Item Sold - Commision on each Item at the status of shipped or active_status = 'delivered or active_status = 'completed'
+     * That the seller has not received to his wallet
+     * From the orders_table
+     * */
+
     /**
      * Run a general SQL
      * @param $query
@@ -460,58 +484,45 @@ Class Seller_model extends CI_Model
         return $this->db->query($query);
     }
 
-    // Set a field by its label
-    function set_field( $table, $field, $set, $where ){
-        $this->db->where($where);
-        $this->db->set($field, $set, false);
-        return $this->db->update($table);
-    }
-
-
-    /*
-     * Incoming Balance: SUM of Item Sold - Commision on each Item at the status of shipped or active_status = 'delivered or active_status = 'completed'
-     * That the seller has not received to his wallet
-     * From the orders_table
-     * */
-    function incoming_balance( $id ){
-        $query = "SELECT ( (SUM(amount) * SUM(qty)) - SUM(commission)) incoming_bal FROM orders WHERE ( seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND order_date <= SUBDATE(NOW(), INTERVAL 7 DAY) )";
-        return $this->run_sql( $query )->row();
-    }
-
     /*
      * Incoming_order_code :
      * The order code of the above query
      * */
-    function incoming_order_code( $id ){
+
+    function incoming_order_code($id)
+    {
         $query = "SELECT order_code FROM orders WHERE (seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND order_date <= SUBDATE(NOW(), INTERVAL 7 DAY) )";
-        return $this->run_sql( $query )->result();
+        return $this->run_sql($query)->result();
     }
+
     /*
      * Get the last 7 days commission on products sold
      * And has not been received by the seller
      * */
-    function last_7_days_commission( $id ){
+    function last_7_days_commission($id)
+    {
         $query = "SELECT SUM(commission) as commission FROM orders WHERE ( seller_id = {$id} AND (active_status = 'shipped' OR active_status = 'delivered' OR active_status = 'completed') AND seller_wallet = 0 AND order_date <= SUBDATE(NOW(), INTERVAL 7 DAY) ) ";
-        return $this->run_sql( $query )->row();
+        return $this->run_sql($query)->row();
     }
 
     /*
      * Get all commission, products relating to the order code
      * */
-    function incoming_order_code_detail( $order_code){
+    function incoming_order_code_detail($order_code)
+    {
         $id = $this->session->userdata('logged_id');
         $query = $this->run_sql("SELECT qty,amount,product_id FROM orders WHERE seller_id = {$id} AND order_code = {$order_code}")->result_array();
-        if( $query ){
+        if ($query) {
             $result = array();
-            foreach( $query as $q ){
+            foreach ($query as $q) {
                 $res['amount'] = $q['amount'];
-                $res['qty']  = $q['qty'];
+                $res['qty'] = $q['qty'];
                 // make a query for the product
                 $pquery = $this->run_sql("SELECT p.product_name, c.commission, c.name FROM products p JOIN categories c ON (p.category_id = c.id) WHERE p.id = {$q['product_id']}")->row_array();
                 $res['category'] = $pquery['name'];
-                $res['product'] = anchor(base_url('manage/stat/'. $q['product_id']), character_limiter($pquery['product_name'], 10), 'class="btn-link"');
+                $res['product'] = anchor(base_url('manage/stat/' . $q['product_id']), character_limiter($pquery['product_name'], 10), 'class="btn-link"');
                 $res['commission'] = $pquery['commission'];
-                $res['fee']  =  (($pquery['commission'] / 100) * ($q['amount'] * $q['qty']) ) ;
+                $res['fee'] = (($pquery['commission'] / 100) * ($q['amount'] * $q['qty']));
                 array_push($result, $res);
             }
             return $result;
@@ -524,30 +535,35 @@ Class Seller_model extends CI_Model
      * Get the sum of amount multiplied by the total quantity subtract onitshamarket commission
      * From a seller and the active_status = 'completed' and has passed 7 days delivery
      * */
-    function due_unpaid( $id ){
+    function due_unpaid($id)
+    {
         $query = "SELECT  (SUM(amount) * SUM(qty) - SUM(commission) ) due FROM orders 
         WHERE (seller_id = {$id} AND active_status = 'completed' AND  order_date <= SUBDATE(NOW(), INTERVAL 7 DAY) ) ";
-        return $this->run_sql( $query )->row();
+        return $this->run_sql($query)->row();
     }
 
     /*
      * Total money paid to the seller for the last 3 months
      * */
-    function last_3_month_paid( $id ){
+    function last_3_month_paid($id)
+    {
         $query = "SELECT SUM(amount) as amount FROM payouts WHERE (user_id = {$id} AND status = 'completed')";
-        return $this->run_sql( $query )->row();
+        return $this->run_sql($query)->row();
     }
 
     /*
      * Get top 20 sales for a seller*/
-    function top_20_sales( $uid ){
+    function top_20_sales($uid)
+    {
         $query = "SELECT p.product_name, p.id, SUM(o.qty) no_of_sales FROM orders o 
         LEFT JOIN products p ON (p.id = o.product_id) 
         WHERE o.seller_id = {$uid} AND active_status = 'completed' GROUP BY o.product_id ORDER BY o.qty";
-        return $this->run_sql( $query )->result();
+        return $this->run_sql($query)->result();
     }
+
     /* Get order count*/
-    function order_chart( $uid ){
+    function order_chart($uid)
+    {
         $query = "SELECT
                 SUM(IF(month = 'Jan', total, 0)) AS 'Jan',
                 SUM(IF(month = 'Feb', total, 0)) AS 'Feb',
@@ -568,7 +584,45 @@ Class Seller_model extends CI_Model
             WHERE order_date <= NOW() and order_date >= Date_add(Now(),interval - 12 month)
             AND seller_id = {$uid} AND active_status = 'completed'
             GROUP BY DATE_FORMAT(order_date, '%m-%Y')) as sub";
-        return $this->run_sql( $query)->row_array();
+        return $this->run_sql($query)->row_array();
+    }
+
+
+    function get_questions($sid = '')
+    {
+        if (!empty($sid)) {
+            $this->db->where('seller_id', $sid);
+            $this->db->select('id');
+            $results = $this->db->get('products')->result();
+            $products_id = array();
+            foreach ($results as $result) {
+                array_push($products_id, $result->id);
+            }
+            $query = "SELECT * FROM qna WHERE (answer = '' AND status = 'approved' )";
+            $questions = $this->run_sql($query)->result();
+            $response = array();
+            foreach ($questions as $question) {
+                if(in_array($question->pid, $products_id)){
+                    array_push($response, $question);
+                }
+            }
+            return $response;
+        }
+    }
+    function get_question_product($pid = '')
+    {
+        $query = "SELECT p.*, u.first_name, u.last_name FROM products AS p LEFT JOIN users AS u ON (p.seller_id = u.id) WHERE p.id = '$pid' ";
+        return $this->db->query($query)->row();
+    }
+    function answer_question($qid, $answer){
+        $timestamp = get_now();
+        $query = "UPDATE qna SET answer = '$answer', atimestamp = '$timestamp' WHERE id = '$qid'";
+        try {
+            $this->run_sql($query);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
 }
