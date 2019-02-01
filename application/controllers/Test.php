@@ -27,4 +27,8 @@ class Test extends CI_Controller{
 
     }
 
+    function summernote(){
+        $this->load->view('summernote');
+    }
+
 }

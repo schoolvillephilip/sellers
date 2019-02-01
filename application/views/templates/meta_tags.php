@@ -20,6 +20,8 @@
         <link href="<?= base_url('assets/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')?>" rel="stylesheet">
         <link href="<?= base_url('assets/plugins/bootstrap-select/bootstrap-select.min.css')?>" rel="stylesheet">
         <link href="<?= base_url('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css')?>" rel="stylesheet">
+        <!-- Summernote -->
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
     <?php endif; ?>
     <?php if( in_array($pg_name, array('manage_product','overview','message','report','orders') ) ): ?>
         <link href="<?= base_url('assets/plugins/datatables/media/css/dataTables.bootstrap.css'); ?>" rel="stylesheet">
