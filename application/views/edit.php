@@ -93,12 +93,24 @@
                                                                         <span class="text-sm text-dark">Wide Angle Camera 10 MP - Black, Galaxy Tab A Leather Flip Case - Red</span>
                                                                     </div>
                                                                 </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-3 control-label">Shop
+                                                                        Name</label>
+                                                                    <div class="col-lg-7">
+                                                                        <input type="text"
+                                                                               placeholder="Enter In Here Your Store Name"
+                                                                               value="<?= $product->product_line; ?>"
+                                                                               name="product_line" class="form-control">
+                                                                        <span class="text-sm text-dark">Eg: Fouani Nigeria, Trendy Woman Ltd, SEOLAK</span>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="form-group">
                                                                     <label class="col-lg-3 control-label">Brand Name
                                                                         *</label>
                                                                     <div class="col-lg-7">
                                                                         <select class="form-control selectpicker"
-                                                                                name="brand_name" required=""
+                                                                                name="brand_name"
                                                                                 data-width="100%">
                                                                             <?php foreach ($brands as $brand) : ?>
                                                                                 <option value="<?= ucwords($brand->brand_name); ?>" <?php if ($product->brand_name == $brand->brand_name) echo 'selected'; ?> >
@@ -115,12 +127,13 @@
                                                                 <div class="form-group">
                                                                     <label class="col-lg-3 control-label">Model</label>
                                                                     <div class="col-lg-7">
-                                                                        <input type="text" class="form-control" required
+                                                                        <input type="text" class="form-control"
                                                                                name="model"
                                                                                value="<?= $product->model; ?>"
                                                                                placeholder="Eg:  iPhone 4S Samsung TV 4T">
                                                                     </div>
                                                                 </div>
+
                                                                 <div class="form-group">
                                                                     <label class="col-lg-3 control-label">Main
                                                                         Colour</label>
@@ -131,19 +144,6 @@
                                                                                placeholder="Eg: royal blue, mint green, Peach red">
                                                                     </div>
                                                                 </div>
-
-                                                                <div class="form-group">
-                                                                    <label class="col-lg-3 control-label">Shop
-                                                                        Name</label>
-                                                                    <div class="col-lg-7">
-                                                                        <input type="text"
-                                                                               placeholder="Enter In Here Your Store Name"
-                                                                               value="<?= $product->product_line; ?>"
-                                                                               name="product_line" class="form-control">
-                                                                        <span class="text-sm text-dark">Eg: Fouani Nigeria, Trendy Woman Ltd, SEOLAK</span>
-                                                                    </div>
-                                                                </div>
-
                                                                 <div class="form-group">
                                                                     <label class="col-lg-3 control-label">Colour
                                                                         Family</label>

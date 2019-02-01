@@ -238,10 +238,10 @@ Class Seller_model extends CI_Model
     {
         // Select category
         $GLOBALS['array_variable'] = array();
-        $select_category = "SELECT pid, slug FROM categories WHERE id = {$id}";
+        $select_category = "SELECT id, slug FROM categories WHERE id = {$id}";
         $result = $this->db->query($select_category);
         if ($result->num_rows() >= 1) {
-            $pid = $result->row()->pid;
+            $pid = $result->row()->id;
             $this->parent_recurssive($pid);
             $array = array_filter($GLOBALS['array_variable']);
             $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($array));

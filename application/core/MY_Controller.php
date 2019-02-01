@@ -22,5 +22,9 @@ class MY_Controller extends CI_Controller
             $this->session->set_flashdata('error_msg','Your account is under review. You will be notified of the status via email.');
             redirect('login');
         }
+        $controller = $this->uri->segment(1);
+        if( $this->session->has_userdata('category_id') && $controller != 'product' ){
+            $this->session->unset_userdata('category_id');
+        }
     }
 }

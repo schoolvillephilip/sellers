@@ -60,11 +60,13 @@
                 <div id="page-title">
                     <h1 class="page-header text-overflow">Product</h1>
                 </div>
+
                 <ol class="breadcrumb">
-                    <li><a href="javascript:;"><i class="demo-pli-home"></i></a></li>
+                    <li><a href="javascript:;"><i class="demo-pli-home"></i>&nbsp; You're posting under</a></li>
                     <?php foreach ($categories_name as $name) : ?>
                         <li><?= $name ?></li>
                     <?php endforeach; ?>
+                    <li><a href="<?= base_url('product/'); ?>">Change Category ?</a></li>
                 </ol>
             </div>
             <div id="page-content">
@@ -333,7 +335,7 @@
                                                                         class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Product
                                                                         Description </label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <input class="full_description" name="product_description" placeholder="Give a detailed product description" id="product_description">
+                                                                        <textarea class="full_description" name="product_description" placeholder="Give a detailed product description" id="product_description"></textarea>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:void(0);"
@@ -895,10 +897,12 @@
         <i class="pci-chevron chevron-up"></i>
     </button>
 </div>
-<script src="<?= base_url('assets/js/jquery.min.js'); ?>"></script>
+<!-- include libraries(jQuery, bootstrap) -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
 <script src="<?= base_url('assets/js/nifty.min.js'); ?>"></script>
 <script src="<?= base_url('assets/js/demo/nifty-demo.min.js'); ?>"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 <script type="text/javascript"> base_url = '<?= base_url(); ?>';</script>
 <script src="<?= base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
@@ -907,7 +911,6 @@
 <script src="<?= base_url('assets/plugins/bootstrap-markdown/js/bootstrap-markdown.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/bootstrap-select/bootstrap-select.min.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js'); ?>"></script>
-<script src="<?= base_url('assets/plugins/summernote/summernote.min.js'); ?>"></script>
 
 <script type="text/javascript">
     $('.datepicker').datepicker({
@@ -1109,18 +1112,51 @@
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover({animation: true});
         $('.full_description').summernote({
-            placeholder: 'Write here...',
             height: '150px',
-            focus: true,
-            toolbar: [
-                ["style", ["style"]],
-                ["font", ["bold", "underline"]],
-                ["para", ["ul", "ol", "paragraph"]],
-                ["table", ["table"]],
-                ["insert", ["picture"]],
-                ["view", ["fullscreen"]]
-            ],
+            toolbar: [ ["style", ["style"]], ["font", ["bold", "underline"]], ["para", ["ul", "ol", "paragraph"]], ["table", ["table"]],
+                ["insert", ["picture"]], ["view", ["fullscreen"]] ],
+            callbacks: {
+                onImageUpload: function(files) {
+                    sendFile(files[0]);
+                },
+                onMediaDelete: function(target) {
+                    deleteFile(target[0].src);
+                }
+            }
         });
+
+        function sendFile(file){
+            data = new FormData();
+            data.append("file", file);
+            $.ajax({
+                url: base_url + 'product/description_image_upload',
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                type: 'POST',
+                success: function (data) {
+                    var image = $('<img>').attr('src', data);
+                    $('.full_description').summernote("insertNode", image[0]);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus+" "+errorThrown);
+                }
+            });
+        }
+
+        function deleteFile(src) {
+            $.ajax({
+                data: {src : src},
+                type: "POST",
+                url: base_url + "product/decription_image_remove",
+                cache: false,
+                success: function(resp) {
+                    console.log(resp);
+                }
+            });
+        }
+
         $('.half_description').summernote({
             placeholder: 'Write here...',
             height: '150px',

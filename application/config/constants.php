@@ -91,8 +91,12 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 defined('CLOUDINARY_CLOUD_NAME') OR define('CLOUDINARY_CLOUD_NAME', "onitshamarket");
 defined('CLOUDINARY_API_KEY') OR define('CLOUDINARY_API_KEY', "225471712598732");
 defined('CLOUDINARY_API_SECRET') OR define('CLOUDINARY_API_SECRET', "CAg5I2si21ibz-bFx-U759ljqTk");
+
 defined('PRODUCT_IMAGE_FOLDER') OR define('PRODUCT_IMAGE_FOLDER', "onitshamarket/product/");
 defined('PRODUCTS_IMAGE_PATH') OR define('PRODUCTS_IMAGE_PATH', "https://res.cloudinary.com/onitshamarket/" . PRODUCT_IMAGE_FOLDER);
+
+defined('PRODUCT_DESCRIPTION_FOLDER') OR define('PRODUCT_DESCRIPTION_FOLDER', "onitshamarket/product/description");
+defined('PRODUCT_DESCRIPTION_PATH') OR define('PRODUCT_DESCRIPTION_PATH', "https://res.cloudinary.com/onitshamarket/" .PRODUCT_DESCRIPTION_FOLDER );
 
 
 // Database

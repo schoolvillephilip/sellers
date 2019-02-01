@@ -23,7 +23,7 @@ class Product extends MY_Controller
             $page_data['sub_name'] = 'select_category';
             $page_data['profile'] = $this->seller->get_profile_details($uid,
                 'first_name,last_name,email,profile_pic');
-            $page_data['categories'] = $this->seller->get_results('categories', 'id,name', "( pid = 0)");
+            $page_data['categories'] = $this->seller->get_results('categories', 'id,name', "( pid = 0 )");
             $this->load->view('choose_category', $page_data);
         }
     }
@@ -490,7 +490,9 @@ class Product extends MY_Controller
         }
     }
 
-
+    /*
+     * Upload image via cloudinary
+     * */
     function upload_image($filepath, $product_name)
     {
         $this->load->library('cloudinarylib');
@@ -499,8 +501,9 @@ class Product extends MY_Controller
                 "folder" => PRODUCT_IMAGE_FOLDER,
                 "public_id" => $product_name,
                 "resource_type" => "image",
-                "overwrite" => true,
+                "overwrite" => fasle,
                 "eager_async" => true,
+                "quality" => 60,
                 "eager" => array(
                     array("width" => 630, "height" => 570, "crop" => "fill")
                 )
@@ -508,7 +511,6 @@ class Product extends MY_Controller
         );
         return $return;
     }
-
     /*
      * Load all images for a single product
      * To be used for product edit...*/
@@ -532,8 +534,10 @@ class Product extends MY_Controller
         echo json_encode($result);
         exit;
     }
-
-
+    /*
+     * Curl to get file size
+     * Used for editing of product
+     * */
     function curl_get_file_size( $url ) {
         // Assume failure.
         $result = -1;
@@ -560,5 +564,41 @@ class Product extends MY_Controller
             }
         }
         return $result;
+    }
+
+    /*
+     * Upload  description image
+     * */
+    function description_image_upload(){
+        if( !$this->input->is_ajax_request()) redirect(base_url());
+        if( $_FILES ){
+            $allowed = array('png', 'jpg', 'gif');
+            $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+            if( !in_array(strtolower($extension), $allowed)){
+                echo '{"status" : "error"}'; exit;
+            }
+            $data = array(
+                'folder' =>   PRODUCT_DESCRIPTION_FOLDER,
+                'filepath'  => $_FILES['file']['tmp_name'],
+                'eager' => array("width" => 400, "height" => 400, "crop" => "fill")
+            );
+            $this->cloudinarylib->upload_image( $data );
+            echo $this->cloudinarylib->get_result('full_url');
+            exit;
+        }
+    }
+
+    /*
+     * Delete description image
+     * */
+    function decription_image_remove(){
+        if( !$this->input->is_ajax_request()) redirect(base_url());
+        $src = $this->input->post('src');
+        // lets build the public id
+        $explode = explode( '/', $src);
+        $image_name = explode('.', end( $explode));
+        $public_id = PRODUCT_DESCRIPTION_FOLDER . $image_name[0];
+        echo $this->cloudinary->delete_image( $public_id );
+        exit;
     }
 }
