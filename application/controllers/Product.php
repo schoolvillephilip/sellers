@@ -91,18 +91,23 @@ class Product extends MY_Controller
     public function process()
     {
         if ($this->input->post() || isset($_FILES)) {
-            var_dump( $_POST );exit;
+//            var_dump( $_POST );exit;
             $pricing_error = $image_error = 0;
             $return['status'] = 'error';
             $return['message'] = '';
             // Product Block
             $certifications = $this->input->post('certifications');
-            $certifications = (!empty($certifications)) ? json_encode($certifications) : '';
+            $certifications = (!empty($certifications)) ? json_encode($certifications) : '[]';
             $warranty_type = $this->input->post('warranty_type');
-            $warranty_type = (!empty($warranty_type)) ? json_encode($warranty_type) : '';
+            $warranty_type = (!empty($warranty_type)) ? json_encode($warranty_type) : '[]';
             $colour_family = $this->input->post('colour_family');
-            $colour_family = (!empty($colour_family)) ? json_encode($colour_family) : '';
+            $colour_family = (!empty($colour_family)) ? json_encode($colour_family) : '[]';
             $sku = $this->product->generate_code();
+            $product_description = '<div class="prod_description">' . $this->input->post('product_description', true) .'</div>';
+            $in_the_box = nl2br($this->input->post('in_the_box', true));
+            $highlights = nl2br($this->input->post('highlights', true));
+            $product_warranty = nl2br($this->input->post('product_warranty', true));
+            $warranty_address = nl2br($this->input->post('warranty_address', true));
             $product_table = array(
                 'seller_id' => $this->session->userdata('logged_id'),
                 'sku' => $sku,
@@ -111,23 +116,23 @@ class Product extends MY_Controller
                 'brand_name' => cleanit($this->input->post('brand_name')),
                 'model' => cleanit($this->input->post('model')),
                 'main_colour' => $this->input->post('main_colour'),
-                'product_description' => $this->input->post('product_description'),
+                'product_description' => $product_description,
                 'youtube_id' => cleanit($this->input->post('youtube_id')),
-                'in_the_box' => htmlentities($this->input->post('in_the_box'), ENT_QUOTES),
-                'highlights' => htmlentities($this->input->post('highlights'), ENT_QUOTES),
+                'in_the_box' => $in_the_box,
+                'highlights' => $highlights,
                 'product_line' => cleanit($this->input->post('product_line')),
                 'colour_family' => $colour_family,
                 'main_material' => $this->input->post('main_material'),
                 'dimensions' => cleanit($this->input->post('dimensions')),
                 'weight' => cleanit($this->input->post('weight')),
-                'product_warranty' => htmlentities($this->input->post('product_warranty'), ENT_QUOTES),
+                'product_warranty' => $product_warranty,
                 'warranty_type' => $warranty_type,
-                'warranty_address' => $this->input->post('warranty_address'),
+                'warranty_address' => $warranty_address,
                 'certifications' => $certifications,
                 'product_status' => 'pending',
                 'created_on' => get_now()
             );
-            //     Product Features Block
+            // Product Features Block
             // Since we are getting the specification name; we loop through the specification json
             // SELECT id FROM specifications WHERE spec_name = 'POST_KEY'
             $attributes = array();
@@ -166,9 +171,6 @@ class Product extends MY_Controller
                     $variation_data['discount_price'] = $discount_price[$i];
                     $variation_data['start_date'] = $start_date[$i];
                     $variation_data['end_date'] = $end_date[$i];
-//                    if (empty($variation_data['discount_price'])) {
-//                        $variation_data['start_date'] = $variation_data['end_date'] = '';
-//                    }
                     if ($variation_data['quantity'] < 1) $variation_data['quantity'] = 10;
                     if (!is_int($this->seller->insert_data('product_variation', $variation_data))) {
                         throw new Exception('There was an error inserting the variation' . $this->seller->insert_data('product_variation', $variation_data));
@@ -183,7 +185,6 @@ class Product extends MY_Controller
                     'seller_id' => $this->session->userdata('logged_id'),
                     'created_at' => get_now()
                 );
-
                 $files = $_FILES;
                 for ($x = 0; $x < $counts; $x++) {
                     $old_name = $files['file']['name'][$x];
@@ -192,26 +193,33 @@ class Product extends MY_Controller
                     $_FILES['file']['tmp_name'] = $files['file']['tmp_name'][$x];
                     $_FILES['file']['error'] = $files['file']['error'][$x];
                     $_FILES['file']['size'] = $files['file']['size'][$x];
-                    $image_name = md5(md5($_FILES['file']['name']));
-//                    try {
-                        $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $image_name);
-                        $product_gallery['image_name'] = $image_name .'.' . $upload_result['format'];
-                        $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name == $_POST['featured_image'])) ? 1 : 0;
-                        if ($counts == 1) $product_gallery['featured_image'] = 1;
-                        if(!$this->seller->insert_data('product_gallery', $product_gallery)){
-                            $image_error++;
-                        }
-//                    } catch (Exception $e) {
-//                        $image_error++;
-//                    }
-                    unset($_FILES['file']['tmp_name']);
+
+                    $image_upload_array = array(
+                        'folder' =>   PRODUCT_IMAGE_FOLDER,
+                        'filepath'  => $_FILES['file']['tmp_name'],
+                        'eager' => array("width" => 630, "height" => 570, "crop" => "fill")
+                    );
+
+                    $this->cloudinarylib->upload_image( $image_upload_array );
+                    $image_name = $this->cloudinarylib->get_result('filename');
+
+                    $product_gallery['image_name'] = $image_name;
+
+                    $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name == $_POST['featured_image'])) ? 1 : 0;
+                    if ($counts == 1) $product_gallery['featured_image'] = 1;
+                    if(!$this->seller->insert_data('product_gallery', $product_gallery)){
+                        $image_error++;
+                    }
+                    unset($_FILES['file']['tmp_name']); unset($image_upload_array);
                 }// end of for loop
             }
             // Check for errors
             if ($pricing_error > 0) {
                 $return['message'] = 'Error: There was an error submitting one of the pricing variation. Go to "Manage Product > Pricing Variation" to fix it.';
+                $this->session->set_flashdata('error_msg', 'Error: There was an error submitting one of the pricing variation. Go to "Manage Product > Pricing Variation" to fix it.');
             } elseif ($image_error > 0) {
                 $return['message'] = 'Error: There was an error submitting one of the Image. Go to "Manage Product" to fix it.';
+                $this->session->set_flashdata('error_msg', 'Error: There was an error submitting one of the Image. Go to "Manage Product" to fix it.');
             } else {
                 // New product mail to be sent to the seller
                 $this->session->unset_userdata('category_id');
@@ -313,7 +321,7 @@ class Product extends MY_Controller
             }
             $page_data['variation_name'] = $category_details->variation_name;
             $page_data['variation_options'] = $option_array;
-            $page_data['variations'] = $this->seller->get_results('product_variation', '*', "( product_id = {$id})");
+            $page_data['variations'] = $this->seller->get_results('product_variation', '*', array('product_id' => $id));
             $page_data['product_id'] = $id;
             $page_data['page_title'] = 'Edit product ( ' . $page_data['product']->product_name . ' )';
             $page_data['brands'] = $this->seller->get_results('brands');
@@ -326,29 +334,33 @@ class Product extends MY_Controller
             $return['message'] = '';
             // Product Block
             $certifications = $this->input->post('certifications');
-            $certifications = (!empty($certifications)) ? json_encode($certifications) : '';
+            $certifications = (!empty($certifications)) ? json_encode($certifications) : '[]';
             $warranty_type = $this->input->post('warranty_type');
-            $warranty_type = (!empty($warranty_type)) ? json_encode($warranty_type) : '';
+            $warranty_type = (!empty($warranty_type)) ? json_encode($warranty_type) : '[]';
             $colour_family = $this->input->post('colour_family');
-            $colour_family = (!empty($colour_family)) ? json_encode($colour_family) : '';
-            $description = $this->input->post('product_description');
+            $colour_family = (!empty($colour_family)) ? json_encode($colour_family) : '[]';
+            $description = nl2br(trim($this->input->post('product_description', true)));
+            $in_the_box = nl2br($this->input->post('in_the_box', true));
+            $highlights = nl2br($this->input->post('highlights', true));
+            $product_warranty = nl2br($this->input->post('product_warranty', true));
+            $warranty_address = nl2br($this->input->post('warranty_address', true));
             $product_table = array(
                 'product_name' => cleanit($this->input->post('product_name', true)),
                 'brand_name' => cleanit($this->input->post('brand_name', true)),
                 'model' => cleanit($this->input->post('model', true)),
                 'main_colour' => $this->input->post('main_colour'),
-                'product_description' => htmlentities($description, ENT_QUOTES),
+                'product_description' => $description,
                 'youtube_id' => cleanit($this->input->post('youtube_id',true)),
-                'in_the_box' => htmlentities($this->input->post('in_the_box',true), ENT_QUOTES),
-                'highlights' => htmlentities($this->input->post('highlights',true), ENT_QUOTES),
+                'in_the_box' => $in_the_box,
+                'highlights' => $highlights,
                 'product_line' => cleanit($this->input->post('product_line',true)),
                 'colour_family' => $colour_family,
                 'main_material' => $this->input->post('main_material',true),
                 'dimensions' => cleanit($this->input->post('dimensions',true)),
                 'weight' => cleanit($this->input->post('weight',true)),
-                'product_warranty' => htmlentities($this->input->post('product_warranty',true), ENT_QUOTES),
+                'product_warranty' => $product_warranty,
                 'warranty_type' => $warranty_type,
-                'warranty_address' => $this->input->post('warranty_address',true),
+                'warranty_address' => $warranty_address,
                 'certifications' => $certifications,
                 'product_status' => 'pending'
             );
@@ -368,6 +380,7 @@ class Product extends MY_Controller
                     }
                 }
             }
+
             $product_table['attributes'] = json_encode($attributes);
             // update product table
             $this->seller->update_data(array('id' => $id), $product_table, 'products');
@@ -384,7 +397,6 @@ class Product extends MY_Controller
             $end_date = $this->input->post('end_date');
             $variation_id = $this->input->post('variation_id');
             if ($count_check > 0){
-                $msg = '';
                 for ($i = 0; $i < $count_check; $i++) {
                     $variation_id['id'] = $variation_id[$i];
                     $variation_data['variation'] = cleanit($variation[$i]);
@@ -408,8 +420,6 @@ class Product extends MY_Controller
 
                 }
             }
-            $this->session->set_flashdata('error_msg', $msg);
-
             // Product Gallery Block
             if (isset($_FILES) && !empty($_FILES)) {
                 $counts = sizeof($_FILES['file']['tmp_name']);
@@ -423,7 +433,8 @@ class Product extends MY_Controller
                     $_FILES['file']['error'] = $files['file']['error'][$x];
                     $_FILES['file']['size'] = $files['file']['size'][$x];
                     // check if we have the file already uploaded
-                    if( $this->curl_get_file_size(PRODUCTS_IMAGE_PATH . $old_name['old_name']) ){
+                    if( $this->curl_get_file_size(PRODUCTS_IMAGE_PATH . $old_name['old_name']) == ''
+                        || $this->curl_get_file_size(PRODUCTS_IMAGE_PATH . $old_name['old_name']) == 'unknown' ){
                         $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name['old_name'] == $_POST['featured_image'])) ? 1 : 0;
                         if ($counts == 1) $product_gallery['featured_image'] = 1;
                         if (!$this->seller->update_data(array('image_name' => $old_name['old_name']), $product_gallery, 'product_gallery')) {
@@ -431,9 +442,14 @@ class Product extends MY_Controller
                         }
                     }else {
                         // we have a new file to upload
-                        $image_name = md5(md5($_FILES['file']['name']));
-                        $upload_result = $this->upload_image($_FILES['file']['tmp_name'], $image_name);
-                        if ($upload_result) {
+                        $image_upload_array = array(
+                            'folder' =>   PRODUCT_IMAGE_FOLDER,
+                            'filepath'  => $_FILES['file']['tmp_name'],
+                            'eager' => array("width" => 630, "height" => 570, "crop" => "fill")
+                        );
+                        $this->cloudinarylib->upload_image( $image_upload_array );
+                        $image_name = $this->cloudinarylib->get_result();
+                        if ($image_name) {
                             $product_gallery = array(
                                 'product_id' => $id,
                                 'seller_id' => $this->session->userdata('logged_id'),
@@ -454,7 +470,7 @@ class Product extends MY_Controller
             if ($pricing_error > 0) {
                 $return['message'] = 'Error: There was an error updating one of the pricing variation. Go to "Manage Product > Pricing Variation" to fix it.';
             } elseif ($image_error > 0) {
-                $return['message'] = 'Error: There was an error updating one of the Image. Go to "Manage Product" to fix it.';
+                $return['message'] = 'Error: There was an error updating one of the Image. Go to "Manage Product" to fix it.' ;
             } else {
                 // New product mail to be sent to the seller
                 $return['status'] = 'success';
@@ -464,8 +480,6 @@ class Product extends MY_Controller
             redirect($_SERVER['HTTP_REFERER']);
         }
     }
-
-
 
     /*
      * DEPRECATED
@@ -493,15 +507,14 @@ class Product extends MY_Controller
     /*
      * Upload image via cloudinary
      * */
-    function upload_image($filepath, $product_name)
-    {
+    function upload_image($filepath, $product_name){
         $this->load->library('cloudinarylib');
         $return = \Cloudinary\Uploader::upload($filepath,
             array("tags" => $product_name,
                 "folder" => PRODUCT_IMAGE_FOLDER,
                 "public_id" => $product_name,
                 "resource_type" => "image",
-                "overwrite" => fasle,
+                "overwrite" => false,
                 "eager_async" => true,
                 "quality" => 60,
                 "eager" => array(
@@ -517,14 +530,12 @@ class Product extends MY_Controller
     public function load_images($id = '')
     {
         if (!$this->input->is_ajax_request()) redirect(base_url());
-        $galleries = $this->seller->get_product_gallery($id);
+        $galleries = $this->seller->get_product_gallery(cleanit($id));
         $result = array();
         foreach ($galleries as $gallery) {
             $img_name = $gallery->image_name;
             $obj['filename'] = $img_name;
             $obj['fileURL'] = PRODUCTS_IMAGE_PATH . $img_name;
-//            $obj['fileURL'] = base_url('data/products/' . $id . '/' . $img_name);
-//            $obj['filesize'] = filesize(realpath('./data/products/' . $id . '/' . $img_name));
             $obj['filesize'] = $this->curl_get_file_size(PRODUCTS_IMAGE_PATH . $img_name);
             $obj['featured'] = $gallery->featured_image;
             $result[] = $obj;
@@ -572,8 +583,8 @@ class Product extends MY_Controller
     function description_image_upload(){
         if( !$this->input->is_ajax_request()) redirect(base_url());
         if( $_FILES ){
-            $allowed = array('png', 'jpg', 'gif');
-            $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+            $allowed = array('png', 'jpg', 'jpeg', 'gif');
+            $extension = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
             if( !in_array(strtolower($extension), $allowed)){
                 echo '{"status" : "error"}'; exit;
             }
@@ -598,7 +609,7 @@ class Product extends MY_Controller
         $explode = explode( '/', $src);
         $image_name = explode('.', end( $explode));
         $public_id = PRODUCT_DESCRIPTION_FOLDER . $image_name[0];
-        echo $this->cloudinary->delete_image( $public_id );
+        echo $this->cloudinarylib->delete_image( $public_id );
         exit;
     }
 }

@@ -17,12 +17,11 @@ class Cloudinarylib
         ));
     }
 
-
     /*
      * Upload image based on the args passed
      * Return the public Id of the image uploaded
      * */
-    function upload_image( $args = array() ){
+    public function upload_image( $args = array() ){
         if( !empty($args) ){
             try {
                 if( !empty( $this->result)) unset( $this->result);
@@ -51,7 +50,7 @@ class Cloudinarylib
      * Called after image upload successful
      * Type - full_url, public_id, filename
      * */
-    function get_result( $type = 'filename' ){
+    public function get_result( $type = 'filename' ){
         if( !empty( $this->result ) ){
             switch ($type) {
                 case 'full_url':
@@ -71,7 +70,10 @@ class Cloudinarylib
         }
     }
 
-    function delete_image( $public_id ){
+    /*
+     * Delete image
+     * */
+    public function delete_image( $public_id ){
         try {
             $result = \Cloudinary\Uploader::destroy($public_id);
             // $result['status'] == 'ok'
