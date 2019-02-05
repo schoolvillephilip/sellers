@@ -4,6 +4,66 @@
     img.dz-img {
         max-width: 80px;
     }
+    .img_load .loader,
+    .img_load .loader:before,
+    .img_load .loader:after {
+        border-radius: 50%;
+        width: 1.5em;
+        height: 1.5em;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation: img_load 1.8s infinite ease-in-out;
+        animation: img_load 1.8s infinite ease-in-out;
+    }
+
+    .img_load .loader {
+        color: #177bbb;
+        font-size: 7px;
+        margin: 40px auto;
+        position: relative;
+        text-indent: -9999em;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+
+    .img_load .loader:before, .img_load .loader:after {
+        content: '';
+        position: absolute;
+        top: 0;
+    }
+
+    .img_load .loader:before {
+        left: -2.5em;
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+
+    .img_load .loader:after {
+        left: 2.5em;
+    }
+    @-webkit-keyframes img_load {
+        0%,
+        80%,
+        100% {
+            box-shadow: 0 2.5em 0 -1.3em;
+        }
+        40% {
+            box-shadow: 0 2.5em 0 0;
+        }
+    }
+    @keyframes img_load {
+        0%,
+        80%,
+        100% {
+            box-shadow: 0 2.5em 0 -1.3em;
+        }
+        40% {
+            box-shadow: 0 2.5em 0 0;
+        }
+    }
 </style>
 </head>
 <body>
@@ -194,7 +254,6 @@
                                                                         <span class="text-sm text-dark">Eg: Leather</span>
                                                                     </div>
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -218,6 +277,12 @@
                                                                         Description </label>
                                                                     <div class="col-lg-7">
                                                                         <textarea class="product_description form-control" id="product_description" name="product_description" placeholder="Give a detailed product description"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="product_description_image" style="display: none;">
+                                                                    <div class="img_load">
+                                                                        <div class="loader"></div>
+                                                                        <h3 class="img_text text-center text-semibold"></h3>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
@@ -908,7 +973,6 @@
         });
         $('#product_description').summernote('code', product_description);
 
-
         var highlights = `<?= $product->highlights; ?>`;
         var in_the_box = `<?= $product->in_the_box; ?>`;
         var product_warranty = `<?= $product->product_warranty; ?>`;
@@ -929,7 +993,44 @@
         $('#in_the_box').summernote('code', in_the_box);
         $('#product_warranty').summernote('code', product_warranty);
         $('#warranty_address').summernote('code', warranty_address);
+
+        function sendFile(file){
+            data = new FormData();
+            data.append("file", file);
+            $('#product_description_image').css('display', 'block');
+            $('.img_text').text('Please hold on. Image is under processing...');
+            $.ajax({
+                url: base_url + 'product/description_image_upload',
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                type: 'POST',
+                success: function (data) {
+                    var image = $('<img>').attr('src', data);
+                    $('#product_description').summernote("insertNode", image[0]);
+                    $('#product_description_image').css('display', 'none');
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus+" "+errorThrown);
+                    $('#product_description_image').css('display', 'none');
+                }
+            });
+        }
+
+        function deleteFile(src) {
+            $.ajax({
+                data: {src : src},
+                type: "POST",
+                url: base_url + "product/decription_image_remove",
+                cache: false,
+                success: function(resp) {
+                    console.log(resp);
+                }
+            });
+        }
     });
+
 </script>
 </body>
 </html>
