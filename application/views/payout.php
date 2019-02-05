@@ -36,7 +36,7 @@
                             <div class="col-md-3">
                                 <div class="panel panel-bordered-dark panel-colorful">
                                     <div class="pad-all text-center">
-                                        <span class="text-3x text-thin"><?= ngn($incoming_balance->incoming_bal); ?></span>
+                                        <span class="text-2x text-thin"><?= ngn($incoming_balance->incoming_bal); ?></span>
                                         <p>LAST 7 DAYS INCOMING BALANCE</p>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                 <div class="panel panel-bordered-pink panel-colorful">
                                     <a href="<?= base_url('orders/?type=delivered') ?>">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin"><?=ngn($total_commission->commission);?>
+                                            <span class="text-2x text-thin"><?=ngn($total_commission->commission);?>
                                                 </span>
                                             <p>LAST 7 DAYS COMMISSIONS</p>
                                         </div>
@@ -55,7 +55,7 @@
                             <div class="col-md-3">
                                 <div class="panel panel-bordered-primary panel-colorful">
                                     <div class="pad-all text-center">
-                                        <span class="text-3x text-thin"><?= ngn($profile->balance) ?></span>
+                                        <span class="text-2x text-thin"><?= ngn($profile->balance) ?></span>
                                         <p>AVAILABLE BALANCE</p>
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                             <div class="col-md-3">
                                 <div class="panel panel-bordered-purple panel-colorful">
                                     <div class="pad-all text-center">
-                                        <span class="text-3x text-thin"><?= ngn($paid->amt); ?></span>
+                                        <span class="text-2x text-thin"><?= ngn($paid->amt); ?></span>
                                         <p>PAYOUT HISTORY - PAID</p>
                                     </div>
                                 </div>
