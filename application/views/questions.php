@@ -15,7 +15,8 @@
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
     }
-    .image_link:hover{
+
+    .image_link:hover {
         color: #048a70;
     }
 </style>
@@ -47,31 +48,34 @@
                                 <h4>Questions</h4>
                             </div>
                             <div class="panel-body">
-                                <?php if (count($questions) > 1) : ?>
-                                    <?php foreach ($questions as $question): ?>
-                                        <?php
-                                        $pid = $question->pid;
-                                        $product = $this->seller->get_question_product($pid);
-                                        ?>
-                                        <div class="col-sm-12">
-                                            <a href="javascript:;" class="question-link"
-                                               data-question="<?= $question->question; ?>"
-                                               data-product-name="<?= word_limiter($product->product_name, 5); ?>"
-                                               data-qid="<?= $question->id; ?>">
-                                                <h4><i class="demo-pli-question"></i>&nbsp;<?= $question->question; ?>
-                                                    <small>about</small>
-                                                </h4>
-                                                <p class="product_name"><a class="image_link" href="<?= base_url('manage/stat/' . $product->id); ?>"><?= word_limiter($product->product_name, 5); ?></a></p>
-                                                <p class="q_meta">asked by <?= $question->display_name; ?>
-                                                    on <?= date('l, F d', strtotime($question->qtimestamp)); ?></p>
-                                            </a>
-                                        </div>
-                                    <?php endforeach; ?>
-                                <?php else:?>
-                                <div class="col-sm-12">
-                                    <h3 class="product_name">No questions for you yet...</h3>
+                                <div class="nano has-scrollbar" style="height: 450px;">
+                                    <div class="nano-content" tabindex="0">
+                                        <?php if (count($questions) > 1) : ?>
+                                            <?php foreach ($questions as $question): ?>
+                                                <div class="col-sm-12">
+                                                    <a href="javascript:;" class="question-link"
+                                                       data-question="<?= $question->question; ?>"
+                                                       data-product-name="<?= word_limiter($question->product_name, 5); ?>"
+                                                       data-qid="<?= $question->id; ?>">
+                                                        <h4>
+                                                            <i class="demo-pli-question"></i>&nbsp;<?= $question->question; ?>
+                                                            <small>from</small>
+                                                        </h4>
+                                                        <p class="product_name"><a class="image_link"
+                                                                                   href="<?= base_url('manage/stat/' . $question->pid); ?>"><?= word_limiter($question->product_name, 5); ?></a>
+                                                        </p>
+                                                        <p class="q_meta">asked by <?= $question->display_name; ?>
+                                                            on <?= date('l, F d', strtotime($question->qtimestamp)); ?></p>
+                                                    </a>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <div class="col-sm-12">
+                                                <h3 class="product_name">No questions for you yet...</h3>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
-                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="panel col-sm-5">
