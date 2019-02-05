@@ -1,7 +1,68 @@
 <?php $this->load->view('templates/meta_tags'); ?>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
 <style type="text/css">
     img.dz-img {
         max-width: 80px;
+    }
+    .img_load .loader,
+    .img_load .loader:before,
+    .img_load .loader:after {
+        border-radius: 50%;
+        width: 1.5em;
+        height: 1.5em;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation: img_load 1.8s infinite ease-in-out;
+        animation: img_load 1.8s infinite ease-in-out;
+    }
+
+    .img_load .loader {
+        color: #177bbb;
+        font-size: 7px;
+        margin: 40px auto;
+        position: relative;
+        text-indent: -9999em;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+
+    .img_load .loader:before, .img_load .loader:after {
+        content: '';
+        position: absolute;
+        top: 0;
+    }
+
+    .img_load .loader:before {
+        left: -2.5em;
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+
+    .img_load .loader:after {
+        left: 2.5em;
+    }
+    @-webkit-keyframes img_load {
+        0%,
+        80%,
+        100% {
+            box-shadow: 0 2.5em 0 -1.3em;
+        }
+        40% {
+            box-shadow: 0 2.5em 0 0;
+        }
+    }
+    @keyframes img_load {
+        0%,
+        80%,
+        100% {
+            box-shadow: 0 2.5em 0 -1.3em;
+        }
+        40% {
+            box-shadow: 0 2.5em 0 0;
+        }
     }
 </style>
 </head>
@@ -138,10 +199,18 @@
                                                                     <label class="col-lg-3 control-label">Main
                                                                         Colour</label>
                                                                     <div class="col-lg-7">
-                                                                        <input type="text" class="form-control"
-                                                                               name="main_colour"
-                                                                               value="<?= ucfirst($product->main_colour); ?>"
-                                                                               placeholder="Eg: royal blue, mint green, Peach red">
+                                                                        <select name="main_colour" class="selectpicker" title="Choose Main Colour"
+                                                                        data-width="100%">
+                                                                            <option value="">-- Select main colour --</option>
+                                                                            <?php
+                                                                            $colours = explode(',', lang('colours'));
+                                                                            foreach ($colours as $colour):
+                                                                            ?>
+                                                                            <option value="<?= trim($colour); ?>" <?php if ($colour == $product->main_colour) echo 'selected'; ?> >
+                                                                                <?= trim(ucfirst($colour)); ?>
+                                                                            </option>
+                                                                            <?php endforeach; ?>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
@@ -185,7 +254,6 @@
                                                                         <span class="text-sm text-dark">Eg: Leather</span>
                                                                     </div>
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -208,10 +276,13 @@
                                                                     <label class="col-lg-3 control-label">Product
                                                                         Description </label>
                                                                     <div class="col-lg-7">
-                                                                        <textarea placeholder="Product description"
-                                                                                  data-provide="markdown" rows="8"
-                                                                                  name="product_description"
-                                                                                  class="form-control"><?= $product->product_description; ?></textarea>
+                                                                        <textarea class="product_description form-control" id="product_description" name="product_description" placeholder="Give a detailed product description"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="product_description_image" style="display: none;">
+                                                                    <div class="img_load">
+                                                                        <div class="loader"></div>
+                                                                        <h3 class="img_text text-center text-semibold"></h3>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
@@ -226,25 +297,18 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label class="col-lg-3 control-label">What's in the
-                                                                        box?</label>
+                                                                    <label class="col-lg-3 control-label">Highlights</label>
                                                                     <div class="col-lg-7">
-                                                                        <textarea
-                                                                                placeholder="Any information in the box"
-                                                                                data-provide="markdown"
-                                                                                name="in_the_box" rows="8"
-                                                                                class="form-control"><?= $product->in_the_box; ?></textarea>
+                                                                        <textarea title="A brief highlight of what is in the box?" class="highlights form-control" name="highlights" id="highlights"></textarea>
+                                                                        <span class="text-sm text-dark">Enter short major highlights of the product, to make the purchase decision for the customer easier.</span>
+                                                                        <span class="text-sm text-dark">Example: Best expierience ever - super fast and easy navigation - better control</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label class="col-lg-3 control-label">Highlights</label>
+                                                                    <label class="col-lg-3 control-label">What's in the
+                                                                        box?</label>
                                                                     <div class="col-lg-7">
-                                                                        <textarea placeholder="Additional info"
-                                                                                  name="highlights"
-                                                                                  data-provide="markdown" rows="8"
-                                                                                  class="form-control"><?= $product->highlights; ?></textarea>
-                                                                        <span class="text-sm text-dark">Enter short major highlights of the product, to make the purchase decision for the customer easier.</span>
-                                                                        <span class="text-sm text-dark">Example: Best expierience ever - super fast and easy navigation - better control</span>
+                                                                        <textarea title="What is in the box?" class="in_the_box form-control" name="in_the_box" id="in_the_box"></textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -382,11 +446,7 @@
                                                                     <label class="col-lg-3 control-label">Product
                                                                         Warranty</label>
                                                                     <div class="col-lg-7">
-                                                                        <textarea
-                                                                                placeholder="Detailed product waranty for this product"
-                                                                                name="product_warranty"
-                                                                                data-provide="markdown" rows="8"
-                                                                                class="form-control"></textarea>
+                                                                        <textarea title="Product Warranty (if any)" class="product_warranty form-control" name="product_warranty" id="product_warranty"></textarea>
                                                                         <span class="text-sm text-dark">Example: Provide the warranty validity period eg. 1 Year Warranty, N/A</span>
                                                                     </div>
                                                                 </div>
@@ -412,10 +472,7 @@
                                                                     <label class="col-lg-3 control-label">Warranty
                                                                         address</label>
                                                                     <div class="col-lg-7">
-                                                                        <textarea name="warranty_address"
-                                                                                  data-provide="markdown" rows="8"
-                                                                                  placeholder="Enter the Service Centre Address. If you have multi-options selected in the Warranty Type use the sample format for addresses."
-                                                                                  class="form-control"><?= $product->warranty_address; ?></textarea>
+                                                                        <textarea title="Warranty address" class="warranty_address form-control" name="in_the_box" id="warranty_address"><</textarea>
                                                                         <span class="text-sm text-dark">Example: Service Center Address: 20b Caro Road, Ikeja. Lagos | Repair by Vendor Address: 5 Paris Street, Yaba. Lagos.</span>
                                                                     </div>
                                                                 </div>
@@ -498,7 +555,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="form-group-sm">
-                                                                        <label class="">Sale Price* </label>
+                                                                        <label class="">Sale Price * </label>
                                                                         <input title="Price" type="text"
                                                                                class="form-control" name="sale_price[]"
                                                                                value="<?= $variation->sale_price; ?>"/>
@@ -509,7 +566,9 @@
                                                                         <label class="">Discount Price </label>
                                                                         <input title="Discounted price" type="text"
                                                                                class="form-control"
-                                                                               name="discount_price[]"/>
+                                                                               name="discount_price[]"
+                                                                               value="<?= $variation->discount_price; ?>"
+                                                                        />
                                                                     </div>
                                                                 </td>
                                                                 <td>
@@ -651,8 +710,9 @@
         <i class="pci-chevron chevron-up"></i>
     </button>
 </div>
-<script src="<?= base_url('assets/js/jquery.min.js'); ?>"></script>
-<script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 <script src="<?= base_url('assets/js/nifty.min.js'); ?>"></script>
 <script src="<?= base_url('assets/js/demo/nifty-demo.min.js'); ?>"></script>
 <script type="text/javascript"> base_url = '<?= base_url(); ?>';</script>
@@ -664,6 +724,7 @@
 <script src="<?= base_url('assets/plugins/bootstrap-markdown/js/bootstrap-markdown.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/bootstrap-select/bootstrap-select.min.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js'); ?>"></script>
+<script src="<?= base_url('assets/plugins/summernote/summernote.min.js'); ?>"></script>
 <script type="text/javascript">
     $(document).on('nifty.ready', function () {
         Dropzone.autoDiscover = false;
@@ -755,8 +816,9 @@
             } else {
                 $('#processing').hide();
                 $('.edit_product_form').trigger('reset');
-                $('#status').html(`<p class="alert alert-success">Congrats the product has been edited successfully. Awaiting Approval</p>`).slideDown('fast')
+                $('#status').html(`<p class="alert alert-success">Congrats the product has been edited successfully. Awaiting Approval ${response.message}</p>`).slideDown('fast')
                     .delay(5000).slideUp('slow');
+                window.location.href = base_url + 'manage/';
             }
             console.log(response);
         });
@@ -773,9 +835,8 @@
         });
 
     });
+
 </script>
-</body>
-</html>
 <script type="text/javascript">
     $.fn.rowCount = function () {
         return $('tr', $(this).find('tbody')).length;
@@ -868,3 +929,109 @@
         $('[data-toggle="popover"]').popover({animation: true});
     });
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var product_description = `<?= $product->product_description; ?>`;
+        $('#product_description').summernote({
+            tabsize: 2,
+            height: '150px',
+            disableDragAndDrop: true,
+            shortcuts: false,
+            popatmouse: false,
+            toolbar: [
+                ['style', ['bold', 'italic']],
+                ['fontsize', ['fontsize']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['picture']],
+                ['view', ['fullscreen', 'help']]
+            ],
+            popover: {
+                image: [
+                    ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                    ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                    ['remove', ['removeMedia']]
+                ],
+                link: [
+                    ['link', ['linkDialogShow', 'unlink']]
+                ],
+                air: [
+                    ['color', ['color']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['para', ['ul', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture']]
+                ]
+            },
+            callbacks: {
+                onImageUpload: function(files) {
+                    sendFile(files[0]);
+                },
+                onMediaDelete: function(target) {
+                    deleteFile(target[0].src);
+                }
+            }
+        });
+        $('#product_description').summernote('code', product_description);
+
+        var highlights = `<?= $product->highlights; ?>`;
+        var in_the_box = `<?= $product->in_the_box; ?>`;
+        var product_warranty = `<?= $product->product_warranty; ?>`;
+        var warranty_address = `<?= $product->warranty_address; ?>`;
+        $('#highlights, #in_the_box, #product_warranty, #warranty_address').summernote({
+            placeholder: 'Write here...',
+            height: '150px',
+            focus: true,
+            toolbar: [
+                ["style", ["style"]],
+                ["font", ["bold", "underline"]],
+                ["para", ["ul", "ol", "paragraph"]],
+                ["table", ["table"]],
+                ["view", ["fullscreen"]]
+            ],
+        });
+        $('#highlights').summernote('code', highlights);
+        $('#in_the_box').summernote('code', in_the_box);
+        $('#product_warranty').summernote('code', product_warranty);
+        $('#warranty_address').summernote('code', warranty_address);
+
+        function sendFile(file){
+            data = new FormData();
+            data.append("file", file);
+            $('#product_description_image').css('display', 'block');
+            $('.img_text').text('Please hold on. Image is under processing...');
+            $.ajax({
+                url: base_url + 'product/description_image_upload',
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                type: 'POST',
+                success: function (data) {
+                    var image = $('<img>').attr('src', data);
+                    $('#product_description').summernote("insertNode", image[0]);
+                    $('#product_description_image').css('display', 'none');
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus+" "+errorThrown);
+                    $('#product_description_image').css('display', 'none');
+                }
+            });
+        }
+
+        function deleteFile(src) {
+            $.ajax({
+                data: {src : src},
+                type: "POST",
+                url: base_url + "product/decription_image_remove",
+                cache: false,
+                success: function(resp) {
+                    console.log(resp);
+                }
+            });
+        }
+    });
+
+</script>
+</body>
+</html>
+

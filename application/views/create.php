@@ -228,8 +228,7 @@
                                                                                 class="selectpicker"
                                                                                 title="Choose main colour"
                                                                                 data-width="100%">
-                                                                            <option value="">-- Select main colour--
-                                                                            </option>
+                                                                            <option value="">-- Select main colour--</option>
                                                                             <?php
                                                                             $colours = explode(',', lang('colours'));
                                                                             foreach ($colours as $colour):
@@ -335,7 +334,7 @@
                                                                         class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Product
                                                                         Description </label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <textarea class="full_description" name="product_description" placeholder="Give a detailed product description" id="product_description"></textarea>
+                                                                        <textarea class="product_description" name="product_description" placeholder="Give a detailed product description" id="product_description"></textarea>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:void(0);"
@@ -370,29 +369,9 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">What's
-                                                                        in the
-                                                                        box?</label>
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Highlights</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <textarea class="half_description" name="in_the_box" id="in_the_box"></textarea>
-                                                                    </div>
-                                                                    <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
-                                                                        <a href="javascript:;"
-                                                                           title="What's in the box?"
-                                                                           data-placement="bottom" data-toggle="popover"
-                                                                           tabindex="-1"
-                                                                           data-trigger="focus"
-                                                                           data-content="All information about unboxing the product and contents in the box">
-                                                                            <i class="demo-pli-question help_text"
-                                                                               title="Help Text"></i> </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Highlights</label>
-                                                                    <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <div class="om_summer_note" id="highlights">
-                                                                        </div>
+                                                                        <textarea title="A brief highlight of what is in the box?" class="half_description" name="highlights" id="highlights"></textarea>
                                                                         <span class="text-sm text-dark">Enter short major highlights of the product, to make the purchase decision for the customer easier.</span>
                                                                         <span class="text-sm text-dark">Example: Best expierience ever - super fast and easy navigation - better control</span>
                                                                     </div>
@@ -406,6 +385,27 @@
                                                                                title="Help Text"></i> </a>
                                                                     </div>
                                                                 </div>
+
+                                                                <div class="form-group">
+                                                                    <label
+                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">What's
+                                                                        in the
+                                                                        box?</label>
+                                                                    <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
+                                                                        <textarea title="What is in the box?" class="half_description" name="in_the_box" id="in_the_box"></textarea>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
+                                                                        <a href="javascript:;"
+                                                                           title="What's in the box?"
+                                                                           data-placement="bottom" data-toggle="popover"
+                                                                           tabindex="-1"
+                                                                           data-trigger="focus"
+                                                                           data-content="All information about unboxing the product and contents in the box">
+                                                                            <i class="demo-pli-question help_text"
+                                                                               title="Help Text"></i> </a>
+                                                                    </div>
+                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -527,7 +527,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
                                                         <?php endforeach;
                                                         $y++; endif; ?>
                                                     <div class="panel">
@@ -535,7 +534,7 @@
                                                             <h4 class="panel-title text-dark">
                                                                 <a data-parent="#accordion" data-toggle="collapse"
                                                                    href="#additional_product_attribute">Additional
-                                                                    Product Attribute<span
+                                                                    Product Attribute <span
                                                                         class="glyphicon glyphicon-chevron-down pull-right fav_drop_ico"></span></a>
                                                             </h4>
                                                         </div>
@@ -603,7 +602,7 @@
                                                                         class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Product
                                                                         Warranty</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <textarea name="product_warranty" class="half_description" id="product_warranty"></textarea>
+                                                                        <textarea title="Product warranty (if any)" name="product_warranty" class="half_description" id="product_warranty"></textarea>
                                                                         <span class="text-sm text-dark">Example: Provide the warranty validity period eg. 1 Year Warranty, N/A</span>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
@@ -651,8 +650,7 @@
                                                                         class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Warranty
                                                                         address</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <div class="om_summer_note" id="warranty_address">
-                                                                        </div>
+                                                                        <textarea title="Warranty address" name="warranty_address" class="half_description" id="warranty_address"></textarea>
                                                                         <span class="text-sm text-dark">Example: Service Center Address: 20b Caro Road, Ikeja. Lagos | Repair by Vendor Address: 5 Paris Street, Yaba. Lagos.</span>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
@@ -672,7 +670,7 @@
                                             </div>
                                             <div id="product-variation-tab" class="tab-pane">
                                                 <div class="table-responsive">
-                                                    <table class="table table-vcenter mar-top pricing_table">
+                                                    <table class="table table-center mar-top pricing_table">
                                                         <thead>
                                                         <tr>
                                                             <?php if (empty($variation_name)) : ?>
@@ -897,10 +895,10 @@
 </div>
 <!-- include libraries(jQuery, bootstrap) -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 <script src="<?= base_url('assets/js/nifty.min.js'); ?>"></script>
 <script src="<?= base_url('assets/js/demo/nifty-demo.min.js'); ?>"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 <script type="text/javascript"> base_url = '<?= base_url(); ?>';</script>
 <script src="<?= base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js'); ?>"></script>
@@ -1110,10 +1108,37 @@
 
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover({animation: true});
-        $('.full_description').summernote({
+
+        $('.product_description').summernote({
+            tabsize: 2,
             height: '150px',
-            toolbar: [ ["style", ["style"]], ["font", ["bold", "underline"]], ["para", ["ul", "ol", "paragraph"]], ["table", ["table"]],
-                ["insert", ["picture"]], ["view", ["fullscreen"]] ],
+            disableDragAndDrop: true,
+            shortcuts: false,
+            popatmouse: false,
+            toolbar: [
+                ['style', ['bold', 'italic']],
+                ['fontsize', ['fontsize']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['picture']],
+                ['view', ['fullscreen', 'help']]
+            ],
+            popover: {
+                image: [
+                    ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                    ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                    ['remove', ['removeMedia']]
+                ],
+                link: [
+                    ['link', ['linkDialogShow', 'unlink']]
+                ],
+                air: [
+                    ['color', ['color']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['para', ['ul', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture']]
+                ]
+            },
             callbacks: {
                 onImageUpload: function(files) {
                     sendFile(files[0]);
@@ -1136,7 +1161,7 @@
                 type: 'POST',
                 success: function (data) {
                     var image = $('<img>').attr('src', data);
-                    $('.full_description').summernote("insertNode", image[0]);
+                    $('.product_description').summernote("insertNode", image[0]);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log(textStatus+" "+errorThrown);
