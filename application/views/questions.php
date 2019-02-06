@@ -50,7 +50,7 @@
                             <div class="panel-body">
                                 <div class="nano has-scrollbar" style="height: 450px;">
                                     <div class="nano-content" tabindex="0">
-                                        <?php if (count($questions) > 1) : ?>
+                                        <?php if (count($questions) >= 1) : ?>
                                             <?php foreach ($questions as $question): ?>
                                                 <div class="col-sm-12">
                                                     <a href="javascript:;" class="question-link"
