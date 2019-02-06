@@ -596,19 +596,19 @@ Class Seller_model extends CI_Model
         if (!empty($sid)) {
             $query = "SELECT q.id, q.question, q.qtimestamp,q.display_name, p.id pid, p.product_name, p.product_description, s.legal_company_name FROM qna q 
           LEFT JOIN products p ON (p.id = q.pid)
-          LEFT JOIN sellers s ON (s.uid = p.seller_id)  WHERE (s.uid = '$sid' AND q.answer = '' AND q.status = 'approved')";
+          LEFT JOIN sellers s ON (s.uid = p.seller_id)  
+          WHERE (s.uid = '$sid' AND q.answer = '' AND q.status = 'approved')";
+
             return $this->run_sql($query)->result();
         }
     }
     function answer_question($qid, $answer){
         $timestamp = get_now();
-        $query = "UPDATE qna SET answer = '$answer', atimestamp = '$timestamp' WHERE id = '$qid'";
-        try {
-            $this->run_sql($query);
-            return true;
-        } catch (Exception $e) {
-            return false;
-        }
+        $data = array(
+            'atimestamp' => $timestamp,
+            'answer' => $answer
+        );
+        return $this->update_data( array('id' => $qid), $data, 'qna');
     }
 
 }

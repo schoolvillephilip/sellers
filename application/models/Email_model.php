@@ -21,7 +21,6 @@ class Email_model extends CI_Model {
             'template' => 'WelcomeSellerUser',
             'merge_recipent' => $data['recipent'],
             'merge_subject' => 'Welcome to Onitshamarket Seller Center',
-            'bodyHtml' => $data['bodyHtml'],
             'isTransactional' => false
         );
         return $this->send_now($post);

@@ -62,21 +62,21 @@
 
                         <div class="col-xs-12 col-md-4 text-center">
 
-                            <img src="<?= base_url('assets/seller/img/sell_visits.png'); ?>"
+                            <img src="<?= base_url('assets/img/sell_visits.png'); ?>"
                                  style="width: 140px;" alt=""/>
                             <p class="gnumbers">Reach 200,000,000+</p>
                             <p class="glegend">Potential Buyers</p>
                         </div>
 
                         <div class="col-xs-12 col-md-4 text-center">
-                            <img src="<?= base_url('assets/seller/img/sell_satisfy.png'); ?>"
+                            <img src="<?= base_url('assets/img/sell_satisfy.png'); ?>"
                                  style="width: 140px;" alt=""/>
                             <p class="gnumbers">95% Satisfied customers</p>
                             <p class="glegend">Recommend us to friends</p>
                         </div>
 
                         <div class="col-xs-12 col-md-4 text-center">
-                            <img src="<?= base_url('assets/seller/img/sell_rep.png'); ?>"
+                            <img src="<?= base_url('assets/img/sell_rep.png'); ?>"
                                  style="width: 140px;" alt=""/>
                             <p class="gnumbers">Marketing &amp; data analytics </p>
                             <p class="glegend">Support to grow your business</p>
@@ -87,7 +87,7 @@
                         <p class="sub-title1">How it works?</p>
                         <div class="row">
                             <div class="col-xs-12 col-md-5 text-right">
-                                <img src="<?= base_url('assets/seller/img/TAB1-STEP1n1.png'); ?>"
+                                <img src="<?= base_url('assets/img/TAB1-STEP1n1.png'); ?>"
                                      style="width: 150px; float: right;" alt=""/>
                             </div>
                             <div class="col-xs-12 col-md-7 text-left" style="top:20px;"><br/>
@@ -103,21 +103,21 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-md-5 text-right">
-                                <img src="<?= base_url('assets/seller/img/TAB1-STEP2n1.png'); ?>"
+                                <img src="<?= base_url('assets/img/TAB1-STEP2n1.png'); ?>"
                                      style="width: 150px; float: right;" alt=""/>
                             </div>
                             <div class="col-xs-12 col-md-7 text-left" style="top:30px;">
                                 <p class="txt1" style="font-size: 15px; color: #2BA27D;">Step 2 : Become an
                                     ecommerce
                                     expert</p>
-                                <p class="txt1">Complete the dedicated training session for new sellers.<br/>Activate
+                                <p class="txt1">Complete the dedicated training session for news.<br/>Activate
                                     your
                                     Seller Center account to manage your shop on the go.</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-md-5 text-right">
-                                <img src="<?= base_url('assets/seller/img/TAB1-STEP3n1.png'); ?>"
+                                <img src="<?= base_url('assets/img/TAB1-STEP3n1.png'); ?>"
                                      style="width: 150px; float: right;" alt=""/>
                             </div>
                             <div class="col-xs-12 col-md-7 text-left" style="top:40px;">
@@ -135,7 +135,7 @@
                 <div id="cnt2" style="padding-top:40px;">
                     <div class="row">
                         <div class="col-xs-12 col-md-2 text-center">
-                            <img src="<?= base_url('assets/seller/img/1_n.png'); ?>"
+                            <img src="<?= base_url('assets/img/1_n.png'); ?>"
                                  style="width: 95px;"
                                  alt=""/>
                         </div>
@@ -152,7 +152,7 @@
                     <div class="row">
                         <div style="background: #f4f5f5;">
                             <div class="col-xs-12 col-md-2 text-center">
-                                <img src="<?= base_url('assets/seller/img/2_.png'); ?>"
+                                <img src="<?= base_url('assets/img/2_.png'); ?>"
                                      style="width: 95px;" alt=""/>
                             </div>
 
@@ -172,7 +172,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-md-2 text-center">
-                            <img src="<?= base_url('assets/seller/img/3_n.png'); ?>"
+                            <img src="<?= base_url('assets/img/3_n.png'); ?>"
                                  style="width: 95px;"
                                  alt=""/>
                         </div>
@@ -192,7 +192,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-md-2 text-center">
-                            <img src="<?= base_url('assets/seller/img/4_n.png'); ?>"
+                            <img src="<?= base_url('assets/img/4_n.png'); ?>"
                                  style="width: 95px;" alt=""/>
                         </div>
 
@@ -226,7 +226,7 @@
 </div>
 </div>
 <?php foreach ($scripts as $tag) : ?>
-    <script src="<?= base_url('assets/seller/') . $tag; ?>"></script>
+    <script src="<?= base_url('assets/') . $tag; ?>"></script>
 <?php endforeach; ?>
 </body>
 </html>

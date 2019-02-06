@@ -7,7 +7,7 @@
         // Count Query
         $uid = $this->session->userdata('logged_id');
         $order_count = $this->seller->run_sql("SELECT * FROM orders WHERE seller_id = {$uid} AND active_status = 'processing'")->num_rows();
-        $message_count = $this->seller->get_unread_message($this->session->userdata('logged_id'));
+        $message_count = $this->seller->get_unread_message($uid);
         $questions_count = count($this->seller->get_questions($uid));
         ?>
         <div id="mainnav-menu-wrap">
@@ -54,9 +54,6 @@
                                 <i class="arrow"></i>
                             </a>
                             <ul class="collapse <?php if ($pg_name == 'product' || $pg_name == 'manage_product') echo 'in'; ?>">
-                                <li <?php if ($sub_name == 'select_category') echo 'class="active-link"' ?>><a
-                                            href="<?= base_url('product'); ?>">
-                                        <i class="demo-pli-file-zip"></i>Select Category</a></li>
                                 <li <?php if ($sub_name == 'add_product') echo 'class="active-link"' ?>><a
                                             href="<?= base_url('product/create'); ?>">
                                         <i class="demo-pli-star"></i>Add new product</a></li>
