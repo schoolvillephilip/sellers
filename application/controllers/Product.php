@@ -91,7 +91,6 @@ class Product extends MY_Controller
     public function process()
     {
         if ($this->input->post() || isset($_FILES)) {
-//            var_dump( $_POST );exit;
             $pricing_error = $image_error = 0;
             $return['status'] = 'error';
             $return['message'] = '';

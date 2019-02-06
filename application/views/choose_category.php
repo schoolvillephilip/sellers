@@ -78,6 +78,7 @@
             $('.smt-btn').prop('disabled', false);
             $('.selected-product').html($(this).find(':selected').text());
             $('.selected-product-c').show();
+            $('#category_id').val($('.rootcat').val());
         }else{
             $('.smt-btn').prop('disabled', true);
             $('.n-append').remove();
@@ -98,7 +99,6 @@
 					</select>
 					</div>
             	`);
-
                     $(`.n-cat-${rid}-${msg[0].id}`).append("<option> -- Please select a sub category -- </option>");
                     $.each(msg, function (i) {
                         $(`.n-cat-${rid}-${msg[0].id}`).append(`<option data-next='${msg[i].has_child}' value="${msg[i].id}">${msg[i].name}</option>`);
@@ -110,20 +110,24 @@
         }
     });
 
-    $('.node').on('change', function(){
-        var $others = $(this).closest('.n-append');
-        // Get current
-        var current = $others.index(this);
-        while (++current < $others.length) {
-            $(".cat").empty();
-        }
-    });
+    // $('.node').on('change', function(){
+    //
+    //     var $others = $(this).closest('.n-append');
+    //     // Get current
+    //     alert( $others);
+    //
+    //     var current = $others.index(this);
+    //     while (++current < $others.length) {
+    //         $(".node").remove();
+    //     }
+    // });
 
     function child_change() {
         $(this).addClass('node');
         $("li.third-item").nextAll().css("background-color", "red");
         $(this).nextAll().remove();
         let id = $(this).val();
+
         if ($(this).find(':selected').data('next') === 0) {
             $('.selected-product-c').show();
             $('.smt-btn').prop('disabled', false);
@@ -140,7 +144,6 @@
                 $('.category-section').append(`
 					<div class="col-md-12 n-append" style="margin-bottom: 20px;">
             		<select class="cat form-control n-cat-${id}" required></select>
-
 					</select>
 					</div>
             	`);
