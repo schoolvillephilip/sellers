@@ -35,7 +35,7 @@
                                 <a href="javascript:;" onclick="trigger('#due_trig');">
                                     <div class="panel panel-bordered-dark panel-colorful">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin"><?= ngn($due_unpaid->due);?></span>
+                                            <span class="text-semibold text-thin"><?= ngn($due_unpaid->due);?></span>
                                             <p>DUE AND UNPAID</p>
                                         </div>
                                     </div>
@@ -45,7 +45,7 @@
                                 <a href="javascript:;">
                                     <div class="panel panel-bordered-info panel-colorful">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin"><?= ngn($commission->amount);?></span>
+                                            <span class="text-semibold text-thin"><?= ngn($commission->amount);?></span>
                                             <p>TOTAL COMMISSION PAID</p>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
                                 <a href="javascript:;">
                                     <div class="panel panel-bordered-info panel-colorful">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin"><?= ngn($profile->balance); ?></span>
+                                            <span class="text-semibold text-thin"><?= ngn($profile->balance); ?></span>
                                             <p>CURRENT BALANCE</p>
                                         </div>
                                     </div>
@@ -65,7 +65,7 @@
                                 <a href="javascript:;" onclick="trigger('#open_trig');">
                                     <div class="panel panel-bordered-primary panel-colorful">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin"><?= ngn($completed_sales->amount);?></span>
+                                            <span class="text-semibold text-thin"><?= ngn($completed_sales->amount);?></span>
                                             <p>TOTAL SALES MADE</p>
                                         </div>
                                     </div>
@@ -75,7 +75,7 @@
                                 <a href="<?=base_url('account/txn_overview')?>">
                                     <div class="panel panel-bordered-purple panel-colorful">
                                         <div class="pad-all text-center">
-                                            <span class="text-3x text-thin"><?= ngn($last_3_month_paid->amount)?></span>
+                                            <span class="text-semibold text-thin"><?= ngn($last_3_month_paid->amount)?></span>
                                             <p>MONEY RECEIVED IN LAST 3 MONTHS</p>
                                         </div>
                                     </div>

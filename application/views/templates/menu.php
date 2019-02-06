@@ -131,7 +131,7 @@
                                 <li class="<?php if ($pg_name == 'questions') echo 'active-link' ?>">
                                     <a href="<?= base_url('message/questions'); ?>">
                                         <i class="demo-pli-question"></i>
-                                        <span class="menu-title">Questions <?= $questions_count < 1 ? '' : '(' . $questions_count . ' new)'; ?></span>
+                                        <span class="menu-title">Questions <?= $questions_count < 1 ? '' : '(' . $questions_count . ')'; ?></span>
                                     </a>
                                 </li>
                             </ul>

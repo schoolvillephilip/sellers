@@ -587,32 +587,18 @@ Class Seller_model extends CI_Model
         return $this->run_sql($query)->row_array();
     }
 
+    /*
+     * Get Single Seller Questions
+     */
 
     function get_questions($sid = '')
     {
         if (!empty($sid)) {
-            $this->db->where('seller_id', $sid);
-            $this->db->select('id');
-            $results = $this->db->get('products')->result();
-            $products_id = array();
-            foreach ($results as $result) {
-                array_push($products_id, $result->id);
-            }
-            $query = "SELECT * FROM qna WHERE (answer = '' AND status = 'approved' )";
-            $questions = $this->run_sql($query)->result();
-            $response = array();
-            foreach ($questions as $question) {
-                if(in_array($question->pid, $products_id)){
-                    array_push($response, $question);
-                }
-            }
-            return $response;
+            $query = "SELECT q.id, q.question, q.qtimestamp,q.display_name, p.id pid, p.product_name, p.product_description, s.legal_company_name FROM qna q 
+          LEFT JOIN products p ON (p.id = q.pid)
+          LEFT JOIN sellers s ON (s.uid = p.seller_id)  WHERE (s.uid = '$sid' AND q.answer = '' AND q.status = 'approved')";
+            return $this->run_sql($query)->result();
         }
-    }
-    function get_question_product($pid = '')
-    {
-        $query = "SELECT p.*, u.first_name, u.last_name FROM products AS p LEFT JOIN users AS u ON (p.seller_id = u.id) WHERE p.id = '$pid' ";
-        return $this->db->query($query)->row();
     }
     function answer_question($qid, $answer){
         $timestamp = get_now();
