@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="<?= base_url('assets/img/favicon.png'); ?>" type="image/png">
     <link rel="icon" href="<?= base_url('assets/img/favicon.png'); ?>" type="image/png">
     <link rel="canonical" href="<?= current_url(); ?>"/>
-    <meta name="robots" content="noindex,nofollow">
+    <meta name="robots" content="index,follow">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
     <link href="<?= base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('assets/css/font-awesome.css'); ?>">

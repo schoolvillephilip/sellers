@@ -52,6 +52,7 @@ class Register extends CI_Controller
         } else {
             // Check if email address is in the system
             $email = $this->input->post('email', true);
+            $email = trim($email);
             $user = $this->seller->get_row('users', '*', "( email = '$email' ) ");
             $license_to_sell = ($this->input->post('license_to_sell') == true) ? 1 : 0;
             $plat = $this->input->post('platform');
@@ -73,12 +74,13 @@ class Register extends CI_Controller
                 'date_applied' => get_now(),
                 'seller_phone' => $this->input->post('phone_number', true)
             );
+
             $user_data = array(
                 'is_seller' => 'pending',
                 'first_name' => $this->input->post('first_name'),
                 'last_name' => $this->input->post('last_name')
-
             );
+
             if ($user) {
                 // we are updating
                 $seller_data['uid'] = $user->id;
@@ -95,7 +97,7 @@ class Register extends CI_Controller
                         'email' => $email,
                         'recipent' => 'Dear '. $user_data['first_name'] . ' ' . $user_data['last_name']
                     );
-                    $status = $this->email->welcome_user( $email_array);
+                    $status = $this->email->welcome_user($email_array);
                     if( !$status['success'] ){
                         // log the error
                         $error_action = array(
