@@ -98,7 +98,7 @@ class Register extends CI_Controller
                         'recipent' => 'Dear '. $user_data['first_name'] . ' ' . $user_data['last_name']
                     );
                     $status = $this->email->welcome_user($email_array);
-                    if( !$status['success'] ){
+                    if( !$status ){
                         // log the error
                         $error_action = array(
                             'error_action' => 'Seller Register Controller',

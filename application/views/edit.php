@@ -1,5 +1,5 @@
 <?php $this->load->view('templates/meta_tags'); ?>
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
 <style type="text/css">
     img.dz-img {
         max-width: 80px;
