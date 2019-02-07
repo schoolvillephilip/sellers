@@ -1,6 +1,9 @@
 <?php $this->load->view('templates/meta_tags'); ?>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
 <style>
+    .note-group-image-url{
+        display: none;
+    }
     .help_text {
         color: #ffffff;
         background-color: #252525;
@@ -1174,6 +1177,8 @@
 
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover({animation: true});
+        // Hide the Image URL for summernote
+        // $('.note-group-image-url').style('display','none');
 
         $('.product_description').summernote({
             tabsize: 2,

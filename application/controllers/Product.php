@@ -420,7 +420,8 @@ class Product extends MY_Controller
                 }
             }
             // Product Gallery Block
-            if (isset($_FILES) && !empty($_FILES)) {
+            if (isset($_FILES)) {
+
                 $counts = sizeof($_FILES['file']['tmp_name']);
                 $product_gallery = array();
                 $files = $_FILES;

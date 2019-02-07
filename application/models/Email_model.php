@@ -47,7 +47,7 @@ class Email_model extends CI_Model {
             $post['merge_base_url'] = base_url();
             $post['from'] = isset($post['from']) ? $post['from'] : 'noreply@onitshamarket.com';
             $post['fromName'] = 'Onitshamarket.com';
-            $post['apikey'] = 'f818fbbb-bb76-4de0-ad47-e458303b0d12';
+            $post['apikey'] = ELASTIC_EMAIL_API;
             $ch = curl_init();
             curl_setopt_array($ch, array(
                 CURLOPT_URL => $url,

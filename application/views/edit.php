@@ -1,6 +1,9 @@
 <?php $this->load->view('templates/meta_tags'); ?>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
 <style type="text/css">
+    .note-group-image-url{
+        display: none;
+    }
     img.dz-img {
         max-width: 80px;
     }
@@ -124,7 +127,7 @@
                                     <div class="progress-bar progress-bar-primary"></div>
                                 </div>
                                 <form id="" action="<?= base_url('product/edit'); ?>"
-                                      class="form-horizontal edit_product_form" novalidate method="POST"
+                                      class="form-horizontal edit_product_form" method="POST"
                                       enctype="multipart/form-data">
                                     <input type="hidden" name="product_id" value="<?= $product->id; ?>">
                                     <div class="panel-body">
@@ -459,7 +462,7 @@
                                                                                 title="Choose warranty type..."
                                                                                 data-width="100%">
                                                                             <?php
-                                                                            $warranty = explode(',', $product->warranty_type);
+                                                                            $warranty = json_decode($product->warranty_type);
                                                                             $types = explode(',', lang('warranty_types'));
                                                                             foreach ($types as $type):
                                                                                 ?>

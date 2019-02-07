@@ -80,6 +80,7 @@
 			$('.smt-btn').prop('disabled', false);
 			$('.selected-product').html($(this).find(':selected').text());
 			$('.selected-product-c').show();
+			$('#category_id').val($('.rootcat').val());
 		} else {
 			$('.smt-btn').prop('disabled', true);
 			$('.n-append').remove();
