@@ -139,10 +139,11 @@ class Product extends MY_Controller
                 if (substr_compare('attribute_', $post, 0, 10) == 0) {
                     $feature_name = explode('_', $post);
                     if (is_array($post) && !empty($value)) {
+                        $value = trim( $value );
                         $x = json_encode($value);
                         $attributes[$feature_name[1]] = json_encode(json_decode($x));
                     } elseif (!empty($value)) {
-                        $attributes[$feature_name[1]] = trim($value);
+                        $attributes[$feature_name[1]] = trim(strtolower($value));
                     }
                 }
             }
@@ -327,6 +328,7 @@ class Product extends MY_Controller
             $this->load->view('edit', $page_data);
         } else {
             // Process
+
             $id = $this->input->post('product_id');
             $pricing_error = $image_error = 0;
             $return['status'] = 'error';
@@ -420,48 +422,48 @@ class Product extends MY_Controller
                 }
             }
             // Product Gallery Block
-            if (isset($_FILES)) {
-
-                $counts = sizeof($_FILES['file']['tmp_name']);
+            if (isset($_FILES) && !empty($_FILES) && count($_FILES) ) {
+                $counts = sizeof($_FILES['edit_image_file']['tmp_name']);
                 $product_gallery = array();
                 $files = $_FILES;
                 for ($x = 0; $x < $counts; $x++) {
-                    $old_name['old_name'] = $files['file']['name'][$x];
-                    $_FILES['file']['name'] = $files['file']['name'][$x];
-                    $_FILES['file']['type'] = $files['file']['type'][$x];
-                    $_FILES['file']['tmp_name'] = $files['file']['tmp_name'][$x];
-                    $_FILES['file']['error'] = $files['file']['error'][$x];
-                    $_FILES['file']['size'] = $files['file']['size'][$x];
+                    $old_name['old_name'] = $files['edit_image_file']['name'][$x];
+                    $_FILES['edit_image_file']['name'] = $files['edit_image_file']['name'][$x];
+                    $_FILES['edit_image_file']['type'] = $files['edit_image_file']['type'][$x];
+                    $_FILES['edit_image_file']['tmp_name'] = $files['edit_image_file']['tmp_name'][$x];
+                    $_FILES['edit_image_file']['error'] = $files['edit_image_file']['error'][$x];
+                    $_FILES['edit_image_file']['size'] = $files['edit_image_file']['size'][$x];
                     // check if we have the file already uploaded
                     if( $this->curl_get_file_size(PRODUCTS_IMAGE_PATH . $old_name['old_name']) == ''
                         || $this->curl_get_file_size(PRODUCTS_IMAGE_PATH . $old_name['old_name']) == 'unknown' ){
                         $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name['old_name'] == $_POST['featured_image'])) ? 1 : 0;
                         if ($counts == 1) $product_gallery['featured_image'] = 1;
-                        if (!$this->seller->update_data(array('image_name' => $old_name['old_name']), $product_gallery, 'product_gallery')) {
-                            $image_error++;
-                        }
+                        // Update
+                        $this->seller->update_data(array('image_name' => $old_name['old_name']), $product_gallery, 'product_gallery');
                     }else {
-                        // we have a new file to upload
-                        $image_upload_array = array(
-                            'folder' =>   PRODUCT_IMAGE_FOLDER,
-                            'filepath'  => $_FILES['file']['tmp_name'],
-                            'eager' => array("width" => 630, "height" => 570, "crop" => "fill")
-                        );
-                        $this->cloudinarylib->upload_image( $image_upload_array );
-                        $image_name = $this->cloudinarylib->get_result();
-                        if ($image_name) {
-                            $product_gallery = array(
-                                'product_id' => $id,
-                                'seller_id' => $this->session->userdata('logged_id'),
-                                'created_at' => get_now()
+                        if( $_FILES['edit_image_file']['name'] != '') {
+                            // we have a new file to upload
+                            $image_upload_array = array(
+                                'folder' =>   PRODUCT_IMAGE_FOLDER,
+                                'filepath'  => $_FILES['edit_image_file']['tmp_name'],
+                                'eager' => array("width" => 630, "height" => 570, "crop" => "fill")
                             );
-                            $product_gallery['image_name'] = $image_name;
-                            if ($counts == 1) $product_gallery['featured_image'] = 1;
-                            if (!is_int($this->seller->insert_data('product_gallery', $product_gallery))) {
+                            $this->cloudinarylib->upload_image( $image_upload_array );
+                            $image_name = $this->cloudinarylib->get_result();
+                            if ($image_name) {
+                                $product_gallery = array(
+                                    'product_id' => $id,
+                                    'seller_id' => $this->session->userdata('logged_id'),
+                                    'created_at' => get_now()
+                                );
+                                $product_gallery['image_name'] = $image_name;
+                                if ($counts == 1) $product_gallery['featured_image'] = 1;
+                                if (!is_int($this->seller->insert_data('product_gallery', $product_gallery))) {
+                                    $image_error++;
+                                }
+                            } else {
                                 $image_error++;
                             }
-                        } else {
-                            $image_error++;
                         }
                     }
                 }// end of for loop

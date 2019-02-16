@@ -74,15 +74,6 @@
                                 </div>
                                 <div id="sales_chart"></div>
                             </div>
-                            <div id="processing"
-                                 style="display:none;position: center;top: 0;left: 0;width: auto;height: auto%;background: #f4f4f4;z-index: 99;">
-                                <div class="text"
-                                     style="position: absolute;top: 35%;left: 0;height: 100%;width: 100%;font-size: 18px;text-align: center;">
-                                    <img src="<?= base_url('assets/img/load.gif'); ?>"
-                                         alt="Processing...">
-                                        Processing the data. Please Wait!
-                                </div>
-                            </div>
                             <div class="col-md-3 text-center">
                                 <div class="row">
                                     <div class="col-md-12 panel-bordered-default" style="height: 220px;">
@@ -157,49 +148,34 @@
                 'pdfHtml5'
             ]
         });
-        let type = $('#order_filter').val();
-        $.ajax({
-            url : base_url + 'ajax/load_sales_data',
-            type : 'GET',
-            data : {'type' : type },
-            success : function(response) {
-                moris(response);
-            }
-        });
 
-        $('#order_filter').on('change', function(){
-            let type = $(this).val();
-            $('#sales_chart').empty();
-            $.ajax({
-                url : base_url + 'ajax/load_sales_data',
-                type: 'POST',
-                data : {'type' : type },
-                success : function( response ){
-                    // response = JSON.parse(response);
-                    moris( response );
-                }
-            })
+        Morris.Bar({
+            element: 'sales_chart',
+            data: [
+                { y: 'Jan', a: <?= (int) $order_chart['Jan']; ?>},
+                { y: 'Feb', a: <?= (int) $order_chart['Feb']; ?>},
+                { y: 'Mar', a: <?= (int) $order_chart['Mar']; ?>},
+                { y: 'Apr', a: <?= (int) $order_chart['Apr']; ?>},
+                { y: 'May', a: <?= (int) $order_chart['May']; ?>},
+                { y: 'June', a: <?= (int) $order_chart['Jun']; ?>},
+                { y: 'July', a: <?= (int) $order_chart['Jul']; ?>},
+                { y: 'Aug', a: <?= (int) $order_chart['Aug']; ?>},
+                { y: 'Sept', a: <?= (int) $order_chart['Sep']; ?>},
+                { y: 'Oct', a: <?= (int) $order_chart['Oct']; ?>},
+                { y: 'Nov', a: <?= (int) $order_chart['Nov']; ?>},
+                { y: 'Dec', a: <?= (int) $order_chart['Dec']; ?>}
+            ],
+            xkey: 'y',
+            ykeys: 'a',
+            labels: ['Total Order'],
+            gridEnabled: true,
+            gridLineColor: 'rgba(0,0,0,.1)',
+            gridTextColor: '#6b7880',
+            gridTextSize: '11px',
+            barColors: ['#179278'],
+            resize:true,
+            hideHover: 'auto'
         });
-
-        function moris( data ){
-            if( data == '') alert('No data available for the filter');
-            Morris.Bar({
-                element: 'sales_chart',
-                data: data,
-                xkey: "date",
-                ykeys: "q",
-                labels: ['Total Order'],
-                gridEnabled: true,
-                gridLineColor: 'rgba(0,0,0,.1)',
-                gridTextColor: '#6b7880',
-                gridTextSize: '11px',
-                barColors: ['#179278'],
-                resize:true,
-                hideHover: 'auto'
-            });
-        }
     });
-
-
 </script>
 </html>

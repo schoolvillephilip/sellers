@@ -195,9 +195,7 @@
                                                         <div class="panel-collapse collapse in" id="general-info">
                                                             <div class="panel-body">
                                                                 <div class="form-group">
-                                                                    <label
-                                                                        class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Product
-                                                                        Name *</label>
+                                                                    <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Product Name</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <input type="text" class="form-control"
                                                                                autofocus required name="product_name"
@@ -976,7 +974,6 @@
 <script src="<?= base_url('assets/plugins/bootstrap-markdown/js/bootstrap-markdown.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/bootstrap-select/bootstrap-select.min.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js'); ?>"></script>
-<script src="<?= base_url('assets/plugins/summernote/summernote.min.js'); ?>"></script>
 
 <script type="text/javascript">
     $('.datepicker').datepicker({

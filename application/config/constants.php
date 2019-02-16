@@ -93,7 +93,7 @@ defined('CLOUDINARY_API_KEY') OR define('CLOUDINARY_API_KEY', "225471712598732")
 defined('CLOUDINARY_API_SECRET') OR define('CLOUDINARY_API_SECRET', "CAg5I2si21ibz-bFx-U759ljqTk");
 
 defined('PRODUCT_IMAGE_FOLDER') OR define('PRODUCT_IMAGE_FOLDER', "onitshamarket/product/");
-defined('PRODUCTS_IMAGE_PATH') OR define('PRODUCTS_IMAGE_PATH', "https://res.cloudinary.com/onitshamarket/" . PRODUCT_IMAGE_FOLDER);
+defined('PRODUCTS_IMAGE_PATH') OR define('PRODUCTS_IMAGE_PATH', "https://res.cloudinary.com/onitshamarket/image/upload/q_auto/f_auto/" . PRODUCT_IMAGE_FOLDER);
 
 defined('PRODUCT_DESCRIPTION_FOLDER') OR define('PRODUCT_DESCRIPTION_FOLDER', "onitshamarket/product/description/");
 defined('PRODUCT_DESCRIPTION_PATH') OR define('PRODUCT_DESCRIPTION_PATH', "https://res.cloudinary.com/onitshamarket/" .PRODUCT_DESCRIPTION_FOLDER );
@@ -109,3 +109,7 @@ defined('INBURSE_SELLER') OR define('INBURSE_SELLER', FALSE); # This is to move 
 
 //Elastic Email
 defined('ELASTIC_EMAIL_API') OR define('ELASTIC_EMAIL_API', '5fe25354-f5e7-4bee-8001-ab0080b72c4c');
+
+//Google Site Verification
+defined('GOOGLE_SITE_KEY') OR define('GOOGLE_SITE_KEY', '6LcFl5AUAAAAACqH-ZKVU2RDh2Es5b4xeu8RnTav');
+defined('GOOGLE_SECRET_KEY') OR define('GOOGLE_SECRET_KEY', '6LcFl5AUAAAAAHndIjAowN3WLifsyww4kEy3UT20');
