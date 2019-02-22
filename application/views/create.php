@@ -862,7 +862,7 @@
                                                         </h3>
                                                     </div>
                                                     <div class="panel-body">
-                                                        <p>You can upload images up-to 8.</p>
+                                                        <p>You can upload images up-to 6.</p>
                                                         <div class="dz-max-files-reached"></div>
                                                         <div class="bord-top pad-ver">
 															<span class="btn btn-success fileinput-button dz-clickable">

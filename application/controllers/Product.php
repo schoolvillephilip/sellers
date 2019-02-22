@@ -499,7 +499,7 @@ class Product extends MY_Controller
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload($file)) {
             // could append the file name...
-            return $this->upload->display_errors();
+            $this->upload->display_errors();
             return false;
         } else {
             return $this->upload->data('file_name');

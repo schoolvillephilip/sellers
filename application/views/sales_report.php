@@ -38,21 +38,21 @@
                                 <div class="row">
                                     <div class="col-md-12 panel-bordered-default" style="height: 145px;">
                                         <h5 style="margin-top:35px;">Total Sales</h5>
-                                        <h2><?= ngn($total_sales->amount);?></h2>
+                                        <h2><?= ngn($total_sales);?></h2>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 panel-bordered-default"
                                          style="height: 145px;margin-top:7.5px;">
                                         <h5 style="margin-top:35px;">Total Commission</h5>
-                                        <h2><?= ngn($commission->amount); ?></h2>
+                                        <h2><?= ngn($commission); ?></h2>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 panel-bordered-default"
                                          style="height: 145px;margin-top:7.5px;">
                                         <h5 style="margin-top:35px;">Total Earned</h5>
-                                        <h2><?= ngn($total_sales->amount - $commission->amount); ?></h2>
+                                        <h2><?= ngn($total_sales - $commission); ?></h2>
                                     </div>
                                 </div>
                             </div>
@@ -88,13 +88,6 @@
                                     <div class="col-md-12 panel-bordered-default" style="height: 220px;">
                                         <h5 style="margin-top:70px;">Total Order This Year</h5>
                                         <h2><?= (int) $order_chart['total_yearly']; ?></h2>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 panel-bordered-default"
-                                         style="height: 220px;margin-top:10px;">
-                                        <h5 style="margin-top:70px;">Avg Order Per Customer</h5>
-                                        <h2><?= $avg_order; ?></h2>
                                     </div>
                                 </div>
                             </div>

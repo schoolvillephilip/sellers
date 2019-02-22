@@ -51,10 +51,15 @@ class Account extends CI_Controller
         $page_data['gross_chart'] = "";
         $page_data['profile'] = $this->seller->get_profile($uid);
         $page_data['order_chart'] = $this->seller->order_chart($uid);
-        $page_data['commission'] = $this->seller->run_sql("SELECT SUM(commission) amount FROM orders WHERE seller_id = {$uid} AND active_status = 'completed'")->row();
-        $page_data['total_sales'] = $this->seller->run_sql("SELECT (SUM(amount) * SUM(qty)) amount FROM orders WHERE seller_id = {$uid} AND active_status = 'completed'")->row();
-        $avg = $this->seller->run_sql("SELECT SUM(qty) qty, COUNT(DISTINCT(buyer_id)) buyers FROM orders WHERE seller_id = {$uid} AND active_status= 'completed'")->row();
-        $page_data['avg_order'] = ($avg->qty != 0 || $avg->qty  !== null) ? $avg->qty/$avg->buyers : 0;
+
+        // Total Sales for the seller
+        $total_sales = $this->seller->run_sql("SELECT SUM(amount * qty) amount FROM orders WHERE seller_id = {$uid} AND payment_made = 'success'")->result_array();
+        $page_data['total_sales'] = array_sum(array_column($total_sales, 'amount'));
+
+        // Commission received from the seller
+        $commission = $this->seller->run_sql("SELECT SUM(commission) amount FROM orders WHERE seller_id = {$uid} AND payment_made = 'success'")->result_array();
+        $page_data['commission'] = array_sum(array_column($commission, 'amount'));
+
         $page_data['top_orders'] = $this->seller->top_20_sales( $uid );
         $this->load->view('sales_report', $page_data);
     }
