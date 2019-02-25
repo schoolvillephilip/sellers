@@ -18,9 +18,6 @@ class Orders extends MY_Controller
         $page_data['sub_name'] = 'order_' . $status;
         $page_data['profile'] = $this->seller->get_profile_details($id,
             'first_name,last_name,email,profile_pic');
-
-
-
         $page = isset($_GET['page']) ? xss_clean($_GET['page']) : 0;
         if ($page > 1) $page -= 1;
 
@@ -41,6 +38,7 @@ class Orders extends MY_Controller
         $page_data['pagination'] = $this->pagination->create_links();
 
         $page_data['orders'] = $this->seller->get_orders($id, $status, $array);
+//        var_dump( $page_data['orders'] );
 
         $this->load->view('orders', $page_data);
     }

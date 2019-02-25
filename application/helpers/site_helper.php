@@ -151,6 +151,7 @@ if (!function_exists('productStatus')) {
                 return '<label class="label label-table label-warning">' . ucfirst($status) . '</label>';
                 break;
             case 'approved':
+            case 'completed':
             case 'delivered':
                 return '<label class="label label-table label-success">' . ucfirst($status) . '</label>';
                 break;

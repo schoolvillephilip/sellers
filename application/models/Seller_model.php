@@ -375,7 +375,7 @@ Class Seller_model extends CI_Model
      */
     function get_orders($id = '', $status = '', $array = array())
     {
-        $query = "SELECT p.product_name,p.id pid,v.variation, p.created_on created_on, o.order_date, o.commission commission, o.id orid, g.image_name,o.qty,o.amount, o.status
+        $query = "SELECT p.product_name,p.id pid,v.variation, p.created_on created_on, o.order_date, o.commission commission, o.id orid, g.image_name,o.qty,o.amount, o.status, o.active_status
                 FROM products p 
                 LEFT JOIN orders o ON (p.id = o.product_id)
                 LEFT JOIN product_gallery g ON (g.product_id = p.id AND g.featured_image = 1)
@@ -384,10 +384,12 @@ Class Seller_model extends CI_Model
         if ($status != '') {
             $query .= " AND o.active_status = '{$status}'";
         }
+//        $query .= " GROUP BY o.order_code ";
         $limit = $array['is_limit'];
         if ($limit == true) {
             $query .= " LIMIT " . $array['offset'] . "," . $array['limit'];
         }
+//        die( $query );
         return $this->db->query($query)->result();
     }
 
@@ -550,14 +552,12 @@ Class Seller_model extends CI_Model
         $query = "SELECT SUM(amount) as amount FROM payouts WHERE (user_id = {$id} AND status = 'completed')";
         return $this->run_sql($query)->row();
     }
-
     /*
      * Get top 20 sales for a seller*/
-    function top_20_sales($uid)
-    {
+    function top_20_sales($uid){
         $query = "SELECT p.product_name, p.id, SUM(o.qty) no_of_sales FROM orders o 
         LEFT JOIN products p ON (p.id = o.product_id) 
-        WHERE o.seller_id = {$uid} AND active_status = 'completed' GROUP BY o.product_id ORDER BY o.qty";
+        WHERE o.seller_id = {$uid} AND payment_made = 'success' GROUP BY o.product_id ORDER BY o.qty LIMIT 0, 20";
         return $this->run_sql($query)->result();
     }
 
@@ -582,7 +582,7 @@ Class Seller_model extends CI_Model
             SELECT DATE_FORMAT(order_date, '%b') AS month, SUM(qty) as total
             FROM orders
             WHERE order_date <= NOW() and order_date >= Date_add(Now(),interval - 12 month)
-            AND seller_id = {$uid} AND active_status = 'completed'
+            AND seller_id = {$uid} AND payment_made = 'success'
             GROUP BY DATE_FORMAT(order_date, '%m-%Y')) as sub";
         return $this->run_sql($query)->row_array();
     }
@@ -609,6 +609,42 @@ Class Seller_model extends CI_Model
             'answer' => $answer
         );
         return $this->update_data( array('id' => $qid), $data, 'qna');
+    }
+
+    /*
+     * Load sales data graph
+     * */
+    function load_sales_data( $type = 'daily' ){
+        $id = $this->session->userdata('logged_id');
+        switch ($type) {
+            case 'weekly':
+                $select = "SELECT DATE_FORMAT(order_date, '%X-%V') as date,
+                SUM(qty) AS q FROM orders WHERE seller_id = {$id} AND payment_made = 'success'
+                AND order_date BETWEEN DATE_SUB(CURDATE(),INTERVAL 3 MONTH ) AND DATE_SUB(CURDATE() ,INTERVAL 0 MONTH)
+                GROUP BY date 
+                ORDER BY date";
+                return $this->db->query( $select )->result_array();
+                break;
+            case 'monthly':
+                $select = "SELECT DATE_FORMAT(order_date, '%Y-%m') as date,
+                SUM(qty) AS q FROM orders WHERE seller_id = {$id} AND payment_made = 'success'
+                GROUP BY date 
+                ORDER BY date LIMIT 12";
+                return $this->db->query( $select )->result_array();
+                break;
+            case 'yearly':
+                $select = "SELECT DATE_FORMAT(order_date, '%Y') as date, SUM(qty) AS q FROM orders
+                WHERE seller_id = {$id}  AND payment_made = 'success'
+                GROUP BY date ORDER BY date ";
+                return $this->db->query( $select )->result();
+                break;
+            default:
+                $select = "SELECT DATE(order_date) as date, SUM(qty) AS q FROM orders
+                WHERE seller_id = {$id} AND active_status = 'completed'
+                GROUP BY date ORDER BY date LIMIT 30 ";
+                return $this->db->query( $select )->result_array();
+                break;
+        }
     }
 
 }
