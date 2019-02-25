@@ -126,7 +126,7 @@
                                 <div class="progress progress-xs">
                                     <div class="progress-bar progress-bar-primary"></div>
                                 </div>
-                                <form id="" action="<?= base_url('product/edit'); ?>"
+                                <form id="" action="<?= base_url('product/edit/');?>"
                                       class="form-horizontal edit_product_form" method="POST"
                                       enctype="multipart/form-data">
                                     <input type="hidden" name="product_id" value="<?= $product->id; ?>">
@@ -672,11 +672,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
-                                            <input type="hidden" name="file" value="" type="file">
                                         </div>
                                     </div>
+                                    <input type="file" name="edit_image_file[]" value="" style="display: none;">
                                     <div class="panel-footer text-center">
                                         <div class="box-inline">
                                             <button type="button" class="previous btn btn-primary">Previous</button>
@@ -748,7 +747,7 @@
             autoProcessQueue: false,
             addRemoveLinks: true,
             autoDiscover: false,
-            paramName: 'file',
+            paramName: 'edit_image_file',
             maxFiles: 8,
             thumbnailWidth: 50,
             thumbnailHeight: 50,
@@ -760,6 +759,7 @@
             uploadMultiple: true,
             parallelUploads: 100,
             init: function () {
+                let no_of_files = 0;
                 $.ajax({
                     url: `${base_url}product/load_images/${product_id}`,
                     method: "GET",
@@ -791,6 +791,7 @@
             file.previewElement.appendChild(file._captionLabel);
             $('input[type="radio"]').first().prop('checked', true);
         });
+
         myDropzone.on("sendingmultiple", function (file, xhr, formData) {
             // Show the total progress bar when upload starts
             let formDataArray = $('.edit_product_form').serializeArray();
@@ -801,6 +802,7 @@
         });
 
         uplodaBtn.on('click', function (e) {
+            // alert('You clicked me');
             $('#processing').show();
             e.preventDefault();
             if (myDropzone.getQueuedFiles().length > 0) {
@@ -836,7 +838,6 @@
             uplodaBtn.prop('disabled', true);
             removeBtn.prop('disabled', true);
         });
-
     });
 
 </script>

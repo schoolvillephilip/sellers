@@ -35,6 +35,9 @@
                 <div class="form-group">
                     <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
+                <div id="captcha">
+                    <?= $this->recaptcha->getWidget(); ?>
+                </div>
                 <div class="checkbox pad-btm text-left">
                     <input id="demo-form-checkbox" class="magic-checkbox" type="checkbox">
                     <label for="demo-form-checkbox">Remember me</label>
@@ -52,5 +55,6 @@
 <?php foreach ($scripts as $tag) : ?>
     <script src="<?= base_url('assets/') . $tag; ?>"></script>
 <?php endforeach; ?>
+<?= $this->recaptcha->getScriptTag(); ?>
 </body>
 </html>

@@ -692,4 +692,5 @@ Class Product_model extends CI_Model
         $select = "SELECT b.aid, a.price FROM billing_address b LEFT JOIN area a ON (b.aid = a.id ) WHERE b.id = {$address_id}";
         return $this->db->query($select)->row()->price;
     }
+
 }

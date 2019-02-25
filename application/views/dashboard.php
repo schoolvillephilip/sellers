@@ -70,7 +70,6 @@
                             <div class="media-body">
                                 <p class="text-2x mar-no text-semibold"><?= $dispute->total; ?></p>
                                 <p class="mar-no">Disputes</p>
-
                             </div>
                         </div>
                     </div>
@@ -78,13 +77,24 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<div id="demo-panel-network" class="panel">
-							<div class="panel-heading">
+                            <div class="row">
+                                <br />
+                                <div class="col-md-6 col-md-offset-3">
+                                    <select id="order_filter" class="col-lg-9 col-md-9 col-sm-9 col-xs-9 form-control" name="order_filter">
+                                        <option value="daily" selected>Filter By - Daily</option>
+                                        <option value="weekly">Filter By - Weekly</option>
+                                        <option value="monthly">Filter By - Monthly</option>
+                                        <option value="yearly">Filter By - Yearly</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <br />
+                            <div class="panel-heading">
 								<h3 class="panel-title">Sales Track</h3>
-                                <?php if(!$sales_chart) : ?>
-                                    <h3 class="text-danger text-center">No Data Available!</h3>
-                                <?php endif; ?>
 							</div>
 							<div class="panel-body">
+                                <div class="alert alert-dark" id="alert" style="display: none;">No data available for the selection</div>
 								<div id="sellerchart" style="height: 250px; margin-bottom: 40px;"></div>
 								<div class="row">
 									<div class="col-lg-3">
@@ -189,25 +199,51 @@
                 'pdfHtml5'
             ]
         } );
+        let type = $('#order_filter').val();
+        $.ajax({
+            url : base_url + 'ajax/load_sales_data',
+            type : 'GET',
+            data : {'type' : type },
+            success : function(response) {
+                moris(response);
+            }
+        });
+
+        $('#order_filter').on('change', function(){
+            $('#alert').css({'display':'none'});
+            let type = $(this).val();
+            $('#sellerchart').empty();
+            $.ajax({
+                url : base_url + 'ajax/load_sales_data',
+                type: 'POST',
+                data : {'type' : type },
+                success : function( response ){
+                    if( response.length == 0) {
+                        $('#alert').css({'display':'block'});
+                    }
+                    moris( response );
+                }
+            })
+        });
+
+        function moris( data ){
+
+            Morris.Bar({
+                element: 'sellerchart',
+                data: data,
+                xkey: "date",
+                ykeys: "q",
+                labels: ['Total Order'],
+                gridEnabled: true,
+                gridLineColor: 'rgba(0,0,0,.1)',
+                gridTextColor: '#6b7880',
+                gridTextSize: '11px',
+                barColors: ['#179278'],
+                resize:true,
+                hideHover: 'auto'
+            });
+        }
     });
-</script>
-<script>
-	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-	new Morris.Line({
-		// ID of the element in which to draw the chart.
-		element: 'sellerchart',
-		data: [
-			<?php foreach( $sales_chart as $chart) : ?>
-			{month: '<?= $chart->omonth; ?>', value: <?= $chart->sales; ?>},
-			<?php endforeach;?>
-		],
-		xkey: 'month',
-		ykeys: ['value'],
-		xLabelFormat: function (x) {
-			return months[x.getMonth()];
-		},
-		labels: ['Sales']
-	});
 </script>
 </body>
 </html>

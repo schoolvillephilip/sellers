@@ -40,12 +40,12 @@
     <div id="bg-overlay"></div>
     <div id="container">
         <div class="row" style="text-align: center;"><br/>
-            <h2 style="color:#736455;">Reach Over 200 million Customers</h2>
+            <h2 style="color:#736455;">Reach Over 140 million Customers</h2>
             <hr style=" width: 100%;border:1px solid #2BA27D;"/>
         </div>
         <?php $this->load->view('msg_view'); ?>
-        <p class="title1 title1-pos" style=" font-size: 54px; font-weight: 500; line-height: 60px;">
-            SELL NOW ON ONITSHAMARKET.COM AND<br/>START MAKING MONEY</p>
+        <p class="title1 title1-pos" style=" font-size: 46px; font-weight: 500; line-height: 58px;">
+            START SELLING ON ONITSHAMARKET.COM TODAY</p>
         <ul class="nav nav-tabs">
             <li class="active col-xs-12 col-md-4"><a data-toggle="tab" href="#sell"><h3>Sell on Onitshamarket.com</h3>
                 </a>
@@ -62,73 +62,73 @@
 
                         <div class="col-xs-12 col-md-4 text-center">
 
-                            <img src="<?= base_url('assets/img/sell_visits.png'); ?>"
+                            <img src="<?= base_url('assets/img/customer.png'); ?>"
                                  style="width: 140px;" alt=""/>
-                            <p class="gnumbers">Reach 200,000,000+</p>
-                            <p class="glegend">Potential Buyers</p>
+                            <p class="gnumbers">Sell to over 140 millions of customers</p>
+                            <p class="glegend">Reach a wide sphere of onishamarket.com customers’ buying across Nigeria.</p>
                         </div>
 
                         <div class="col-xs-12 col-md-4 text-center">
-                            <img src="<?= base_url('assets/img/sell_satisfy.png'); ?>"
+                            <img src="<?= base_url('assets/img/upp.jpg'); ?>"
                                  style="width: 140px;" alt=""/>
-                            <p class="gnumbers">95% Satisfied customers</p>
-                            <p class="glegend">Recommend us to friends</p>
+                            <p class="gnumbers">We want to give consistent leap to your business</p>
+                            <p class="glegend">Connect with our always increasing customers’ size on our growth driven platform for your business. We also provide you with regular sales analysis and marketing insights.</p>
                         </div>
 
                         <div class="col-xs-12 col-md-4 text-center">
-                            <img src="<?= base_url('assets/img/sell_rep.png'); ?>"
+                            <img src="<?= base_url('assets/img/rel.png'); ?>"
                                  style="width: 140px;" alt=""/>
-                            <p class="gnumbers">Marketing &amp; data analytics </p>
-                            <p class="glegend">Support to grow your business</p>
+                            <p class="gnumbers">You can count on us</p>
+                            <p class="glegend">We take and carry any size of good(s), and keep a customer-centric relationship with buyers on your behalf.</p>
                         </div>
                     </div>
-
-                    <div class="grey_wrap">
-                        <p class="sub-title1">How it works?</p>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-5 text-right">
-                                <img src="<?= base_url('assets/img/TAB1-STEP1n1.png'); ?>"
-                                     style="width: 150px; float: right;" alt=""/>
-                            </div>
-                            <div class="col-xs-12 col-md-7 text-left" style="top:20px;"><br/>
-                                <p class="txt1" style="font-size: 15px; color: #2BA27D;">Step 1: Register in
-                                    under 5
-                                    minutes</p>
-                                <p class="txt1">Fill the Registration Form.<br/>Submit the required documents –
-                                    Business
-                                    registration and bank account details.<br/>Read and accept our Seller
-                                    Agreement.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-5 text-right">
-                                <img src="<?= base_url('assets/img/TAB1-STEP2n1.png'); ?>"
-                                     style="width: 150px; float: right;" alt=""/>
-                            </div>
-                            <div class="col-xs-12 col-md-7 text-left" style="top:30px;">
-                                <p class="txt1" style="font-size: 15px; color: #2BA27D;">Step 2 : Become an
-                                    ecommerce
-                                    expert</p>
-                                <p class="txt1">Complete the dedicated training session for news.<br/>Activate
-                                    your
-                                    Seller Center account to manage your shop on the go.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-5 text-right">
-                                <img src="<?= base_url('assets/img/TAB1-STEP3n1.png'); ?>"
-                                     style="width: 150px; float: right;" alt=""/>
-                            </div>
-                            <div class="col-xs-12 col-md-7 text-left" style="top:40px;">
-                                <p class="txt1" style="font-size: 15px; color: #2BA27D;">Step 3 : List your
-                                    Products
-                                    and start
-                                    selling!</p>
-                                <p class="txt1">Upload more than five products to start selling.</p>
-                            </div>
-                        </div>
-                    </div>
+<!---->
+<!--                    <div class="grey_wrap">-->
+<!--                        <p class="sub-title1">How it works?</p>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-xs-12 col-md-5 text-right">-->
+<!--                                <img src="--><?//= base_url('assets/img/TAB1-STEP1n1.png'); ?><!--"-->
+<!--                                     style="width: 150px; float: right;" alt=""/>-->
+<!--                            </div>-->
+<!--                            <div class="col-xs-12 col-md-7 text-left" style="top:20px;"><br/>-->
+<!--                                <p class="txt1" style="font-size: 15px; color: #2BA27D;">Step 1: Register in-->
+<!--                                    under 5-->
+<!--                                    minutes</p>-->
+<!--                                <p class="txt1">Fill the Registration Form.<br/>Submit the required documents –-->
+<!--                                    Business-->
+<!--                                    registration and bank account details.<br/>Read and accept our Seller-->
+<!--                                    Agreement.-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-xs-12 col-md-5 text-right">-->
+<!--                                <img src="--><?//= base_url('assets/img/TAB1-STEP2n1.png'); ?><!--"-->
+<!--                                     style="width: 150px; float: right;" alt=""/>-->
+<!--                            </div>-->
+<!--                            <div class="col-xs-12 col-md-7 text-left" style="top:30px;">-->
+<!--                                <p class="txt1" style="font-size: 15px; color: #2BA27D;">Step 2 : Become an-->
+<!--                                    ecommerce-->
+<!--                                    expert</p>-->
+<!--                                <p class="txt1">Complete the dedicated training session for news.<br/>Activate-->
+<!--                                    your-->
+<!--                                    Seller Center account to manage your shop on the go.</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-xs-12 col-md-5 text-right">-->
+<!--                                <img src="--><?//= base_url('assets/img/TAB1-STEP3n1.png'); ?><!--"-->
+<!--                                     style="width: 150px; float: right;" alt=""/>-->
+<!--                            </div>-->
+<!--                            <div class="col-xs-12 col-md-7 text-left" style="top:40px;">-->
+<!--                                <p class="txt1" style="font-size: 15px; color: #2BA27D;">Step 3 : List your-->
+<!--                                    Products-->
+<!--                                    and start-->
+<!--                                    selling!</p>-->
+<!--                                <p class="txt1">Upload more than five products to start selling.</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </div>
             <div id="support" class="tab-pane fade text-justify">
