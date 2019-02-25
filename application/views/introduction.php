@@ -62,8 +62,8 @@
 
                         <div class="col-xs-12 col-md-4 text-center">
 
-                            <img src="<?= base_url('assets/img/cust.jpg'); ?>"
-                                 style="width: 57%;" alt=""/>
+                            <img src="<?= base_url('assets/img/customer.png'); ?>"
+                                 style="width: 140px;" alt=""/>
                             <p class="gnumbers">Sell to over 140 millions of customers</p>
                             <p class="glegend">Reach a wide sphere of onishamarket.com customers’ buying across Nigeria.</p>
                         </div>
