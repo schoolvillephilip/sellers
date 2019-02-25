@@ -52,7 +52,9 @@ class Account extends CI_Controller
         $page_data['profile'] = $this->seller->get_profile($uid);
         $page_data['order_chart'] = $this->seller->order_chart($uid);
         $page_data['commission'] = $this->seller->run_sql("SELECT SUM(commission) amount FROM orders WHERE seller_id = {$uid} AND active_status = 'completed'")->row();
-        $page_data['total_sales'] = $this->seller->run_sql("SELECT (SUM(amount) * SUM(qty)) amount FROM orders WHERE seller_id = {$uid} AND active_status = 'completed'")->row();
+
+        $page_data['total_sales'] = $this->seller->run_sql("SELECT (SUM(amount) * SUM(qty)) amount FROM orders WHERE seller_id = {$uid} AND active_status = 'completed' GROUP BY order_code")->result_array();
+        
         $avg = $this->seller->run_sql("SELECT SUM(qty) qty, COUNT(DISTINCT(buyer_id)) buyers FROM orders WHERE seller_id = {$uid} AND active_status= 'completed'")->row();
         $page_data['avg_order'] = ($avg->qty != 0 || $avg->qty  !== null) ? $avg->qty/$avg->buyers : 0;
         $page_data['top_orders'] = $this->seller->top_20_sales( $uid );
