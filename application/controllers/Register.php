@@ -45,10 +45,10 @@ class Register extends CI_Controller
         $this->form_validation->set_rules('email', 'Email Address', 'trim|required|xss_clean|valid_email');
         // $this->form_validation->set_message('is_unique', 'The %s is already taken');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|min_length[8]|max_length[15]');
-        $this->form_validation->set_rules('confirm_password', 'Password', 'trim|required|xss_clean|min_length[8]|max_length[15]|matches[password]');
+        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|min_length[8]|max_length[15]|matches[password]');
         if ($this->form_validation->run() === FALSE) {
             $this->session->set_flashdata('error_msg', '<strong>There was an error when creating the account. Please fix the following</strong> <br />' . validation_errors());
-            redirect('register');
+            redirect('register/form/');
         } else {
             // Check if email address is in the system
             $email = $this->input->post('email', true);
@@ -136,7 +136,7 @@ class Register extends CI_Controller
                                 'bodyHtml' => $bodyHytml
                             );
                             $this->email->welcome_user( $email_array);
-                            $this->session->set_flashdata('success_msg', 'Congrats your application has been received and under review, you will be mailed on the update.');
+                            $this->session->set_flashdata('success_msg', 'Thanks your application has been received and under review, you will be mailed on the update.');
                             redirect('login');
                         } catch (Exception $e) {
                             // log the error

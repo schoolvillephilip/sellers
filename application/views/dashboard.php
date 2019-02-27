@@ -96,6 +96,7 @@
 							<div class="panel-body">
                                 <div class="alert alert-dark" id="alert" style="display: none;">No data available for the selection</div>
 								<div id="sellerchart" style="height: 250px; margin-bottom: 40px;"></div>
+
 								<div class="row">
 									<div class="col-lg-3">
 										<p class="text-semibold text-uppercase text-main">Today</p>
@@ -145,7 +146,7 @@
 								<h3 class="panel-title">Quick Order Status</h3>
 							</div>
                             <div class="panel-body">
-                                <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                <table id="order-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                     <tr>
                                         <th>Order Code</th>
@@ -183,7 +184,7 @@
 <?php $this->load->view('templates/scripts'); ?>
 <script>
     $(document).ready(function (x) {
-        $('#demo-dt-basic').dataTable( {
+        $('#order-table').dataTable( {
             "responsive": true,
             "language": {
                 "paginate": {
