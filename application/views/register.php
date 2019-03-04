@@ -287,7 +287,7 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-lg-4 control-label">Bank Name</label>
                                         <div class="col-lg-7">
-                                            <select name="required" class="form-control">
+                                            <select name="bank_name" required class="form-control">
                                                 <option value="">-- Select Bank Name--</option>
                                                 <?php $banks = explode(',', lang('banks'));
                                                 foreach ($banks as $bank) :

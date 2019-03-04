@@ -169,13 +169,14 @@
                 data : {'type' : type },
                 success : function( response ){
                     // response = JSON.parse(response);
+                    if( response.length < 0) alert('No data available for the filter');
                     moris( response );
                 }
             })
         });
 
         function moris( data ){
-            if( data == '') alert('No data available for the filter');
+
             Morris.Bar({
                 element: 'sales_chart',
                 data: data,
