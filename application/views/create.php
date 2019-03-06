@@ -740,6 +740,7 @@
                                                     <table class="table table-center mar-top pricing_table">
                                                         <thead>
                                                         <tr>
+                                                            <th>SKU *</th>
                                                             <?php if (empty($variation_name)) : ?>
                                                                 <th class="min-w-td">Variation *</th>
                                                             <?php else: ?>
@@ -747,18 +748,23 @@
                                                                     *
                                                                 </th>
                                                             <?php endif; ?>
-                                                            <th>Seller SKU *</th>
-                                                            <th>EAN / UPC / ISBN *</th>
+                                                            <th>SON *</th>
                                                             <th>Quantity *</th>
-                                                            <th>Sale Price *</th>
+                                                            <th>Unit Price *</th>
                                                             <th>Discounted Price</th>
-                                                            <th>Start date</th>
-                                                            <th>End date</th>
+                                                            <th>Start Date</th>
+                                                            <th>End Date</th>
                                                             <th class="text-center">Actions</th>
                                                         </tr>
                                                         </thead>
                                                         <tbody class="variation_body">
                                                         <tr data-row-id="1">
+                                                            <td>
+                                                                <div class="form-group-sm col-md-12">
+                                                                    <input title="Seller SKU" type="text"
+                                                                           class="form-control" name="sku[]" required/>
+                                                                </div>
+                                                            </td>
                                                             <td>
                                                                 <div class="form-group-sm col-md-12">
                                                                     <?php if (!empty($variation_name) && !empty($variation_options)) : ?>
@@ -775,12 +781,6 @@
                                                                                name="variation[]"
                                                                                required/>
                                                                     <?php endif; ?>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="form-group-sm col-md-12">
-                                                                    <input title="Seller SKU" type="text"
-                                                                           class="form-control" name="sku[]" required/>
                                                                 </div>
                                                             </td>
                                                             <td>
@@ -1099,12 +1099,12 @@
         let row_id = $('.pricing_table').rowCount() * 1;
         let new_id = row_id + 1;
         $('.pricing_table tbody').append(`<tr id = "${new_id}_field">
-				${variation_name}
 				<td>
 					<div class="form-group-sm col-md-12">
 						<input title="Seller SKU" type="text" class="form-control" name="sku[]"  required/>
 					</div>
 				</td>
+				${variation_name}
 				<td>
 					<div class="form-group-sm col-md-12">
 						<input title="EAN / UPC / ISBN" type="text" class="form-control" name="isbn[]" required />

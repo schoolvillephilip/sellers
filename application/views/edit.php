@@ -489,19 +489,20 @@
                                                     <table class="table table-vcenter mar-top pricing_table">
                                                         <thead>
                                                         <tr>
+                                                            <th>SKU *</th>
                                                             <?php if (empty($variation_name)) : ?>
                                                                 <th class="min-w-td">Variation *</th>
                                                             <?php else: ?>
-                                                                <th class="min-w-td"><?= ucfirst($variation_name); ?>*
+                                                                <th class="min-w-td"><?= ucfirst($variation_name); ?>
+                                                                    *
                                                                 </th>
                                                             <?php endif; ?>
-                                                            <th>Seller SKU</th>
-                                                            <th>EAN / UPC / ISBN</th>
-                                                            <th>Quantity</th>
-                                                            <th>Price*</th>
+                                                            <th>SON *</th>
+                                                            <th>Quantity *</th>
+                                                            <th>Unit Price *</th>
                                                             <th>Discounted Price</th>
-                                                            <th>Start date</th>
-                                                            <th>End date</th>
+                                                            <th>Start Date</th>
+                                                            <th>End Date</th>
                                                             <th class="text-center">Actions</th>
                                                         </tr>
                                                         </thead>
@@ -509,6 +510,13 @@
                                                         <?php $x = 1;
                                                         foreach ($variations as $variation) : ?>
                                                             <tr data-row-id="<?= $x; ?>">
+                                                                <td>
+                                                                    <div class="form-group-sm">
+                                                                        <input title="Seller SKU" type="text"
+                                                                               class="form-control" name="sku[]"
+                                                                               value="<?= $variation->sku; ?>"/>
+                                                                    </div>
+                                                                </td>
                                                                 <td>
                                                                     <div class="form-group-sm col-md-12">
                                                                         <input type="hidden" name="variation_id[]"
@@ -533,15 +541,6 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="form-group-sm">
-                                                                        <label class="">SKU</label>
-                                                                        <input title="Seller SKU" type="text"
-                                                                               class="form-control" name="sku[]"
-                                                                               value="<?= $variation->sku; ?>"/>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="form-group-sm">
-                                                                        <label class="">ISBN </label>
                                                                         <input title="EAN / UPC / ISBN" type="text"
                                                                                class="form-control" name="isbn[]"
                                                                                value="<?= $variation->isbn; ?>"/>
@@ -549,7 +548,6 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="form-group-sm">
-                                                                        <label class="">Quantity </label>
                                                                         <input title="Quantity" type="number" min="1"
                                                                                max="100" class="form-control"
                                                                                name="quantity[]"
@@ -558,7 +556,6 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="form-group-sm">
-                                                                        <label class="">Sale Price * </label>
                                                                         <input title="Price" type="text"
                                                                                class="form-control" name="sale_price[]"
                                                                                value="<?= $variation->sale_price; ?>"/>
@@ -566,7 +563,6 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="form-group">
-                                                                        <label class="">Discount Price </label>
                                                                         <input title="Discounted price" type="text"
                                                                                class="form-control"
                                                                                name="discount_price[]"
@@ -576,7 +572,6 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="form-group-sm">
-                                                                        <label class="">Discount Start Date</label>
                                                                         <input title="Starting date for this discount"
                                                                                data-provide="datepicker"
                                                                                data-date-format="yyyy/mm/dd"
@@ -588,7 +583,6 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="form-group-sm">
-                                                                        <label class="">Discount End Date</label>
                                                                         <input title="Ending date for this discount"
                                                                                data-provide="datepicker"
                                                                                data-date-format="yyyy/mm/dd"
@@ -858,15 +852,15 @@
         let row_id = $('.pricing_table').rowCount() * 1;
         let new_id = row_id + 1;
         $('.pricing_table tbody').append(`<tr id = "${new_id}_field">
-				${variation_name}
 				<td>
 					<div class="form-group-sm">
 						<input title="Seller SKU" type="text" class="form-control" name="sku[]" />
 					</div>
 				</td>
+				${variation_name}
 				<td>
 					<div class="form-group-sm">
-						<input title="EAN / UPC / ISBN" type="text" class="form-control" name="isbn[]" />
+						<input title="EAN / UPC / SON" type="text" class="form-control" name="isbn[]" />
 					</div>
 				</td>
 				<td>
