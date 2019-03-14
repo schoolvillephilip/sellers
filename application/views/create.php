@@ -231,7 +231,7 @@
                                                                             <?php endforeach; ?>
                                                                             <option value="others">Others</option>
                                                                         </select>
-                                                                        <span class="text-sm text-dark">Brand of the product</span>
+                                                                        <span class="text-sm text-dark">If you can't find a brand, <a target="_blank" href="<?=base_url("request/brand");?>" style="cursor: pointer;color:#009ee1;text-decoration: underline;">Click Here</a> to add new brand</span>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:;" title="Brand Name"
