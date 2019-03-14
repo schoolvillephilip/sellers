@@ -26,7 +26,7 @@ class Request extends MY_Controller
             $this->form_validation->set_rules('description', 'Brand description','trim|required|xss_clean|min_length[6]');
             if( $this->form_validation->run() == FALSE ){
                 $this->session->set_flashdata('error_msg', 'Please fix the following errors'. validation_errors());
-                redirect('brand');
+                redirect('request/brand');
             }
             $data = array(
                 'brand_name' => trim($this->input->post('brand_name')),
@@ -61,7 +61,7 @@ class Request extends MY_Controller
             }else{
                 $this->session->set_flashdata('error_msg', 'There was an error submitting your brand.');
             }
-            redirect('brand');
+            redirect('request/brand');
         }
         $this->load->view('add_brand', $page_data);
     }
