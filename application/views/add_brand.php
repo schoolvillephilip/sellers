@@ -1,4 +1,5 @@
 <?php $this->load->view('templates/meta_tags'); ?>
+<link href="<?= base_url('assets/plugins/bootstrap-select/bootstrap-select.min.css')?>" rel="stylesheet">
 </head>
 <body>
 <div id="container" class="effect aside-float aside-bright mainnav-lg">
@@ -40,10 +41,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-lg-3 control-label">Parent Category</label>
+                            <label class="col-lg-3 control-label">Select Categories</label>
                             <div class="col-lg-7">
-                                <select name="category[]" multiple class="selectpicker form-control"
-                                        title="Choose Parent Category..."
+                                <select name="categories[]" multiple class="selectpicker form-control"
+                                        title="Select all the category that this brand goes with..."
                                         data-width="100%">
                                     <?php foreach ($categories as $category) :?>
                                         <option value="<?= $category->slug; ?>" ><?= $category->name; ?> </option>
@@ -56,7 +57,7 @@
                             <label class="col-lg-3 control-label" for="">Brand Description</label>
                             <div class="col-lg-7">
                                 <textarea name="description" class="form-control" rows="3"
-                                          placeholder="Enter brand description"></textarea>
+                                          placeholder="Please give a clear description for this brand."></textarea>
                             </div>
                         </div>
                         <div class="panel-footer text-center">
@@ -75,5 +76,6 @@
     </button>
 </div>
 <?php $this->load->view('templates/scripts'); ?>
+<script src="<?= base_url('assets/plugins/bootstrap-select/bootstrap-select.min.js'); ?>"></script>
 </body>
 </html>

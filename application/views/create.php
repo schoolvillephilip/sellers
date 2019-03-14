@@ -1062,7 +1062,7 @@
             } else {
                 $('#processing').hide();
                 $('.add_product_form').trigger('reset');
-                window.location.href = base_url + 'manage';
+                window.location.href = base_url + 'manage/?type=pending';
             }
         });
         myDropzone.on("errormultiple", function (files, response) {

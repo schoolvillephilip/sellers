@@ -650,6 +650,7 @@ class Product extends MY_Controller
         exit;
     }
 
+    // Delete product and also remove from cloudinary
     function product_image_remove(){
         if( !$this->input->is_ajax_request()) redirect(base_url());
         $image_name = $this->input->post('image_name');
@@ -660,6 +661,5 @@ class Product extends MY_Controller
             echo $this->cloudinarylib->delete_image( $public_id );
             exit;
         }
-
     }
 }
