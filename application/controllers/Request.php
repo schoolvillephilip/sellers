@@ -56,7 +56,7 @@ class Request extends MY_Controller
                 }
             }
 
-            if( $this->admin->insert_data('brands', $data) ){
+            if( $this->seller->insert_data('brands', $data) ){
                 $this->session->set_flashdata('success_msg', 'The brand has been submitted and under review. Thank you.');
             }else{
                 $this->session->set_flashdata('error_msg', 'There was an error submitting your brand.');
