@@ -72,6 +72,7 @@ class Cloudinarylib
 
     /*
      * Delete image
+     * @public_id : The image name
      * */
     public function delete_image( $public_id ){
         try {

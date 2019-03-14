@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-md-4">
                         <a href="<?= base_url(); ?>" title="<?= lang('app_name'); ?>"><img
-                                    src="<?= base_url('assets/landing/img/onitshamarket-logo.png'); ?>"
+                                    src="<?= base_url('assets/onitshamarket-logo.png'); ?>"
                                     alt="<?= lang('app_name'); ?>"
                                     class="brand-title img-responsive"></a>
                     </div>
@@ -36,7 +36,7 @@
             </div>
 
             <div class="pad-all">
-                <a href="<?= base_url(); ?>" class="btn-link mar-rgt">Go to Homepage</a>
+                <a href="<?= base_url('logout'); ?>" class="btn-link mar-rgt">Go to Homepage</a>
             </div>
         </div>
     </div>

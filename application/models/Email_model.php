@@ -26,6 +26,20 @@ class Email_model extends CI_Model {
         return $this->send_now($post);
     }
 
+    // Welcome user for new account creates
+    function welcome_buyer( $data ){
+        $post = array(
+            'subject' => 'Welcome to Onitshamarket' ,
+            'to' => $data['email'],
+            'from' => 'info@onitshamarket.com',
+            'template' => 'WelcomeNewUser',
+            'merge_recipent' => $data['recipent'],
+            'isTransactional' => false
+        );
+        return $this->send_now($post);
+    }
+
+
     // Payment request
     function payment_request( $data ){
         $post = array(

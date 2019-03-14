@@ -176,7 +176,6 @@
         });
 
         function moris( data ){
-
             Morris.Bar({
                 element: 'sales_chart',
                 data: data,

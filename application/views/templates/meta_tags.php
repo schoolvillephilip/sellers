@@ -28,17 +28,10 @@
         <link href="<?= base_url('assets/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css'); ?>" rel="stylesheet">
     <?php endif;?>
     <style>
-        #demo-nifty-settings{
-            display: none;
-        }
-        .panel-title{
-            color:#fff;
-            background: #425865 !important;
-        }
-        .panel-title:hover{
-            background: #1ca28b !important;
-            color:#fff;
-        }
+        #demo-nifty-settings{ display: none; }
+        .panel-title{ color:#fff; background: #425865 !important; }
+        .panel-title:hover{ background: #1ca28b !important; color:#fff; }
         body { font-family: 'Oxygen', sans-serif !important; color: #354645; }
+        #footer { color: #fff; background-color: #2ba27d;}
     </style>
 

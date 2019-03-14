@@ -214,26 +214,7 @@
                                                                                title="Help Text"></i> </a>
                                                                     </div>
                                                                 </div>
-                                                                <div class="form-group">
-                                                                    <label
-                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Shop
-                                                                        Name</label>
-                                                                    <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <input type="text"
-                                                                               value="<?= $store_name; ?>"
-                                                                               name="product_line" class="form-control"
-                                                                               required>
-                                                                    </div>
-                                                                    <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
-                                                                        <a href="javascript:void(0);" title="Shop Name"
-                                                                           data-placement="bottom" data-toggle="popover"
-                                                                           tabindex="-1"
-                                                                           data-trigger="focus"
-                                                                           data-content="Your registered shop name">
-                                                                            <i class="demo-pli-question help_text"
-                                                                               title="Help Text"></i> </a>
-                                                                    </div>
-                                                                </div>
+
                                                                 <div class="form-group">
                                                                     <label
                                                                             class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Brand
@@ -349,13 +330,16 @@
                                                                                 class="selectpicker"
                                                                                 title="Choose type..."
                                                                                 data-width="100%">
+                                                                            <option value="">-- Select --</option>
                                                                             <?php
                                                                             $materials = explode(',', lang('main_material'));
                                                                             foreach ($materials as $material) :
                                                                                 ?>
+
                                                                                 <option
                                                                                     value="<?= trim($material); ?>"> <?= trim(ucwords($material)); ?> </option>
                                                                             <?php endforeach; ?>
+                                                                            <option value="other">Other</option>
                                                                         </select>
                                                                         <span
                                                                             class="text-sm text-dark">Eg: Leather</span>
@@ -367,6 +351,30 @@
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
                                                                            data-content="Material used to manufacture product, e.g Aluminium, Plastic, etc.">
+                                                                            <i class="demo-pli-question help_text"
+                                                                               title="Help Text"></i> </a>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label
+                                                                            class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Is this product from overseas?</label>
+                                                                    <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
+                                                                        <div class="radio">
+                                                                            <input id="no" class="magic-radio" type="radio" name="from_overseas" checked>
+                                                                            <label for="no">No</label>
+
+                                                                            <input id="yes" class="magic-radio" type="radio" name="from_overseas">
+                                                                            <label for="yes">Yes</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
+                                                                        <a href="javascript:void(0);"
+                                                                           title="Overseas"
+                                                                           data-placement="top" data-toggle="popover"
+                                                                           tabindex="-1"
+                                                                           data-trigger="focus"
+                                                                           data-content="Please check if this product is not from Nigeria.">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -422,7 +430,7 @@
                                                                         <input type="text" class="form-control"
                                                                                name="youtube_id"
                                                                                placeholder="YouTube ID">
-                                                                        <span class="text-sm text-dark">Example: e.g. http://www.youtube.com/watch?v=htlgaXRAe2k it is: htlgaXRAe2k</span>
+                                                                        <span class="text-sm text-dark">Example: http://www.youtube.com/watch?v=abcdef it is: abcdf</span>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:;" title="Youtube ID"
@@ -491,7 +499,7 @@
                                                                         class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Dimension</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <input type="text"
-                                                                               placeholder="Example: 12 x 3 x 90"
+                                                                               placeholder="Example: 18 x 5 x 80"
                                                                                name="dimensions" class="form-control">
                                                                         <span class="text-sm text-dark">Measurement of the product</span>
                                                                     </div>
@@ -563,6 +571,7 @@
                                                                                             } ?>
                                                                                                 title="<?= $specification['spec_description']; ?>"
                                                                                                 data-width="100%">
+                                                                                            <option value=""> -- Select --</option>
                                                                                             <?php foreach ($options as $key => $value) : ?>
                                                                                                 <option
                                                                                                     value="<?= trim($value); ?>"><?= ucwords(trim($value)); ?></option>
@@ -670,14 +679,14 @@
                                                                         Warranty</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <textarea title="Product warranty (if any)" name="product_warranty" class="half_description" id="product_warranty"></textarea>
-                                                                        <span class="text-sm text-dark">Example: Provide the warranty validity period eg. 1 Year Warranty, N/A</span>
+                                                                        <span class="text-sm text-dark">Example: 1 Year Warranty, leave blank if you the item does not have.</span>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:;" title="Product Warranty"
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="Provide the warranty validity period eg. 1 Year Warranty, N/A">
+                                                                           data-content="Provide the warranty validity period eg. 1 Year Warranty, leave blank if you the item does not have.">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -718,14 +727,14 @@
                                                                         address</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <textarea title="Warranty address" name="warranty_address" class="half_description" id="warranty_address"></textarea>
-                                                                        <span class="text-sm text-dark">Example: Service Center Address: 20b Caro Road, Ikeja. Lagos | Repair by Vendor Address: 5 Paris Street, Yaba. Lagos.</span>
+                                                                        <span class="text-sm text-dark">Example: 530A Aina Akingbala Street, Ikeja; Repair by vender: 39, Ajah road, Isheri, Lagos state.</span>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:;" title="Warranty Address"
                                                                            data-placement="bottom" data-toggle="popover"
                                                                            tabindex="-1"
                                                                            data-trigger="focus"
-                                                                           data-content="Address of warranty shop: e.g Service Center Address: 20b Caro Road, Ikeja. Lagos | Repair by Vendor Address: 5 Paris Street, Yaba. Lagos.">
+                                                                           data-content="Address of warranty shop: e.g Our service center : 530A Aina Akingbala Street, Ikeja; Repair by vender: 39, Ajah road, Isheri, Lagos state.">
                                                                             <i class="demo-pli-question help_text"
                                                                                title="Help Text"></i> </a>
                                                                     </div>
@@ -748,7 +757,6 @@
                                                                     *
                                                                 </th>
                                                             <?php endif; ?>
-                                                            <th>SON *</th>
                                                             <th>Quantity *</th>
                                                             <th>Unit Price *</th>
                                                             <th>Discounted Price</th>
@@ -785,12 +793,6 @@
                                                             </td>
                                                             <td>
                                                                 <div class="form-group-sm col-md-12">
-                                                                    <input title="EAN / UPC / ISBN" type="text"
-                                                                           class="form-control" name="isbn[]" required/>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="form-group-sm col-md-12">
                                                                     <input title="Quantity" type="number" min="1"
                                                                            max="100" class="form-control"
                                                                            name="quantity[]" required/>
@@ -799,14 +801,14 @@
                                                             <td>
                                                                 <div class="form-group-sm col-md-12">
                                                                     <input title="Price" type="text"
-                                                                           class="form-control" required
+                                                                           class="form-control number amount" required
                                                                            name="sale_price[]"/>
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="form-group-sm">
                                                                     <input title="Discounted price" type="text"
-                                                                           class="form-control"
+                                                                           class="form-control number amount"
                                                                            name="discount_price[]"/>
                                                                 </div>
                                                             </td>
@@ -924,6 +926,7 @@
                                         </div>
                                     </div>
                                     <div class="panel-footer text-center">
+                                        <input type="hidden" name="category_id" value="<?= $this->session->userdata('category_id'); ?>" />
                                         <div class="box-inline">
                                             <button type="button" class="previous btn btn-primary">Previous</button>
                                             <button type="button" class="next btn btn-primary">Next</button>
@@ -990,10 +993,10 @@
         previewNode.parentNode.removeChild(previewNode);
         let uplodaBtn = $('.finish');
         let removeBtn = $('#dz-remove-btn');
-        let maxImageWidth = 2000,
-            maxImageHeight = 2000,
-            minImageWidth = 500,
-            minImageHeight = 500;
+        let maxImageWidth = 1000,
+            maxImageHeight = 1000,
+            minImageWidth = 400,
+            minImageHeight = 400;
         var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
             url: base_url + "product/process", // Set the url
             autoProcessQueue: false,
@@ -1003,7 +1006,7 @@
             maxFiles: 8,
             thumbnailWidth: 50,
             thumbnailHeight: 50,
-            maxFilesize: 20000,
+            maxFilesize: 1000,
             previewTemplate: previewTemplate,
             previewsContainer: "#dz-previews", // Define the container to display the previews
             clickable: ".fileinput-button", // Define the element that should be used as click trigger to select files.
@@ -1013,7 +1016,7 @@
             accept: function (file, done) {
                 file.acceptDimensions = done;
                 file.rejectDimensions = function () {
-                    done(`Invalid file dimension, atleast 500 X 500 and maximum of 2000 X 2000. But image is having ${file.width} X ${file.height}. File won't be uploaded.`);
+                    done(`Invalid file dimension, atleast 400 X 400 and maximum of 1000 X 1000. But image is having ${file.width} X ${file.height}. File won't be uploaded.`);
                 };
             }
         });
@@ -1105,11 +1108,7 @@
 					</div>
 				</td>
 				${variation_name}
-				<td>
-					<div class="form-group-sm col-md-12">
-						<input title="EAN / UPC / ISBN" type="text" class="form-control" name="isbn[]" required />
-					</div>
-				</td>
+
 				<td>
 					<div class="form-group-sm col-md-12">
 						<input title="Quantity" type="number" min="1" max="100" class="form-control" name="quantity[]" required />
@@ -1117,12 +1116,12 @@
 				</td>
 				<td>
 					<div class="form-group-sm col-md-12">
-							<input title="Sale Price" type="text" class="form-control" required name="sale_price[]" required />
+							<input title="Sale Price" type="text" class="form-control number amount" required name="sale_price[]" required />
 					</div>
 				</td>
 				<td>
 					<div class="form-group-sm">
-						<input title="Discounted price" type="text" class="form-control" name="discount_price[]" />
+						<input title="Discounted price" type="text" class="form-control number amount" name="discount_price[]" />
 					</div>
 				</td>
 				<td>
@@ -1174,8 +1173,16 @@
 
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover({animation: true});
-        // Hide the Image URL for summernote
-        // $('.note-group-image-url').style('display','none');
+
+        $(".number").inputFilter(function (value) {
+            return /^-?\d*$/.test(value);
+        });
+
+        $('.amount').on('keyup', function () {
+            let n = $(this).val();
+            let resp = addCommas(n);
+            $(this).val( resp );
+        });
 
         $('.product_description').summernote({
             tabsize: 2,
@@ -1266,6 +1273,22 @@
             ],
         });
     });
+
+    (function($) {
+        $.fn.inputFilter = function(inputFilter) {
+            return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function() {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                }
+            });
+        };
+    }(jQuery))
+
 </script>
 </body>
 </html>

@@ -29,6 +29,10 @@
         margin: 10px;
     }
 
+    #container{
+        min-height: 0px;
+    }
+
     .gnumbers {
         color: red;
         top: 20px;
@@ -165,8 +169,7 @@
 
         <div class="row" style="margin:20px;">
             <p class="lead custom-text">Are You Ready To Start Selling?</p>
-            <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('register/form'); ?>">Become
-                A Seller <i
+            <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('register/create'); ?>">Create An Account <i
                         class="fa fa-cart-plus"></i></a>
             <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('login'); ?>">Login <i
                         class="fa fa-sign-in"></i></a>

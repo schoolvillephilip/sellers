@@ -1,3 +1,3 @@
 <footer id="footer">
-    <p class="pad-lft">&#0169; <?= date('Y'); ?> <?= lang('app_name') ?></p>
+    <p class="pad-lft">© 2015 - <?= date('Y'); ?> Internet Onitshamarketing Limited All rights reserved</p>
 </footer>

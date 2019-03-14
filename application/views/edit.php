@@ -4,6 +4,9 @@
     .note-group-image-url{
         display: none;
     }
+    .btn-delete-image{
+        margin-right: 6px;
+    }
     img.dz-img {
         max-width: 80px;
     }
@@ -157,18 +160,6 @@
                                                                         <span class="text-sm text-dark">Wide Angle Camera 10 MP - Black, Galaxy Tab A Leather Flip Case - Red</span>
                                                                     </div>
                                                                 </div>
-
-                                                                <div class="form-group">
-                                                                    <label class="col-lg-3 control-label">Shop
-                                                                        Name</label>
-                                                                    <div class="col-lg-7">
-                                                                        <input type="text"
-                                                                               placeholder="Enter In Here Your Store Name"
-                                                                               value="<?= $product->product_line; ?>"
-                                                                               name="product_line" class="form-control">
-                                                                        <span class="text-sm text-dark">Eg: Fouani Nigeria, Trendy Woman Ltd, SEOLAK</span>
-                                                                    </div>
-                                                                </div>
                                                                 <div class="form-group">
                                                                     <label class="col-lg-3 control-label">Brand Name
                                                                         *</label>
@@ -185,7 +176,7 @@
                                                                                 Others
                                                                             </option>
                                                                         </select>
-                                                                        <span class="text-sm text-dark">Brand of the product. If brand does not exist, please copy https://goo.gl/Hw8vma into your browser and fill accordingly.</span>
+                                                                        <span class="text-sm text-dark">Brand of the product. If brand does not exist, select others</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
@@ -257,6 +248,19 @@
                                                                         <span class="text-sm text-dark">Eg: Leather</span>
                                                                     </div>
                                                                 </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-3 control-label">Is this product from overseas?</label>
+                                                                    <div class="col-lg-7">
+                                                                        <div class="radio">
+                                                                            <input id="no" class="magic-radio" type="radio" name="from_overseas" <?php if($product->from_overseas == 0) echo 'checked'; ?> >
+                                                                            <label for="no">No</label>
+                                                                            <input id="yes" class="magic-radio" type="radio" name="from_overseas" <?php if($product->from_overseas == 1) echo 'checked'; ?>>
+                                                                            <label for="yes">Yes</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -296,7 +300,7 @@
                                                                                value="<?= $product->youtube_id; ?>"
                                                                                name="youtube_id"
                                                                                placeholder="YouTube ID">
-                                                                        <span class="text-sm text-dark">Example: e.g. http://www.youtube.com/watch?v=htlgaXRAe2k it is: htlgaXRAe2k</span>
+                                                                        <span class="text-sm text-dark">Example: e.g. http://www.youtube.com/watch?v=abcdef it is: abcdef</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
@@ -304,7 +308,7 @@
                                                                     <div class="col-lg-7">
                                                                         <textarea title="A brief highlight of what is in the box?" class="highlights form-control" name="highlights" id="highlights"></textarea>
                                                                         <span class="text-sm text-dark">Enter short major highlights of the product, to make the purchase decision for the customer easier.</span>
-                                                                        <span class="text-sm text-dark">Example: Best expierience ever - super fast and easy navigation - better control</span>
+                                                                        <span class="text-sm text-dark">Example: Best experience ever - super fast and easy navigation - better control</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
@@ -384,6 +388,7 @@
                                                                                             } ?>
                                                                                                 title="<?= $specification['spec_description']; ?>"
                                                                                                 data-width="100%">
+                                                                                            <option value=""> -- Select --</option>
                                                                                             <?php foreach ($options as $key => $value) : ?>
                                                                                                 <option
                                                                                                         value="<?= trim($value); ?>"><?= ucwords(trim($value)); ?></option>
@@ -450,11 +455,11 @@
                                                                         Warranty</label>
                                                                     <div class="col-lg-7">
                                                                         <textarea title="Product Warranty (if any)" class="product_warranty form-control" name="product_warranty" id="product_warranty"></textarea>
-                                                                        <span class="text-sm text-dark">Example: Provide the warranty validity period eg. 1 Year Warranty, N/A</span>
+                                                                        <span class="text-sm text-dark">Example: 1 Year Warranty, Leave blank if this item does not have.</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label class="col-lg-3 control-label">Waranty
+                                                                    <label class="col-lg-3 control-label">Warranty
                                                                         Type</label>
                                                                     <div class="col-lg-7">
                                                                         <select name="warranty_type[]"
@@ -476,7 +481,7 @@
                                                                         address</label>
                                                                     <div class="col-lg-7">
                                                                         <textarea title="Warranty address" class="warranty_address form-control" name="in_the_box" id="warranty_address"><</textarea>
-                                                                        <span class="text-sm text-dark">Example: Service Center Address: 20b Caro Road, Ikeja. Lagos | Repair by Vendor Address: 5 Paris Street, Yaba. Lagos.</span>
+                                                                        <span class="text-sm text-dark">Example: 530A Aina Akingbala Street, Ikeja; Repair by vender: 39, Ajah road, Isheri, Lagos state.</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -497,7 +502,6 @@
                                                                     *
                                                                 </th>
                                                             <?php endif; ?>
-                                                            <th>SON *</th>
                                                             <th>Quantity *</th>
                                                             <th>Unit Price *</th>
                                                             <th>Discounted Price</th>
@@ -512,6 +516,8 @@
                                                             <tr data-row-id="<?= $x; ?>">
                                                                 <td>
                                                                     <div class="form-group-sm">
+                                                                        <input type="hidden" name="variation_id[]" value="<?= $variation->id; ?>">
+
                                                                         <input title="Seller SKU" type="text"
                                                                                class="form-control" name="sku[]"
                                                                                value="<?= $variation->sku; ?>"/>
@@ -519,8 +525,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="form-group-sm col-md-12">
-                                                                        <input type="hidden" name="variation_id[]"
-                                                                               value="<?= $variation->id; ?>">
+
                                                                         <?php if (!empty($variation_name) && !empty($variation_options)) : ?>
                                                                             <select class="form-control" required
                                                                                     name="variation[]"
@@ -541,13 +546,6 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="form-group-sm">
-                                                                        <input title="EAN / UPC / ISBN" type="text"
-                                                                               class="form-control" name="isbn[]"
-                                                                               value="<?= $variation->isbn; ?>"/>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="form-group-sm">
                                                                         <input title="Quantity" type="number" min="1"
                                                                                max="100" class="form-control"
                                                                                name="quantity[]"
@@ -557,14 +555,14 @@
                                                                 <td>
                                                                     <div class="form-group-sm">
                                                                         <input title="Price" type="text"
-                                                                               class="form-control" name="sale_price[]"
+                                                                               class="form-control number amount" name="sale_price[]"
                                                                                value="<?= $variation->sale_price; ?>"/>
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="form-group">
                                                                         <input title="Discounted price" type="text"
-                                                                               class="form-control"
+                                                                               class="form-control number amount"
                                                                                name="discount_price[]"
                                                                                value="<?= $variation->discount_price; ?>"
                                                                         />
@@ -613,7 +611,7 @@
                                                         <h3 class="panel-title">Upload Images</h3>
                                                     </div>
                                                     <div class="panel-body">
-                                                        <p>You can upload images up-to 8.</p>
+                                                        <p>You can upload images up-to .</p>
                                                         <div class="dz-max-files-reached"></div>
                                                         <div class="bord-top pad-ver">
                                                                     <span class="btn btn-success fileinput-button dz-clickable">
@@ -739,13 +737,12 @@
         let myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
             url: base_url + "/product/edit", // Set the url
             autoProcessQueue: false,
-            addRemoveLinks: true,
             autoDiscover: false,
             paramName: 'edit_image_file',
-            maxFiles: 8,
+            maxFiles: 6,
             thumbnailWidth: 50,
             thumbnailHeight: 50,
-            maxFilesize: 20000,
+            maxFilesize: 1000,
             previewTemplate: previewTemplate,
             previewsContainer: "#dz-previews", // Define the container to display the previews
             clickable: ".fileinput-button", // Define the element that should be used as click trigger to select files.
@@ -753,7 +750,6 @@
             uploadMultiple: true,
             parallelUploads: 100,
             init: function () {
-                let no_of_files = 0;
                 $.ajax({
                     url: `${base_url}product/load_images/${product_id}`,
                     method: "GET",
@@ -764,7 +760,8 @@
                             // Call the default addedfile event handler
                             myDropzone.emit("addedfile", mockFile);
                             myDropzone.emit("thumbnail", mockFile, v.fileURL);
-                            $('input[type="radio"]', this).first().prop('checked', true);
+                            $('input[type="radio"]').first().prop('checked', true);
+
                             // Make sure that there is no progress bar, etc...
                             myDropzone.emit("complete", mockFile);
 
@@ -781,6 +778,8 @@
             removeBtn.prop('disabled', false);
             file._captionLabel = Dropzone.createElement("<span class='text-sm text-dark'> &nbsp;&nbsp; Make this the featured Image &nbsp; </span> &nbsp;&nbsp; ");
             file._captionBox = Dropzone.createElement(`<input id="${file.name}" type='radio' name='featured_image' value="${file.name}">`);
+            file._deleteBtn = Dropzone.createElement(`<button type="button" class='btn btn-xs dz-cancel btn-danger btn-delete-image' data-dz-remove="" onclick="deleteImage('${file.name}')"> &nbsp;&nbsp; Delete This Image&nbsp; </button> &nbsp;&nbsp;`);
+            file.previewElement.appendChild(file._deleteBtn);
             file.previewElement.appendChild(file._captionBox);
             file.previewElement.appendChild(file._captionLabel);
             $('input[type="radio"]').first().prop('checked', true);
@@ -797,12 +796,17 @@
 
         uplodaBtn.on('click', function (e) {
             // alert('You clicked me');
-            $('#processing').show();
+
             e.preventDefault();
             if (myDropzone.getQueuedFiles().length > 0) {
+                $('#processing').show();
                 myDropzone.processQueue();
             } else {
-                $('.edit_product_form').submit();
+                let alert = confirm("Heads up, did you forgot to add image, It won't go live until you edit it by clicking on Manage products > missing images");
+                if( alert ){
+                    $('#processing').show();
+                    $('.edit_product_form').submit();
+                }
             }
         });
         myDropzone.on("successmultiple", function (files, response) {
@@ -860,22 +864,17 @@
 				${variation_name}
 				<td>
 					<div class="form-group-sm">
-						<input title="EAN / UPC / SON" type="text" class="form-control" name="isbn[]" />
-					</div>
-				</td>
-				<td>
-					<div class="form-group-sm">
 						<input title="Quantity" type="number" min="1" max="100" class="form-control" name="quantity[]" />
 					</div>
 				</td>
 				<td>
 					<div class="form-group-sm">
-							<input title="Price" type="text" class="form-control" required name="sale_price[]" />
+							<input title="Price" type="text" class="form-control number amount" required name="sale_price[]" />
 					</div>
 				</td>
 				<td>
 					<div class="form-group-sm">
-						<input title="Discounted price" type="text" class="form-control" name="discount_price[]" />
+						<input title="Discounted price" type="text" class="form-control number amount" name="discount_price[]" />
 					</div>
 				</td>
 				<td>
@@ -926,9 +925,35 @@
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover({animation: true});
     });
+
+    function deleteImage(x){
+        $.ajax({
+            data: {image_name : x},
+            type: "POST",
+            url: base_url + "product/product_image_remove",
+            cache: false,
+            success: function(resp) {
+                $('#dz-previews').load(window.location +  ' #dz-previews');
+                console.log(resp);
+            },
+            error: function(resp){
+                console.log(resp);
+            }
+        });
+    }
+
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
+        $(".number").inputFilter(function (value) {
+            return /^-?\d*$/.test(value);
+        });
+
+        $('.amount').on('keyup', function () {
+            let n = $(this).val();
+            let resp = addCommas(n);
+            $(this).val( resp );
+        });
         var product_description = `<?= $product->product_description; ?>`;
         $('#product_description').summernote({
             tabsize: 2,
@@ -1028,6 +1053,21 @@
             });
         }
     });
+
+    (function($) {
+        $.fn.inputFilter = function(inputFilter) {
+            return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function() {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                }
+            });
+        };
+    }(jQuery))
 </script>
 </body>
 </html>
