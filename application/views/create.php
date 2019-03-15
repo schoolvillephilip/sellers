@@ -927,6 +927,7 @@
                                     </div>
                                     <div class="panel-footer text-center">
                                         <input type="hidden" name="category_id" value="<?= $this->session->userdata('category_id'); ?>" />
+                                        <input type="hidden" name="product_line" value="<?= $store_name; ?>" />
                                         <div class="box-inline">
                                             <button type="button" class="previous btn btn-primary">Previous</button>
                                             <button type="button" class="next btn btn-primary">Next</button>
