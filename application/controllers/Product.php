@@ -380,7 +380,6 @@ class Product extends MY_Controller
                 'youtube_id' => cleanit($this->input->post('youtube_id',true)),
                 'in_the_box' => $in_the_box,
                 'highlights' => $highlights,
-                'product_line' => cleanit($this->input->post('product_line',true)),
                 'colour_family' => $colour_family,
                 'main_material' => $this->input->post('main_material',true),
                 'dimensions' => cleanit($this->input->post('dimensions',true)),
