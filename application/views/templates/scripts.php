@@ -1,8 +1,4 @@
-<script src="<?= base_url('assets/js/jquery.min.js'); ?>"></script>
-<script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
-<script src="<?= base_url('assets/js/nifty.min.js'); ?>"></script>
-<script src="<?= base_url('assets/js/demo/nifty-demo.min.js'); ?>"></script>
-<script type="text/javascript"> base_url = '<?= base_url(); ?>';</script>
+
 <?php if (in_array($pg_name, array('product', 'template', 'register'))) : ?>
     <script src="<?= base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
     <script src="<?= base_url('assets/js/demo/form-file-upload.js'); ?>"></script>
@@ -36,18 +32,3 @@
     <script src="<?= base_url('assets/plugins/bootstrap-validator/bootstrapValidator.min.js'); ?>"></script>
     <script src="<?= base_url('assets/js/demo/form-wizard.js'); ?>"></script>
 <?php endif; ?>
-<script>
-    $(document).ready(function () {
-        let frame = $('#HW_frame_cont');
-        let control = $('#change_log');
-        control.on("click", function () {
-            let vis = frame.css('visibility');
-            if (vis === "hidden") {
-                frame.css("visibility", "visible");
-            }
-            if (vis === "visible") {
-                frame.css("visibility", "hidden");
-            }
-        });
-    });
-</script>
