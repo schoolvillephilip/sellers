@@ -220,7 +220,7 @@
                                                                             class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Brand
                                                                         Name</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <select class="form-control select2"
+                                                                        <select class="form-control select2" style="width:100%;"
                                                                                 name="brand_name"
                                                                                 data-width="100%">
                                                                             <option value="">-- Select Brand Name --
@@ -267,7 +267,7 @@
                                                                         Colour</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <select name="main_colour"
-                                                                                class="form-control select2"
+                                                                                class="form-control select2" style="width:100%;"
                                                                                 title="Choose main colour"
                                                                                 data-width="100%">
                                                                             <option value="">-- Select main colour--</option>
@@ -297,7 +297,7 @@
                                                                         Family</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <select name="colour_family[]"
-                                                                                class="form-control select2" multiple
+                                                                                class="form-control select2" style="width:100%;" multiple
                                                                                 title="Select colour family..."
                                                                                 data-width="100%">
                                                                             <?php
@@ -327,7 +327,7 @@
                                                                         Material</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <select name="main_material"
-                                                                                class="form-control select2"
+                                                                                class="form-control select2" style="width:100%;"
                                                                                 title="Choose type..."
                                                                                 data-width="100%">
                                                                             <option value="">-- Select --</option>
@@ -562,7 +562,7 @@
                                                                                     <?php if (!empty($specification['spec_options'])) :
                                                                                         $options = json_decode($specification['spec_options']);
                                                                                         ?>
-                                                                                        <select class="form-control select2"
+                                                                                        <select class="form-control select2" style="width:100%;"
                                                                                             <?php if ($specification['multiple_options']) {
                                                                                                 echo 'name="attribute_' . str_replace(' ', '-', $specification["spec_name"]) . '[]"';
                                                                                                 echo ' multiple';
@@ -621,7 +621,7 @@
                                                                         class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Certification</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <select name="certifications[]"
-                                                                                class="form-control select2" multiple
+                                                                                class="form-control select2" style="width:100%;" multiple
                                                                                 title="Example: Organic, Suitable for Allergies Fair Trade..."
                                                                                 data-width="100%">
                                                                             <option name="AFRDI Leather">AFRDI Leather
@@ -697,7 +697,7 @@
                                                                         Type</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <select name="warranty_type[]"
-                                                                                class="form-control select2" multiple
+                                                                                class="form-control select2" style="width:100%;" multiple
                                                                                 title="Choose warranty type..."
                                                                                 data-width="100%">
                                                                             <option name="service center">Service

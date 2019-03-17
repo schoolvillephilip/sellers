@@ -14,8 +14,7 @@
     <link href="<?= base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/nifty.min.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/demo/nifty-demo-icons.min.css')?>" rel="stylesheet">
-<!--    <link href="--><?//= base_url('assets/plugins/select2/css/select2.min.css')?><!--" rel="stylesheet" />-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link href="<?= base_url('assets/plugins/select2/css/select2.min.css')?>" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <?php if( in_array($pg_name, array('product','template','register'))) :?>
         <link href="<?= base_url('assets/plugins/bootstrap-validator/bootstrapValidator.min.css')?>" rel="stylesheet">

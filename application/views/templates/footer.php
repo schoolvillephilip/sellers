@@ -5,8 +5,7 @@
 <script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
 <script src="<?= base_url('assets/js/nifty.min.js'); ?>"></script>
 <script src="<?= base_url('assets/js/demo/nifty-demo.min.js'); ?>"></script>
-<!--<script src="--><?//= base_url('assets/plugins/select2/js/select2.js')?><!--"></script>-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="<?= base_url('assets/plugins/select2/js/select2.js')?>"></script>
 <script type="text/javascript"> base_url = '<?= base_url(); ?>';</script>
 <script>
     var HW_config = {
