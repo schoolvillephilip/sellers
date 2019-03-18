@@ -168,7 +168,7 @@ Class Seller_model extends CI_Model
                 break;
             case 'out_of_stock':
                 $query = "SELECT p.product_name, p.id,p.sku,p.created_on,p.product_status,AVG(v.sale_price) AS sale_price, AVG(v.discount_price) AS discount_price FROM
-                products AS p JOIN product_variation AS v ON (v.product_id = p.id) WHERE EXISTS (select 1 from product_variation pv where p.id = pv.product_id AND pv.qty = 0 ) AND p.seller_id = ? ORDER BY p.id DESC";
+                products AS p JOIN product_variation AS v ON (v.product_id = p.id) WHERE EXISTS (select 1 from product_variation pv where p.id = pv.product_id AND pv.quantity = 0 ) AND p.seller_id = ? ORDER BY p.id DESC";
                 return $this->db->query($query, array($id))->result_array();
                 break;
             default:
