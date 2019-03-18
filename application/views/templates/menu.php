@@ -69,6 +69,8 @@
                                                 <i class="demo-pli-data-storage"></i>Suspended</a></li>
                                         <li><a href="<?= base_url('manage/?type=missing_images'); ?>">
                                                 <i class="demo-pli-file-text-image"></i>Missing Images</a></li>
+                                        <li><a href="<?= base_url('manage/?type=out_of_stock'); ?>">
+                                                <i class="demo-pli-repair"></i>Out Of Stock</a></li>
                                     </ul>
                                 </li>
                             </ul>
