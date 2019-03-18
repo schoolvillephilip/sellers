@@ -442,7 +442,14 @@
                                                                             <?php
                                                                             $certs = json_decode($product->certifications);
                                                                             $certifications = explode(',', lang('certifications'));
-                                                                            foreach ($certifications as $certification): ?>
+                                                                            foreach ($certifications as $cer
+Do It Quick - get airtime
+I will like to buy
+Amount
+Phone No(s) Separate phone nos with comma.
+Pay With
+
+tification): ?>
                                                                                 <option value="<?= trim($certification); ?>"
                                                                                 <?php if (!is_null($certs) && in_array($certification, $certs)) echo 'selected'; ?> > <?= $certification; ?></option>
                                                                             <?php endforeach; ?>
