@@ -33,6 +33,7 @@
                                 <th class="min-tablet">Avg Discount Price(N)</th>
                                 <th class="min-desktop">Status</th>
                                 <th class="min-desktop min-tablet">Detail</th>
+                                <th class="min-desktop min-tablet">Action</th>
                             </tr>
                             </thead>
                             <tbody>

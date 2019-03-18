@@ -73,6 +73,11 @@ Class Seller_model extends CI_Model
         return $this->db->delete($table);
     }
 
+    function delete( $access, $table ){
+        $this->db->where($access);
+        return $this->db->delete( $table );
+    }
+
     // check if the password is correct
 
     function cur_pass_match($password = null, $access = '', $table = 'users')
@@ -382,7 +387,7 @@ Class Seller_model extends CI_Model
                 LEFT JOIN product_variation v ON (v.product_id = p.id)
                 WHERE o.seller_id = $id";
         if ($status != '') {
-            $query .= " AND o.active_status = '{$status}'";
+            $query .= " AND ( o.active_status = '{$status}' OR o.payment_made = '{$status}')";
         }
 //        $query .= " GROUP BY o.order_code ";
         $limit = $array['is_limit'];

@@ -29,6 +29,10 @@
         margin: 10px;
     }
 
+    #container{
+        min-height: 0px;
+    }
+
     .gnumbers {
         color: red;
         top: 20px;
@@ -87,53 +91,6 @@
                             <p class="glegend">We take and carry any size of good(s), and keep a customer-centric relationship with buyers on your behalf.</p>
                         </div>
                     </div>
-<!---->
-<!--                    <div class="grey_wrap">-->
-<!--                        <p class="sub-title1">How it works?</p>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-xs-12 col-md-5 text-right">-->
-<!--                                <img src="--><?//= base_url('assets/img/TAB1-STEP1n1.png'); ?><!--"-->
-<!--                                     style="width: 150px; float: right;" alt=""/>-->
-<!--                            </div>-->
-<!--                            <div class="col-xs-12 col-md-7 text-left" style="top:20px;"><br/>-->
-<!--                                <p class="txt1" style="font-size: 15px; color: #2BA27D;">Step 1: Register in-->
-<!--                                    under 5-->
-<!--                                    minutes</p>-->
-<!--                                <p class="txt1">Fill the Registration Form.<br/>Submit the required documents –-->
-<!--                                    Business-->
-<!--                                    registration and bank account details.<br/>Read and accept our Seller-->
-<!--                                    Agreement.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-xs-12 col-md-5 text-right">-->
-<!--                                <img src="--><?//= base_url('assets/img/TAB1-STEP2n1.png'); ?><!--"-->
-<!--                                     style="width: 150px; float: right;" alt=""/>-->
-<!--                            </div>-->
-<!--                            <div class="col-xs-12 col-md-7 text-left" style="top:30px;">-->
-<!--                                <p class="txt1" style="font-size: 15px; color: #2BA27D;">Step 2 : Become an-->
-<!--                                    ecommerce-->
-<!--                                    expert</p>-->
-<!--                                <p class="txt1">Complete the dedicated training session for news.<br/>Activate-->
-<!--                                    your-->
-<!--                                    Seller Center account to manage your shop on the go.</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-xs-12 col-md-5 text-right">-->
-<!--                                <img src="--><?//= base_url('assets/img/TAB1-STEP3n1.png'); ?><!--"-->
-<!--                                     style="width: 150px; float: right;" alt=""/>-->
-<!--                            </div>-->
-<!--                            <div class="col-xs-12 col-md-7 text-left" style="top:40px;">-->
-<!--                                <p class="txt1" style="font-size: 15px; color: #2BA27D;">Step 3 : List your-->
-<!--                                    Products-->
-<!--                                    and start-->
-<!--                                    selling!</p>-->
-<!--                                <p class="txt1">Upload more than five products to start selling.</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
                 </div>
             </div>
             <div id="support" class="tab-pane fade text-justify">
@@ -217,8 +174,7 @@
 
         <div class="row" style="margin:20px;">
             <p class="lead custom-text">Are You Ready To Start Selling?</p>
-            <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('register/form'); ?>">Become
-                A Seller <i
+            <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('register/create'); ?>">Create An Account <i
                         class="fa fa-cart-plus"></i></a>
             <a class="btn btn-primary btn-lg" style="border-radius: 0;" href="<?= base_url('login'); ?>">Login <i
                         class="fa fa-sign-in"></i></a>

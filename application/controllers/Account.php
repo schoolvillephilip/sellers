@@ -53,11 +53,11 @@ class Account extends CI_Controller
         $page_data['order_chart'] = $this->seller->order_chart($uid);
 
         // Total Sales for the seller
-        $total_sales = $this->seller->run_sql("SELECT SUM(amount * qty) amount FROM orders WHERE seller_id = {$uid} AND payment_made = 'success'")->result_array();
+        $total_sales = $this->seller->run_sql("SELECT SUM(amount * qty) amount FROM orders WHERE seller_id = {$uid} AND payment_made = 'success' GROUP BY order_code")->result_array();
         $page_data['total_sales'] = array_sum(array_column($total_sales, 'amount'));
 
         // Commission received from the seller
-        $commission = $this->seller->run_sql("SELECT SUM(commission) amount FROM orders WHERE seller_id = {$uid} AND payment_made = 'success'")->result_array();
+        $commission = $this->seller->run_sql("SELECT SUM(commission) amount FROM orders WHERE seller_id = {$uid} AND payment_made = 'success' GROUP BY order_code")->result_array();
         $page_data['commission'] = array_sum(array_column($commission, 'amount'));
 
         $page_data['top_orders'] = $this->seller->top_20_sales( $uid );
