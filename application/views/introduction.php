@@ -36,6 +36,11 @@
     .gnumbers {
         color: red;
         top: 20px;
+        line-height: 38px;
+        font-size:34px;
+    }
+    .glegend{
+        font-size:18px;
     }
 </style>
 </head>
@@ -82,7 +87,7 @@
                         <div class="col-xs-12 col-md-4 text-center">
                             <img src="<?= base_url('assets/img/rel.png'); ?>"
                                  style="width: 140px;" alt=""/>
-                            <p class="gnumbers">You can count on us</p>
+                            <p class="gnumbers">You can always count on us</p>
                             <p class="glegend">We take and carry any size of good(s), and keep a customer-centric relationship with buyers on your behalf.</p>
                         </div>
                     </div>
