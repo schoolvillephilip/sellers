@@ -48,7 +48,7 @@
                                     <td><?php if ($product['sale_price']) echo ngn($product['discount_price']); ?></td>
                                     <td><?php if ($product['sale_price']) echo productStatus($product['product_status']); ?></td>
                                     <td><a class="btn-link" href="<?= base_url('manage/stat/' . $product['id']); ?>">View Product Detail</a></td>
-                                    <?php if (in_array($product['product_status'], array('pending', 'missing_images'))): ?>
+                                    <?php if (in_array($product['product_status'], array('pending', 'missing_images')) || $type == 'out_of_stock'): ?>
                                         <td>
                                             <a href="<?= base_url('product/edit/' . $product['id']); ?>">
                                                 <i class="fa fa-plus" title="Edit"></i> Edit Product
