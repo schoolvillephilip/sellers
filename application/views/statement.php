@@ -94,26 +94,5 @@
     </button>
 </div>
 <?php $this->load->view('templates/scripts'); ?>
-<script>
-    $(document).ready(function () {
-        $('.table').dataTable( {
-            "responsive": true,
-            "language": {
-                "paginate": {
-                    "previous": '<i class="demo-psi-arrow-left"></i>',
-                    "next": '<i class="demo-psi-arrow-right"></i>'
-                }
-            },
-            dom: 'Bfrtip',
-            buttons: [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5'
-            ]
-        } );
-    })
-
-</script>
 </body>
 </html>
