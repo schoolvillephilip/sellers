@@ -63,6 +63,8 @@
                                     <ul class="collapse">
                                         <li><a href="<?= base_url('manage/'); ?>">
                                                 <i class="demo-pli-list-view"></i>All Products</a></li>
+                                        <li><a href="<?= base_url('manage/?type=draft'); ?>">
+                                                <i class="demo-pli-pen-5"></i>Draft</a></li>
                                         <li><a href="<?= base_url('manage/?type=pending'); ?>">
                                                 <i class="demo-pli-file-add"></i>Pending</a></li>
                                         <li><a href="<?= base_url('manage/?type=suspended'); ?>">

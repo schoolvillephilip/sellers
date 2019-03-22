@@ -769,7 +769,6 @@
                                                         <tr data-row-id="1">
                                                             <td>
                                                                 <div class="form-group-sm col-md-12">
-                                                                    <input type="hidden" name="variation_id[]" value="new" class="variation_id">
                                                                     <input title="Seller SKU" type="text"
                                                                            class="form-control" name="sku[]" required/>
                                                                 </div>
@@ -929,7 +928,6 @@
                                     <div class="panel-footer text-center">
                                         <input type="hidden" name="category_id" value="<?= $this->session->userdata('category_id'); ?>" />
                                         <input type="hidden" name="product_line" value="<?= $store_name; ?>" />
-                                        <input type="hidden" name="temp_product_id" value="" id="temp_product_id" />
                                         <div class="box-inline">
                                             <button type="button" class="previous btn btn-primary">Previous</button>
                                             <button type="button" class="next btn btn-primary">Next</button>
@@ -938,9 +936,9 @@
                                         </div>
                                     </div>
                                     <div id="processing"
-                                         style="display:none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: #00000075;z-index: 999;">
+                                         style="display:none;position: center;top: 0;left: 0;width: auto;height: auto%;background: #f4f4f4;z-index: 99;">
                                         <div class="text"
-                                             style="position: absolute;top: 35%;left: 0;height: 100%;width: 100%;font-size: 18px;text-align: center;z-index:9999;">
+                                             style="position: absolute;top: 35%;left: 0;height: 100%;width: 100%;font-size: 18px;text-align: center;">
                                             <img src="<?= base_url('assets/img/load.gif'); ?>"
                                                  alt="Processing...">
                                             Processing the data. Please Wait! <Br>Meanwhile Please <b
@@ -979,53 +977,6 @@
 <script src="<?= base_url('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js'); ?>"></script>
 
 <script type="text/javascript">
-    let first_next = true;
-    $(".btn.next").on("click", function(){
-        let formData = new FormData();
-        formData = $('.add_product_form').serializeArray();
-        $('#processing').show();
-        if(first_next){
-        $.ajax({
-            url: base_url + 'product/first_insert_draft',
-            data: formData,
-            type: 'POST',
-            success: function(data){
-                let resp = JSON.parse(data);
-                console.log("returned product id: " + resp.temp_product_id);
-                $('#temp_product_id').val(resp.temp_product_id);
-                $('#processing').hide();
-            },
-            error: function(data){
-                alert(data.message);
-                $('#processing').hide();
-            }
-        });
-        first_next = false;
-        return 0;
-        }
-        $.ajax({
-            url: base_url + 'product/other_update_draft',
-            data: formData,
-            type: 'POST',
-            success: function(data){
-                let resp = JSON.parse(data);
-                let var_arr = resp.variations_id;
-                if(var_arr.length > 0){
-                    for(let i = 0; i < var_arr.length; i++){
-                        let field = $('.variation_id')[i];
-                        if(field.value == "new"){
-                            field.value = var_arr[i];
-                        }
-                    }
-                }
-                $('#processing').hide();
-            },
-            error: function(data){
-                alert(data.message);
-                $('#processing').hide();
-            }
-        });
-    });
     $('.datepicker').datepicker({
         startDate: '0d'
     });
@@ -1045,7 +996,7 @@
             minImageWidth = 400,
             minImageHeight = 400;
         var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
-            url: base_url + "product/auto_process", // Set the url
+            url: base_url + "product/process", // Set the url
             autoProcessQueue: false,
             addRemoveLinks: true,
             autoDiscover: false,
@@ -1135,7 +1086,7 @@
     $.fn.rowCount = function () {
         return $('tr', $(this).find('tbody')).length;
     };
-    let variation_name = `<td><div class="form-group-sm"><input type="hidden" name="variation_id[]" value="new" class="variation_id"><input title="variation" type="text" class="form-control" name="variation[]" /></div></td>`;
+    let variation_name = `<td><div class="form-group-sm"><input title="variation" type="text" class="form-control" name="variation[]" /></div></td>`;
     <?php if( !empty($variation_options)) : ?>
     variation_name = `<td><div class="form-group-sm"><select class="form-control" required name="variation[]" title="variation">
     <?php foreach( $variation_options as $option) :?>
