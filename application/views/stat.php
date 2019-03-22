@@ -110,6 +110,37 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="panel" id="pr-pricing">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Product Variation</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="0"
+                               width="100%">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Qty</th>
+                                <th>Unit Price</th>
+                                <th>Discount</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($variations as $variation) :?>
+                                <tr>
+                                    <td><?= $variation->variation; ?></td>
+                                    <td><?= $variation->quantity; ?></td>
+                                    <td><?= ngn($variation->sale_price); ?></td>
+                                    <td><?= ngn($variation->discount_price); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                
                 <?php if(!empty($product->attributes)) : ?>
                     <div class="panel" id="pr-spec">
                     <div class="panel-heading">

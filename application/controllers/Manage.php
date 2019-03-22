@@ -38,6 +38,7 @@ class Manage extends MY_Controller
         $id = $this->session->userdata('logged_id');
         $page_data['profile'] = $this->seller->get_profile_details($id,
             'first_name,last_name,email,profile_pic');
+        $page_data['variations'] = $this->admin->get_results('product_variation', "(product_id = {$pid})")->result();
         $this->load->view('stat', $page_data);
     }
 
