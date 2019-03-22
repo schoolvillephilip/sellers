@@ -26,15 +26,15 @@
                             <thead>
                             <tr>
                                 <th>Product Name</th>
-                                <th class="min-tablet">Ordered Date</th>
-                                <th class="min-tablet">Qty (Amount)</th>
+                                <th class="min-tablet">Variation Ordered.</th>
+                                <th class="min-tablet">Qty / Amount</th>
                                 <th class="min-tablet">Commission (Amount)</th>
-                                <th class="min-tablet">Ordered.</th>
                                 <?php
                                 $type = $this->input->get('type');
                                 if (empty($type)) : ?>
                                     <th class="min-tablet">Order Status</th>
                                 <?php endif; ?>
+                                <th class="min-tablet">Ordered Date</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -47,10 +47,11 @@
                                             <a href="<?= base_url('manage/stat/' . $order->pid); ?>" class="btn-link"><?= character_limiter($order->product_name, 30); ?></a>
                                         </span>
                                     </td>
-                                    <td><?= neatDate($order->order_date); ?></td>
+                                    <td><?= $order->variation; ?></td>
+
                                     <td><?= $order->qty . ' Item (s) - <span class="text text-info"> ( ' . ngn($order->amount) . ' )</span>'; ?></td>
                                     <td><?= ngn($order->commission); ?></td>
-                                    <td><?= $order->variation; ?></td>
+
                                     <?php
                                     $type = $this->input->get('type');
                                     if (empty($type)) :
@@ -60,6 +61,7 @@
                                     ?>
                                         <td class="min-tablet"><?= productStatus($order->active_status); ?></td>
                                     <?php endif; ?>
+                                    <td><?= neatDate($order->order_date) .' ' . neatTime($order->order_date); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
