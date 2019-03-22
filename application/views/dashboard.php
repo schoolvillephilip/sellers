@@ -29,7 +29,7 @@
                                                 <span class="pull-right text-bold"><?= $top_view->views; ?></span> <?= character_limiter($top_view->product_name, 20);?>
                                             </p>
                                         <?php  endforeach; else: ?>
-                                        <h5 class="text-dark">You have no product!</h5>
+                                        <h5 class="text-dark">You don't have any product listed yet!</h5>
                                             <span><a href="<?= base_url('product/create');?>">Create Product Now</a> </span>
                                         <?php endif; ?>
                                     </div>
@@ -53,7 +53,7 @@
                                             <span class="pull-right text-bold"><?= $completed_orders->total; ?></span> Completed Sales
                                         </p>
                                         <p class="mar-no">
-                                            <span class="pull-right text-bold"><?= $other_orders->total; ?></span> Total
+                                            <span class="pull-right text-bold"><?= $other_orders->total; ?></span> Total (Pending , Failed, Cancelled, Returned)
                                         </p>
                                     </div>
                                 </div>
@@ -159,8 +159,8 @@
                                     <tbody>
                                     <?php foreach($orders as $order) : ?>
                                         <tr>
-                                            <td><a href="#" class="btn-link"><?= '#'.$order->order_code; ?></a></td>
-                                            <td><?= character_limiter($order->product_name, 20)?></td>
+                                            <td><a href="<?= base_url('manage/stat/' . $order->product_id); ?>" class="btn-link"><?= '#'.$order->order_code; ?></a></td>
+                                            <td><a href="<?= base_url('manage/stat/' . $order->product_id); ?>"><?= character_limiter($order->product_name, 20)?></a></td>
                                             <td><?= $order->qty; ?></td>
                                             <td><?= ngn( $order->amount); ?></td>
                                             <td><?= neatDate($order->order_date); ?></td>
