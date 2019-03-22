@@ -110,7 +110,7 @@
                                                     href="<?= base_url('orders/?type=returned'); ?>">
                                                 <i class="demo-pli-refresh"></i>Returned</a></li>
                                         <li <?php if ($sub_name == 'order_successful') echo 'class="active-link"' ?>><a
-                                                    href="<?= base_url('orders/?type=success') ?>"><i class="demo-pli-data-storage"></i>Success / Completed</a></li>
+                                                    href="<?= base_url('orders/?type=success') ?>"><i class="demo-pli-data-storage"></i>Completed</a></li>
 
                                     </ul>
                                 </li>
