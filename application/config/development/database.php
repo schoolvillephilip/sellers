@@ -91,6 +91,6 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 $db['default']['username'] = 'root';
-$db['default']['password'] = '';
+$db['default']['password'] = 'root';
 $db['default']['database'] = 'onitshamarket';
 
