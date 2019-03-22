@@ -97,20 +97,21 @@
                                         <i class="demo-pli-folder-with-document"></i>Completed Orders<i
                                                 class="arrow"></i></a>
                                     <ul class="collapse">
-                                        <li <?php if ($sub_name == 'order_successful') echo 'class="active-link"' ?>><a
-                                                    href="<?= base_url('orders/?type=success') ?>"><i class="demo-pli-data-storage"></i>Success</a></li>
-                                        <li <?php if ($sub_name == 'order_delivered') echo 'class="active-link"' ?>><a
-                                                    href="<?= base_url('orders/?type=delivered') ?>">
-                                                <i class="demo-pli-data-storage"></i>Delivered</a></li>
                                         <li <?php if ($sub_name == 'order_cancelled') echo 'class="active-link"' ?>><a
                                                     href="<?= base_url('orders/?type=cancelled'); ?>">
                                                 <i class="demo-pli-remove"></i>Cancelled</a></li>
+                                        <li <?php if ($sub_name == 'order_delivered') echo 'class="active-link"' ?>><a
+                                                    href="<?= base_url('orders/?type=delivered') ?>">
+                                                <i class="demo-pli-data-storage"></i>Delivered</a></li>
                                         <li <?php if ($sub_name == 'order_failed_delievery') echo 'class="active-link"' ?>>
                                             <a href="<?= base_url('orders/?type=failed_delivery'); ?>">
                                                 <i class="demo-pli-mail-remove"></i>Failed Delivery</a></li>
                                         <li <?php if ($sub_name == 'order_retured') echo 'class="active-link"' ?>><a
                                                     href="<?= base_url('orders/?type=returned'); ?>">
                                                 <i class="demo-pli-refresh"></i>Returned</a></li>
+                                        <li <?php if ($sub_name == 'order_successful') echo 'class="active-link"' ?>><a
+                                                    href="<?= base_url('orders/?type=success') ?>"><i class="demo-pli-data-storage"></i>Success / Completed</a></li>
+
                                     </ul>
                                 </li>
                             </ul>
