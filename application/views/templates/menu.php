@@ -148,9 +148,9 @@
                                 <li <?php if ($sub_name == 'sales_report') echo 'class="active-link"' ?>><a
                                             href="<?= base_url('account/sales_report'); ?>">
                                         <i class="demo-pli-star"></i>Sales Report</a></li>
-<!--                                <li --><?php //if ($sub_name == 'statement') echo 'class="active"' ?><!--><a-->
-<!--                                            href="--><?//= base_url('account/statement'); ?><!--">-->
-<!--                                        <i class="demo-pli-star"></i>Account Statement</a></li>-->
+                               <li <?php if ($sub_name == 'statement') echo 'class="active"' ?>><a
+                                            href="<?= base_url('account/statement'); ?>">
+                                        <i class="demo-pli-star"></i>Account Statement</a></li>
                                 <li <?php if ($sub_name == 'payout') echo 'class="active-link"' ?>><a
                                             href="<?= base_url('account/payout'); ?>">
                                         <i class="demo-pli-star"></i>Request Payout</a></li>
