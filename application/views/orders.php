@@ -28,7 +28,7 @@
                                 <th>Product Name</th>
                                 <th class="min-tablet">Variation Ordered.</th>
                                 <th class="min-tablet">Qty / Amount</th>
-                                <th class="min-tablet">Commission (Amount)</th>
+                                <th class="min-tablet">OM Commission</th>
                                 <?php
                                 $type = $this->input->get('type');
                                 if (empty($type)) : ?>
@@ -49,7 +49,7 @@
                                     </td>
                                     <td><?= $order->variation; ?></td>
 
-                                    <td><?= $order->qty . ' Item (s) - <span class="text text-info"> ( ' . ngn($order->amount) . ' )</span>'; ?></td>
+                                    <td><?= $order->qty . ' Item (s) - <span class="text text-info"> / ' . ngn($order->amount) . '</span>'; ?></td>
                                     <td><?= ngn($order->commission); ?></td>
 
                                     <?php
