@@ -940,7 +940,7 @@
                                     <div id="processing"
                                          style="display:none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: #00000075;z-index: 999;">
                                         <div class="text"
-                                             style="position: absolute;top: 35%;left: 0;height: 100%;width: 100%;font-size: 18px;text-align: center;z-index:9999;">
+                                             style="top: 35%;left: 0;height: 100%;width: 100%;font-size: 18px;text-align: center;">
                                             <img src="<?= base_url('assets/img/load.gif'); ?>"
                                                  alt="Processing...">
                                             Processing the data. Please Wait! <Br>Meanwhile Please <b

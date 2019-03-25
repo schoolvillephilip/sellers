@@ -1,4 +1,42 @@
 <?php $this->load->view('templates/meta_tags'); ?>
+<style>
+    .draft_notification { 
+        transition: all 1.2s ease-in-out; 
+        color:#f03426;
+        -webkit-transition: all 1.2s ease-out;
+        -moz-transition: all 1.2s ease-out;
+        -o-transition: all 1.2s ease-out;
+        transition: all 1.2s ease-out;
+        animation: color-me-in 5s infinite;
+    }
+    .draft_notification:hover { 
+        color:green;
+        font-size:14px;
+    }
+    @keyframes color-me-in {
+        0% {
+            color: orange;
+        }
+        20%{
+            color: yellow;
+        }
+        35% {
+            color: red;
+        }
+        50%{
+            color: purple;
+        }
+        70% {
+            color: blue;
+        }
+        85% {
+            color: navyblue;
+        }
+        100% {
+            color: green;
+        }
+    }
+</style>
 </head>
 <body>
 <div id="container" class="effect aside-float aside-bright mainnav-lg">
@@ -7,8 +45,14 @@
 		<div id="content-container">
 			<div id="page-head">
 				<div class="pad-all text-center">
+                <?php $uid = $this->session->userdata('logged_id');?>
 					<h3>Hello <?= ucwords($profile->first_name) . ' ' . ucwords($profile->last_name); ?></h3>
-					<p>Welcome back to your dashboard!</p>
+					<?php $draft_count = count($this->seller->get_product($uid, "draft"));?>
+					<?php if($draft_count > 0):?>
+                    <a href="<?= base_url('manage/?type=draft'); ?>" class="draft_notification">You have <?= $draft_count?> Unfinished Products in your draft.</a>
+<?php else:?>
+                    <p>Welcome back to your dashboard!</p>
+<?php endif;?>
 				</div>
 			</div>
 			<div id="page-content">

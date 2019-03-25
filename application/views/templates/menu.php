@@ -5,7 +5,9 @@
         </div>
         <?php
         // Count Query
+
         $uid = $this->session->userdata('logged_id');
+		$draft_count = count($this->seller->get_product($uid, "draft"));
         $order_count = $this->seller->run_sql("SELECT * FROM orders WHERE seller_id = {$uid} AND active_status = 'processing'")->num_rows();
         $message_count = $this->seller->get_unread_message($uid);
         $questions_count = count($this->seller->get_questions($uid));
@@ -64,7 +66,7 @@
                                         <li><a href="<?= base_url('manage/'); ?>">
                                                 <i class="demo-pli-list-view"></i>All Products</a></li>
                                         <li><a href="<?= base_url('manage/?type=draft'); ?>">
-                                                <i class="demo-pli-pen-5"></i>Draft</a></li>
+                                                <i class="demo-pli-pen-5"></i>Draft  <?php if ($draft_count) echo '(' . $draft_count . ')'; ?></a></li>
                                         <li><a href="<?= base_url('manage/?type=pending'); ?>">
                                                 <i class="demo-pli-file-add"></i>Pending</a></li>
                                         <li><a href="<?= base_url('manage/?type=suspended'); ?>">
