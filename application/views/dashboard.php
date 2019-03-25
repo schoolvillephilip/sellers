@@ -1,4 +1,14 @@
 <?php $this->load->view('templates/meta_tags'); ?>
+<style>
+    .draft_notification { 
+        transition: all .2s ease-in-out; 
+        color:#f03426;
+    }
+    .draft_notification:hover { 
+        transform: scale(1.1); 
+        font-size:16px;
+    }
+</style>
 </head>
 <body>
 <div id="container" class="effect aside-float aside-bright mainnav-lg">
@@ -11,7 +21,7 @@
 					<h3>Hello <?= ucwords($profile->first_name) . ' ' . ucwords($profile->last_name); ?></h3>
 					<?php $draft_count = count($this->seller->get_product($uid, "draft"));?>
 					<?php if($draft_count > 0):?>
-                    <a href="<?= base_url('manage/?type=draft'); ?>">You have <?= $draft_count?> Unfinished Products in your draft.</a>
+                    <a href="<?= base_url('manage/?type=draft'); ?>" class="draft_notification">You have <?= $draft_count?> Unfinished Products in your draft.</a>
 <?php else:?>
                     <p>Welcome back to your dashboard!</p>
 <?php endif;?>
