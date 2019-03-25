@@ -109,7 +109,7 @@ class Product extends MY_Controller
             $highlights = nl2br($this->input->post('highlights', true));
             $product_warranty = nl2br($this->input->post('product_warranty', true));
             $warranty_address = nl2br($this->input->post('warranty_address', true));
-            $from_overseas = ($this->input->post('from_overseas') === true) ? 1 : 0;
+            $from_overseas = ($this->input->post('from_overseas') == 'on') ? 1 : 0;
 
             $product_name = cleanit($this->input->post('product_name'));
             $brand_name = cleanit($this->input->post('brand_name'));
@@ -221,7 +221,7 @@ class Product extends MY_Controller
             $highlights = nl2br($this->input->post('highlights', true));
             $product_warranty = nl2br($this->input->post('product_warranty', true));
             $warranty_address = nl2br($this->input->post('warranty_address', true));
-            $from_overseas = ($this->input->post('from_overseas') === true) ? 1 : 0;
+            $from_overseas = ($this->input->post('from_overseas') == 'on') ? 1 : 0;
 
             $product_name = cleanit($this->input->post('product_name'));
             $brand_name = cleanit($this->input->post('brand_name'));
@@ -597,7 +597,7 @@ class Product extends MY_Controller
             $highlights = nl2br($this->input->post('highlights', true));
             $product_warranty = nl2br($this->input->post('product_warranty', true));
             $warranty_address = nl2br($this->input->post('warranty_address', true));
-            $from_overseas = ($this->input->post('from_overseas') === true) ? 1 : 0;
+            $from_overseas = ($this->input->post('from_overseas') == 'on') ? 1 : 0;
 
             $product_name = cleanit($this->input->post('product_name'));
             $brand_name = cleanit($this->input->post('brand_name'));
@@ -648,7 +648,6 @@ class Product extends MY_Controller
             // Lets start transaction
             try {
                 $this->db->trans_begin();
-
                 $product_id = $this->seller->insert_data('products', $product_table);
                 // Product Variation Block
                 $count_check = sizeof($this->input->post('sale_price'));
@@ -861,6 +860,7 @@ class Product extends MY_Controller
             $highlights = nl2br($this->input->post('highlights', true));
             $product_warranty = nl2br($this->input->post('product_warranty', true));
             $warranty_address = nl2br($this->input->post('warranty_address', true));
+            $from_overseas = ($this->input->post('from_overseas') == 'on') ? 1 : 0;
             $product_table = array(
                 'product_name' => cleanit($this->input->post('product_name', true)),
                 'brand_name' => cleanit($this->input->post('brand_name', true)),
@@ -878,6 +878,7 @@ class Product extends MY_Controller
                 'warranty_type' => $warranty_type,
                 'warranty_address' => $warranty_address,
                 'certifications' => $certifications,
+                'from_overseas' => $from_overseas,
                 'product_status' => 'pending'
             );
             //     Product Features Block
