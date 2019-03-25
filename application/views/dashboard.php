@@ -1,12 +1,40 @@
 <?php $this->load->view('templates/meta_tags'); ?>
 <style>
     .draft_notification { 
-        transition: all .2s ease-in-out; 
+        transition: all 1.2s ease-in-out; 
         color:#f03426;
+        -webkit-transition: all 1.2s ease-out;
+        -moz-transition: all 1.2s ease-out;
+        -o-transition: all 1.2s ease-out;
+        transition: all 1.2s ease-out;
+        animation: color-me-in 5s infinite;
     }
     .draft_notification:hover { 
-        transform: scale(1.1); 
-        font-size:16px;
+        color:green;
+        font-size:14px;
+    }
+    @keyframes color-me-in {
+        0% {
+            color: orange;
+        }
+        20%{
+            color: yellow;
+        }
+        35% {
+            color: red;
+        }
+        50%{
+            color: purple;
+        }
+        70% {
+            color: blue;
+        }
+        85% {
+            color: navyblue;
+        }
+        100% {
+            color: green;
+        }
     }
 </style>
 </head>
