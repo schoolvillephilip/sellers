@@ -7,8 +7,14 @@
 		<div id="content-container">
 			<div id="page-head">
 				<div class="pad-all text-center">
+                <?php $uid = $this->session->userdata('logged_id');?>
 					<h3>Hello <?= ucwords($profile->first_name) . ' ' . ucwords($profile->last_name); ?></h3>
-					<p>Welcome back to your dashboard!</p>
+					<?php $draft_count = count($this->seller->get_product($uid, "draft"));?>
+					<?php if($draft_count > 0):?>
+                    <a href="<?= base_url('manage/?type=draft'); ?>">You have <?= $draft_count?> Unfinished Products in your draft.</a>
+<?php else:?>
+                    <p>Welcome back to your dashboard!</p>
+<?php endif;?>
 				</div>
 			</div>
 			<div id="page-content">
