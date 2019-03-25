@@ -90,7 +90,7 @@
                             </div>
                             <div class="media-body">
                                 <p class="text-2x mar-no text-semibold"><?= $completed_orders->total + $other_orders->total;?></p>
-                                <p class="mar-no">Sales</p>
+                                <p class="mar-no">Items</p>
                                 <div>
                                     <div class="pad-all">
                                         <p class="mar-no">
