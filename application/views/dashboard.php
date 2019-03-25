@@ -7,7 +7,7 @@
         -moz-transition: all 1.2s ease-out;
         -o-transition: all 1.2s ease-out;
         transition: all 1.2s ease-out;
-        animation: color-me-in 5s infinite;
+        animation: color-me-in 10s infinite;
     }
     .draft_notification:hover { 
         color:green;
@@ -20,20 +20,17 @@
         20%{
             color: yellow;
         }
-        35% {
-            color: red;
+        40% {
+            color: whitesmoke;
         }
-        50%{
-            color: purple;
+        60%{
+            color: orange;
         }
-        70% {
-            color: blue;
-        }
-        85% {
-            color: navyblue;
+        80% {
+            color: yellow;
         }
         100% {
-            color: green;
+            color: whitesmoke;
         }
     }
 </style>
