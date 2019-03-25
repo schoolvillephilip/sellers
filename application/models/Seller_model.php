@@ -650,7 +650,7 @@ Class Seller_model extends CI_Model
                 $select = "SELECT DATE_FORMAT(order_date, '%Y') as date, SUM(qty) AS q FROM orders
                 WHERE seller_id = {$id}  AND payment_made = 'success'
                 GROUP BY date ORDER BY date ";
-                return $this->db->query( $select )->result();
+                return $this->db->query( $select )->result_array();
                 break;
             default:
                 $select = "SELECT DATE(order_date) as date, SUM(qty) AS q FROM orders
