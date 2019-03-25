@@ -26,7 +26,8 @@ class Overview extends MY_Controller
 //        $page_data['sales_chart'] = $this->seller->run_sql("SELECT COUNT(*) sales, DATE_FORMAT(order_date,'%Y-%m') omonth
 //          FROM orders o WHERE o.seller_id = {$uid} AND o.payment_made = 'success' GROUP BY omonth ORDER BY omonth DESC LIMIT 4")->result();
         $page_data['orders'] = $this->seller->run_sql("SELECT o.order_code, o.qty, o.product_id, o.amount, o.order_date, p.product_name FROM orders o LEFT JOIN products p ON (p.id = o.product_id) WHERE o.seller_id = {$uid} GROUP BY o.order_code ORDER BY o.id DESC LIMIT 100")->result();
-        $page_data['sales'] = $this->seller->get_row('orders', " MIN(amount) as min_sale, MAX(amount) as max_sale, SUM(amount) as total_amount ", "( seller_id = {$uid}) ");
+//        $page_data['sales'] = $this->seller->get_row('orders', " MIN(amount) as min_sale, MAX(amount) as max_sale, SUM(amount) as total_amount ", "( seller_id = {$uid}) ");
+        $page_data['sales'] = $this->seller->run_sql("SELECT MIN(amount) as min_sale, MAX(amount) as max_sale, SUM(amount) as total_amount FROM orders WHERE seller_id = {$uid}")->row();
         $this->load->view('dashboard', $page_data);
     }
 }
