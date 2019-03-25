@@ -30,7 +30,8 @@ class Cloudinarylib
                     'overwrite' => false,
                     'eager_async' => true,
                     'quality'   => 50,
-                    'folder' => $args['folder']
+                    'folder' => $args['folder'],
+                    'eager' => array("width" => 480, "height" => 450, "crop" => "fill")
                 );
                 if( isset($args['eager']) ) $array['eager'] = array($args['eager']);
                 if( isset($args['public_id']) ) $array['public_id'] = $args['public_id'];

@@ -21,6 +21,8 @@ class Manage extends MY_Controller
         // get product
         $page_data['products'] = $this->seller->get_product($id, $status
         );
+//        var_dump( $page_data['products']);
+//        exit;
         $page_data['type'] = $status;
         $this->load->view('manage', $page_data);
     }

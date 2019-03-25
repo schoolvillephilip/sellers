@@ -361,10 +361,10 @@
                                                                             class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Is this product from overseas?</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
                                                                         <div class="radio">
-                                                                            <input id="no" class="magic-radio" type="radio" name="from_overseas" checked>
+                                                                            <input id="no" class="magic-radio" type="radio" name="from_overseas" value="off">
                                                                             <label for="no">No</label>
 
-                                                                            <input id="yes" class="magic-radio" type="radio" name="from_overseas">
+                                                                            <input id="yes" class="magic-radio" type="radio" name="from_overseas" value="on">
                                                                             <label for="yes">Yes</label>
                                                                         </div>
                                                                     </div>
