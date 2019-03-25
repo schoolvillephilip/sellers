@@ -159,7 +159,6 @@ class Product extends MY_Controller
             // Lets start transaction
             try {
                 $this->db->trans_begin();
-
                 $product_id = $this->seller->insert_data('products', $product_table);
                 // Product Variation Block
                 $count_check = sizeof($this->input->post('sale_price'));
