@@ -157,7 +157,7 @@ Class Seller_model extends CI_Model
                 products AS p JOIN product_variation AS v ON v.product_id = p.id WHERE p.seller_id = ? AND p.product_status = ? GROUP BY p.id ORDER BY p.id DESC ";
                 return $this->db->query($query, array($id, $status))->result_array();
             case 'draft':
-                $query = "SELECT p.product_name, p.id,p.sku,p.created_on,p.product_status,AVG(v.sale_price) AS sale_price, AVG(v.discount_price) AS discount_price FROM
+                $query = "SELECT p.product_status, p.product_name, p.id,p.sku,p.created_on,p.product_status,AVG(v.sale_price) AS sale_price, AVG(v.discount_price) AS discount_price FROM
                 products AS p LEFT JOIN product_variation AS v ON v.product_id = p.id
                 WHERE (NOT EXISTS (select 1 from product_gallery g where p.id = g.product_id ) OR EXISTS (select 1 from product_gallery g where p.id = g.product_id ) )
                 AND (NOT EXISTS (select 1 from product_variation vi where p.id = vi.product_id ) OR EXISTS (select 1 from product_variation vi where p.id = vi.product_id ) )

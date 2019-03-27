@@ -511,95 +511,183 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody class="variation_body">
-                                                        <?php $x = 1;
-                                                        foreach ($variations as $variation) : ?>
-                                                            <tr data-row-id="<?= $x; ?>">
-                                                                <td>
-                                                                    <div class="form-group-sm">
-                                                                        <input type="hidden" name="variation_id[]" value="<?= $variation->id; ?>">
+                                                        <?php if(count($variations) > 0):?>
+                                                            <?php $x = 1;foreach ($variations as $variation) : ?>
+                                                                <tr data-row-id="<?= $x; ?>">
+                                                                    <td>
+                                                                        <div class="form-group-sm">
+                                                                            <input type="hidden" name="variation_id[]" value="<?= $variation->id; ?>">
 
-                                                                        <input title="Seller SKU" type="text"
-                                                                               class="form-control" name="sku[]"
-                                                                               value="<?= $variation->sku; ?>"/>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="form-group-sm col-md-12">
+                                                                            <input title="Seller SKU" type="text"
+                                                                                class="form-control" name="sku[]"
+                                                                                value="<?= $variation->sku; ?>"/>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="form-group-sm col-md-12">
 
-                                                                        <?php if (!empty($variation_name) && !empty($variation_options)) : ?>
-                                                                            <select class="form-control" required
+                                                                            <?php if (!empty($variation_name) && !empty($variation_options)) : ?>
+                                                                                <select class="form-control" required
+                                                                                        name="variation[]"
+                                                                                        title="variation">
+                                                                                    <?php
+                                                                                    foreach ($variation_options as $option_name) : ?>
+                                                                                        <option value="<?= trim($option_name) ?>" <?php if ($variation->variation == $option_name) echo 'selected'; ?> ><?= trim($option_name); ?></option>
+                                                                                    <?php endforeach; ?>
+                                                                                </select>
+                                                                            <?php else : ?>
+                                                                                <input title="variation" type="text"
+                                                                                    value="<?= $variation->variation; ?>"
+                                                                                    class="form-control"
                                                                                     name="variation[]"
-                                                                                    title="variation">
-                                                                                <?php
-                                                                                foreach ($variation_options as $option_name) : ?>
-                                                                                    <option value="<?= trim($option_name) ?>" <?php if ($variation->variation == $option_name) echo 'selected'; ?> ><?= trim($option_name); ?></option>
-                                                                                <?php endforeach; ?>
-                                                                            </select>
-                                                                        <?php else : ?>
-                                                                            <input title="variation" type="text"
-                                                                                   value="<?= $variation->variation; ?>"
-                                                                                   class="form-control"
-                                                                                   name="variation[]"
-                                                                                   required/>
-                                                                        <?php endif; ?>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="form-group-sm">
-                                                                        <input title="Quantity" type="number" min="1"
-                                                                               max="100" class="form-control"
-                                                                               name="quantity[]"
-                                                                               value="<?= $variation->quantity; ?>"/>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="form-group-sm">
-                                                                        <input title="Price" type="text"
-                                                                               class="form-control number amount" name="sale_price[]"
-                                                                               value="<?= $variation->sale_price; ?>"/>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="form-group">
-                                                                        <input title="Discounted price" type="text"
-                                                                               class="form-control number amount"
-                                                                               name="discount_price[]"
-                                                                               value="<?= $variation->discount_price; ?>"
-                                                                        />
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="form-group-sm">
-                                                                        <input title="Starting date for this discount"
-                                                                               data-provide="datepicker"
-                                                                               data-date-format="yyyy/mm/dd"
-                                                                               placeholder="yyyy/mm/dd"
-                                                                               class="form-control datepicker"
-                                                                               name="start_date[]"
-                                                                               value="<?php if (!empty($variation->start_date)) echo date('Y/m/d', strtotime($variation->start_date)); ?>"/>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="form-group-sm">
-                                                                        <input title="Ending date for this discount"
-                                                                               data-provide="datepicker"
-                                                                               data-date-format="yyyy/mm/dd"
-                                                                               placeholder="yyyy/mm/dd"
-                                                                               class="form-control datepicker"
-                                                                               name="end_date[]"
-                                                                               value="<?php if (!empty($variation->end_date)) echo date('Y/m/d', strtotime($variation->end_date)); ?>"/>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="">
-                                                                    <div class="btn-group">
-                                                                        <a class="btn btn-sm btn-default btn-hover-success demo-psi-add add-tooltip add_more"
-                                                                           href="javascript:void(0);"
-                                                                           data-original-title="Add Another Variation"
-                                                                           data-container="body"></a>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
+                                                                                    required/>
+                                                                            <?php endif; ?>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="form-group-sm">
+                                                                            <input title="Quantity" type="number" min="1"
+                                                                                max="100" class="form-control"
+                                                                                name="quantity[]"
+                                                                                value="<?= $variation->quantity; ?>"/>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="form-group-sm">
+                                                                            <input title="Price" type="text"
+                                                                                class="form-control number amount" name="sale_price[]"
+                                                                                value="<?= $variation->sale_price; ?>"/>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="form-group">
+                                                                            <input title="Discounted price" type="text"
+                                                                                class="form-control number amount"
+                                                                                name="discount_price[]"
+                                                                                value="<?= $variation->discount_price; ?>"
+                                                                            />
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="form-group-sm">
+                                                                            <input title="Starting date for this discount"
+                                                                                data-provide="datepicker"
+                                                                                data-date-format="yyyy/mm/dd"
+                                                                                placeholder="yyyy/mm/dd"
+                                                                                class="form-control datepicker"
+                                                                                name="start_date[]"
+                                                                                value="<?php if (!empty($variation->start_date)) echo date('Y/m/d', strtotime($variation->start_date)); ?>"/>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="form-group-sm">
+                                                                            <input title="Ending date for this discount"
+                                                                                data-provide="datepicker"
+                                                                                data-date-format="yyyy/mm/dd"
+                                                                                placeholder="yyyy/mm/dd"
+                                                                                class="form-control datepicker"
+                                                                                name="end_date[]"
+                                                                                value="<?php if (!empty($variation->end_date)) echo date('Y/m/d', strtotime($variation->end_date)); ?>"/>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="">
+                                                                        <div class="btn-group">
+                                                                            <a class="btn btn-sm btn-default btn-hover-success demo-psi-add add-tooltip add_more"
+                                                                            href="javascript:void(0);"
+                                                                            data-original-title="Add Another Variation"
+                                                                            data-container="body"></a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
                                                             <?php $x++; endforeach; ?>
+                                                        <?php else :?>
+                                                        <tr data-row-id="1">
+                                                            <td>
+                                                                <div class="form-group-sm col-md-12">
+                                                                    <input type="hidden" name="variation_id[]" value="new" class="variation_id">
+                                                                    <input title="Seller SKU" type="text"
+                                                                           class="form-control" name="sku[]" required/>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-group-sm col-md-12">
+                                                                    <?php if (!empty($variation_name) && !empty($variation_options)) : ?>
+                                                                        <select class="form-control" required
+                                                                                name="variation[]" title="variation">
+                                                                            <?php
+                                                                            foreach ($variation_options as $option_name) : ?>
+                                                                                <option value="<?= trim($option_name) ?>"><?= trim($option_name); ?></option>
+                                                                            <?php endforeach; ?>
+                                                                        </select>
+                                                                    <?php else : ?>
+                                                                        <input title="variation" type="text"
+                                                                               class="form-control" autocomplete="off"
+                                                                               name="variation[]"
+                                                                               required/>
+                                                                    <?php endif; ?>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-group-sm col-md-12">
+                                                                    <input title="Quantity" type="number" min="1"
+                                                                           max="100" class="form-control"
+                                                                           name="quantity[]" required/>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-group-sm col-md-12">
+                                                                    <input title="Price" type="text"
+                                                                           class="form-control number amount" required
+                                                                           name="sale_price[]"/>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-group-sm">
+                                                                    <input title="Discounted price" type="text"
+                                                                           class="form-control number amount"
+                                                                           name="discount_price[]"/>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-group-sm">
+                                                                    <div class="input-group date">
+                                                                        <input data-provide="datepicker"
+                                                                               class="form-control datepicker"
+                                                                               data-date-format="mm/dd/yyyy"
+                                                                               placeholder="mm/dd/yyyy"
+                                                                               name="start_date[]"
+                                                                               title="Starting date for this discount">
+                                                                        <div class="input-group-addon">
+                                                                            <i class="demo-pli-calendar-4"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-group-sm">
+                                                                    <div class="input-group date">
+                                                                        <input data-provide="datepicker"
+                                                                               class="form-control datepicker"
+                                                                               data-date-format="mm/dd/yyyy"
+                                                                               placeholder="mm/dd/yyyy"
+                                                                               name="end_date[]"
+                                                                               title="End date for this discount">
+                                                                        <div class="input-group-addon">
+                                                                            <i class="demo-pli-calendar-4"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="">
+                                                                <div class="btn-group">
+                                                                    <a class="btn btn-sm btn-default btn-hover-success demo-psi-add add-tooltip add_more"
+                                                                       href="javascript:void(0);"
+                                                                       data-original-title="Add Another Variation"
+                                                                       data-container="body"></a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <?php endif?>
                                                         </tbody>
                                                     </table>
                                                     <hr>
