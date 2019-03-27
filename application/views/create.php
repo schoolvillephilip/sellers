@@ -980,10 +980,13 @@
 
 <script type="text/javascript">
     let first_next = true;
-    $(".btn.next").on("click", function(){
+    setInterval(() => {
+        autoSave();
+    }, 60000);
+    function autoSave(){
         let formData = new FormData();
         formData = $('.add_product_form').serializeArray();
-        $('#processing').show();
+        toastr["warning"]("Auto Saving Your Progress", {timeOut: 300});
         if(first_next){
         $.ajax({
             url: base_url + 'product/first_insert_draft',
@@ -993,11 +996,13 @@
                 let resp = JSON.parse(data);
                 console.log("returned product id: " + resp.temp_product_id);
                 $('#temp_product_id').val(resp.temp_product_id);
-                $('#processing').hide();
+                toastr.clear()
+                toastr["success"]("Auto Save Completed");
             },
             error: function(data){
                 alert(data.message);
-                $('#processing').hide();
+                toastr.clear()
+                toastr["error"]("Auto Save Error");
             }
         });
         first_next = false;
@@ -1018,14 +1023,15 @@
                         }
                     }
                 }
-                $('#processing').hide();
+                toastr.clear()
+                toastr["success"]("Auto Save Completed");
             },
             error: function(data){
                 alert(data.message);
-                $('#processing').hide();
+                toastr["error"]("Auto Save Error");
             }
         });
-    });
+    };
     $('.datepicker').datepicker({
         startDate: '0d'
     });
