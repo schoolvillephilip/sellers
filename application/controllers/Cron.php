@@ -6,7 +6,7 @@ class Cron extends CI_Controller
     }
 
     public function index(){
-
+        redirect("https://www.onitshamarket.com");
     }
 
     /*
@@ -18,13 +18,13 @@ class Cron extends CI_Controller
          * */
         $query = "SELECT o.id, o.amount, o.qty, o.commission,o.seller_id, s.balance FROM orders o 
         JOIN sellers s ON (s.uid = o.seller_id)
-        WHERE o.active_status = 'completed' AND o.seller_wallet = 0 AND o.order_date <= SUBDATE(NOW(), INTERVAL 7 DAY)";
+        WHERE o.payment_made = 'success' AND o.seller_wallet = 0 AND o.order_date <= SUBDATE(NOW(), INTERVAL 7 DAY)";
         $results = $this->db->query( $query)->result();
         if( $results && INBURSE_SELLER){
             foreach( $results as $result ){
                 $real_amount = ( $result->amount * $result->qty );
                 $earned = $real_amount - $result->commission;
-                $earned = $earned + $result->balance;
+                $earned += $result->balance;
                 try {
                     $this->seller->update_data(array('uid' => $result->seller_id), array('balance' => $earned));
                     //update the order table
@@ -52,6 +52,10 @@ class Cron extends CI_Controller
             }
         }
     }
+
+    /*
+     * Delete System Notification
+     * */
 
     public function check(){
         echo 'Philip';
