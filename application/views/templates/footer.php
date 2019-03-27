@@ -6,7 +6,7 @@
 <script src="<?= base_url('assets/js/nifty.min.js'); ?>"></script>
 <script src="<?= base_url('assets/js/demo/nifty-demo.min.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/select2/js/select2.js')?>"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript"> base_url = '<?= base_url(); ?>';</script>
 <script>
     toastr.options = {
