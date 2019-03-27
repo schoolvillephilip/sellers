@@ -687,7 +687,6 @@
                                                 ONLINE</b>
                                         </div>
                                     </div>
-
                                 </form>
                             </div>
                             <div class="pad-btm" style="margin-bottom: 30px;"></div>
