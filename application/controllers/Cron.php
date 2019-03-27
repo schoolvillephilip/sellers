@@ -55,5 +55,10 @@ class Cron extends CI_Controller
         }
     }
 
+    public function check(){
+        echo 'Philip';
+        exit;
+    }
+
 
 }

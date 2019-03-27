@@ -183,6 +183,12 @@
                                 <span class="menu-title">Help & Guidelines</span>
                             </a>
                         </li>
+                        <li <?php if ($pg_name == 'sellers_connect') echo 'class="active"' ?>>
+                            <a target="_blank" href="https://chat.whatsapp.com/GsYeA2PKbDKBdXMDDU4mL0">
+                                <i class="demo-pli-whatsapp"></i>
+                                <span class="menu-title">OM Seller's Connect</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="<?= base_url('logout'); ?>">
                                 <i class="demo-pli-lock-user"></i>
