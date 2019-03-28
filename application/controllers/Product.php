@@ -105,9 +105,9 @@ class Product extends MY_Controller
             $colour_family = (!empty($colour_family)) ? json_encode($colour_family) : '[]';
             $sku = $this->product->generate_code();
             $product_description = '<div class="prod_description">' . $this->input->post('product_description', true) . '</div>';
-            $in_the_box = nl2br($this->input->post('in_the_box', true));
-            $highlights = nl2br($this->input->post('highlights', true));
-            $product_warranty = nl2br($this->input->post('product_warranty', true));
+            $in_the_box = '<div class="prod_description">' . $this->input->post('in_the_box', true). '</div>';
+            $highlights = '<div class="prod_description">' . $this->input->post('highlights', true) .'</div>';
+            $product_warranty = '<div class="prod_description">'. $this->input->post('product_warranty', true) .'</div>';
             $warranty_address = nl2br($this->input->post('warranty_address', true));
             $from_overseas = ($this->input->post('from_overseas') == 'on') ? 1 : 0;
 
@@ -593,15 +593,15 @@ class Product extends MY_Controller
             $colour_family = (!empty($colour_family)) ? json_encode($colour_family) : '[]';
             $sku = $this->product->generate_code();
             $product_description = '<div class="prod_description">' . $this->input->post('product_description', true) . '</div>';
-            $in_the_box = nl2br($this->input->post('in_the_box', true));
-            $highlights = nl2br($this->input->post('highlights', true));
+            $in_the_box = '<div class="prod_description">' . $this->input->post('in_the_box', true).'</div>';
+            $highlights = '<div class="prod_description">'. $this->input->post('highlights', true). '</div>';
             $product_warranty = nl2br($this->input->post('product_warranty', true));
             $warranty_address = nl2br($this->input->post('warranty_address', true));
             $from_overseas = ($this->input->post('from_overseas') == 'on') ? 1 : 0;
 
             $product_name = cleanit($this->input->post('product_name'));
             $brand_name = cleanit($this->input->post('brand_name'));
-            if ($brand_name == 'others') $product_name = 'generic ' . $product_name;
+            if ($brand_name != 'others') $product_name = $brand_name . ' ' . $product_name;
             $product_table = array(
                 'seller_id' => $this->session->userdata('logged_id'),
                 'sku' => $sku,
@@ -695,7 +695,7 @@ class Product extends MY_Controller
                         $image_upload_array = array(
                             'folder' => PRODUCT_IMAGE_FOLDER,
                             'filepath' => $_FILES['file']['tmp_name'],
-                            'eager' => array("width" => 630, "height" => 570, "crop" => "fill")
+                            'eager' => array("width" => 680, "height" => 680, "crop" => "fill")
                         );
 
                         $this->cloudinarylib->upload_image($image_upload_array);

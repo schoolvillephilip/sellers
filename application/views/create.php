@@ -986,7 +986,7 @@
     function autoSave(){
         let formData = new FormData();
         formData = $('.add_product_form').serializeArray();
-        toastr["warning"]("Auto Saving Your Progress", {timeOut: 300});
+        toastr["warning"]("Auto Saving Your Product...", {timeOut: 300});
         if(first_next){
         $.ajax({
             url: base_url + 'product/first_insert_draft',
