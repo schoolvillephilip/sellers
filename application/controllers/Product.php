@@ -225,7 +225,7 @@ class Product extends MY_Controller
 
             $product_name = cleanit($this->input->post('product_name'));
             $brand_name = cleanit($this->input->post('brand_name'));
-            if ($brand_name == 'others') $product_name = 'generic ' . $product_name;
+//            if ($brand_name != 'others') $product_name = $brand_name . ' ' . $product_name;
             $product_table = array(
                 'seller_id' => $this->session->userdata('logged_id'),
                 'sku' => $sku,
@@ -601,7 +601,7 @@ class Product extends MY_Controller
 
             $product_name = cleanit($this->input->post('product_name'));
             $brand_name = cleanit($this->input->post('brand_name'));
-            if ($brand_name != 'others') $product_name = $brand_name . ' ' . $product_name;
+//            if ($brand_name != 'others') $product_name = $brand_name . ' ' . $product_name;
             $product_table = array(
                 'seller_id' => $this->session->userdata('logged_id'),
                 'sku' => $sku,
