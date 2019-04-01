@@ -519,9 +519,26 @@
                                                                         * (in
                                                                         Kg)</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <input type="text" required
-                                                                               placeholder="Weight of the product. eg 10"
-                                                                               name="weight" class="form-control">
+                                                                        <select name="weight" class="form-control" required>
+                                                                                <option value="">-- Select Option --</option>
+                                                                                <option value="0.1KG-2.0KG">0.1KG - 2.0KG</option>
+                                                                                <option value="2.1KG-2.5KG">2.1KG - 2.5KG</option>
+                                                                                <option value="2.6KG-3.0KG">2.6KG - 3.0KG</option>
+                                                                                <option value="3.1KG-3.5KG">3.1KG - 3.5KG</option>
+                                                                                <option value="3.6KG-4.0KG">3.6KG - 4.0KG</option>
+                                                                                <option value="4.1KG-4.5KG">4.1KG - 4.5KG</option>
+                                                                                <option value="4.6KG-5.0KG">4.6KG - 5.0KG</option>
+                                                                                <option value="5.1KG-5.5KG">5.1KG - 5.5KG</option>
+                                                                                <option value="5.6KG-6.0KG">5.6KG - 6.0KG</option>
+                                                                                <option value="6.1KG-6.5KG">6.1KG - 6.5KG</option>
+                                                                                <option value="6.6KG-7.0KG">6.6KG - 7.0KG</option>
+                                                                                <option value="7.1KG-7.5KG">7.1KG - 7.5KG</option>
+                                                                                <option value="7.6KG-8.0KG">7.6KG - 8.0KG</option>
+                                                                                <option value="8.1KG-8.5KG">8.1KG - 8.5KG</option>
+                                                                                <option value="8.6KG-9.0KG">8.6KG - 9.0KG</option>
+                                                                                <option value="9.1KG-9.5KG">9.1KG - 9.5KG</option>
+                                                                                <option value="9.6KG-10.0KG">9.6KG - 10.0KG</option>
+                                                                        </select>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:;" title="Weight (kg)"

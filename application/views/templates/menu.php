@@ -185,7 +185,7 @@
                         </li>
                         <li <?php if ($pg_name == 'sellers_connect') echo 'class="active"' ?>>
                             <a target="_blank" href="https://chat.whatsapp.com/GsYeA2PKbDKBdXMDDU4mL0">
-                                <i class="demo-pli-whatsapp"></i>
+                                <i class="fab fa-whatsapp"></i>
                                 <span class="menu-title">OM Seller's Connect</span>
                             </a>
                         </li>
