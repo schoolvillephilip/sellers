@@ -197,7 +197,7 @@
                                                                 <div class="form-group">
                                                                     <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Product Name</label>
                                                                     <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
-                                                                        <input type="text" class="form-control"
+                                                                        <input type="text" class="form-control" id="product_name"
                                                                                autofocus required name="product_name"
                                                                                value="<?= isset($_POST['product_name']) ? $_POST['product_name'] : ''; ?>"
                                                                                placeholder="Product name">
@@ -981,7 +981,10 @@
 <script type="text/javascript">
     let first_next = true;
     setInterval(() => {
-        autoSave();
+        let product_name = $('#product_name').val();
+        if(!(product_name == "")){
+            autoSave();
+        }
     }, 60000);
     function autoSave(){
         let formData = new FormData();

@@ -152,7 +152,7 @@
                                                                     <label class="col-lg-3 control-label">Product Name
                                                                         *</label>
                                                                     <div class="col-lg-7">
-                                                                        <input type="text" class="form-control"
+                                                                        <input type="text" class="form-control" id="product_name"
                                                                                autofocus required name="product_name"
                                                                                value="<?= $product->product_name; ?>"
                                                                                placeholder="Product name">
@@ -802,6 +802,40 @@
 <script src="<?= base_url('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js'); ?>"></script>
 <script src="<?= base_url('assets/plugins/summernote/summernote.min.js'); ?>"></script>
 <script type="text/javascript">
+    setInterval(() => {
+        let product_name = $('#product_name').val();
+        if(!(product_name == "")){
+            autoSave();
+        }
+    }, 60000);
+    function autoSave(){
+        let formData = new FormData();
+        formData = $('.add_product_form').serializeArray();
+        toastr["warning"]("Auto Saving Your Product...", {timeOut: 300});
+        $.ajax({
+            url: base_url + 'product/other_update_draft',
+            data: formData,
+            type: 'POST',
+            success: function(data){
+                let resp = JSON.parse(data);
+                let var_arr = resp.variations_id;
+                if(var_arr.length > 0){
+                    for(let i = 0; i < var_arr.length; i++){
+                        let field = $('.variation_id')[i];
+                        if(field.value == "new"){
+                            field.value = var_arr[i];
+                        }
+                    }
+                }
+                toastr.clear()
+                toastr["success"]("Auto Save Completed");
+            },
+            error: function(data){
+                alert(data.message);
+                toastr["error"]("Auto Save Error");
+            }
+        });
+    };
     $(document).on('nifty.ready', function () {
         Dropzone.autoDiscover = false;
         // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument

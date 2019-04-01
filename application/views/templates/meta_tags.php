@@ -22,7 +22,6 @@
         <link href="<?= base_url('assets/plugins/bootstrap-validator/bootstrapValidator.min.css')?>" rel="stylesheet">
         <link href="<?= base_url('assets/plugins/dropzone/dropzone.min.html')?>" rel="stylesheet">
         <link href="<?= base_url('assets/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')?>" rel="stylesheet">
-        <link href="<?= base_url('assets/plugins/bootstrap-select/bootstrap-select.min.css')?>" rel="stylesheet">
         <link href="<?= base_url('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css')?>" rel="stylesheet">
     <?php endif; ?>
     <?php if( in_array($pg_name, array('manage_product','overview','message','report','orders') ) ): ?>
