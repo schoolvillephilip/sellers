@@ -39,6 +39,9 @@
                 frame.css("visibility", "hidden");
             }
         });
+        $('select').css({"width":"100%"});
         $('.select2').select2();
+        $('.selectpicker').select2();
+        $('select').select2();
     });
 </script>
