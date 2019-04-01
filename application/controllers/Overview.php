@@ -19,7 +19,7 @@ class Overview extends MY_Controller
         $page_data['sub_name'] = $status;
         $page_data['profile'] = $this->seller->get_profile_details($uid,
             'first_name,last_name,email,profile_pic');
-        $page_data['completed_orders'] = $this->seller->get_row('orders', "COUNT(*) as total", " (seller_id = {$uid} AND active_status = 'completed' OR payment_made = 'success) ");
+        $page_data['completed_orders'] = $this->seller->get_row('orders', "COUNT(*) as total", " (seller_id = {$uid} AND (active_status = 'completed' OR payment_made = 'success)) ");
         $page_data['other_orders'] = $this->seller->get_row('orders', "COUNT(*) as total", " (seller_id = {$uid} AND active_status != 'completed') ");
         $page_data['dispute'] = $this->seller->get_row('orders', "COUNT(*) as total", " (seller_id = {$uid} AND (active_status = 'returned') ) ");
         $page_data['top_views'] = $this->seller->run_sql("SELECT product_name, views FROM products WHERE seller_id = {$uid} ORDER BY views DESC LIMIT 3")->result();
