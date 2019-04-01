@@ -270,7 +270,7 @@
 
         function moris( data ){
 
-            Morris.Line({
+            Morris.Bar({
                 element: 'sellerchart',
                 data: data,
                 xkey: "date",
