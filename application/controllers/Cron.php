@@ -18,7 +18,7 @@ class Cron extends CI_Controller
          * */
         $query = "SELECT o.id, o.amount, o.qty, o.commission,o.seller_id, s.balance FROM orders o 
         JOIN sellers s ON (s.uid = o.seller_id)
-        WHERE o.payment_made = 'success' AND o.seller_wallet = 0 AND o.order_date <= SUBDATE(NOW(), INTERVAL 3 DAY)";
+        WHERE o.payment_made = 'success' AND o.seller_wallet = 0 AND o.order_date <= SUBDATE(NOW(), INTERVAL 2 DAY)";
         $results = $this->db->query( $query)->result();
         $x = 0;
         if( $results && INBURSE_SELLER){
