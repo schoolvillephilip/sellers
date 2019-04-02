@@ -114,7 +114,7 @@ defined('TABLE_SELLER_NOTIFICATION_MESSAGE') OR define('TABLE_SELLER_NOTIFICATIO
 
 // General Admin Constant
 
-defined('INBURSE_SELLER') OR define('INBURSE_SELLER', FALSE); # This is to move money to seller's wallet, if they are due for payment after 7 days
+defined('INBURSE_SELLER') OR define('INBURSE_SELLER', TRUE); # This is to move money to seller's wallet, if they are due for payment after 7 days
 
 //Elastic Email
 defined('ELASTIC_EMAIL_API') OR define('ELASTIC_EMAIL_API', '5fe25354-f5e7-4bee-8001-ab0080b72c4c');
