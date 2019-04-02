@@ -13,8 +13,6 @@ class Cron extends CI_Controller
      * Send money to seller account when its 7 days above and order has been marked completed
      * */
     public function inburse_seller(){
-        echo 'You are here';
-        exit;
         /*
          * Run a query to pass seller money to
          * */
@@ -22,6 +20,7 @@ class Cron extends CI_Controller
         JOIN sellers s ON (s.uid = o.seller_id)
         WHERE o.payment_made = 'success' AND o.seller_wallet = 0 AND o.order_date <= SUBDATE(NOW(), INTERVAL 7 DAY)";
         $results = $this->db->query( $query)->result();
+        $x = 0;
         if( $results && INBURSE_SELLER){
             foreach( $results as $result ){
                 $real_amount = ( $result->amount * $result->qty );
@@ -31,12 +30,14 @@ class Cron extends CI_Controller
                     $this->seller->update_data(array('uid' => $result->seller_id), array('balance' => $earned));
                     //update the order table
                     $this->seller->update_data(array('id' => $result->id), array('seller_wallet' => 1), 'orders');
+                    $x++;
                     // We can send the seller email that money don enter
                 } catch (Exception $e) {
 
                 }
             }
         }
+        echo $x;
     }
 
     /*
@@ -55,7 +56,7 @@ class Cron extends CI_Controller
                 }
             }
         }
-        echo $x;
+        echo $x . ' Notification was cleared.';
     }
 
     /*
