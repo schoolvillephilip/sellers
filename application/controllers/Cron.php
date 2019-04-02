@@ -13,6 +13,8 @@ class Cron extends CI_Controller
      * Send money to seller account when its 7 days above and order has been marked completed
      * */
     public function inburse_seller(){
+        echo 'You are here';
+        exit;
         /*
          * Run a query to pass seller money to
          * */
