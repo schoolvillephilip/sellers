@@ -539,6 +539,7 @@
                                                                                 <option value="9.1KG-9.5KG">9.1KG - 9.5KG</option>
                                                                                 <option value="9.6KG-10.0KG">9.6KG - 10.0KG</option>
                                                                         </select>
+                                                                        <span class="text text-danger">It's important you select the right weight range for the product item.</span>
                                                                     </div>
                                                                     <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
                                                                         <a href="javascript:;" title="Weight (kg)"
