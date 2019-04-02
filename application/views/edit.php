@@ -364,6 +364,7 @@
                                                                             <option value="9.1KG-9.5KG" <?= ($product->weight == "9.1KG-9.5KG")?"selected":"";?>>9.1KG - 9.5KG</option>
                                                                             <option value="9.6KG-10.0KG" <?= ($product->weight == "9.6KG-10.0KG")?"selected":"";?>>9.6KG - 10.0KG</option>
                                                                         </select>
+                                                                        <span class="text text-danger">It's important you select the right weight range for the product item.</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
