@@ -45,14 +45,17 @@ class Cron extends CI_Controller
     function delete_notification(){
         $query = "SELECT id FROM sellers_notification_message WHERE is_read = 1 AND created_on <= SUBDATE(NOW(), INTERVAL 1 MONTH)";
         $results = $this->db->query( $query )->result();
+        $x = 0;
         if( $results ){
             foreach ( $results as $result ){
                 try {
                     $this->seller->delete_data( $result->id, 'sellers_notification_message');
+                    $x++;
                 } catch (Exception $e) {
                 }
             }
         }
+        echo $x;
     }
 
     /*
