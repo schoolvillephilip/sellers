@@ -68,7 +68,7 @@ class Product extends MY_Controller
                 'first_name,last_name,email,profile_pic');
             $legal_company_name = $this->seller->get_row('sellers', 'legal_company_name', "( uid = {$uid})");
             $page_data['store_name'] = ($legal_company_name) ? $legal_company_name->legal_company_name : '';
-            $page_data['brands'] = $this->seller->get_results('brands');
+            $page_data['brands'] = $this->seller->get_results('brands', "brand_name,description", array('status' => 1));
             $category_details = $this->seller->get_row('categories', 'variation_name, variation_options', "( id = {$sub_id})");
             $option_array = array();
             if (!empty($category_details->variation_options)) {
@@ -659,6 +659,8 @@ class Product extends MY_Controller
                 $discount_price = $this->input->post('discount_price');
                 $start_date = $this->input->post('start_date');
                 $end_date = $this->input->post('end_date');
+                if( $discount_price == $sale_price ) $discount_price =  $start_date = $end_date = '';
+                if( $discount_price == '' ) $start_date = $end_date = '';
                 if ($count_check > 0) {
                     for ($i = 0; $i < $count_check; $i++) {
                         $variation_data['product_id'] = $product_id;
@@ -839,7 +841,7 @@ class Product extends MY_Controller
             $page_data['variations'] = $this->seller->get_results('product_variation', '*', array('product_id' => $id));
             $page_data['product_id'] = $id;
             $page_data['page_title'] = 'Edit product ( ' . $page_data['product']->product_name . ' )';
-            $page_data['brands'] = $this->seller->get_results('brands');
+            $page_data['brands'] = $this->seller->get_results('brands', "brand_name,description", array('status' => 1));
             $this->load->view('edit', $page_data);
         } else {
             // Process
@@ -924,9 +926,10 @@ class Product extends MY_Controller
                     $variation_data['start_date'] = $start_date[$i];
                     $variation_data['end_date'] = $end_date[$i];
                     if ($variation_data['quantity'] < 1) $variation_data['quantity'] = 10;
-//                    if (empty($variation_data['discount_price'])) {
-//                        $variation_data['start_date'] = $variation_data['end_date'] = '';
-//                    }
+                    if (empty($variation_data['discount_price'])) {
+                        $variation_data['start_date'] = $variation_data['end_date'] = '';
+                    }
+                    if( $variation['sale_price'] == $variation['discount_price'] ) $variation['discount_price'] = '';
                     if ($variation_id['id'] == 'new') {
                         $variation_data['product_id'] = $id;
                         $this->seller->insert_data('product_variation', $variation_data);
