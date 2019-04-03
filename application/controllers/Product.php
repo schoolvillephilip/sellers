@@ -1108,6 +1108,15 @@ class Product extends MY_Controller
         return $result;
     }
 
+
+    // Delete product variation row
+    //
+    public function delete_variation_row(){
+        $vid = $this->input->post('vid', true);
+        echo $this->seller->delete( array('id' => $vid ), 'product_variation');
+        exit;
+    }
+
     /*
      * Upload  description image
      * */
