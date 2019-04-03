@@ -707,6 +707,9 @@ class Product extends MY_Controller
 
                         $product_gallery['featured_image'] = (isset($_POST['featured_image']) && ($old_name == $_POST['featured_image'])) ? 1 : 0;
                         if ($counts == 1) $product_gallery['featured_image'] = 1;
+                        //Jonzing
+                        if( $x == 0 ) $product_gallery['featured_image'] =1;
+
                         if (!$this->seller->insert_data('product_gallery', $product_gallery)) {
                             $image_error++;
                         }
