@@ -1335,7 +1335,7 @@
         }
 
         $('.half_description').summernote({
-            placeholder: 'Write here...',
+            placeholder: 'Leave bank if not available...',
             height: '150px',
             focus: true,
             toolbar: [
