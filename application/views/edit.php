@@ -854,7 +854,6 @@
                 toastr["success"]("Auto Save Completed");
             },
             error: function(data){
-                alert(data.message);
                 toastr["error"]("Auto Save Error");
             }
         });
