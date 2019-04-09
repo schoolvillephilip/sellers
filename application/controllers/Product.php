@@ -598,7 +598,6 @@ class Product extends MY_Controller
             $product_warranty = nl2br($this->input->post('product_warranty', true));
             $warranty_address = nl2br($this->input->post('warranty_address', true));
             $from_overseas = ($this->input->post('from_overseas') == 'on') ? 1 : 0;
-
             $product_name = cleanit($this->input->post('product_name'));
             $brand_name = cleanit($this->input->post('brand_name'));
 //            if ($brand_name != 'others') $product_name = $brand_name . ' ' . $product_name;
