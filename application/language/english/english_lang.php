@@ -47,7 +47,7 @@ $lang['banks'] = 'Access Bank Plc, Citibank Nigeria Limited, Diamond Bank Plc, E
 
 $lang['certifications'] = "AFRDI Leather, AFRDI - Australian Furnishing Research & Development Institute,ASTM Certified,Australian Made,Eco Friendly,FSC - Forest Stewardship Council,Fair Trade,GECA - Good Environmental Choice Australia,Organic,PEFC - Programme for the Endorcement of Forest Certification,PEFC - Programme for the Endorcement of Forest Certification,Timber Certificate,Suitable for Allergic";
 
-$lang['main_material'] = 'ceramics,glass,leather,stainless, rubber, PU leather, PolyCarbonate, leather, cocoa, metal,plastics,Liebert,natural fibre,plume,resin,silicon,Lycra,stone,synthetic,textile,wood,Cotton,flax,wool,polyester,denim,fur,nylon,spandex,leather,silk,ramie,acetate, cupro,Flannel,Lyocel,Rayon,Rayon,Recycled pet,Tyvek,Hemp,Jute,Bamboo, flour,barley, wheat,others';
+$lang['main_material'] = 'ceramics,glass,leather,stainless, rubber, PU leather, PolyCarbonate, leather, cocoa, steel, metal,plastics,Liebert,natural fibre,plume,resin,silicon,Lycra,stone,synthetic,textile,wood,Cotton,flax,wool,polyester,denim,fur,nylon,spandex,leather,silk,ramie,acetate, cupro,Flannel,Lyocel,Rayon,Rayon,Recycled pet,Tyvek,Hemp,Jute,Bamboo, flour,barley, wheat,others';
 
 $lang['warranty_types'] = 'Service Center,Repair by vendor,replacement by vendor';
 
