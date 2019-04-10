@@ -8,7 +8,7 @@
 
         $uid = $this->session->userdata('logged_id');
 		$draft_count = count($this->seller->get_product($uid, "draft"));
-        $order_count = $this->seller->run_sql("SELECT * FROM orders WHERE seller_id = {$uid} AND active_status = 'processing'")->num_rows();
+        $order_count = $this->seller->run_sql("SELECT * FROM orders WHERE seller_id = {$uid} AND active_status = 'pending'")->num_rows();
         $message_count = $this->seller->get_unread_message($uid);
         $questions_count = count($this->seller->get_questions($uid));
         ?>

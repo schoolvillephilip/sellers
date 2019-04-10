@@ -422,10 +422,8 @@ Class Seller_model extends CI_Model
 
     function get_unread_message($sid)
     {
-        $this->db->where('seller_id', $sid);
-        $this->db->where('is_read', 0);
-        return $this->db->get(TABLE_SELLER_NOTIFICATION_MESSAGE)->num_rows();
-
+        $query = "SELECT COUNT(*) FROM sellers_notification_message WHERE seller_id = {$sid} AND is_read = 0";
+        return $this->db->query( $query );
     }
 
     function get_message($sid = '', $type = 'all', $id = '')
