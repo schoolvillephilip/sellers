@@ -124,7 +124,7 @@
                         <li <?php if ($pg_name == 'message' || $pg_name == 'questions') echo 'class="active"' ?>>
                             <a href="javascript:;">
                                 <i class="demo-pli-clock"></i>
-                                <span class="menu-title">Notifications (<?= $questions_count + $message_count; ?>)</span>
+                                <span class="menu-title">Notifications (<?= ($questions_count - 1) + $message_count; ?>)</span>
                                 <i class="arrow"></i>
                             </a>
                             <ul class="collapse <?php if ($pg_name == 'message') echo 'in'; ?>">
