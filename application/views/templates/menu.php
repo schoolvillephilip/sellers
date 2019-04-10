@@ -124,14 +124,14 @@
                         <li <?php if ($pg_name == 'message' || $pg_name == 'questions') echo 'class="active"' ?>>
                             <a href="javascript:;">
                                 <i class="demo-pli-clock"></i>
-                                <span class="menu-title">Notifications</span>
+                                <span class="menu-title">Notifications (<?= $questions_count + $message_count?>)</span>
                                 <i class="arrow"></i>
                             </a>
                             <ul class="collapse <?php if ($pg_name == 'message') echo 'in'; ?>">
                                 <li class="<?php if ($pg_name == 'message') echo 'active-link' ?>">
                                     <a href="<?= base_url('message'); ?>">
                                         <i class="demo-pli-mail"></i>
-                                        <span class="menu-title">Messages <?= $message_count < 1 ? '' : '(' . $message_count . ' new)'; ?></span>
+                                        <span class="menu-title">Messages <?= $message_count < 1 ? '' : '(' . count($message_count) . ' new)'; ?></span>
                                     </a>
                                 </li>
                                 <li class="<?php if ($pg_name == 'questions') echo 'active-link' ?>">
