@@ -160,6 +160,20 @@
                                                                         <span class="text-sm text-dark">Wide Angle Camera 10 MP - Black, Galaxy Tab A Leather Flip Case - Red</span>
                                                                     </div>
                                                                 </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-3 control-label">Selected Category</label>
+                                                                    <div class="col-lg-7">
+                                                                        <select class="select2" style="width: 100%;" name="category_id" data-width="100%">
+                                                                            <?php foreach ( $categories as $category): ?>
+                                                                                <option value="<?= $category->id; ?>" <?php if($category->id == $product->category_id ) echo 'selected'; ?> >
+                                                                                    <?= $category->name; ?>
+                                                                                </option>
+                                                                            <?php endforeach; ?>
+                                                                        </select>
+                                                                        <span class="text-sm text-dark">The selected category</span>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="form-group">
                                                                     <label class="col-lg-3 control-label">Brand Name
                                                                         *</label>
