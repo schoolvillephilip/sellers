@@ -842,6 +842,7 @@ class Product extends MY_Controller
             $page_data['variation_options'] = $option_array;
             $page_data['variations'] = $this->seller->get_results('product_variation', '*', array('product_id' => $id));
             $page_data['product_id'] = $id;
+            $page_data['categories'] = $this->seller->run_sql("SELECT id, name FROM categories")->result();
             $page_data['page_title'] = 'Edit product ( ' . $page_data['product']->product_name . ' )';
             $page_data['brands'] = $this->seller->get_results('brands', "brand_name,description", array('status' => 1));
             $this->load->view('edit', $page_data);

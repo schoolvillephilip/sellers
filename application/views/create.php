@@ -1022,7 +1022,6 @@
                 toastr["success"]("Auto Save Completed");
             },
             error: function(data){
-                alert(data.message);
                 toastr.clear()
                 toastr["error"]("Auto Save Error");
             }
@@ -1049,7 +1048,6 @@
                 toastr["success"]("Auto Save Completed");
             },
             error: function(data){
-                alert(data.message);
                 toastr["error"]("Auto Save Error");
             }
         });
