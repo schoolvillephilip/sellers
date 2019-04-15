@@ -210,7 +210,7 @@ Class Seller_model extends CI_Model
         $query = "SELECT p.*, g.image_name, o.amount, o.quantity_sold, v.variation_qty, g.image_name FROM products AS p
                     LEFT JOIN (SELECT ga.image_name, ga.product_id FROM product_gallery ga WHERE ga.featured_image = 1 AND ga.product_id = {$pid} ) g 
                     ON (p.id = g.product_id )
-                    LEFT JOIN (SELECT SUM(ord.amount) as amount, ord.product_id, SUM(ord.qty) quantity_sold FROM orders AS ord GROUP BY ord.product_id ) AS o
+                    LEFT JOIN (SELECT SUM(ord.amount) as amount, ord.product_id, SUM(ord.qty) quantity_sold FROM orders AS ord WHERE (ord.payment_made = 'success' OR ord.active_status ='completed') GROUP BY ord.product_id ) AS o
                     ON ( o.product_id = p.id)
                     LEFT JOIN (SELECT SUM(var.quantity) AS variation_qty, var.product_id FROM product_variation var GROUP BY var.product_id ) v
                     ON ( v.product_id = p.id)
