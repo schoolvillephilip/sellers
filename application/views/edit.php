@@ -267,9 +267,9 @@
                                                                     <label class="col-lg-3 control-label">Is this product from overseas?</label>
                                                                     <div class="col-lg-7">
                                                                         <div class="radio">
-                                                                            <input id="no" class="magic-radio" type="radio" name="from_overseas" <?php if($product->from_overseas == 0) echo 'checked'; ?> >
+                                                                            <input id="no" class="magic-radio" type="radio" name="from_overseas" value="off" <?php if($product->from_overseas == 0) echo 'checked'; ?> >
                                                                             <label for="no">No</label>
-                                                                            <input id="yes" class="magic-radio" type="radio" name="from_overseas" <?php if($product->from_overseas == 1) echo 'checked'; ?>>
+                                                                            <input id="yes" class="magic-radio" type="radio" name="from_overseas" value="on" <?php if($product->from_overseas == 1) echo 'checked'; ?>>
                                                                             <label for="yes">Yes</label>
                                                                         </div>
                                                                     </div>
