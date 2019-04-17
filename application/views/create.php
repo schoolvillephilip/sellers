@@ -514,6 +514,22 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Actual Weight * </label>
+                                                                    <div class="col-lg-7 col-md-7 col-sm-11 col-xs-11">
+                                                                        <input type="text" name="actual_weight" required class="form-control" placeholder="Enter the actual weight">
+                                                                        <span class="text text-danger">Please type in the actual weight for the item you are listing.</span>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
+                                                                        <a href="javascript:;" title="Weight (kg)"
+                                                                           data-placement="bottom" data-toggle="popover"
+                                                                           tabindex="-1"
+                                                                           data-trigger="focus"
+                                                                           data-content="Provide the actual weight of the product as specified by manufacturer.">
+                                                                            <i class="demo-pli-question help_text"
+                                                                               title="Help Text"></i> </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
                                                                     <label
                                                                         class="col-lg-3 col-md-3 col-sm-12 col-xs-12 control-label">Weight
                                                                         * (in

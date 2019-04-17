@@ -104,9 +104,9 @@ class Product extends MY_Controller
             $colour_family = $this->input->post('colour_family');
             $colour_family = (!empty($colour_family)) ? json_encode($colour_family) : '[]';
             $sku = $this->product->generate_code();
-            $product_description = '<div class="prod_description">' . $this->input->post('product_description', true) . '</div>';
-            $in_the_box = '<div class="prod_description">' . $this->input->post('in_the_box', true). '</div>';
-            $highlights = '<div class="prod_description">' . $this->input->post('highlights', true) .'</div>';
+            $product_description = '<div class="prod_description">' . htmlentities($this->input->post('product_description', true)) . '</div>';
+            $in_the_box = '<div class="prod_description">' . htmlentities($this->input->post('in_the_box', true)). '</div>';
+            $highlights = '<div class="prod_description">' . htmlentities($this->input->post('highlights', true)).'</div>';
             $product_warranty = '<div class="prod_description">'. $this->input->post('product_warranty', true) .'</div>';
             $warranty_address = nl2br($this->input->post('warranty_address', true));
             $from_overseas = ($this->input->post('from_overseas') == 'on') ? 1 : 0;
@@ -131,6 +131,7 @@ class Product extends MY_Controller
                 'main_material' => $this->input->post('main_material'),
                 'dimensions' => cleanit($this->input->post('dimensions')),
                 'weight' => cleanit($this->input->post('weight')),
+                'actual_weight' => cleanit($this->input->post('actual_weight')),
                 'product_warranty' => $product_warranty,
                 'warranty_type' => $warranty_type,
                 'warranty_address' => $warranty_address,
@@ -216,7 +217,7 @@ class Product extends MY_Controller
             $colour_family = $this->input->post('colour_family');
             $colour_family = (!empty($colour_family)) ? json_encode($colour_family) : '[]';
             $sku = $this->product->generate_code();
-            $product_description = '<div class="prod_description">' . $this->input->post('product_description', true) . '</div>';
+            $product_description = '<div class="prod_description">' . htmlentities($this->input->post('product_description', true)) . '</div>';
             $in_the_box = nl2br($this->input->post('in_the_box', true));
             $highlights = nl2br($this->input->post('highlights', true));
             $product_warranty = nl2br($this->input->post('product_warranty', true));
@@ -243,6 +244,7 @@ class Product extends MY_Controller
                 'main_material' => $this->input->post('main_material'),
                 'dimensions' => cleanit($this->input->post('dimensions')),
                 'weight' => cleanit($this->input->post('weight')),
+                'actual_weight' => cleanit($this->input->post('actual_weight')),
                 'product_warranty' => $product_warranty,
                 'warranty_type' => $warranty_type,
                 'warranty_address' => $warranty_address,
@@ -592,9 +594,9 @@ class Product extends MY_Controller
             $colour_family = $this->input->post('colour_family');
             $colour_family = (!empty($colour_family)) ? json_encode($colour_family) : '[]';
             $sku = $this->product->generate_code();
-            $product_description = '<div class="prod_description">' . $this->input->post('product_description', true) . '</div>';
-            $in_the_box = '<div class="prod_description">' . $this->input->post('in_the_box', true).'</div>';
-            $highlights = '<div class="prod_description">'. $this->input->post('highlights', true). '</div>';
+            $product_description = '<div class="prod_description">' . htmlentities($this->input->post('product_description', true)). '</div>';
+            $in_the_box = '<div class="prod_description">' . htmlentities($this->input->post('in_the_box', true)).'</div>';
+            $highlights = '<div class="prod_description">'. htmlentities($this->input->post('highlights', true)). '</div>';
             $product_warranty = nl2br($this->input->post('product_warranty', true));
             $warranty_address = nl2br($this->input->post('warranty_address', true));
             $from_overseas = ($this->input->post('from_overseas') == 'on') ? 1 : 0;
@@ -618,6 +620,7 @@ class Product extends MY_Controller
                 'main_material' => $this->input->post('main_material'),
                 'dimensions' => cleanit($this->input->post('dimensions')),
                 'weight' => cleanit($this->input->post('weight')),
+                'actual_weight' => cleanit($this->input->post('actual_weight')),
                 'product_warranty' => $product_warranty,
                 'warranty_type' => $warranty_type,
                 'warranty_address' => $warranty_address,
@@ -860,7 +863,7 @@ class Product extends MY_Controller
             $warranty_type = (!empty($warranty_type)) ? json_encode($warranty_type) : '[]';
             $colour_family = $this->input->post('colour_family');
             $colour_family = (!empty($colour_family)) ? json_encode($colour_family) : '[]';
-            $description = nl2br(trim($this->input->post('product_description', true)));
+            $description = nl2br(trim(htmlentities($this->input->post('product_description', true))));
             $in_the_box = nl2br($this->input->post('in_the_box', true));
             $highlights = nl2br($this->input->post('highlights', true));
             $product_warranty = nl2br($this->input->post('product_warranty', true));
@@ -879,6 +882,7 @@ class Product extends MY_Controller
                 'main_material' => $this->input->post('main_material', true),
                 'dimensions' => cleanit($this->input->post('dimensions', true)),
                 'weight' => cleanit($this->input->post('weight', true)),
+                'actual_weight' => cleanit($this->input->post('actual_weight')),
                 'product_warranty' => $product_warranty,
                 'warranty_type' => $warranty_type,
                 'warranty_address' => $warranty_address,

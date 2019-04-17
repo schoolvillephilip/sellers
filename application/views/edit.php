@@ -355,6 +355,16 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label class="col-lg-3 control-label">Actual Weight</label>
+                                                                    <div class="col-lg-7">
+                                                                        <input type="email" class="form-control"
+                                                                               value="<?= $product->actual_weight; ?>"
+                                                                               name="actual_weight"
+                                                                               placeholder="Actual Weight for the Item">
+                                                                        <span class="text-sm text-dark">Please enter the actual weight for this item</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
                                                                     <label class="col-lg-3 control-label">Weight * (In
                                                                         Kg)</label>
                                                                     <div class="col-lg-7">
