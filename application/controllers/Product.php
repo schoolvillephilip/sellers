@@ -218,7 +218,7 @@ class Product extends MY_Controller
             $colour_family = (!empty($colour_family)) ? json_encode($colour_family) : '[]';
             $sku = $this->product->generate_code();
             $product_description = '<div class="prod_description">' . htmlentities($this->input->post('product_description', true)) . '</div>';
-            $in_the_box = nl2br($this->input->post('in_the_box', true));
+            $in_the_box = htmlentities($this->input->post('in_the_box', true));
             $highlights = nl2br($this->input->post('highlights', true));
             $product_warranty = nl2br($this->input->post('product_warranty', true));
             $warranty_address = nl2br($this->input->post('warranty_address', true));
