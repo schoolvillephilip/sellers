@@ -33,10 +33,11 @@ class Settings extends MY_Controller
                         $this->session->set_flashdata('error_msg', '<strong>There was an error updating your information...</strong> <br />' . validation_errors());
                         redirect('settings');
                     } else {
+//                        var_dump( $_POST ); exit;
                         $data = $user_data = array();
                         $name = explode(' ', $this->input->post('name'));
-                        $user_data['first_name'] = $name[0];
-                        $user_data['last_name'] = $name[1];
+                        $user_data['first_name'] = trim($name[0]);
+                        $user_data['last_name'] = trim($name[1]);
                         $data['legal_company_name'] = $this->input->post('legal_company_name');
                         $data['store_name'] = $this->input->post('store_name');
                         $data['address'] = $this->input->post('address');
