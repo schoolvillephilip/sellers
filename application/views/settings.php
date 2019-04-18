@@ -75,6 +75,15 @@
                                             </div>
                                         </div>
                                         <div class="form-group ">
+                                            <label class="col-sm-3 control-label" for="carrito-cmp-name">Store Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="store_name"
+                                                       value="<?= $profile->store_name; ?>"
+                                                       id="carrito-cmp-name"
+                                                       class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
                                             <label class="col-sm-3 control-label" for="carrito-add1-name">Address
                                             </label>
                                             <div class="col-sm-9">

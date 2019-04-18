@@ -38,6 +38,7 @@ class Settings extends MY_Controller
                         $user_data['first_name'] = $name[0];
                         $user_data['last_name'] = $name[1];
                         $data['legal_company_name'] = $this->input->post('legal_company_name');
+                        $data['store_name'] = $this->input->post('store_name');
                         $data['address'] = $this->input->post('address');
                         $data['tin'] = $this->input->post('tin');
                         $data['reg_no'] = $this->input->post('reg_no');
