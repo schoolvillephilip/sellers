@@ -54,4 +54,4 @@ $lang['warranty_types'] = 'Service Center,Repair by vendor,replacement by vendor
 // $lang['brands'] = 'sony,binatone,itel,samsung,infinix,hp,philips,lenovo,tecno,itel,samsung';
 //z9vxca2ys9wqmgrmurk0.jpg
 
-$lang['colours'] = 'green,yellow,black,onyx black,Jack black, red,pink,multi colour, cream, purple,grey, caramel,silver,white,brown,biege,nude,blue, navy blue,gold,rose gold,natural silver,space grey,orange,chocolate';
+$lang['colours'] = 'green,yellow,black,black-brown,onyx black,Jack black, red,pink,multi colour, cream, purple,grey, caramel,silver,white,brown,biege,nude,blue, navy blue,gold,rose gold,natural silver,space grey,orange,chocolate';
