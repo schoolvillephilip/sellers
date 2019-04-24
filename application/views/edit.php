@@ -1136,7 +1136,7 @@
             let resp = addCommas(n);
             $(this).val( resp );
         });
-        var product_description = `<?= $product->product_description; ?>`;
+        var product_description = `<?= html_entity_decode($product->product_description); ?>`;
         $('#product_description').summernote({
             tabsize: 2,
             height: '150px',
