@@ -47,11 +47,11 @@ $lang['banks'] = 'Access Bank Plc, Citibank Nigeria Limited, Diamond Bank Plc, E
 
 $lang['certifications'] = "AFRDI Leather, AFRDI - Australian Furnishing Research & Development Institute,ASTM Certified,Australian Made,Eco Friendly,FSC - Forest Stewardship Council,Fair Trade,GECA - Good Environmental Choice Australia,Organic,PEFC - Programme for the Endorcement of Forest Certification,PEFC - Programme for the Endorcement of Forest Certification,Timber Certificate,Suitable for Allergic";
 
-$lang['main_material'] = 'ceramics,glass,leather, pure leather, genuine leather,stainless, rubber, PU leather, sugar beets, oatmeal,PolyCarbonate, leather, copper,alloy, aluminium, cocoa, steel, metal,canvas,plastics, paper, Liebert,natural fibre,plume,resin,silicon,Lycra,stone,synthetic,textile,wood,Cotton,flax,wool,polyester,denim,fur,nylon,spandex,leather,silk,ramie,acetate,PVC, cupro,Flannel,Lyocel,Rayon,Rayon,Recycled pet,Tyvek,Hemp,Jute,Bamboo, flour,barley, wheat, ginger, fabrics, others';
+$lang['main_material'] = 'ceramics,glass,leather, pure leather, genuine leather, satin, stainless, rubber, PU leather, sugar beets, oatmeal,PolyCarbonate, leather, copper,alloy, aluminium, cocoa, steel, metal,canvas,plastics, paper, Liebert,natural fibre,plume,resin,silicon,Lycra,stone,synthetic,textile,wood,Cotton,flax,wool,polyester,denim,fur,nylon,spandex,leather,silk,ramie,acetate,PVC, cupro,Flannel,Lyocel,Rayon,Rayon,Recycled pet,Tyvek,Hemp,Jute,Bamboo, flour,barley, wheat, ginger, fabrics, others';
 
 $lang['warranty_types'] = 'Service Center,Repair by vendor,replacement by vendor';
 
 // $lang['brands'] = 'sony,binatone,itel,samsung,infinix,hp,philips,lenovo,tecno,itel,samsung';
 //z9vxca2ys9wqmgrmurk0.jpg
 
-$lang['colours'] = 'green,yellow,black,black-brown,onyx black,Jack black, red,pink,multi colour, cream, purple,grey, caramel,silver,white,brown,biege,nude,blue, navy blue,gold,rose gold,natural silver,space grey,orange,chocolate';
+$lang['colours'] = 'green,yellow,black,black-brown,onyx black,Jack black, red,pink,multi colour,ash, cream, purple,grey, caramel,silver,white,brown,biege,nude,blue, navy blue,gold,rose gold,natural silver,space grey,orange,chocolate';
