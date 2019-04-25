@@ -918,11 +918,10 @@
                     dataType: "json",
                     success: function (data) {
                         $.each(data, function (k, v) {
-                            let mockFile = {name: v.filename, size: v.filesize};
+                            let mockFile = {name: v.filename, size: v.filesize, featured : v.featured};
                             // Call the default addedfile event handler
                             myDropzone.emit("addedfile", mockFile);
                             myDropzone.emit("thumbnail", mockFile, v.fileURL);
-                            $('input[type="radio"]').first().prop('checked', true);
 
                             // Make sure that there is no progress bar, etc...
                             myDropzone.emit("complete", mockFile);
@@ -939,7 +938,7 @@
             uplodaBtn.prop('disabled', false);
             removeBtn.prop('disabled', false);
             file._captionLabel = Dropzone.createElement("<span class='text-sm text-dark'> &nbsp;&nbsp; Make this the featured Image &nbsp; </span> &nbsp;&nbsp; ");
-            file._captionBox = Dropzone.createElement(`<input id="${file.name}" type='radio' name='featured_image' value="${file.name}">`);
+            file._captionBox = Dropzone.createElement(`<input id="${file.name}" type='radio' ${(file.featured === '1') ? 'checked' : ''} name='featured_image' value="${file.name}">`);
             file._deleteBtn = Dropzone.createElement(`<button type="button" class='btn btn-xs dz-cancel btn-danger btn-delete-image' style="margin: 5px;" data-dz-remove="" onclick="deleteImage('${file.name}')"> &nbsp;&nbsp; Delete This Image&nbsp; </button> &nbsp;&nbsp;`);
             file.previewElement.appendChild(file._deleteBtn);
             file.previewElement.appendChild(file._captionBox);
