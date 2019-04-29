@@ -49,7 +49,8 @@ class Temp extends CI_Controller
 //        $data = json_decode($data,true);
 
         $this->form_validation->set_rules('legal_company_name', 'Business Name', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('store_name', 'Store Name', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('store_name', 'Store Name', 'trim|required|xss_clean|is_unique[sellers.store_name]',
+                array('is_unique' => 'Sorry! This %s has already been registered!'));
         $this->form_validation->set_rules('store_address', 'Store Address', 'trim|required|xss_clean');
         $this->form_validation->set_rules('phone_number', 'Phone number', 'trim|required|xss_clean');
         $this->form_validation->set_rules('main_category', 'Man Category', 'trim|required|xss_clean');

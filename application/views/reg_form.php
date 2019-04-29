@@ -128,6 +128,7 @@
                                             <div class="col-lg-7">
                                                 <input type="text" class="form-control" name="store_name"
                                                        placeholder="This is seller name on OM" required>
+                                                <?= form_error('store_name'); ?>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
