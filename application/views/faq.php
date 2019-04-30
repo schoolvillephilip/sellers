@@ -190,13 +190,12 @@
 <section class="cd-faq">
     <ul class="cd-faq-categories">
         <li><a class="selected" href="#basics">Getting Started</a></li>
-        <li><a href="#mobile">University</a></li>
+<!--        <li><a href="#university">University</a></li>-->
         <li><a href="#account">Product Listing</a></li>
         <li><a href="#payments">Shipment</a></li>
-        <li><a href="#privacy">Smart QC</a></li>
-        <li><a href="#delivery">Drop-off Stations</a></li>
+<!--        <li><a href="#privacy">Smart QC</a></li>-->
+<!--        <li><a href="#delivery">Drop-off Stations</a></li>-->
         <li><a href="#payment">Better Sales</a></li>
-        <li><a href="#privac">Sellers Services</a></li>
         <li><a href="#deliver">Commissions &amp; Fees</a></li>
         <li><a href="#delive">Payments</a></li>
     </ul>
@@ -217,13 +216,10 @@
                 <a class="cd-faq-trigger" href="#0">How do I Register?</a>
                 <div class="cd-faq-content">
                     <p>To start selling on Onitshamarket.com.com is very easy. You
-                        do not
-                        have to pay anything to register. Just visit the website <a
-                                href="https://seller.onitshamarket.com">HERE.</a> and click
-                        on
-                        "Register to sell". Once the registration details has been filled. &nbsp;You are
-                        required to watch the short training videos and take the quiz. An email will be
-                        sent with a link to create password.</p>
+                        do not have to pay anything to register. Just visit the website <a
+                                href="<?= base_url(); ?>">HERE.</a> and click on
+                        "Create an account" if you don't have an account with Onitshamarket.com before, else login, and you will be directed to a seller application form. <br />
+                    Fill the application form with he correct details and submit, your application will be reviewed for approval in less than 24 hours.</p>
                 </div>
             </li>
             <li>
@@ -317,125 +313,116 @@
                 </div>
             </li>
         </ul>
-        <ul id="mobile" class="cd-faq-group">
-            <li class="cd-faq-title"><h2>Onitshamarket.com
-                    University</h2></li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">What is Onitshamarket.com University?</a>
-                <div class="cd-faq-content">
-                    <p>Onitshamarket.com university offers different offline and online classes for
-                        everyone, from selling basics to perfectly running your store on Onitshamarket.com.
-                        Find a
-                        class taught by our Onitshamarket.com Trainer Specialist. Start making money now
-                        It's FREE*
-                        and easy to schedule. Onitshamarket.com university has also made available training
-                        materials online on Vendor hub, Youtube. so that in case you missed the offline
-                        classes for any reasons, you can find all you need on online.</p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">What is Onitshamarket.com Vendor hub?</a>
-                <div class="cd-faq-content">
-                    <p>Onitshamarket.com Vendor hub is a platform designed especially for our
-                        vendor
-                        partners. New and existing vendors will definitely find something suiting their
-                        needs. Whether you want to create your products or understand the importance of
-                        Seller score and how it improves your store image or new information regarding
-                        drop-off stations, you can find all of this and more on the vendor hub.</p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">What is Sellercenter Assistant?</a>
-                <div class="cd-faq-content">
-                    <p>A tool designed to help you navigate seller center. It guides you while
-                        providing information about anything you need on seller center.</p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">How do I schedule training at Onitshamarket.com?</a>
-                <div class="cd-faq-content">
-                    <p>We have the basic training and advanced trainings. Please click&nbsp;<a
-                                href="https://vendorhub.onitshamarket.com/training-calendar/">here</a>&nbsp;to
-                        view the training calendar for the month</p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">Training to improve my sales performance?</a>
-                <div class="cd-faq-content">
-                    <p>Onitshamarket.com University provides a suite training programs targeted to
-                        enhance
-                        the proficiency of our sellers.<br>
-                        Attend any of our training classes online or offline to find out how you can
-                        improve your performance or click <a
-                                href="https://vendorhub.onitshamarket.com/training-calendar/">here</a>
-                        to
-                        view the training calendar.</p>
-                </div>
-            </li>
-        </ul>
+        <!--  Onitshamarket University -->
+<!--        <ul id="mobile" class="cd-faq-group">-->
+<!--            <li class="cd-faq-title"><h2>Onitshamarket.com-->
+<!--                    University</h2></li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">What is Onitshamarket.com University?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>Onitshamarket.com university offers different offline and online classes for-->
+<!--                        everyone, from selling basics to perfectly running your store on Onitshamarket.com.-->
+<!--                        Find a-->
+<!--                        class taught by our Onitshamarket.com Trainer Specialist. Start making money now-->
+<!--                        It's FREE*-->
+<!--                        and easy to schedule. Onitshamarket.com university has also made available training-->
+<!--                        materials online on Vendor hub, Youtube. so that in case you missed the offline-->
+<!--                        classes for any reasons, you can find all you need on online.</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">What is Onitshamarket.com Vendor hub?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>Onitshamarket.com Vendor hub is a platform designed especially for our-->
+<!--                        vendor-->
+<!--                        partners. New and existing vendors will definitely find something suiting their-->
+<!--                        needs. Whether you want to create your products or understand the importance of-->
+<!--                        Seller score and how it improves your store image or new information regarding-->
+<!--                        drop-off stations, you can find all of this and more on the vendor hub.</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">What is Sellercenter Assistant?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>A tool designed to help you navigate seller center. It guides you while-->
+<!--                        providing information about anything you need on seller center.</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">How do I schedule training at Onitshamarket.com?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>We have the basic training and advanced trainings. Please click&nbsp;<a-->
+<!--                                href="https://vendorhub.onitshamarket.com/training-calendar/">here</a>&nbsp;to-->
+<!--                        view the training calendar for the month</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">Training to improve my sales performance?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>Onitshamarket.com University provides a suite training programs targeted to-->
+<!--                        enhance-->
+<!--                        the proficiency of our sellers.<br>-->
+<!--                        Attend any of our training classes online or offline to find out how you can-->
+<!--                        improve your performance or click <a-->
+<!--                                href="https://vendorhub.onitshamarket.com/training-calendar/">here</a>-->
+<!--                        to-->
+<!--                        view the training calendar.</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--        </ul>-->
+        <!--  /Onitshamarket University-->
+
         <ul id="account" class="cd-faq-group">
             <li class="cd-faq-title"><h2>Product
                     Listing and Content Creation</h2></li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How to list my products and start to sell them?</a>
                 <div class="cd-faq-content">
-                    <p>Listing your product is done via our Seller Center platform. The process
-                        will be slightly different depending on whether or not your product already
-                        exists on Onitshamarket.com.
-                        <br><br><span class="bold-text">If your product(s) already exist(s) in the Onitshamarket.com catalog:</span>
-                        <br>You can easily add these products to your store one by using the <a
-                                href="https://vendorhub.onitshamarket.com/">Sell
-                            Yours feature</a>. All you have to do is add the SKU, the price and the
-                        quantity of the product.
-                        <br><br><span class="bold-text">If your product(s) don’t/doesn’t exist in the Onitshamarket.com catalog:</span>
-                        <br>You can create new offers one by one or massively with file upload via our
-                        Seller Center platform. To create new offers you will need the following
-                        information:
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Name of the
-                        product.
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Detailed
-                        description of the product and specifications.
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;High quality
-                        pictures of the product.
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Price.
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Available
-                        Stock.
-                        <br><br>Find the tutorials about product creation for each category <a
-                                href="https://vendorhub.onitshamarket.com.com.ng"
-                                target="_blank">here</a>.
-                        <br><br>Find the content and images guidleines about product creation for each
-                        category <a href="https://onitshamarket.com/"
-                                    target="_blank">here</a>.</p>
+                    <p>Listing your product is done via our Seller Center platform. <br />
+                        The first action is to login to your account or create an <?= anchor('register/create/', 'Create'); ?> if you don't have already
+
+                        <br><span class="bold-text">Kindly follow this procedure:</span>
+
+                        <br>•&nbsp;Click on <b>Product</b> > 'Add New Product' menu
+                        <br>•&nbsp;It will show you a page where you select a category you will be posting on.
+                        <br>•&nbsp;Select the parent category you'll be posting on.
+                        <br>•&nbsp;A list of sub-categories options will display after selecting the parent category. Keep selecting the appropriate sub-category.
+                        <br>•&nbsp;When through with the sub-category, submit.
+                    </p>
+                    <br />
+                    <p>
+                        There are basically 4 sections when posting an item
+                        <br>•&nbsp;<span class="bold-text">Basic Information:</span> This is where you enter the product name, and other basic information such as brand name, model, colour family etc.
+                        <br>•&nbsp;<span class="bold-text">Product Description & Attributes:</span> You will be requested to add the additional details about the product you are listing; this will help buyers understand more about the product.
+                        <br>•&nbsp;<span class="bold-text">Product Pricing </span> This section covers the product variation and relates it with the price, you can also add discount prices here
+                        <br>•&nbsp;<span class="bold-text">Image </span> This section is where you add quality images about the product up-to 6.
+                    </p>
                 </div>
             </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">What are the methods to upload products?</a>
-                <div class="cd-faq-content">
-                    <p><span
-                                class="bold-text">There are currently four methods to upload products:</span>
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;<a
-                                href="#">Copy an already existing product</a> from another seller
-                        on Onitshamarket.com.
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Add an <a
-                                href="#">already existing products</a> from our database to your
-                        shop.
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Upload your
-                        products <a
-                                href="#">individually</a>.
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Upload <a
-                                href="#">multiple products</a> at once.</p>
-                </div>
-            </li>
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">What are the methods to upload products?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p><span-->
+<!--                                class="bold-text">There are currently four methods to upload products:</span>-->
+<!--                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;<a-->
+<!--                                href="#">Copy an already existing product</a> from another seller-->
+<!--                        on Onitshamarket.com.-->
+<!--                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Add an <a-->
+<!--                                href="#">already existing products</a> from our database to your-->
+<!--                        shop.-->
+<!--                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Upload your-->
+<!--                        products <a-->
+<!--                                href="#">individually</a>.-->
+<!--                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Upload <a-->
+<!--                                href="#">multiple products</a> at once.</p>-->
+<!--                </div>-->
+<!--            </li>-->
             <li>
                 <a class="cd-faq-trigger" href="#0">Information required when uploading the products?</a>
                 <div class="cd-faq-content">
                     <p>You will be required to fill in a list of mandatory attributes specific
                         to your product category, design an informative product description and upload
                         attractive pictures for your product.
-                        <br>All information and training resources relating to content creation are
-                        available on Onitshamarket.com University.
-                        <br>Click <a
-                                href="#">here</a> to find out more now.</p>
                 </div>
             </li>
             <li>
@@ -455,21 +442,24 @@
                 </div>
             </li>
         </ul>
+
+        <!-- Payment -->
         <ul id="payments" class="cd-faq-group">
-            <li class="cd-faq-title"><h2>All about Shipping and Fulfillment</h2></li>
+            <li class="cd-faq-title"><h2>All about Orders, Shipping and Fulfillment</h2></li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How to manage orders?</a>
                 <div class="cd-faq-content">
-                    <p>You can fulfill your orders directly from the Seller Center platform.
-                        <br><br>You will find tutorials to guide you through order management <a
-                                href="#">here</a></p>
+                    <p>
+                        When any of your product is ordered you will get a mail notification, you will also get a notification on your dashboard detailing the order status.
+                        <br />An agent will also be attached to that order who will call you about the order.
+                    </p>
                 </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How will I be informed when I have an order?</a>
                 <div class="cd-faq-content">
                     <p>Once you receive an order, you will get an email notification via your
-                        Onitshamarket.com Sellercenter registered email. Once an
+                        Onitshamarket.com Seller' registered email. Once an
                         order is placed by a customer, it will land under “Pending”.</p>
                 </div>
             </li>
@@ -479,23 +469,17 @@
                     <p>Once an order is received, you can fulfill your order in few steps:
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Update your
                         order status to ready to ship within 24 hours
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Print the
-                        courier manifests and shipping labels
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Pick your order
                         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Drop off your
                         order at the closest drop off center to you within the next 24 hours
-                        <br><br>Please click <a
-                                href="#">here</a> for full order-fulfillment guide on
-                        Onitshamarket.com
-                        University.</p>
+                    </p>
                 </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">Where can I see my orders?</a>
                 <div class="cd-faq-content">
                     <p>You will be able to view your order summary in Onitshamarket.com Seller
-                        Center’s
-                        home page under the Orders tab.</p>
+                        Center’s home page under the Orders tab.</p>
                 </div>
             </li>
             <li>
@@ -503,8 +487,7 @@
                 <div class="cd-faq-content">
                     <p>You will be given 48 hours, excluding Sunday and Public Holidays, to
                         prepare your order and drop off at our centers before your order is cancelled.
-                        Abiding to the 48-hour timeline will increase your <a
-                                href="#">seller score</a> and your customer satisfaction.</p>
+                        Abiding to the 48-hour timeline will increase your customer satisfaction.</p>
                 </div>
             </li>
             <li>
@@ -513,128 +496,120 @@
                     <p>To pack your order correctly, make sure to follow the below:<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>1</strong>&nbsp;&nbsp;Your
                         order must be packed carefully to ensure that it is delivered to your customer
-                        in its' original condition. Click<a
-                                href=#">
-                            here </a> to find out what packaging materials to use based on the category,
-                        and subcategory of the item. <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>2</strong>&nbsp;&nbsp;Order
-                        the packaging materials in advance. Click<a
-                                href="#">
-                            here </a>to know how.<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>3</strong>&nbsp;&nbsp;Click
-                        <a href="#">Here</a> to order</p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">How can I order packaging materials?</a>
-                <div class="cd-faq-content">
-                    <p>Click <a href="#">here</a> to
-                        order.</p>
+                        in its' original condition.</p>
                 </div>
             </li>
         </ul>
-        <ul id="privacy" class="cd-faq-group">
-            <li class="cd-faq-title"><h2>Smart QC (Quality Check)</h2></li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">What is the Smart QC (Quality Check)?</a>
-                <div class="cd-faq-content">
-                    <p>The Quality Control (QC) process is based on checking your products
-                        before being shipped and delivered to the customer. This is done to avoid
-                        packaging mistakes, wrong item size or color, counterfeit products, and items
-                        not matching the product description on Onitshamarket.com website, which will affect
-                        your
-                        store reputation, and increase the percentage of the returns and declined
-                        products.</p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">How can I be prepared for the smart QC process?</a>
-                <div class="cd-faq-content">
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Pack the
-                        order halfway through (Do not seal the package) to avoid consuming more
-                        packaging materials.<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Prepare extra
-                        packaging material incase needed.<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;The quality check
-                        will be done randomly on some items.</p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">Are all my products going to undergo the smart QC process?</a>
-                <div class="cd-faq-content">
-                    <p>For new sellers, all orders will undergo the smart QC for 1 month.<br>
-                        For older sellers, smart QC will be conducted randomly and on specific items
-                        with a higher returns rate.</p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">Why is the Smart QC important?</a>
-                <div class="cd-faq-content">
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;To encourage you to
-                        deliver the orders successfully, on time.<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;To decrease the
-                        percentage of the returns and the declined products.<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;To gain customers
-                        trust and build your store reputation.<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;To achieve higher
-                        seller score and get a Gold Badge.</p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">Why will I be charged for incorrect delivery?</a>
-                <div class="cd-faq-content">
-                    <p>If you deliver a different product to your customer, they will be very
-                        unhappy, return the item, never shop from your store again, and also tell their
-                        friends and family about it.</p>
-                    <p>Charges are to be applied in the following cases:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Wrong item or
-                        different size: 3,000 NGN <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Defective item:
-                        3,000 NGN <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Used/Refurbished:
-                        50,000 NGN.<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Counterfeit: 50,000
-                        NGN</p>
-                </div>
-            </li>
-        </ul>
-        <ul id="delivery" class="cd-faq-group">
-            <li class="cd-faq-title"><h2>Onitshamarket.com Drop-off stations &amp; QC</h2></li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">Where are the available drop off stations?</a>
-                <div class="cd-faq-content">
-                    <p>Please click&nbsp;<a
-                                href="#">here</a>&nbsp;to
-                        find out all the available drop off stations.</p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">What are the working hours of the drop off stations?</a>
-                <div class="cd-faq-content">
-                    <p>Please click&nbsp;<a
-                                href="#">here</a>&nbsp;to
-                        find out the working hours for all of our available drop off stations.</p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">Can I use more than one drop off station?</a>
-                <div class="cd-faq-content">
-                    <p>Yes, you can drop off at any drop off center, as long as it is selected
-                        at the point of setting to "ready to ship" on seller center.</p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">Why do we QC your product at the drop-off station?</a>
-                <div class="cd-faq-content">
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;To make
-                        sure the quality of the items matches our customer’s expectation.<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp; To avoid returns
-                        based on quality.<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp; To increase
-                        delivered sales.</p>
-                </div>
-            </li>
-        </ul>
+        <!-- /Payment -->
+
+        <!-- smart qc -->
+<!--        <ul id="smart_qc" class="cd-faq-group">-->
+<!--            <li class="cd-faq-title"><h2>Smart QC (Quality Check)</h2></li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">What is the Smart QC (Quality Check)?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>The Quality Control (QC) process is based on checking your products-->
+<!--                        before being shipped and delivered to the customer. This is done to avoid-->
+<!--                        packaging mistakes, wrong item size or color, counterfeit products, and items-->
+<!--                        not matching the product description on Onitshamarket.com website, which will affect-->
+<!--                        your-->
+<!--                        store reputation, and increase the percentage of the returns and declined-->
+<!--                        products.</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">How can I be prepared for the smart QC process?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Pack the-->
+<!--                        order halfway through (Do not seal the package) to avoid consuming more-->
+<!--                        packaging materials.<br>-->
+<!--                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Prepare extra-->
+<!--                        packaging material incase needed.<br>-->
+<!--                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;The quality check-->
+<!--                        will be done randomly on some items.</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">Are all my products going to undergo the smart QC process?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>For new sellers, all orders will undergo the smart QC for 1 month.<br>-->
+<!--                        For older sellers, smart QC will be conducted randomly and on specific items-->
+<!--                        with a higher returns rate.</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">Why is the Smart QC important?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;To encourage you to-->
+<!--                        deliver the orders successfully, on time.<br>-->
+<!--                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;To decrease the-->
+<!--                        percentage of the returns and the declined products.<br>-->
+<!--                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;To gain customers-->
+<!--                        trust and build your store reputation.<br>-->
+<!--                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;To achieve higher-->
+<!--                        seller score and get a Gold Badge.</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">Why will I be charged for incorrect delivery?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>If you deliver a different product to your customer, they will be very-->
+<!--                        unhappy, return the item, never shop from your store again, and also tell their-->
+<!--                        friends and family about it.</p>-->
+<!--                    <p>Charges are to be applied in the following cases:<br>-->
+<!--                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Wrong item or-->
+<!--                        different size: 3,000 NGN <br>-->
+<!--                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Defective item:-->
+<!--                        3,000 NGN <br>-->
+<!--                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Used/Refurbished:-->
+<!--                        50,000 NGN.<br>-->
+<!--                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;Counterfeit: 50,000-->
+<!--                        NGN</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--        </ul>-->
+        <!-- /smart_qc -->
+        <!-- Delivery -->
+<!--        <ul id="delivery" class="cd-faq-group">-->
+<!--            <li class="cd-faq-title"><h2>Onitshamarket.com Drop-off stations &amp; QC</h2></li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">Where are the available drop off stations?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>Please click&nbsp;<a-->
+<!--                                href="#">here</a>&nbsp;to-->
+<!--                        find out all the available drop off stations.</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">What are the working hours of the drop off stations?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>Please click&nbsp;<a-->
+<!--                                href="#">here</a>&nbsp;to-->
+<!--                        find out the working hours for all of our available drop off stations.</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">Can I use more than one drop off station?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>Yes, you can drop off at any drop off center, as long as it is selected-->
+<!--                        at the point of setting to "ready to ship" on seller center.</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="cd-faq-trigger" href="#0">Why do we QC your product at the drop-off station?</a>-->
+<!--                <div class="cd-faq-content">-->
+<!--                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;To make-->
+<!--                        sure the quality of the items matches our customer’s expectation.<br>-->
+<!--                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp; To avoid returns-->
+<!--                        based on quality.<br>-->
+<!--                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp; To increase-->
+<!--                        delivered sales.</p>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--        </ul>-->
+        <!-- /delivery -->
+
+
         <ul id="payment" class="cd-faq-group">
             <li class="cd-faq-title"><h2>Better sales performance</h2></li>
             <li>
@@ -642,17 +617,17 @@
                 <div class="cd-faq-content">
                     <p>Whether you are an old partner or a newly joiner, you are eligible to
                         start boosting your sales on Onitshamarket.com by joining our weekly promotional
-                        campaigns.</p>
+                        campaigns. <br />
+                        Its also advisable that you share your product items on social media. However, we are run a free campaign on products for all our sellers product.
+                    </p>
                 </div>
             </li>
             <li>
                 <a class="cd-faq-trigger" href="#0">How can I join Onitshamarket.com Promotions?</a>
                 <div class="cd-faq-content">
                     <p>Onitshamarket.com Promotions increase your opportunities to grow your orders
-                        and
-                        revenues providing more customer visibility.
-                        <br><br>Click <a
-                                href="#">here</a> for subscription steps.</p>
+                        and revenues providing more customer visibility.
+                    </p>
                 </div>
             </li>
             <li>
@@ -669,43 +644,7 @@
                 </div>
             </li>
         </ul>
-        <ul id="privac" class="cd-faq-group">
-            <li class="cd-faq-title"><h2>Services for sellers</h2></li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">What is Onitshamarket.com Express?</a>
-                <div class="cd-faq-content">
-                    <p>Onitshamarket.com Express is a value added services for the vendors that
-                        will boost
-                        the visibility of your products and ease the fulfilment of your orders.
-                        <br><br>With Onitshamarket.com Express, you sell more with less efforts:
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>1</strong>&nbsp;&nbsp;You
-                        store your products in our warehouse: you save warehousing costs and operational
-                        costs. We guarantee you a very competitive storage cost and save you time and
-                        money.
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>2</strong>&nbsp;&nbsp;Your
-                        products are seen first by the customers: every Onitshamarket.com Express products
-                        are
-                        tagged and boosted at the top of catalog pages and product pages.
-                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>3</strong>&nbsp;&nbsp;We
-                        deliver your products first to the customers: the products will be delivered
-                        faster because we have them in our warehouse. It will make your customers happy,
-                        and they will come back to shop your items.
-                        <br><br>Find details about Onitshamarket.com Express <a
-                                href="#">here</a>.
-                        <br><br>You can subscribe to this service by filling the raise a claim form <a
-                                href="#">Here</a>.
-                    </p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">Can I cancel my value added services?</a>
-                <div class="cd-faq-content">
-                    <p>You can cancel your Value Added Services whenever you want. Contact us
-                        by sending an email to <a href="mailto:seller.support@onitshamarket.com">seller.support@onitshamarket.com&nbsp;</a>.
-                    </p>
-                </div>
-            </li>
-        </ul>
+
         <ul id="deliver" class="cd-faq-group">
             <li class="cd-faq-title"><h2>Commissions and Shipping fees</h2></li>
             <li>
@@ -1439,8 +1378,7 @@
                 <div class="cd-faq-content">
                     <p>Both the commission and the value added services fees will be deducted
                         from your payment.
-                        <br><br>You can always check your payment in your <a
-                                href="#">account statement</a>.</p>
+                        <br><br>You can always check your payment in your account statement.</p>
                 </div>
             </li>
             <li>
@@ -1471,14 +1409,6 @@
                     <p>Click <a
                                 href="#">here</a>
                     </p>
-                </div>
-            </li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">Where can I find Onitshamarket.com’s Terms and Conditions for
-                    sellers?</a>
-                <div class="cd-faq-content">
-                    <p>Sellers Terms and Conditions are to be found on Seller Center. Click <a
-                                href="#">HERE</a> to view it.</p>
                 </div>
             </li>
             <li>

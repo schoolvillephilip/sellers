@@ -49,6 +49,7 @@
             <div class="pad-all">
                 <a href="<?= base_url('reset'); ?>" class="btn-link mar-rgt">Forgot password ?</a>
                 <a href="<?= base_url('register/create'); ?>" class="btn-link mar-lft">Create an account</a>
+                <a href="<?= base_url('pages/faq/'); ?>" class="btn-link mar-lft">Read Sellers Frequently Asked Questions</a>
             </div>
         </div>
     </div>

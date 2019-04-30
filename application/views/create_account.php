@@ -72,8 +72,9 @@
                 <?= form_close(); ?>
 
                 <div class="pad-all">
-                    <a href="<?= base_url('login'); ?>" class="btn-link mar-lft">Login</a>&nbsp;&nbsp;
-                    <a href="<?= base_url('reset'); ?>" class="btn-link mar-rgt">Forgot password ?</a>
+                    <a href="<?= base_url('login'); ?>" class="btn-link mar-lft">Login</a>&nbsp;&nbsp;-
+                    <a href="<?= base_url('reset'); ?>" class="btn-link mar-rgt">Forgot password ?</a>-
+                    <a href="<?= base_url('pages/faq/'); ?>" class="btn-link mar-rgt">Read Sellers Frequently Asked Questions</a>
                 </div>
             </div>
         </div>
